@@ -525,9 +525,8 @@ function makeJS() {
 }
 
 function makeHead() {
-  let title = 'Textflix: Using Transfer Learning for an NLP Prototype';
-  let description =
-    'Learn how we created a sentiment analyzer for movie reviews using pretrained BERT word embeddings and LIME for interpretability.';
+  let title = 'Deep Learning for Anomaly Detection';
+  let description = 'TK';
   return `<head>
     <meta charset="utf-8" />
 
