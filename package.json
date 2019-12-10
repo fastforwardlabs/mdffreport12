@@ -6,7 +6,7 @@
   "scripts": {
     "build": "node build_html.js",
     "dev": "nodemon -w src -w build_html.js -e md,js -V build_html.js & reload -d out -v -p 3000",
-    "deploy": "git-directory-deploy --directory out --branch gh-pages"
+    "deploy": "node build_html.js && git-directory-deploy --directory out --branch gh-pages"
   },
   "keywords": [],
   "author": "",
