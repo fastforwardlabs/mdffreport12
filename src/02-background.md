@@ -85,9 +85,9 @@ classification approach.
 
 ## Evaluating Models: Accuracy is not Enough
 
-As mentioned earlier in <<Anomaly Detection Approaches>>, it is expected that
-the distribution between the normal and abnormal class(es) can be very skewed.
-This is commonly referred to as **class imbalance**. 
+As mentioned earlier in [Anomaly Detection Approaches](#anomaly-detection-approaches), 
+it is expected that the distribution between the normal and abnormal class(es) 
+can be very skewed. This is commonly referred to as **class imbalance**. 
 
 A model that learns from such data may not be robust: it may be accurate when
 classifying examples within the normal class, but perform poorly when
