@@ -164,8 +164,9 @@ generate anomaly scores.
 To further illustrate this process, consider the scenario where the task is to
 detect abnormal temperatures (e.g., spikes), given data from the temperature
 sensor attached to servers in a data center. We can use a statistical approach
-(see table in section [Approaches to Modeling Normal Behavior](#Approaches to Modeling Normal Behavior)
- for an overview of common methods). In step 1, we assume the samples follow a normal distribution,
+(see table in section [Approaches to Modeling Normal
+Behavior](#approaches-to-modeling-normal-behavior) for an overview of common methods). 
+In step 1, we assume the samples follow a normal distribution,
 and we can use sample data to learn the parameters of this distribution (mean
 and variance). We can assign an anomaly score based on a sample’s deviation from
 the mean and set a threshold (e.g., any value with more than 3 standard
