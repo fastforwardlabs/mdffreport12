@@ -177,10 +177,10 @@ temperature readings and generate a report.
 Given the importance of the anomaly detection task, multiple approaches have
 been proposed and rigorously studied over the last few decades. To provide a
 high level summary, we categorize the more popular techniques into four main
-areas: clustering, nearest neighbour, classification, and statistical ([^2]) [[Anomaly
+areas: clustering, nearest neighbour, classification, and statistical [^2] [[Anomaly
 Detection, A Survey by Chandola et al
 2009](https://dl.acm.org/doi/10.1145/1541880.1541882)]. The Table
-below <<table name>> provides a summary of examples, assumptions, and anomaly
+below <table name> provides a summary of examples, assumptions, and anomaly
 scoring strategies taken by approaches within each category.
 
 | AD Method | Assumptions | Anomaly Scoring | Notable Examples |
