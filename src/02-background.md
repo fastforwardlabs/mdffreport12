@@ -59,13 +59,15 @@ are a huge number of normal examples available but the more unusual or abnormal
 classes of interest are insufficient to be effectively learned from.  Following
 the assumption that most data points within an unlabeled dataset are normal, we
 can train a robust model on an unlabeled dataset and evaluate its skill (as well
-as  tune the model’s parameters) using a small amount of labeled data^[[Deep
-Semi-Supervised Anomaly Detection](https://arxiv.org/abs/1906.02694)]. For
+as  tune the model’s parameters) using a small amount of labeled data[^1]. For
 instance, in a network intrusion detection application, one may have examples of
 the normal class and some examples of the intrusion classes, but new kinds of
 intrusions may often arise with time. 
 
+[^1]: [Deep Semi-Supervised Anomaly Detection](https://arxiv.org/abs/1906.02694)
+
 ![An illustration of semi-supervised learning](figures/semisupervised_learning.png)
+
 
 To give another example, in the case of border security or X-ray screening for
 aviation, anomalous items posing a security threat are not commonly encountered.
