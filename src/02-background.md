@@ -180,12 +180,12 @@ Detection, A Survey by Chandola et al
 below <<table name>> provides a summary of examples, assumptions, and anomaly
 scoring strategies taken by approaches within each category.
 
-|AD Method |Assumptions |Anomaly Scoring |Notable Examples|
-|:=========|:===========|:===============|:===============|
-|Clustering|Normal data points belong to a cluster (or lie close to its 
-centroid) in the data while anomalies do not belong to any clusters|Distance 
-from nearest cluster centroid|Self Organising Maps (SOM), K-Means Clustering, 
-Expectation Maximization (EM)|
+| AD Method | Assumptions | Anomaly Scoring | Notable Examples |
+| :======== | :========== | :============== | :==============  |
+| Clustering | Normal data points belong to a cluster (or lie close to its 
+centroid) in the data while anomalies do not belong to any clusters | Distance 
+from nearest cluster centroid | Self Organising Maps (SOM), K-Means Clustering, 
+Expectation Maximization (EM) |
 |Nearest Neighbour|Normal data instances occur in dense neighborhoods while
 anomalous data are far from their nearest neighbors|Distance from Kth nearest
 neighbour|KNN|
