@@ -280,7 +280,7 @@ domains where dataset shift occurs sparingly, the anomaly detection systems
 should anticipate (frequent) and account for changes in the distribution of the
 data. In many cases, this can be achieved by frequent retraining of models.  
 
-### Threshold Selection
+### Threshold selection
 
 The process of selecting a good threshold value can be challenging. In a
 semi-supervised setting, we have access to a pool of labeled data. Using these
