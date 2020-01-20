@@ -56,10 +56,11 @@ approaches. It includes a set of methods that take advantage of large amounts of
 unlabeled data as well as small amounts of labeled data.  Many real world
 anomaly detection use cases nicely fit this criteria, in the sense that there
 are a huge number of normal examples available but the more unusual or abnormal
-classes of interest are insufficient to be effectively learned from.  Following
+classes of interest are insufficient to be effectively learned from. Following
 the assumption that most data points within an unlabeled dataset are normal, we
 can train a robust model on an unlabeled dataset and evaluate its skill (as well
-as  tune the model’s parameters) using a small amount of labeled data[^1]. For
+as  tune the model’s parameters) using a small amount of labeled data ([^1]:
+[Deep Semi-Supervised Anomaly Detection](https://arxiv.org/abs/1906.02694)). For
 instance, in a network intrusion detection application, one may have examples of
 the normal class and some examples of the intrusion classes, but new kinds of
 intrusions may often arise with time. 
