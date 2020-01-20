@@ -178,13 +178,17 @@ Given the importance of the anomaly detection task, multiple approaches have
 been proposed and rigorously studied over the last few decades. To provide a
 high level summary, we categorize the more popular techniques into four main
 areas: clustering, nearest neighbour, classification, and statistical [^2] 
-[Anomaly Detection, A Survey by Chandola et al 2009]
-(https://dl.acm.org/doi/10.1145/1541880.1541882). The Table below <table name> 
-provides a summary of examples, assumptions, and anomaly scoring strategies 
-taken by approaches within each category.
+[Anomaly Detection, A Survey by Chandola et al 2009](https://dl.acm.org/doi/10.1145/1541880.1541882). 
+The Table below provides a summary of examples, assumptions, and anomaly scoring 
+strategies taken by approaches within each category.
+
+| Syntax | Description |
+| --- | ----------- |
+| Header | Title |
+| Paragraph | Text |
 
 | AD Method | Assumptions | Anomaly Scoring | Notable Examples |
-| :======== | :========== | :============== | :==============  |
+| --------- | ----------- | --------------- | ---------------  |
 | Clustering | Normal data points belong to a cluster (or lie close to its 
 centroid) in the data while anomalies do not belong to any clusters | Distance 
 from nearest cluster centroid | Self Organising Maps (SOM), K-Means Clustering, 
