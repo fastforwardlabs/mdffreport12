@@ -4,7 +4,7 @@ As data becomes high dimensional, it is increasingly challenging to effectively
 learn a model of normal behaviour across variables within each model. In this
 chapter, we will review a set of relevant deep learning model architectures and
 how they can be applied to the task of anomaly detection. As discussed in
-<<Chapter 2: Background>>, anomaly detection using each of these models is
+[Background](#background), anomaly detection using each of these models is
 explored as a function of how they can be applied first in modeling normal
 behaviour within data, and then generating an anomaly score.
 
@@ -161,9 +161,9 @@ in practice.
 
 To address these issues, recent research studies have explored new formulations
 of GANs that enable just this sort of controlled, adversarial inference by
-introducing an encoder (E) network.^[BiGAN, Donahue, 2016
-https://arxiv.org/abs/1605.09782] ^[GANomaly AkCay et al 2018
-https://arxiv.org/abs/1805.06725] In simple terms, the encoder learns the
+introducing an encoder (E) network.^[[BiGAN, Donahue,
+2016](https://arxiv.org/abs/1605.09782)] ^[[GANomaly AkCay et al 2018](
+https://arxiv.org/abs/1805.06725)] In simple terms, the encoder learns the
 reverse mapping of the generator G; it learns to generate a fixed vector Z_,
 given an image. Given this change, the input to the discriminator is also
 modified - the discriminator now takes in pairs of input that include the latent
@@ -242,7 +242,7 @@ its input. Similar to other approaches discussed above, we can use this value as
 an anomaly score.
 
 In this section, we discuss One-Class Support Vector Machines (OCSVM), a
-non-deep-learning technique which we will later use (see Chapter 4: Prototype)
+non-deep-learning technique which we will later use (see [Prototype](#prototype))
 as a baseline approach. 
 
 Traditionally, the goal of classification approaches is to help distinguish
@@ -292,7 +292,7 @@ can be expensive to obtain. However, it is also a frequent observation that
 anomalies (by definition) are relatively infrequent events and therefore
 constitute a small percentage of the entire event dataset (e.g., the occurrence
 of fraud, machine failure, cyber attacks, etc.). Based on our experiments (see
-<<Chapter 4 - Prototype>> for more discussion), the neural network approaches
+[Prototype](#prototype) for more discussion), the neural network approaches
 discussed above remain robust in the presence of small amounts of anomaly (less
 than 10%). This is mainly because introducing a small percentage of anomalies
 does not significantly affect the network’s model of normal behaviour.  For
