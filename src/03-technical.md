@@ -407,29 +407,8 @@ detection.](figures/flowchart.png)
 
 | Model | Pros | Cons |
 | ----  | ---- | ---- |
-| AutoEncoder | Flexible approach to modeling complex non-linear patterns in
-data | <br> 1.  Does not support variational inference (estimates of
-uncertainty) <br> 2. Requires a large dataset for training|
-| Variational AutoEncoder | Supports variational inference (probabilistic
-measure of uncertainty) | Requires a large amount of training data, training can
-take a while |
-| GAN (BiGAN) | <br> 1. Supports variational inference (probabilistic measure of uncertainty)
-<br> 2. Use of discriminator signal allows better learning of data manifold (useful for
-high dimensional image data). <br> 3. Performs well for  high dimensional data
-(images) | <br> 1. Requires a large amount of training data, training can take a
-while <br> 2. Training can be unstable (GAN mode collapse)|
-|Sequence to Sequence Mode| Well suited for data with temporal components (e.g.,
-discretized time series data) | <br> 1. Slow inference (compute scales with
-sequence length which needs to be fixed) <br> 2. Training can be slow <br> 3.
-Limited accuracy when data contains features with no temporal dependence <br> 4.
-Supports variational inference (probabilistic measure of uncertainty) |
-|One Class SVM | <br> 1. Does not require a large amount of data <br> 2. Fast to
-train <br> 3. Fast inference time | <br> 1. Limited capacity in capturing
-complex relationships within data <br> 2. Requires kernel selection and other
-parameters (nu, gamma) that need to be carefully tuned. <br> 3. Does not model a
-probability distribution, harder to compute estimates of confidence. |
-
-
-
-
-
+| AutoEncoder | Flexible approach to modeling complex non-linear patterns in data | <br> 1.  Does not support variational inference (estimates of uncertainty) <br> 2. Requires a large dataset for training|
+| Variational AutoEncoder | Supports variational inference (probabilistic measure of uncertainty) | Requires a large amount of training data, training can take a while |
+| GAN (BiGAN) | <br> 1. Supports variational inference (probabilistic measure of uncertainty) <br> 2. Use of discriminator signal allows better learning of data manifold (useful for high dimensional image data). <br> 3. Performs well for  high dimensional data (images) | <br> 1. Requires a large amount of training data, training can take a while <br> 2. Training can be unstable (GAN mode collapse)|
+|Sequence to Sequence Mode| Well suited for data with temporal components (e.g., discretized time series data) | <br> 1. Slow inference (compute scales with sequence length which needs to be fixed) <br> 2. Training can be slow <br> 3.Limited accuracy when data contains features with no temporal dependence <br> 4. Supports variational inference (probabilistic measure of uncertainty) |
+|One Class SVM | <br> 1. Does not require a large amount of data <br> 2. Fast to train <br> 3. Fast inference time | <br> 1. Limited capacity in capturing complex relationships within data <br> 2. Requires kernel selection and other parameters (nu, gamma) that need to be carefully tuned. <br> 3. Does not model a probability distribution, harder to compute estimates of confidence. |
