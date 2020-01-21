@@ -1,4 +1,4 @@
-## Deep Anomaly Detection
+## Deep Learning for Anomaly Detection
 
 As data becomes high dimensional, it is increasingly challenging to effectively
 learn a model of normal behaviour across variables within each model. In this

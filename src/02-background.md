@@ -134,7 +134,8 @@ and is accomplished across two steps in the anomaly detection loop. The first
 step, which we can refer to as the training step, involves building a model of
 normal behavior using available data. Depending on the specific anomaly
 detection method, this training data may contain both normal and abnormal data
-points or only normal data points (see <<Chapter 3: Technical>> for additional
+points or only normal data points (see [Chapter 3:
+Deep Learning for Anomaly Detection](#deep-learning-for-anomaly-detection) for additional
 details on AD methods).  Based on this model, an anomaly score is then assigned
 to each data point that represents a measure of deviation from normal behavior. 
 
