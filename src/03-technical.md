@@ -127,8 +127,7 @@ of normal data on which the model was trained. If the datapoint lies in a low
 density region (below some threshold) we then flag that as an anomaly. (We can
 do this now because we model a distribution as opposed to a point estimate.)
 
-![An illustration of two approaches to anomaly scoring with a VAE. A.) We can
-generate mean reconstruction error and apply a threshold B.) We can output mean
+![An illustration of two approaches to anomaly scoring with a VAE. We can output mean
 reconstruction probability i.e., the probability that a sample belongs to the
 normal data distribution.](figures/variational_autoencoder_scoring.png)
 
