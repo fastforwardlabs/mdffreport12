@@ -59,16 +59,13 @@ are a huge number of normal examples available but the more unusual or abnormal
 classes of interest are insufficient to be effectively learned from. Following
 the assumption that most data points within an unlabeled dataset are normal, we
 can train a robust model on an unlabeled dataset and evaluate its skill (as well
-as  tune the model’s parameters) using a small amount of labeled data ([^1]:
-[Deep Semi-Supervised Anomaly Detection](https://arxiv.org/abs/1906.02694)). For
+as  tune the model’s parameters) using a small amount of labeled data.^[
+[Deep Semi-Supervised Anomaly Detection](https://arxiv.org/abs/1906.02694)] For
 instance, in a network intrusion detection application, one may have examples of
 the normal class and some examples of the intrusion classes, but new kinds of
 intrusions may often arise with time. 
 
-[^1]: [Deep Semi-Supervised Anomaly Detection](https://arxiv.org/abs/1906.02694)
-
 ![An illustration of semi-supervised learning](figures/semisupervised_learning.png)
-
 
 To give another example, in the case of border security or X-ray screening for
 aviation, anomalous items posing a security threat are not commonly encountered.
@@ -178,8 +175,7 @@ temperature readings and generate a report.
 Given the importance of the anomaly detection task, multiple approaches have
 been proposed and rigorously studied over the last few decades. To provide a
 high level summary, we categorize the more popular techniques into four main
-areas: clustering, nearest neighbour, classification, and statistical [^2] 
-[Anomaly Detection, A Survey by Chandola et al 2009](https://dl.acm.org/doi/10.1145/1541880.1541882). 
+areas: clustering, nearest neighbour, classification, and statistical.^[[Anomaly Detection, A Survey by Chandola et al 2009](https://dl.acm.org/doi/10.1145/1541880.1541882)] 
 The Table below provides a summary of examples, assumptions, and anomaly scoring 
 strategies taken by approaches within each category.
 
@@ -212,7 +208,7 @@ advantages.
 
 Deep learning approaches are designed to work with multivariate data of
 different data types across each variable. This makes it easy to integrate
-information from multiple sources;  it also eliminates challenges associated
+information from multiple sources; it also eliminates challenges associated
 with individually modeling anomaly for each variable and aggregating the
 results. 
 
@@ -234,8 +230,8 @@ problems.
 #### Interpretability
 
 While deep learning methods can be complex (leading to their reputation as black
-box models), interpretability techniques such as LIME <<See our previous report:
-Interpretability>> and Deep SHAP^[[A Unified Approach to Interpreting Model
+box models), interpretability techniques such as LIME (see our previous report:
+<<Interpretability>>) and Deep SHAP^[[A Unified Approach to Interpreting Model
 Predictions](https://arxiv.org/abs/1705.07874)] provide opportunities to inspect 
 their behaviour and make them more interpretable by analysts. 
 
@@ -243,7 +239,7 @@ their behaviour and make them more interpretable by analysts.
 
 There is a proliferation of algorithmic approaches that can help tackle an
 anomaly detection task and allow us to build solid models, at times even with
-just normal samples. But then what is the catch? Do they really work? What could
+just normal samples. But what is the catch? Do they really work? What could
 possibly go wrong?
 
 #### Contaminated normal examples
@@ -251,15 +247,16 @@ possibly go wrong?
 In large scale applications that have huge volumes of data, it is quite possible
 that the large unlabeled data is considered as the normal class wherein a small
 percentage of examples may actually be anomalous or simply be poor training
-examples. And while some models like one-class SVM or isolation forest can
-account for this there are others that may not be robust to detecting anomalies 
+examples. And while some models (like one-class SVM or isolation forest) can
+account for this, there are others that may not be robust to detecting
+anomalies. 
 
 #### Computational complexity
 
 Anomaly detection scenarios can sometimes have low-latency requirements i.e the
 ability to  speedily retrain existing models as new data becomes available and
 perform inference. This can be computationally expensive at scale, even for
-linear models on univariate data. In addition, deep learning models, incur
+linear models on univariate data. Deep learning models, also incur
 additional compute costs to estimate their large number of parameters. To
 address these compute issues, it is recommended to explore tradeoffs which
 balance the frequency of retraining and overall accuracy.    
@@ -283,7 +280,7 @@ data. In many cases, this can be achieved by frequent retraining of models.
 #### Threshold selection
 
 The process of selecting a good threshold value can be challenging. In a
-semi-supervised setting (the approaches covered above), we have access to a pool 
+semi-supervised setting (the approaches covered above), one has access to a pool 
 of labeled data. Using these labels (and some domain expertise), we can 
 determine a suitable threshold. Specifically, we can explore the range of 
 anomaly scores for each data point in the validation set and select a threshold 
