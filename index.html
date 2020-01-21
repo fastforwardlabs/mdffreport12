@@ -482,7 +482,7 @@ img {
           <h1 id="deep-learning-for-anomaly-detection">Deep Learning for Anomaly Detection</h1>
 <p><div class="table-of-contents"><div id="toc-header" style="display: flex; font-weight: bold; text-transform: uppercase;">
      <div><button id="toggle_contents" style="padding-left: 0.5ch; padding-right: 0.5ch; cursor: pointer; position: relative; top: -1px;">☰</button><span id="contents-label" style="margin-left: 0;"> Contents</span></div>
-  </div><ul><li><a href="#example-formatting">Example formatting</a><ul><li><a href="#a-subheader">A subheader</a></li></ul></li><li><a href="#technical">Technical</a><ul><li><a href="#autoencoders">Autoencoders</a></li><li><a href="#modeling-normal-behaviour-and-anomaly-scoring">Modeling Normal Behaviour and Anomaly Scoring</a></li></ul></li></ul></div></p>
+  </div><ul><li><a href="#example-formatting">Example formatting</a><ul><li><a href="#a-subheader">A subheader</a></li></ul></li><li><a href="#introduction">Introduction</a><ul><li><a href="#applications-of-anomaly-detection">Applications of Anomaly Detection</a><ul><li><a href="#network-intrusion-detection">Network Intrusion Detection</a></li><li><a href="#medical-diagnosis">Medical Diagnosis</a></li><li><a href="#fraud-detection">Fraud Detection</a></li><li><a href="#manufacturing-defect-detection">Manufacturing Defect Detection</a></li></ul></li></ul></li><li><a href="#background">Background</a><ul><li><a href="#anomaly-detection-approaches">Anomaly Detection Approaches</a></li><li><a href="#supervised-learning">Supervised learning</a></li><li><a href="#unsupervised-learning">Unsupervised learning</a></li><li><a href="#semi-supervised-learning">Semi-supervised learning</a></li></ul></li><li><a href="#evaluating-models%3A-accuracy-is-not-enough">Evaluating Models: Accuracy is not Enough</a></li><li><a href="#anomaly-detection-as-learning-normal-behavior">Anomaly Detection as Learning Normal Behavior</a></li><li><a href="#approaches-to-modeling-normal-behavior">Approaches to Modeling Normal Behavior</a></li><li><a href="#why-deep-learning-for-anomaly-detection">Why Deep Learning for Anomaly Detection</a><ul><li><a href="#multivariate%2C-high-dimensional-data">Multivariate, high dimensional data</a></li><li><a href="#modeling-interaction-between-variables">Modeling interaction between variables</a></li><li><a href="#performance">Performance</a></li><li><a href="#interpretability">Interpretability</a></li></ul></li><li><a href="#what-can-go-wrong%3F">What can go wrong?</a><ul><li><a href="#contaminated-normal-examples">Contaminated normal examples</a></li><li><a href="#computational-complexity">Computational complexity</a></li><li><a href="#human-supervision">Human supervision</a></li><li><a href="#definition-of-anomaly">Definition of anomaly</a></li><li><a href="#threshold-selection">Threshold selection</a></li></ul></li><li><a href="#deep-anomaly-detection">Deep Anomaly Detection</a><ul><li><a href="#autoencoders">Autoencoders</a><ul><li><a href="#modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</a></li></ul></li><li><a href="#variational-autoencoders">Variational Autoencoders</a><ul><li><a href="#modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</a></li></ul></li><li><a href="#generative-adversarial-networks">Generative Adversarial Networks</a><ul><li><a href="#modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</a></li></ul></li><li><a href="#sequence-to-sequence-models">Sequence to Sequence Models</a><ul><li><a href="#modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</a></li><li><a href="#modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</a></li></ul></li><li><a href="#additional-considerations">Additional Considerations</a><ul><li><a href="#anomalies-as-rare-events">Anomalies as Rare Events</a></li><li><a href="#discretizing-data-and-handling-stationarity">Discretizing Data and Handling Stationarity</a></li></ul></li><li><a href="#selecting-a-model">Selecting a Model</a><ul><li><a href="#data-properties%3A">Data Properties:</a></li></ul></li></ul></li></ul></div></p>
 <h2 id="example-formatting">Example formatting</h2>
 <p>A figure:</p>
 <figure><img src="figures/textflix-screenshot.png" alt="This caption has a link it it: The Textflix prototype"><figcaption>This caption has a link it it: <a href="https://textflix.fastforwardlabs.com">The Textflix prototype</a></figcaption></figure>
@@ -498,19 +498,749 @@ img {
 <div class="info">
 <p>This is an info block.</p>
 </div>
-<h2 id="technical">Technical</h2>
-<p>As data becomes high dimensional, it is increasingly challenging to effectively learn a model of normal behaviour across variables within each model. In this chapter, we will review a set of relevant deep learning model architectures and how they can be applied to the task of anomaly detection. As discussed in the background  chapter, anomaly detection using each of these models  is explored as a function of how they can be applied first in modeling normal behaviour within data, and then generating an anomaly score.</p>
-<p>The deep learning approaches discussed below typically consist of two important components - an encoder that learns to generate an internal representation of the input data, and a decoder which attempts to reconstruct the original input based on this internal representation. While the exact techniques for encoding and decoding vary across models, the overall benefit they offer is the ability to learn the distribution of normal input data and construct a measure of anomaly respectively.</p>
+<h2 id="introduction">Introduction</h2>
+<blockquote>
+<p>“An outlier is an observation which deviates so much from other observations as to arouse suspicions that it was generated by a different mechanism”
+– Hawkins 1980.</p>
+</blockquote>
+<p>Anomalies, often referred to as outliers, abnormalities, rare events, or
+deviants, are data points or patterns in data that do not conform to a notion of
+normal behavior. Anomaly detection, then, is the task of finding those patterns
+in data that do not adhere to expected norms, given previous observations.
+The capability to recognize or detect anomalous behavior can provide highly
+useful insights across industries. Businesses flagging or enacting a planned
+response when these unusual cases occur can save them time, costs, and
+customers. Hence, anomaly detection has found diverse applications in a variety
+of domains: including IT analytics, networks intrusion analytics, medical
+diagnostics, financial fraud protection, manufacturing quality control,
+marketing and social media analytics, and more.</p>
+<h3 id="applications-of-anomaly-detection">Applications of Anomaly Detection</h3>
+<h4 id="network-intrusion-detection">Network Intrusion Detection</h4>
+<p>With the growth of computer networks and application usage dependencies, network
+security is critical to running a modern viable business. Yet all computer
+systems suffer from security vulnerabilities which are both technically
+difficult and economically punishing to resolve once exploited. Business IT
+systems collect data about their own network traffic, user activity in the
+system, types of connection requests, etc. While most activity will be benign
+and routine, analysis of this data may provide insights into unusual (anomalous)
+activity within the network after (and ideally before) a substantive attack. In
+practice, the damage and cost incurred right after an intrusion event escalates
+faster than most teams are able to respond. Thus, it becomes critical to have
+special-purpose intrusion detection systems (IDSs) that surface anomalous
+probing and potential threat events early and in a reliable manner.</p>
+<h4 id="medical-diagnosis">Medical Diagnosis</h4>
+<p>In many medical diagnosis applications, a variety of data points (e.g., x-rays,
+MRIs, ECG.) indicative of health status are collected as part of diagnostic
+processes. Some of these data points are also collected by end-user medical
+devices (e.g., glucose monitors, pacemakers, smart watches). Anomaly detection
+approaches can be applied to highlight situations of abnormal readings which may
+be indicative of health conditions or precursor signals of medical incidents.</p>
+<h4 id="fraud-detection">Fraud Detection</h4>
+<p>In 2018, fraud was globally estimated to cost &gt; $5 Trillion USD (&gt; £3.89
+Trillion GBP). Within the financial service industry, it is critical for service
+providers to correctly identify and react to fraudulent transactions. In the
+most straightforward cases, a transaction may be identified as fraudulent
+relative to the historical transactions by a given party or by comparison to all
+other transactions occurring within the same time period for a peer group. Here,
+fraud can be cast as a deviation from normal transaction data and addressed
+using anomaly detection approaches. Even as financial fraud is further clustered
+into card-based, check-based, unauthorized account access, or authorized
+payment-based categories, the core concepts of baselining an individual’s
+standard behavior and looking for signals of unusual activity applies.</p>
+<h4 id="manufacturing-defect-detection">Manufacturing Defect Detection</h4>
+<p>Within the manufacturing industry, an automated approach to the task of
+detecting defects in large-volume manufactured items is vital to quality
+assurance. This task can be cast as anomaly detection where the goal is to
+identify manufactured items that significantly or even slightly differ from
+ideal (normal) items that have passed quality assurance tests. The amount of
+acceptable deviation is determined by the company and customers, as well as
+industry and regulatory standards.</p>
+<div class="info">
+<p>Use Case Example:</p>
+<p>The ScoleMans have been making drywall panels and are the leading regional
+supplier for construction companies. Occasionally, some of the wall panels they
+produce have defects - cracks, chips at edges, paint/coating issues, etc. As
+part of their QA process, they have both RGB and thermal images of each produced
+panel which let their QA engineers flag defective units. They want to automate
+this process - i.e., develop tools that automatically identify these defects.
+ScoleMans can use a deep anomaly detection model for identifying these defects.
+In particular, they can use an AutoEncoder or GAN-based model built with
+convolutional neural network blocks (see &lt;&lt;Chapter 3: Technical&gt;&gt; for more
+information) to create a model of normal data based on images of normal walls.
+This model can then be used to tag new wall images as normal or abnormal, and
+set thresholds for alerts.</p>
+</div>
+<p>Similarly, the task of predictive maintenance can be cast as anomaly detection.
+For example, anomaly detection approaches can be applied to data from machine
+sensors (vibrations, temperature, drift, etc.) where abnormal sensor readings
+can be indicative of impending failures.</p>
+<p>Thus we see anomaly detection is a significant problem faced in several areas.
+Detecting and correctly classifying something unseen as anomalous is a
+challenging problem that has been tackled in many different manners over the
+years. While there are many approaches, the traditional machine learning
+approaches are sub-optimal when it comes to high dimensional data and sequence
+datasets since it fails to capture the complex structure in the data.</p>
+<p>This report, with its accompanying prototype, explores deep learning-based
+approaches that first learn to model normal behavior and then exploit this
+knowledge to identify anomalies. While they can yield remarkable results on
+complex and high dimensional data, there are several factors that influence the
+choice of approach when building an anomaly detection application. In this
+report we survey the approaches, highlighting their pros and cons.</p>
+<h2 id="background">Background</h2>
+<p>In this chapter, we provide an overview of approaches to anomaly detection based
+on the type of data available, how to evaluate an anomaly detection model and
+how each approach constructs a model of normal behaviour and why deep learning
+models are valuable. It concludes with a discussion of pitfalls that may occur
+while deploying these models.</p>
+<h3 id="anomaly-detection-approaches">Anomaly Detection Approaches</h3>
+<p>Anomaly detection approaches can be categorized in terms of the type of data
+needed to train an anomaly detection model. Within most use cases, it is
+expected that anomalous samples represent a very small percentage of the entire
+dataset. Thus, even when available data is labeled, normal data samples are more
+readily available compared to abnormal samples. This assumption is critical for
+most  applications today.  In the following sections, we touch on how the
+availability of labeled data impacts the choice of approach.</p>
+<h3 id="supervised-learning">Supervised learning</h3>
+<p>When learning with supervision, machines rely on examples that illustrate the
+relationship between the input features and output. The goal of supervised
+anomaly detection algorithms is to incorporate application-specific knowledge
+into the anomaly detection process. With sufficient normal and anomalous
+examples, the anomaly detection task can be reframed as a classification task
+where the machines can learn to accurately predict whether a given example is an
+anomaly or not.  That said, for many anomaly detection use cases the proportion
+of normal versus anomalous examples is highly imbalanced. And while there may be
+multiple anomalous classes, each of them could be quite under-represented.</p>
+<figure><img src="figures/supervised_learning.png" alt="An illustration of supervised learning"><figcaption>An illustration of supervised learning</figcaption></figure>
+<p>This approach assumes we have labeled examples for all types of anomalies that
+could occur and can correctly classify them. In practice, this is usually not
+the case, as anomalies can take many different forms, with novel anomalies
+emerging at test time. Thus, we need approaches that generalize well and
+effectively identify anomalies that have previously been unseen.</p>
+<h3 id="unsupervised-learning">Unsupervised learning</h3>
+<p>When it comes to unsupervised approaches, one does not possess examples that
+illustrate the relationship between input features and output. Instead, in this
+case, machines learn by finding structure within the input features. Owing to
+the frequent lack of labeled anomalous data, unsupervised approaches are more
+popular than supervised ones in the anomaly detection field. That said, the
+nature of the anomalies is often highly specific to particular kinds of abnormal
+activity in the underlying application. In such cases, many of the anomalies
+found in a completely unsupervised manner could correspond to noise, and may not
+be of any interest to the business.</p>
+<figure><img src="figures/unsupervised_learning.png" alt="An illustration of unsupervised learning"><figcaption>An illustration of unsupervised learning</figcaption></figure>
+<h3 id="semi-supervised-learning">Semi-supervised learning</h3>
+<p>Semi-supervised learning falls between supervised and unsupervised learning
+approaches. It includes a set of methods that take advantage of large amounts of
+unlabeled data as well as small amounts of labeled data.  Many real world
+anomaly detection use cases nicely fit this criteria, in the sense that there
+are a huge number of normal examples available but the more unusual or abnormal
+classes of interest are insufficient to be effectively learned from. Following
+the assumption that most data points within an unlabeled dataset are normal, we
+can train a robust model on an unlabeled dataset and evaluate its skill (as well
+as  tune the model’s parameters) using a small amount of labeled data (<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>:
+<a href="https://arxiv.org/abs/1906.02694">Deep Semi-Supervised Anomaly Detection</a>). For
+instance, in a network intrusion detection application, one may have examples of
+the normal class and some examples of the intrusion classes, but new kinds of
+intrusions may often arise with time.</p>
+<figure><img src="figures/semisupervised_learning.png" alt="An illustration of semi-supervised learning"><figcaption>An illustration of semi-supervised learning</figcaption></figure>
+<p>To give another example, in the case of border security or X-ray screening for
+aviation, anomalous items posing a security threat are not commonly encountered.
+Exemplary data of anomalies can be difficult to obtain in any quantity, since no
+such events may have occurred in the first place. In addition, the nature of any
+anomaly posing a potential threat may evolve due to a range of external factors.</p>
+<figure><img src="figures/xray_screening.png" alt="Exemplary data in certain applications can be difficult to obtain"><figcaption>Exemplary data in certain applications can be difficult to obtain</figcaption></figure>
+<p>Such situations may require the determination of both abnormal classes as well
+as novel classes, for which little to no labeled data is available. One way to
+address this is to use some variant of a supervised or semi-supervised
+classification approach.</p>
+<h2 id="evaluating-models%3A-accuracy-is-not-enough">Evaluating Models: Accuracy is not Enough</h2>
+<p>As mentioned earlier in <a href="#anomaly-detection-approaches">Anomaly Detection Approaches</a>,
+it is expected that the distribution between the normal and abnormal class(es)
+can be very skewed. This is commonly referred to as <strong>class imbalance</strong>.</p>
+<p>A model that learns from such data may not be robust: it may be accurate when
+classifying examples within the normal class, but perform poorly when
+classifying anomalous examples.</p>
+<p>For example, consider a dataset of 1000 images of luggage that go through a
+security checkpoint. 950 images are of normal luggage and 50 are abnormal.
+Assuming our model always classifies an image as normal, it can achieve high
+overall accuracy for this dataset (95% - i.e,. 95% for normal data and 0% for
+abnormal data).</p>
+<p>Such a model may also misclassify normal examples as anomalous (<strong>false positives,
+FP</strong>), or misclassify anomalous examples as normal ones (<strong>false negatives, FN</strong>).<br>
+As we consider both of these types of errors, it becomes obvious that the
+traditional accuracy metric (total number of correct classifications divided by
+total classifications) is insufficient in evaluating the skill of an anomaly
+detection model.</p>
+<p>Two important metrics have been introduced that provide a better measure of
+model skill:  precision and recall. Precision is defined as the number of true
+positives (TP) divided by the number of true positives (TP) plus the number of
+false positives (FP), while recall is the number of true positives (TP) divided
+by the number of true positives (TP) plus the number of false negatives (FN).
+Depending on the use case or application, it may be desirable to optimize for
+either precision or recall.</p>
+<p>Optimizing for precision may be useful when the cost of failure is low, or to
+reduce human workload. Optimising for high recall may be more appropriate when
+the cost of a false negative is very high (e.g., airport security, where it is
+better to flag many items for human inspection in an image (low cost) in order
+to avoid the cost of incorrectly admitting a dangerous item on a flight). While
+there are several ways to optimize for precision or recall, the manner in which
+a threshold is set can be used to reflect the precision and recall preferences
+for each specific use case.</p>
+<p>In this section, we have reviewed reasons why an unsupervised or semi-supervised
+approach to anomaly detection is desirable, and explored robust metrics for
+evaluating these models. In the next section, we focus on these semi-supervised
+approaches and discuss how they work.</p>
+<h2 id="anomaly-detection-as-learning-normal-behavior">Anomaly Detection as Learning Normal Behavior</h2>
+<p>The underlying strategy for most approaches to anomaly detection is to first
+model normal behavior, and then exploit this knowledge in identifying deviations
+(anomalies).  This approach typically falls under the semi-supervised category
+and is accomplished across two steps in the anomaly detection loop. The first
+step, which we can refer to as the training step, involves building a model of
+normal behavior using available data. Depending on the specific anomaly
+detection method, this training data may contain both normal and abnormal data
+points or only normal data points (see &lt;&lt;Chapter 3: Technical&gt;&gt; for additional
+details on AD methods).  Based on this model, an anomaly score is then assigned
+to each data point that represents a measure of deviation from normal behavior.</p>
+<figure><img src="figures/learning_normal_behavior.png" alt="Illustration shows the training phase in the anomaly detection loop. Based ondata (which may or may not contain abnormal samples), the AD model learns amodel of normal data and assigns an anomaly score based onthis."><figcaption>Illustration shows the training phase in the anomaly detection loop. Based on
+data (which may or may not contain abnormal samples), the AD model learns a
+model of normal data and assigns an anomaly score based on
+this.</figcaption></figure>
+<figure><img src="figures/anomaly_detection_loop" alt="Illustration of the test step in the anomaly detectionloop."><figcaption>Illustration of the test step in the anomaly detection
+loop.</figcaption></figure>
+<p>The second step in the anomaly detection loop, the test step, introduces the
+concept of threshold-based anomaly tagging. Given the range of scores assigned
+by the model, we can select a threshold rule that drives the anomaly tagging
+process - e.g., scores above a given threshold are tagged as anomalies, while
+those below it are tagged as normal. The idea of a threshold is valuable, as it
+provides the analyst some easy lever to tune the “sensitivity” of the anomaly
+tagging process. Interestingly, while most methods for anomaly detection follow
+this general approach, they differ in how they model normal behaviour and
+generate anomaly scores.</p>
+<figure><img src="figures/anomaly_scoring" alt="Anomaly scoring"><figcaption>Anomaly scoring</figcaption></figure>
+<p>To further illustrate this process, consider the scenario where the task is to
+detect abnormal temperatures (e.g., spikes), given data from the temperature
+sensor attached to servers in a data center. We can use a statistical approach
+(see table in section <a href="#approaches-to-modeling-normal-behavior">Approaches to Modeling Normal
+Behavior</a> for an overview of common methods).
+In step 1, we assume the samples follow a normal distribution,
+and we can use sample data to learn the parameters of this distribution (mean
+and variance). We can assign an anomaly score based on a sample’s deviation from
+the mean and set a threshold (e.g., any value with more than 3 standard
+deviations from the mean is an anomaly).  In step 2, we then tag all new
+temperature readings and generate a report.</p>
+<h2 id="approaches-to-modeling-normal-behavior">Approaches to Modeling Normal Behavior</h2>
+<p>Given the importance of the anomaly detection task, multiple approaches have
+been proposed and rigorously studied over the last few decades. To provide a
+high level summary, we categorize the more popular techniques into four main
+areas: clustering, nearest neighbour, classification, and statistical [^2]
+<a href="https://dl.acm.org/doi/10.1145/1541880.1541882">Anomaly Detection, A Survey by Chandola et al 2009</a>.
+The Table below provides a summary of examples, assumptions, and anomaly scoring
+strategies taken by approaches within each category.</p>
+<table>
+<thead>
+<tr>
+<th>AD Method</th>
+<th>Assumptions</th>
+<th>Anomaly Scoring</th>
+<th>Notable Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clustering</td>
+<td>Normal data points belong to a cluster (or lie close to its centroid) in the data while anomalies do not belong to any clusters</td>
+<td>Distance from nearest cluster centroid</td>
+<td>Self Organising Maps (SOM), K-Means Clustering, Expectation Maximization (EM)</td>
+</tr>
+<tr>
+<td>Nearest Neighbour</td>
+<td>Normal data instances occur in dense neighborhoods while anomalous data are far from their nearest neighbors</td>
+<td>Distance from Kth nearest neighbour</td>
+<td>KNN</td>
+</tr>
+<tr>
+<td>Classification</td>
+<td>&lt;br&gt; 1. A classifier can be learned which distinguishes between normal and anomalous with the given feature space &lt;br&gt; 2. Labeled data exists for normal and abnormal data</td>
+<td>A measure of classifier estimate (likelihood) that a data point belongs to the normal class</td>
+<td>One Class SVM, Autoencoders, Sequence to Sequence Models</td>
+</tr>
+<tr>
+<td>Statistical</td>
+<td>Given an assumed stochastic model, normal data falls in high probability regions of the model while abnormal data lie in low probability regions</td>
+<td>Probability that datapoint lies a high  probability region in the assumed distribution</td>
+<td>Regression Models (ARMA, ARIMA), Gaussian Models, GANs, VAEs</td>
+</tr>
+</tbody>
+</table>
+<p>![Approaches to model normal behavior]</p>
+<p>The majority of these approaches have been applied to univariate time series
+data -  a single datapoint generated by the same process at various time steps
+(e.g., readings from a temperature sensor over time) and assume linear
+relationships within the data. Examples include KNNs, K-Means Clustering, ARMA,
+ARIMA, etc. However, data is increasingly high dimensional (e.g., multivariate
+datasets, images, videos) and the detection of anomalies may require the joint
+modeling of interactions between each variable. For these sorts of problems,
+deep learning approaches (the focus of this report) such as Autoencoders,
+Variational Autoencoders, Sequence to Sequence Models, and Generative
+Adversarial Networks present some benefits.</p>
+<h2 id="why-deep-learning-for-anomaly-detection">Why Deep Learning for Anomaly Detection</h2>
+<p>Deep learning approaches, when applied to anomaly detection, offer several
+advantages.</p>
+<h3 id="multivariate%2C-high-dimensional-data">Multivariate, high dimensional data</h3>
+<p>Deep learning approaches are designed to work with multivariate data of
+different data types across each variable. This makes it easy to integrate
+information from multiple sources;  it also eliminates challenges associated
+with individually modeling anomaly for each variable and aggregating the
+results.</p>
+<h3 id="modeling-interaction-between-variables">Modeling interaction between variables</h3>
+<p>Deep learning approaches work well in jointly modeling the interactions between
+multiple variables with respect to a given task. In addition, beyond the
+specification of generic hyperparameters (number of layers, units per layer,
+etc.), deep learning models require minimal tuning to achieve good results.</p>
+<h3 id="performance">Performance</h3>
+<p>Deep learning methods offer the opportunity to model complex, non-linear
+relationships within data, and leverage this for the anomaly detection task. The
+performance of deep learning models can also potentially scale with the
+availability of appropriate training data, making them suitable for data-rich
+problems.</p>
+<h3 id="interpretability">Interpretability</h3>
+<p>While deep learning methods can be complex (leading to their reputation as black
+box models), interpretability techniques such as LIME &lt;&lt;See our previous report:
+Interpretability&gt;&gt; and Deep SHAP<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> provide opportunities to inspect
+their behaviour and make them more interpretable by analysts.</p>
+<h2 id="what-can-go-wrong%3F">What can go wrong?</h2>
+<p>There is a proliferation of algorithmic approaches that can help tackle an
+anomaly detection task and allow us to build solid models, at times even with
+just normal samples. But then what is the catch? Do they really work? What could
+possibly go wrong?</p>
+<h3 id="contaminated-normal-examples">Contaminated normal examples</h3>
+<p>In large scale applications that have huge volumes of data, it is quite possible
+that the large unlabeled data is considered as the normal class wherein a small
+percentage of examples may actually be anomalous or simply be poor training
+examples. And while some models like one-class SVM or isolation forest can
+account for this there are others that may not be robust to detecting anomalies</p>
+<h3 id="computational-complexity">Computational complexity</h3>
+<p>Anomaly detection scenarios can sometimes have low-latency requirements i.e the
+ability to  speedily retrain existing models as new data becomes available and
+perform inference. This can be computationally expensive at scale, even for
+linear models on univariate data. In addition, deep learning models, incur
+additional compute costs to estimate their large number of parameters. To
+address these compute issues, it is recommended to explore tradeoffs which
+balance the frequency of retraining and overall accuracy.</p>
+<h3 id="human-supervision">Human supervision</h3>
+<p>One major challenge with unsupervised and semi-supervised approaches is that
+they can be noisy and may generate a large amount of false positives. In turn,
+false positives incur labour costs associated with human review. Given these
+costs, an important goal for anomaly detection systems is to incorporate the
+results of human review (as labels) in improving model quality.</p>
+<h3 id="definition-of-anomaly">Definition of anomaly</h3>
+<p>The boundary between normal and anomalous behavior is often not precisely
+defined in several data domains and is continually evolving. Unlike other task
+domains where dataset shift occurs sparingly, the anomaly detection systems
+should anticipate (frequent) and account for changes in the distribution of the
+data. In many cases, this can be achieved by frequent retraining of models.</p>
+<h3 id="threshold-selection">Threshold selection</h3>
+<p>The process of selecting a good threshold value can be challenging. In a
+semi-supervised setting, we have access to a pool of labeled data. Using these
+labels (and some domain expertise), we can determine a suitable threshold.
+Specifically, we can explore the range of anomaly scores for each data point in
+the validation set and select a threshold as the point that yields the best
+performance metric (accuracy, precision, recall). In the absence of labeled
+data, and if we assume that most data points are normal, we can use statistics
+such as standard deviation and percentiles to infer a good threshold.</p>
+<h2 id="deep-anomaly-detection">Deep Anomaly Detection</h2>
+<p>As data becomes high dimensional, it is increasingly challenging to effectively
+learn a model of normal behaviour across variables within each model. In this
+chapter, we will review a set of relevant deep learning model architectures and
+how they can be applied to the task of anomaly detection. As discussed in
+&lt;&lt;Chapter 2: Background&gt;&gt;, anomaly detection using each of these models is
+explored as a function of how they can be applied first in modeling normal
+behaviour within data, and then generating an anomaly score.</p>
+<p>The deep learning approaches discussed below typically consist of two important
+components - an encoder that learns to generate an internal representation of
+the input data, and a decoder which attempts to reconstruct the original input
+based on this internal representation. While the exact techniques for encoding
+and decoding vary across models, the overall benefit they offer is the ability
+to learn the distribution of normal input data and construct a measure of
+anomaly respectively.</p>
 <h3 id="autoencoders">Autoencoders</h3>
-<p>Autoencoders are neural networks designed to learn a low dimensional representation, given some input data. They consist of two components - an encoder  which learns to map input data to a low dimensional representation (termed the bottleneck), and a decoder which learns to map this low dimensional representation back to the original input data.  By structuring the learning problem in this manner, the encoder network learns an efficient  “compression” function which maps input data to a salient lower dimension representation, such that the decoder network is able to successfully reconstruct the original input data. The model is trained by minimizing the reconstruction error: the difference (mean squared error) between the original input and the reconstructed output produced by the decoder. In practice, autoencoders have been applied as a dimensionality reduction technique, as well as in other use cases -  such as noise removal from images, image colorization, unsupervised feature extraction, data compression, etc…</p>
-<p>It is important to note that the mapping function learned by an autoencoder is specific to the training data distribution, i.e., an autoencoder will typically not succeed at reconstructing data which is significantly different from data it has seen during training. As we will see later in this section, this property of learning a distribution specific mapping (as opposed to a generic linear mapping) is particularly useful for the task of anomaly detection.</p>
-<figure><img src="figures/autoencoder.png" alt="An illustration of the components of an autoencoder"><figcaption>An illustration of the components of an autoencoder</figcaption></figure>
-<h3 id="modeling-normal-behaviour-and-anomaly-scoring">Modeling Normal Behaviour and Anomaly Scoring</h3>
-<p>Applying an autoencoder for anomaly detection follows the general principle of first modeling normal behaviour and subsequently generating an anomaly score for a new data sample. To model normal behaviour, we follow a semi-supervised approach where we train the autoencoder on a normal data sample. This way, the model learns a mapping function that successfully reconstructs normal data samples with a very small reconstruction error (the difference between actual sample and the version reconstructed by the model). This behaviour is replicated at test time, where the reconstruction error is small for normal data samples, and large for abnormal data samples. To identify anomalies, we use the reconstruction error score as an anomaly score and flag samples with reconstruction errors above a given threshold.</p>
+<p>Autoencoders are neural networks designed to learn a low dimensional
+representation, given some input data. They consist of two components - an
+encoder  which learns to map input data to a low dimensional representation
+(termed the bottleneck), and a decoder which learns to map this low dimensional
+representation back to the original input data. By structuring the learning
+problem in this manner, the encoder network learns an efficient “compression”
+function which maps input data to a salient lower dimension representation, such
+that the decoder network is able to successfully reconstruct the original input
+data. The model is trained by minimizing the reconstruction error: the
+difference (mean squared error) between the original input and the reconstructed
+output produced by the decoder. In practice, autoencoders have been applied as a
+dimensionality reduction technique, as well as in other use cases -  such as
+noise removal from images, image colorization, unsupervised feature extraction,
+data compression, etc.</p>
+<p>It is important to note that the mapping function learned by an autoencoder is
+specific to the training data distribution, i.e., an autoencoder will typically
+not succeed at reconstructing data which is significantly different from data it
+has seen during training. As we will see later in this section, this property of
+learning a distribution specific mapping (as opposed to a generic linear
+mapping) is particularly useful for the task of anomaly detection.</p>
+<figure><img src="figures/autoencoder.png" alt="An illustration of the components of autoencoder"><figcaption>An illustration of the components of autoencoder</figcaption></figure>
+<h4 id="modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</h4>
+<p>Applying an autoencoder for anomaly detection follows the general principle of
+first modeling normal behaviour and subsequently generating an anomaly score for
+a new data sample. To model normal behaviour, we follow a semi-supervised
+approach where we train the autoencoder on a normal data sample. This way, the
+model learns a mapping function that successfully reconstructs normal data
+samples with a very small reconstruction error (the difference between actual
+sample and the version reconstructed by the model). This behaviour is replicated
+at test time, where the reconstruction error is small for normal data samples,
+and large for abnormal data samples. To identify anomalies, we use the
+reconstruction error score as an anomaly score and flag samples with
+reconstruction errors above a given threshold.</p>
+<figure><img src="figures/autoencoder.png" alt="An illustration of how autoencoders can be applied for anomaly detection. Asthe autoencoder attempts to reconstruct abnormal data, it does so in a mannerthat is weighted towards normal samples (square shapes). The difference betweenwhat it reconstructs and the input is the reconstruction error. We can specify athreshold and flag anomalies as samples with reconstruction error above thegiven threshold."><figcaption>An illustration of how autoencoders can be applied for anomaly detection. As
+the autoencoder attempts to reconstruct abnormal data, it does so in a manner
+that is weighted towards normal samples (square shapes). The difference between
+what it reconstructs and the input is the reconstruction error. We can specify a
+threshold and flag anomalies as samples with reconstruction error above the
+given threshold.</figcaption></figure>
+<h3 id="variational-autoencoders">Variational Autoencoders</h3>
+<p>A variational autoencoder (VAE) is an extension of the autoencoder. Similar to
+an autoencoder, it consists of both an encoder and a decoder network component,
+but also includes important changes in the structure of the learning problem to
+accommodate variational inference. As opposed to learning a mapping from input
+data to a fixed bottleneck vector (a point estimate), a VAE learns a mapping
+from input to a distribution, and learns to reconstruct the original data by
+sampling from this distribution using a latent code. In Bayesian terms, our
+prior is the distribution of the latent code, our likelihood is the distribution
+of the input given the latent code, and our posterior is the distribution of the
+latent code, given our input. The components of a VAE serve to derive good
+estimates for these terms.</p>
+<p>The encoder network learns the parameters (mean and variance) of a distribution
+that outputs a latent code vector, given our input data (posterior). In other
+words, we can draw samples of the bottleneck vector that “correspond” to samples
+from our input data. The nature of this distribution can vary depending on the
+nature of the input data (e.g., while gaussian distributions are commonly used,
+bernoulli distributions can be used if the input data is known to be binary).<br>
+On the other hand, the decoder learns a distribution that outputs the original
+input data point (or something really close to it), given a latent bottleneck
+sample (likelihood). Typically, an isotropic gaussian distribution is used to
+model this reconstruction space.</p>
+<p>The VAE model is trained by minimizing the difference between the estimated
+distribution produced by the model and the real distribution of the data. This
+difference is estimated using the Kullback-Leibler divergence, which quantifies
+the distance between two distributions by measuring how much information is lost
+when one distribution is used to represent the other. Similar to AEs, VAEs have
+been applied in use cases such as unsupervised feature extraction,
+dimensionality reduction, image colorization, image denoising, etc. In addition,
+given that they use model distributions, they can be leveraged for controlled
+sample generation.</p>
+<p>The probabilistic Bayesian components introduced in VAEs lead to a few useful
+benefits. First, VAEs enable Bayesian inference; essentially, we can now sample
+from the learned encoder distribution and decode samples that do not explicitly
+exist in the original dataset, but belong to the same data distribution. Second,
+VAEs learn a disentangled representation of a data distribution - i.e., a single
+unit in the latent code is only sensitive to a single generative factor. This
+allows some interpretability of the output of VAEs, as we can vary units in the
+latent code for controlled generation of samples. Third, a VAE provides true
+probability measures which offer a principled approach to quantifying
+uncertainty when applied in practice: e.g., the probability that a new data
+point belongs to the distribution of normal data is 80%.</p>
+<figure><img src="figures/variational_autoencoder.png" alt="An illustration of a variational autoencoder"><figcaption>An illustration of a variational autoencoder</figcaption></figure>
+<h4 id="modeling-normal-behavior-and-anomaly-scoring-2">Modeling Normal Behavior and Anomaly Scoring</h4>
+<p>Similar to an autoencoder, we begin by training the VAE on normal data samples.
+At test time, we can compute an anomaly score in two ways. First, we can draw
+samples of the latent code z from the encoder given our input data, sample
+reconstructed values from the decoder using z, and compute a mean reconstruction
+error. Anomalies are flagged based on some threshold on the reconstruction
+error.</p>
+<p>In addition, we can also output a mean and variance parameter from the decoder,
+and compute the probability that the new datapoint belongs to the distribution
+of normal data on which the model was trained. If the datapoint lies in a low
+density region (below some threshold) we then flag that as an anomaly. (We can
+do this now because we model a distribution as opposed to a point estimate.)</p>
+<figure><img src="figures/variational_autoencoder_scoring.png" alt="An illustration of two approaches to anomaly scoring with a VAE. A.) We cangenerate mean reconstruction error and apply a threshold B.) We can output meanreconstruction probability i.e., the probability that a sample belongs to thenormal data distribution."><figcaption>An illustration of two approaches to anomaly scoring with a VAE. A.) We can
+generate mean reconstruction error and apply a threshold B.) We can output mean
+reconstruction probability i.e., the probability that a sample belongs to the
+normal data distribution.</figcaption></figure>
+<h3 id="generative-adversarial-networks">Generative Adversarial Networks</h3>
+<p>GANs are neural networks designed to learn a generative model of an input data
+distribution. In their classic formulation, GANs are composed of a pair of
+typically feed-forward neural networks termed a generator G and discriminator D.
+Both networks are trained jointly and play a competitive skill game with the end
+goal of learning the distribution of input data X.</p>
+<p>The generator network G learns a mapping from random noise of a fixed dimension
+(Z) to samples X_ that closely resemble members of the input data distribution.
+The discriminator D learns to correctly tell apart real samples that originated
+in the source data (X) from fake images (X_) that are generated by G. At each
+epoch during training, the parameters of G are updated to to maximise its
+ability to generate samples that are indistinguishable by D, while the
+parameters of  D are updated to maximize its ability to to correctly tell apart
+true samples X from generated samples X_. As training progresses, G becomes
+proficient at producing samples that are similar to X, and D also upskills on
+the task of distinguishing true X from X_.</p>
+<p>In this classic formulation of GANs, while G learns to model the source
+distribution X well (it learns to map random noise from Z to the source
+distribution), there is no straightforward approach that allows us to harness
+this knowledge for controlled inference - i.e,. generate an image that is
+similar to a given known image. While we can conduct a broad search over the
+latent space with the goal of recovering the most representative latent noise
+vector for an arbitrary image, this process is compute intensive and very slow
+in practice.</p>
+<p>To address these issues, recent research studies have explored new formulations
+of GANs that enable just this sort of controlled, adversarial inference by
+introducing an encoder (E) network.<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup> <sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup> In simple terms, the encoder learns the
+reverse mapping of the generator G; it learns to generate a fixed vector Z_,
+given an image. Given this change, the input to the discriminator is also
+modified - the discriminator now takes in pairs of input that include the latent
+representation  (Z, and Z_), in addition to the data samples (X and X_).  The
+encoder E is then jointly trained with the generator G; G learns an induced
+distribution that outputs samples of X given a latent code z, while E learns an
+induced distribution that outputs Z, given a sample X.</p>
+<p>Again, the mappings learned by components in the GAN network are specific to the
+data used in training. For example, the generator component of a GAN trained on
+images of cars will always output an image that looks like a car given any
+latent code. At test time, we can leverage this property to infer how different
+a given input sample is from the data distribution on which the model was
+trained.</p>
+<figure><img src="figures/gan.png" alt="A.) An illustration of a traditional GAN, B.) An illustration of a BiGAN - atraditional GAN extended to include anencoder."><figcaption>A.) An illustration of a traditional GAN, B.) An illustration of a BiGAN - a
+traditional GAN extended to include an
+encoder.</figcaption></figure>
+<h4 id="modeling-normal-behavior-and-anomaly-scoring-3">Modeling Normal Behavior and Anomaly Scoring</h4>
+<p>To model normal behaviour, we train a BiGAN on normal data samples. At the end
+of the training process, we have an encoder E that has learned a mapping from
+data sample (X) to latent code space (Z_), a discriminator D that has learned to
+distinguish real from generated data, and a Generator G that has learned a
+mapping from latent code space  to sample space. Note that these mappings are
+specific to the distribution of normal data that has been seen during training.
+At test time, we perform the following steps to generate an anomaly score for a
+given sample X. First, we obtain a latent space value z from the encoder given
+X, which is fed to the generator and yields a sample X_. Next, we can compute an
+anomaly score based on the reconstruction loss (difference between X and X_) and
+the discriminator loss (cross entropy loss or feature differences in the last
+dense layer of the discriminator given both X and X_)</p>
+<figure><img src="figures/gan_scoring.png" alt="An illustration of a biGAN applied to the task of AD"><figcaption>An illustration of a biGAN applied to the task of AD</figcaption></figure>
+<h3 id="sequence-to-sequence-models">Sequence to Sequence Models</h3>
+<p>Sequence to sequence models are a class of neural networks mainly designed to
+learn mappings between data that are best represented as sequences. Data
+containing sequences can be challenging as each token in a sequence may have
+some form of temporal dependence on other tokens, a relationship that has to be
+modeled to achieve good results. For example, consider the task of language
+translation where a sequence of words in one language needs to be mapped to a
+sequence of words in a different language. To excel at these tasks, a model must
+take into consideration the (contextual) location of each word/token within the
+broader sentence in order to generate an appropriate translation (See our
+previous report on Natural Language Processing to learn more about this area.)</p>
+<p>On a high level, sequence to sequence models typically consist of an encoder E
+which generates a hidden representation of the input tokens, and a decoder D,
+which takes in the encoder representation and sequentially generates a set of
+output tokens. Traditionally, the encoder and decoder are composed of LSTM
+blocks which are particularly suitable for modelling temporal relationships
+within input data tokens.</p>
+<p>While sequence to sequence models excel at modeling data with temporal
+dependence, they can be slow during inference (each individual token in the
+model output is sequentially generated at each time step, where the total number
+of steps is the length of the output token).</p>
+<p>We can use this encoder-decoder structure for anomaly detection by revising the
+sequence to sequence model task to function like an autoencoder - train the
+model to output the same tokens as the input (shifted by 1). This way, the
+encoder learns to generate a hidden representation that allows the decoder to
+reconstruct input data that is similar to examples seen in the training dataset.</p>
+<figure><img src="figures/seq2seq.png" alt="An illustration of sequence to sequence models"><figcaption>An illustration of sequence to sequence models</figcaption></figure>
+<h4 id="modeling-normal-behavior-and-anomaly-scoring-4">Modeling Normal Behavior and Anomaly Scoring</h4>
+<p>To identify anomalies, we take a semi supervised approach where we train the
+sequence to sequence model on normal data. At test time, we can compare the
+difference (mean square error) between output sequence generated by the model to
+its input. Similar to other approaches discussed above, we can use this value as
+an anomaly score.</p>
+<p>In this section, we discuss One-Class Support Vector Machines (OCSVM), a
+non-deep-learning technique which we will later use (see Chapter 4: Prototype)
+as a baseline approach.</p>
+<p>Traditionally, the goal of classification approaches is to help distinguish
+between a number of classes using some training data. However, consider a
+scenario where we have data for only one class, and the goal is to determine
+whether test data samples are similar to the training samples or not. One-class
+SVMs were introduced exactly for this sort of task - novelty detection - or the
+detection of novel samples. SVMs have been very popular for classification, and
+introduced the use of kernel functions to create non-linear decision boundaries
+(hyperplanes) by projecting data into a higher dimension. Similarly, OCSVMs
+learn a decision function which specifies regions in the input data space where
+the probability density of the data is high. The model is trained with various
+hyperparameters:</p>
+<ul>
+<li>nu, the outliers_fraction, specifies the proportion of outliers (data samples
+that do not belong to our class of interest) which we expect in our data</li>
+<li>kernel specifies the kernel type to be used in the algorithm. Examples of kernel
+functions include RBF, Poly and Linear, kernels. This enables SVMs to use a
+non-linear function to project the input data to a higher dimension.</li>
+<li>gamma is a parameter of the RBF kernel type and controls the influence of
+individual training samples - this affects the “smoothness” of the model.</li>
+</ul>
+<figure><img src="figures/oc-svm.png" alt="An OCSVM classifier learns a decision boundary around data seen duringtraining."><figcaption>An OCSVM classifier learns a decision boundary around data seen during
+training.</figcaption></figure>
+<h4 id="modeling-normal-behavior-and-anomaly-scoring-5">Modeling Normal Behavior and Anomaly Scoring</h4>
+<p>To apply OCSVM for anomaly detection, we train an OCSVM model using normal data,
+or data containing some abnormal samples. Within most implementations of OCSVM,
+the model returns an estimate of how similar a data point is to the data samples
+seen during training. This estimate may be the distance from the decision
+boundary (the separating hyperplane) or discrete class values (+1 for data that
+is similar and -1 for data that is not). Both of these scores can be used as an
+anomaly score.</p>
+<figure><img src="figures/oc-svm_scoring.png" alt="At test time, An OCSVM model classifies data points outside the learneddecision boundary as anomalies (assigned class of -1)."><figcaption>At test time, An OCSVM model classifies data points outside the learned
+decision boundary as anomalies (assigned class of -1).</figcaption></figure>
+<h3 id="additional-considerations">Additional Considerations</h3>
+<h4 id="anomalies-as-rare-events">Anomalies as Rare Events</h4>
+<p>For the training approaches discussed above, we operate on the assumption of the
+availability of “normal” labeled data, which is then used to learn a model of
+normal behaviour. In practice, it is often the case that labels do not exist or
+can be expensive to obtain. However, it is also a frequent observation that
+anomalies (by definition) are relatively infrequent events and therefore
+constitute a small percentage of the entire event dataset (e.g., the occurrence
+of fraud, machine failure, cyber attacks, etc.). Based on our experiments (see
+&lt;&lt;Chapter 4 - Prototype&gt;&gt; for more discussion), the neural network approaches
+discussed above remain robust in the presence of small amounts of anomaly (less
+than 10%). This is mainly because introducing a small percentage of anomalies
+does not significantly affect the network’s model of normal behaviour.  For
+scenarios where anomalies are known to occur sparingly, our experiment results
+relax the requirement of assembling a dataset of labeled normal samples for
+training.</p>
+<h4 id="discretizing-data-and-handling-stationarity">Discretizing Data and Handling Stationarity</h4>
+<p>To apply deep learning approaches for anomaly detection (as with any other
+task), we need to construct a dataset of training samples. For problem spaces
+where data is already discrete, we can use the data as is (e.g., a dataset of
+images of wall panels, where the task is to find images containing abnormal
+walls). When data exists as a time series, we can construct our dataset by
+discretizing the series into training samples. Typically this involves slicing
+the data into chunks with comparable statistical properties. For example, given
+a series of recordings generated by a datacenter temperature sensor, we can
+discretize the data into daily or weekly time slices and construct a dataset
+based on these chunks. This becomes our basis of anomaly comparison (e.g., the
+temperature pattern for today is anomalous compared to patterns for the last 20
+days). The choice of the discretization approach (e.g., daily, weekly,
+averages.) will often require some domain expertise; however, the one
+requirement is that each discrete sample is comparable. For example, given that
+temperatures may spike during work hours compared to non-work hours, it may be
+challenging to discretize this data by hour as these hours exhibit different
+statistical properties.</p>
+<figure><img src="figures/discretize_data.png" alt="The figure above illustrates temperature readings for a datacenter overseveral days and how they can be discretized (sliced) into daily 24hr readingsand labelled (0 for a normal day temperature, 1 for abnormal temperature) toconstruct a dataset."><figcaption>The figure above illustrates temperature readings for a datacenter over
+several days and how they can be discretized (sliced) into daily 24hr readings
+and labelled (0 for a normal day temperature, 1 for abnormal temperature) to
+construct a dataset.</figcaption></figure>
+<p>This notion of constructing a dataset of comparable samples is related to the
+idea of stationarity. A stationary series is one in which properties of the data
+(mean, variance) do not vary with time. Data containing trends (e.g., rising
+global temperatures) or with seasonality (e.g., the hourly temperature within
+each day) represents examples of non-stationary data. These need to be handled
+during discretization. We can remove trends by applying a differencing function
+to the entire dataset. To handle seasonality, we can explicitly include
+information on seasonality as a feature of each discrete sample (e.g., to
+discretize by hour, we can attach a categorical variable representing hour of
+day). A common misconception regarding the application of neural networks (e.g.,
+LSTMs) is that they automatically learn/model properties of the data useful for
+predictions (including trends and seasonality). However, the extent to which
+this is possible is dependent on how much of this behaviour is represented in
+each training sample (e.g., to automatically account for trends or patterns
+across the day, we can discretize data by hour with an additional categorical
+feature for hour_of_day, or discretize by day (24 features for each hour).</p>
+<p>Note: For most ML algorithms, it is a requirement that samples be independent
+and identically distributed. Ensuring we construct comparable samples (handle
+trends and seasonality) from time series data allows us to satisfy the identical
+requirement but not the independence requirement. This can impact model
+performance. In addition, by constructing our dataset, there is a chance that
+the learned model may perform poorly in correctly predicting output values that
+lie outside the range of values (distribution) seen during training i.e a
+distribution shift. This greatly amplifies the need to - and frequency of -
+retraining the model as new data arrives; and complicates the model deployment
+process. In general, discretization should be applied with care.</p>
+<h3 id="selecting-a-model">Selecting a Model</h3>
+<p>There are several factors that can influence the primary approach taken when it
+comes to detecting anomalies. These include the data type (time series vs
+non-time series, stationary vs non-stationary, univariate versus multivariate,
+low dimensional vs high dimensional), latency requirements, uncertainty
+reporting, and accuracy requirements. More importantly, deep learning methods
+are not always the best approach! To provide a framework for navigating this
+space, we offer the following recommendations (footnote: linear models are
+mentioned below and refer to approaches such as AR, MA, ARMA, ARIMA, SARIMA, VAR
+models).</p>
+<h4 id="data-properties%3A">Data Properties:</h4>
+<h5 id="time-series-data">Time series data</h5>
+<p>As discussed in the previous sections, it is important to correctly discretize
+data as well as handle stationarity before training a model.</p>
+<h5 id="univariate-vs-multivariate">Univariate vs Multivariate</h5>
+<p>Deep learning methods are recommended for high dimensional data and work well in
+modeling the interactions between multiple variables. These include data that
+has a wide range of features or high dimensional data such as images. For most
+univariate datasets, linear models are both fast and accurate and thus
+recommended.</p>
+<h5 id="latency">Latency</h5>
+<p>Deep learning models are slower compared to linear models. For scenarios which
+include high data volume, and low latency requirements, linear models are
+recommended (e.g., detecting anomalies in the authentication requests for
+200,000 work sites, with each machine generating 500 requests per second).</p>
+<h5 id="accuracy">Accuracy</h5>
+<p>Deep learning approaches tend to be robust, providing better accuracy, precision
+and recall.</p>
+<h5 id="uncertainty">Uncertainty</h5>
+<p>For scenarios where it is a requirement to provide a principled estimate of
+uncertainty for each anomaly classification, deep learning methods such as VAEs
+and BiGANs are recommended.</p>
+<h5 id="general-considerations-in-selecting-a-deep-learning-approach">General considerations in selecting a Deep Learning Approach</h5>
+<p>When the (discretized) data contains sequences with temporal dependencies, a
+sequence to sequence model can model these relationships, yielding better
+results. For scenarios requiring principled estimates of uncertainty, a VAE and
+GAN based approaches are suitable. For scenarios where the data is images, AE’s
+VAEs and GANs designed with convolution blocks are suitable.</p>
+<figure><img src="figures/flowchart.png" alt="A flow chart illustrating steps for selecting an approach to anomalydetection."><figcaption>A flow chart illustrating steps for selecting an approach to anomaly
+detection.</figcaption></figure>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AutoEncoder</td>
+<td>Flexible approach to modeling complex non-linear patterns in data</td>
+<td>&lt;br&gt; 1.  Does not support variational inference (estimates of uncertainty) &lt;br&gt; 2. Requires a large dataset for training</td>
+</tr>
+<tr>
+<td>Variational AutoEncoder</td>
+<td>Supports variational inference (probabilistic measure of uncertainty)</td>
+<td>Requires a large amount of training data, training can take a while</td>
+</tr>
+<tr>
+<td>GAN (BiGAN)</td>
+<td>&lt;br&gt; 1. Supports variational inference (probabilistic measure of uncertainty) &lt;br&gt; 2. Use of discriminator signal allows better learning of data manifold (useful for high dimensional image data). &lt;br&gt; 3. Performs well for  high dimensional data (images)</td>
+<td>&lt;br&gt; 1. Requires a large amount of training data, training can take a while &lt;br&gt; 2. Training can be unstable (GAN mode collapse)</td>
+</tr>
+<tr>
+<td>Sequence to Sequence Mode</td>
+<td>Well suited for data with temporal components (e.g., discretized time series data)</td>
+<td>&lt;br&gt; 1. Slow inference (compute scales with sequence length which needs to be fixed) &lt;br&gt; 2. Training can be slow &lt;br&gt; 3.Limited accuracy when data contains features with no temporal dependence &lt;br&gt; 4. Supports variational inference (probabilistic measure of uncertainty)</td>
+</tr>
+<tr>
+<td>One Class SVM</td>
+<td>&lt;br&gt; 1. Does not require a large amount of data &lt;br&gt; 2. Fast to train &lt;br&gt; 3. Fast inference time</td>
+<td>&lt;br&gt; 1. Limited capacity in capturing complex relationships within data &lt;br&gt; 2. Requires kernel selection and other parameters (nu, gamma) that need to be carefully tuned. &lt;br&gt; 3. Does not model a probability distribution, harder to compute estimates of confidence.</td>
+</tr>
+</tbody>
+</table>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">
 <li id="fn1" class="footnote-item"><p>This is the footnote. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p><a href="https://arxiv.org/abs/1906.02694">Deep Semi-Supervised Anomaly Detection</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p><a href="https://arxiv.org/abs/1705.07874">A Unified Approach to Interpreting Model
+Predictions</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>BiGAN, Donahue, 2016
+https://arxiv.org/abs/1605.09782 <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p>GANomaly AkCay et al 2018
+https://arxiv.org/abs/1805.06725 <a href="#fnref5" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
 </section>
