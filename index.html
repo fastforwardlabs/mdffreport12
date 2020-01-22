@@ -482,7 +482,7 @@ img {
           <h1 id="deep-learning-for-anomaly-detection">Deep Learning for Anomaly Detection</h1>
 <p><div class="table-of-contents"><div id="toc-header" style="display: flex; font-weight: bold; text-transform: uppercase;">
      <div><button id="toggle_contents" style="padding-left: 0.5ch; padding-right: 0.5ch; cursor: pointer; position: relative; top: -1px;">☰</button><span id="contents-label" style="margin-left: 0;"> Contents</span></div>
-  </div><ul><li><a href="#introduction">Introduction</a><ul><li><a href="#applications-of-anomaly-detection">Applications of Anomaly Detection</a><ul><li><a href="#network-intrusion-detection">Network Intrusion Detection</a></li><li><a href="#medical-diagnosis">Medical Diagnosis</a></li><li><a href="#fraud-detection">Fraud Detection</a></li><li><a href="#manufacturing-defect-detection">Manufacturing Defect Detection</a></li></ul></li></ul></li><li><a href="#background">Background</a><ul><li><a href="#anomaly-detection-approaches">Anomaly Detection Approaches</a></li><li><a href="#supervised-learning">Supervised learning</a></li><li><a href="#unsupervised-learning">Unsupervised learning</a></li><li><a href="#semi-supervised-learning">Semi-supervised learning</a></li></ul></li><li><a href="#evaluating-models%3A-accuracy-is-not-enough">Evaluating Models: Accuracy is not Enough</a></li><li><a href="#anomaly-detection-as-learning-normal-behavior">Anomaly Detection as Learning Normal Behavior</a></li><li><a href="#approaches-to-modeling-normal-behavior">Approaches to Modeling Normal Behavior</a></li><li><a href="#why-deep-learning-for-anomaly-detection">Why Deep Learning for Anomaly Detection</a><ul><li><a href="#multivariate%2C-high-dimensional-data">Multivariate, high dimensional data</a></li><li><a href="#modeling-interaction-between-variables">Modeling interaction between variables</a></li><li><a href="#performance">Performance</a></li><li><a href="#interpretability">Interpretability</a></li></ul></li><li><a href="#what-can-go-wrong%3F">What can go wrong?</a><ul><li><a href="#contaminated-normal-examples">Contaminated normal examples</a></li><li><a href="#computational-complexity">Computational complexity</a></li><li><a href="#human-supervision">Human supervision</a></li><li><a href="#definition-of-anomaly">Definition of anomaly</a></li><li><a href="#threshold-selection">Threshold selection</a></li></ul></li><li><a href="#deep-anomaly-detection">Deep Anomaly Detection</a><ul><li><a href="#autoencoders">Autoencoders</a><ul><li><a href="#modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</a></li></ul></li><li><a href="#variational-autoencoders">Variational Autoencoders</a><ul><li><a href="#modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</a></li></ul></li><li><a href="#generative-adversarial-networks">Generative Adversarial Networks</a><ul><li><a href="#modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</a></li></ul></li><li><a href="#sequence-to-sequence-models">Sequence to Sequence Models</a><ul><li><a href="#modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</a></li><li><a href="#modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</a></li></ul></li><li><a href="#additional-considerations">Additional Considerations</a><ul><li><a href="#anomalies-as-rare-events">Anomalies as Rare Events</a></li><li><a href="#discretizing-data-and-handling-stationarity">Discretizing Data and Handling Stationarity</a></li></ul></li><li><a href="#selecting-a-model">Selecting a Model</a><ul><li><a href="#data-properties%3A">Data Properties:</a></li></ul></li></ul></li></ul></div></p>
+  </div><ul><li><a href="#introduction">Introduction</a><ul><li><a href="#applications-of-anomaly-detection">Applications of Anomaly Detection</a><ul><li><a href="#network-intrusion-detection">Network Intrusion Detection</a></li><li><a href="#medical-diagnosis">Medical Diagnosis</a></li><li><a href="#fraud-detection">Fraud Detection</a></li><li><a href="#manufacturing-defect-detection">Manufacturing Defect Detection</a></li></ul></li></ul></li><li><a href="#background">Background</a><ul><li><a href="#anomaly-detection-approaches">Anomaly Detection Approaches</a></li><li><a href="#supervised-learning">Supervised learning</a></li><li><a href="#unsupervised-learning">Unsupervised learning</a></li><li><a href="#semi-supervised-learning">Semi-supervised learning</a></li><li><a href="#evaluating-models%3A-accuracy-is-not-enough">Evaluating Models: Accuracy is not Enough</a></li><li><a href="#anomaly-detection-as-learning-normal-behavior">Anomaly Detection as Learning Normal Behavior</a></li><li><a href="#approaches-to-modeling-normal-behavior">Approaches to Modeling Normal Behavior</a></li><li><a href="#why-deep-learning-for-anomaly-detection">Why Deep Learning for Anomaly Detection</a><ul><li><a href="#multivariate%2C-high-dimensional-data">Multivariate, high dimensional data</a></li><li><a href="#modeling-interaction-between-variables">Modeling interaction between variables</a></li><li><a href="#performance">Performance</a></li><li><a href="#interpretability">Interpretability</a></li></ul></li><li><a href="#what-can-go-wrong%3F">What can go wrong?</a><ul><li><a href="#contaminated-normal-examples">Contaminated normal examples</a></li><li><a href="#computational-complexity">Computational complexity</a></li><li><a href="#human-supervision">Human supervision</a></li><li><a href="#definition-of-anomaly">Definition of anomaly</a></li><li><a href="#threshold-selection">Threshold selection</a></li></ul></li></ul></li><li><a href="#deep-learning-for-anomaly-detection">Deep Learning for Anomaly Detection</a><ul><li><a href="#autoencoders">Autoencoders</a><ul><li><a href="#modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</a></li></ul></li><li><a href="#variational-autoencoders">Variational Autoencoders</a><ul><li><a href="#modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</a></li></ul></li><li><a href="#generative-adversarial-networks">Generative Adversarial Networks</a><ul><li><a href="#modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</a></li></ul></li><li><a href="#sequence-to-sequence-models">Sequence to Sequence Models</a><ul><li><a href="#modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</a></li><li><a href="#modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</a></li></ul></li><li><a href="#additional-considerations">Additional Considerations</a><ul><li><a href="#anomalies-as-rare-events">Anomalies as Rare Events</a></li><li><a href="#discretizing-data-and-handling-stationarity">Discretizing Data and Handling Stationarity</a></li></ul></li><li><a href="#selecting-a-model">Selecting a Model</a><ul><li><a href="#data-properties%3A">Data Properties:</a></li></ul></li></ul></li></ul></div></p>
 <h2 id="introduction">Introduction</h2>
 <blockquote>
 <p>“An outlier is an observation which deviates so much from other observations as to arouse suspicions that it was generated by a different mechanism”
@@ -573,8 +573,8 @@ choice of approach when building an anomaly detection application. In this
 report we survey the approaches, highlighting their pros and cons.</p>
 <h2 id="background">Background</h2>
 <p>In this chapter, we provide an overview of approaches to anomaly detection based
-on the type of data available, how to evaluate an anomaly detection model and
-how each approach constructs a model of normal behaviour and why deep learning
+on the type of data available, how to evaluate an anomaly detection model, how
+each approach constructs a model of normal behaviour and why deep learning
 models are valuable. It concludes with a discussion of pitfalls that may occur
 while deploying these models.</p>
 <h3 id="anomaly-detection-approaches">Anomaly Detection Approaches</h3>
@@ -621,8 +621,7 @@ are a huge number of normal examples available but the more unusual or abnormal
 classes of interest are insufficient to be effectively learned from. Following
 the assumption that most data points within an unlabeled dataset are normal, we
 can train a robust model on an unlabeled dataset and evaluate its skill (as well
-as  tune the model’s parameters) using a small amount of labeled data (<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>:
-<a href="https://arxiv.org/abs/1906.02694">Deep Semi-Supervised Anomaly Detection</a>). For
+as  tune the model’s parameters) using a small amount of labeled data.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> For
 instance, in a network intrusion detection application, one may have examples of
 the normal class and some examples of the intrusion classes, but new kinds of
 intrusions may often arise with time.</p>
@@ -637,7 +636,7 @@ anomaly posing a potential threat may evolve due to a range of external factors.
 as novel classes, for which little to no labeled data is available. One way to
 address this is to use some variant of a supervised or semi-supervised
 classification approach.</p>
-<h2 id="evaluating-models%3A-accuracy-is-not-enough">Evaluating Models: Accuracy is not Enough</h2>
+<h3 id="evaluating-models%3A-accuracy-is-not-enough">Evaluating Models: Accuracy is not Enough</h3>
 <p>As mentioned earlier in <a href="#anomaly-detection-approaches">Anomaly Detection Approaches</a>,
 it is expected that the distribution between the normal and abnormal class(es)
 can be very skewed. This is commonly referred to as <strong>class imbalance</strong>.</p>
@@ -674,7 +673,7 @@ for each specific use case.</p>
 approach to anomaly detection is desirable, and explored robust metrics for
 evaluating these models. In the next section, we focus on these semi-supervised
 approaches and discuss how they work.</p>
-<h2 id="anomaly-detection-as-learning-normal-behavior">Anomaly Detection as Learning Normal Behavior</h2>
+<h3 id="anomaly-detection-as-learning-normal-behavior">Anomaly Detection as Learning Normal Behavior</h3>
 <p>The underlying strategy for most approaches to anomaly detection is to first
 model normal behavior, and then exploit this knowledge in identifying deviations
 (anomalies).  This approach typically falls under the semi-supervised category
@@ -682,7 +681,8 @@ and is accomplished across two steps in the anomaly detection loop. The first
 step, which we can refer to as the training step, involves building a model of
 normal behavior using available data. Depending on the specific anomaly
 detection method, this training data may contain both normal and abnormal data
-points or only normal data points (see &lt;&lt;Chapter 3: Technical&gt;&gt; for additional
+points or only normal data points (see <a href="#deep-learning-for-anomaly-detection">Chapter 3:
+Deep Learning for Anomaly Detection</a> for additional
 details on AD methods).  Based on this model, an anomaly score is then assigned
 to each data point that represents a measure of deviation from normal behavior.</p>
 <figure><img src="figures/learning_normal_behavior.png" alt="Illustration shows the training phase in the anomaly detection loop. Based ondata (which may or may not contain abnormal samples), the AD model learns amodel of normal data and assigns an anomaly score based onthis."><figcaption>Illustration shows the training phase in the anomaly detection loop. Based on
@@ -712,14 +712,13 @@ and variance). We can assign an anomaly score based on a sample’s deviation fr
 the mean and set a threshold (e.g., any value with more than 3 standard
 deviations from the mean is an anomaly).  In step 2, we then tag all new
 temperature readings and generate a report.</p>
-<h2 id="approaches-to-modeling-normal-behavior">Approaches to Modeling Normal Behavior</h2>
+<h3 id="approaches-to-modeling-normal-behavior">Approaches to Modeling Normal Behavior</h3>
 <p>Given the importance of the anomaly detection task, multiple approaches have
 been proposed and rigorously studied over the last few decades. To provide a
 high level summary, we categorize the more popular techniques into four main
-areas: clustering, nearest neighbour, classification, and statistical [^2]
-<a href="https://dl.acm.org/doi/10.1145/1541880.1541882">Anomaly Detection, A Survey by Chandola et al 2009</a>.
+areas: clustering, nearest neighbour, classification, and statistical.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>
 The Table below provides a summary of examples, assumptions, and anomaly scoring
-strategies taken by approaches within each category.</p>
+strategies taken by approaches within each category. Nisha</p>
 <table>
 <thead>
 <tr>
@@ -767,77 +766,79 @@ modeling of interactions between each variable. For these sorts of problems,
 deep learning approaches (the focus of this report) such as Autoencoders,
 Variational Autoencoders, Sequence to Sequence Models, and Generative
 Adversarial Networks present some benefits.</p>
-<h2 id="why-deep-learning-for-anomaly-detection">Why Deep Learning for Anomaly Detection</h2>
+<h3 id="why-deep-learning-for-anomaly-detection">Why Deep Learning for Anomaly Detection</h3>
 <p>Deep learning approaches, when applied to anomaly detection, offer several
 advantages.</p>
-<h3 id="multivariate%2C-high-dimensional-data">Multivariate, high dimensional data</h3>
+<h4 id="multivariate%2C-high-dimensional-data">Multivariate, high dimensional data</h4>
 <p>Deep learning approaches are designed to work with multivariate data of
 different data types across each variable. This makes it easy to integrate
-information from multiple sources;  it also eliminates challenges associated
+information from multiple sources; it also eliminates challenges associated
 with individually modeling anomaly for each variable and aggregating the
 results.</p>
-<h3 id="modeling-interaction-between-variables">Modeling interaction between variables</h3>
+<h4 id="modeling-interaction-between-variables">Modeling interaction between variables</h4>
 <p>Deep learning approaches work well in jointly modeling the interactions between
 multiple variables with respect to a given task. In addition, beyond the
 specification of generic hyperparameters (number of layers, units per layer,
 etc.), deep learning models require minimal tuning to achieve good results.</p>
-<h3 id="performance">Performance</h3>
+<h4 id="performance">Performance</h4>
 <p>Deep learning methods offer the opportunity to model complex, non-linear
 relationships within data, and leverage this for the anomaly detection task. The
 performance of deep learning models can also potentially scale with the
 availability of appropriate training data, making them suitable for data-rich
 problems.</p>
-<h3 id="interpretability">Interpretability</h3>
+<h4 id="interpretability">Interpretability</h4>
 <p>While deep learning methods can be complex (leading to their reputation as black
-box models), interpretability techniques such as LIME &lt;&lt;See our previous report:
-Interpretability&gt;&gt; and Deep SHAP<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> provide opportunities to inspect
+box models), interpretability techniques such as LIME (see our previous report:
+&lt;&lt;Interpretability&gt;&gt;) and Deep SHAP<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> provide opportunities to inspect
 their behaviour and make them more interpretable by analysts.</p>
-<h2 id="what-can-go-wrong%3F">What can go wrong?</h2>
+<h3 id="what-can-go-wrong%3F">What can go wrong?</h3>
 <p>There is a proliferation of algorithmic approaches that can help tackle an
 anomaly detection task and allow us to build solid models, at times even with
-just normal samples. But then what is the catch? Do they really work? What could
+just normal samples. But what is the catch? Do they really work? What could
 possibly go wrong?</p>
-<h3 id="contaminated-normal-examples">Contaminated normal examples</h3>
+<h4 id="contaminated-normal-examples">Contaminated normal examples</h4>
 <p>In large scale applications that have huge volumes of data, it is quite possible
 that the large unlabeled data is considered as the normal class wherein a small
 percentage of examples may actually be anomalous or simply be poor training
-examples. And while some models like one-class SVM or isolation forest can
-account for this there are others that may not be robust to detecting anomalies</p>
-<h3 id="computational-complexity">Computational complexity</h3>
+examples. And while some models (like one-class SVM or isolation forest) can
+account for this, there are others that may not be robust to detecting
+anomalies.</p>
+<h4 id="computational-complexity">Computational complexity</h4>
 <p>Anomaly detection scenarios can sometimes have low-latency requirements i.e the
 ability to  speedily retrain existing models as new data becomes available and
 perform inference. This can be computationally expensive at scale, even for
-linear models on univariate data. In addition, deep learning models, incur
+linear models on univariate data. Deep learning models, also incur
 additional compute costs to estimate their large number of parameters. To
 address these compute issues, it is recommended to explore tradeoffs which
 balance the frequency of retraining and overall accuracy.</p>
-<h3 id="human-supervision">Human supervision</h3>
+<h4 id="human-supervision">Human supervision</h4>
 <p>One major challenge with unsupervised and semi-supervised approaches is that
 they can be noisy and may generate a large amount of false positives. In turn,
 false positives incur labour costs associated with human review. Given these
 costs, an important goal for anomaly detection systems is to incorporate the
 results of human review (as labels) in improving model quality.</p>
-<h3 id="definition-of-anomaly">Definition of anomaly</h3>
+<h4 id="definition-of-anomaly">Definition of anomaly</h4>
 <p>The boundary between normal and anomalous behavior is often not precisely
 defined in several data domains and is continually evolving. Unlike other task
 domains where dataset shift occurs sparingly, the anomaly detection systems
 should anticipate (frequent) and account for changes in the distribution of the
 data. In many cases, this can be achieved by frequent retraining of models.</p>
-<h3 id="threshold-selection">Threshold selection</h3>
+<h4 id="threshold-selection">Threshold selection</h4>
 <p>The process of selecting a good threshold value can be challenging. In a
-semi-supervised setting, we have access to a pool of labeled data. Using these
-labels (and some domain expertise), we can determine a suitable threshold.
-Specifically, we can explore the range of anomaly scores for each data point in
-the validation set and select a threshold as the point that yields the best
-performance metric (accuracy, precision, recall). In the absence of labeled
-data, and if we assume that most data points are normal, we can use statistics
-such as standard deviation and percentiles to infer a good threshold.</p>
-<h2 id="deep-anomaly-detection">Deep Anomaly Detection</h2>
+semi-supervised setting (the approaches covered above), one has access to a pool
+of labeled data. Using these labels (and some domain expertise), we can
+determine a suitable threshold. Specifically, we can explore the range of
+anomaly scores for each data point in the validation set and select a threshold
+as the point that yields the best performance metric (accuracy, precision,
+recall). In the absence of labeled data, and if we assume that most data points
+are normal, we can use statistics such as standard deviation and percentiles to
+infer a good threshold.</p>
+<h2 id="deep-learning-for-anomaly-detection-2">Deep Learning for Anomaly Detection</h2>
 <p>As data becomes high dimensional, it is increasingly challenging to effectively
 learn a model of normal behaviour across variables within each model. In this
 chapter, we will review a set of relevant deep learning model architectures and
 how they can be applied to the task of anomaly detection. As discussed in
-&lt;&lt;Chapter 2: Background&gt;&gt;, anomaly detection using each of these models is
+<a href="#background">Background</a>, anomaly detection using each of these models is
 explored as a function of how they can be applied first in modeling normal
 behaviour within data, and then generating an anomaly score.</p>
 <p>The deep learning approaches discussed below typically consist of two important
@@ -942,8 +943,7 @@ and compute the probability that the new datapoint belongs to the distribution
 of normal data on which the model was trained. If the datapoint lies in a low
 density region (below some threshold) we then flag that as an anomaly. (We can
 do this now because we model a distribution as opposed to a point estimate.)</p>
-<figure><img src="figures/variational_autoencoder_scoring.png" alt="An illustration of two approaches to anomaly scoring with a VAE. A.) We cangenerate mean reconstruction error and apply a threshold B.) We can output meanreconstruction probability i.e., the probability that a sample belongs to thenormal data distribution."><figcaption>An illustration of two approaches to anomaly scoring with a VAE. A.) We can
-generate mean reconstruction error and apply a threshold B.) We can output mean
+<figure><img src="figures/variational_autoencoder_scoring.png" alt="An illustration of two approaches to anomaly scoring with a VAE. We can output meanreconstruction probability i.e., the probability that a sample belongs to thenormal data distribution."><figcaption>An illustration of two approaches to anomaly scoring with a VAE. We can output mean
 reconstruction probability i.e., the probability that a sample belongs to the
 normal data distribution.</figcaption></figure>
 <h3 id="generative-adversarial-networks">Generative Adversarial Networks</h3>
@@ -972,7 +972,7 @@ vector for an arbitrary image, this process is compute intensive and very slow
 in practice.</p>
 <p>To address these issues, recent research studies have explored new formulations
 of GANs that enable just this sort of controlled, adversarial inference by
-introducing an encoder (E) network.<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> <sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup> In simple terms, the encoder learns the
+introducing an encoder (E) network.<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup> <sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup> In simple terms, the encoder learns the
 reverse mapping of the generator G; it learns to generate a fixed vector Z_,
 given an image. Given this change, the input to the discriminator is also
 modified - the discriminator now takes in pairs of input that include the latent
@@ -1037,7 +1037,7 @@ difference (mean square error) between output sequence generated by the model to
 its input. Similar to other approaches discussed above, we can use this value as
 an anomaly score.</p>
 <p>In this section, we discuss One-Class Support Vector Machines (OCSVM), a
-non-deep-learning technique which we will later use (see Chapter 4: Prototype)
+non-deep-learning technique which we will later use (see <a href="#prototype">Prototype</a>)
 as a baseline approach.</p>
 <p>Traditionally, the goal of classification approaches is to help distinguish
 between a number of classes using some training data. However, consider a
@@ -1080,7 +1080,7 @@ can be expensive to obtain. However, it is also a frequent observation that
 anomalies (by definition) are relatively infrequent events and therefore
 constitute a small percentage of the entire event dataset (e.g., the occurrence
 of fraud, machine failure, cyber attacks, etc.). Based on our experiments (see
-&lt;&lt;Chapter 4 - Prototype&gt;&gt; for more discussion), the neural network approaches
+<a href="#prototype">Prototype</a> for more discussion), the neural network approaches
 discussed above remain robust in the presence of small amounts of anomaly (less
 than 10%). This is mainly because introducing a small percentage of anomalies
 does not significantly affect the network’s model of normal behaviour.  For
@@ -1214,16 +1214,18 @@ detection.</figcaption></figure>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p><a href="https://arxiv.org/abs/1906.02694">Deep Semi-Supervised Anomaly Detection</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+<li id="fn1" class="footnote-item"><p>
+<a href="https://arxiv.org/abs/1906.02694">Deep Semi-Supervised Anomaly Detection</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn2" class="footnote-item"><p><a href="https://arxiv.org/abs/1705.07874">A Unified Approach to Interpreting Model
-Predictions</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+<li id="fn2" class="footnote-item"><p><a href="https://dl.acm.org/doi/10.1145/1541880.1541882">Anomaly Detection, A Survey by Chandola et al 2009</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn3" class="footnote-item"><p>BiGAN, Donahue, 2016
-https://arxiv.org/abs/1605.09782 <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+<li id="fn3" class="footnote-item"><p><a href="https://arxiv.org/abs/1705.07874">A Unified Approach to Interpreting Model
+Predictions</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn4" class="footnote-item"><p>GANomaly AkCay et al 2018
-https://arxiv.org/abs/1805.06725 <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+<li id="fn4" class="footnote-item"><p><a href="https://arxiv.org/abs/1605.09782">BiGAN, Donahue,
+2016</a> <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p><a href="https://arxiv.org/abs/1805.06725">GANomaly AkCay et al 2018</a> <a href="#fnref5" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
 </section>
