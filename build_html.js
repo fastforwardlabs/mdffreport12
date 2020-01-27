@@ -1,25 +1,25 @@
-let fs = require('fs-extra');
-let path = require('path');
-let md = require('markdown-it')({ typographer: true });
-var implicitFigures = require('markdown-it-implicit-figures');
+let fs = require('fs-extra')
+let path = require('path')
+let md = require('markdown-it')({ typographer: true })
+var implicitFigures = require('markdown-it-implicit-figures')
 
-let deploy_location = process.argv[2];
+let deploy_location = process.argv[2]
 
-let line = 28;
-let lq = line / 4;
-let bf = 5 / 8;
-let hf = 6 / 8;
+let line = 28
+let lq = line / 4
+let bf = 5 / 8
+let hf = 6 / 8
 
-let rfs = bf * line;
-let lh = 1 / bf;
-let rlh = line;
+let rfs = bf * line
+let lh = 1 / bf
+let rlh = line
 
 // Remember old renderer, if overridden, or proxy to default renderer
 var defaultRender =
   md.renderer.rules.link_open ||
   function(tokens, idx, options, env, self) {
-    return self.renderToken(tokens, idx, options);
-  };
+    return self.renderToken(tokens, idx, options)
+  }
 
 // md.renderer.rules.link_open = function(tokens, idx, options, env, self) {
 //   var aIndex = tokens[idx].attrIndex('target');
@@ -31,22 +31,22 @@ var defaultRender =
 //   return defaultRender(tokens, idx, options, env, self);
 // };
 
-md.use(require('markdown-it-anchor'));
+md.use(require('markdown-it-anchor'))
 md.use(require('markdown-it-table-of-contents'), {
   includeLevel: [2, 3, 4],
   containerHeaderHtml: `<div id="toc-header" style="display: flex; font-weight: bold; text-transform: uppercase;">
      <div><button id="toggle_contents" style="padding-left: 0.5ch; padding-right: 0.5ch; cursor: pointer; position: relative; top: -1px;">☰</button><span id="contents-label" style="margin-left: 0;"> Contents</span></div>
   </div>`,
-});
-let custom_container = require('markdown-it-container');
-md.use(custom_container, 'info', {});
-md.use(require('markdown-it-footnote'));
+})
+let custom_container = require('markdown-it-container')
+md.use(custom_container, 'info', {})
+md.use(require('markdown-it-footnote'))
 md.use(implicitFigures, {
   dataType: false, // <figure data-type="image">, default: false
   figcaption: true, // <figcaption>alternative text</figcaption>, default: false
   tabindex: false, // <figure tabindex="1+n">..., default: false
   link: false, // <a href="img.png"><img src="img.png"></a>, default: false
-});
+})
 
 let svg = `<svg width="${line}" height="${line}" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <line x1="0" y1="0.5" x2="${line}" y2="0.5" stroke="lightblue" stroke-width="1"/>
@@ -56,9 +56,9 @@ let svg = `<svg width="${line}" height="${line}" version="1.1" xmlns="http://www
   0.5}" stroke="lightblue" stroke-width="1"/>
   <line x1="0" y1="${lq * 3 + 0.5}" x2="${line}" y2="${lq * 3 +
   0.5}" stroke="lightblue" stroke-width="1"/>
-</svg>`;
-let buff = new Buffer(svg);
-let svg_encoded = buff.toString('base64');
+</svg>`
+let buff = new Buffer(svg)
+let svg_encoded = buff.toString('base64')
 
 let hcounter = `
 h1, h2, h3, h4, h5, h6, button { font-size: inherit; line-height: inherit; font-style: inherit; font-weight: inherit; margin: 0; font-feature-settings: "tnum"; border: none; background: transparent; padding: 0;  }
@@ -147,16 +147,10 @@ img {
   max-width: 100%;
   margin: 0 auto;
 }
-.debug > * {
-  outline: solid 1px green;
-}
-.debug {
-  background-position: 0 -0.5; position: absolute; top: 0; left: 0; width: 100%; height: 100000px; background: url('data:image/svg+xml;base64,${svg_encoded}');
-}
-`;
+`
 
-let sidebar_width = 32;
-let content_width = 64;
+let sidebar_width = 32
+let content_width = 64
 
 function makeFonts() {
   return `
@@ -202,7 +196,7 @@ function makeFonts() {
     font-weight: bold;
     font-style: italic;
   }
-  `;
+  `
 }
 
 function makeStyle() {
@@ -424,7 +418,7 @@ function makeStyle() {
     }
   }
 }
-</style>`;
+</style>`
 }
 
 function makeJS() {
@@ -521,12 +515,12 @@ function makeJS() {
       }
       mediaQueryList.addListener(handleBreakpoint);
     }, false);
-  </script>`;
+  </script>`
 }
 
 function makeHead() {
-  let title = 'Deep Learning for Anomaly Detection';
-  let description = 'TK';
+  let title = 'Deep Learning for Anomaly Detection'
+  let description = 'TK'
   return `<head>
     <meta charset="utf-8" />
 
@@ -555,7 +549,7 @@ function makeHead() {
 
       gtag('config', 'UA-140718127-1');
     </script>
-  </head>`;
+  </head>`
 }
 
 function wrap(content) {
@@ -563,40 +557,40 @@ function wrap(content) {
     <html lang="en">
       ${makeHead()}
       <body>
-        <div class="content nodebug" style="position: relative;">
+        <div class="content" style="position: relative;">
           <div style="margin-top: ${line}px;"><a href="https://experiments.fastforwardlabs.com" >Cloudera Fast Forward</a></div>
           ${content}
         </div>
       </body>
     </html>
-  `;
+  `
 }
 
-let filenames = fs.readdirSync(path.join(__dirname, 'src'));
+let filenames = fs.readdirSync(path.join(__dirname, 'src'))
 // let filenames = ['00-frontmatter.md', '03-prototype.md'];
-console.log(filenames);
+console.log(filenames)
 
-let report = '';
+let report = ''
 for (let f = 0; f < filenames.length; f++) {
-  console.log(filenames[f]);
+  console.log(filenames[f])
   let content = fs.readFileSync(
     path.join(__dirname, 'src/') + filenames[f],
     'utf-8'
-  );
-  report += content + `\n`;
+  )
+  report += content + `\n`
 }
-let html = wrap(md.render(report));
+let html = wrap(md.render(report))
 
-let write_index_to = path.join(__dirname, 'out/');
+let write_index_to = path.join(__dirname, 'out/')
 if (deploy_location === 'exp') {
-  fs.mkdir(path.join(__dirname, 'exp'));
-  fs.copySync(path.join(__dirname, 'out'), path.join(__dirname, 'exp'));
-  write_index_to = path.join(__dirname, 'exp/');
+  fs.mkdir(path.join(__dirname, 'exp'))
+  fs.copySync(path.join(__dirname, 'out'), path.join(__dirname, 'exp'))
+  write_index_to = path.join(__dirname, 'exp/')
 }
 
-fs.writeFileSync(write_index_to + 'index.html', html);
+fs.writeFileSync(write_index_to + 'index.html', html)
 
-let margin = '0.5in';
+let margin = '0.5in'
 
 // turned off for now (function not called)
 // async () => {

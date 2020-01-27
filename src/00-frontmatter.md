@@ -2,3 +2,4 @@
 
 [[TOC]]
 
+![](figures/cover.png)
