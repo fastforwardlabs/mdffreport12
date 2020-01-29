@@ -2,6 +2,8 @@ let fs = require('fs-extra')
 let path = require('path')
 let md = require('markdown-it')({ typographer: true, html: true })
 var implicitFigures = require('markdown-it-implicit-figures')
+const jsdom = require('jsdom')
+const { JSDOM } = jsdom
 
 let deploy_location = process.argv[2]
 
@@ -13,23 +15,6 @@ let hf = 6 / 8
 let rfs = bf * line
 let lh = 1 / bf
 let rlh = line
-
-// Remember old renderer, if overridden, or proxy to default renderer
-var defaultRender =
-  md.renderer.rules.link_open ||
-  function(tokens, idx, options, env, self) {
-    return self.renderToken(tokens, idx, options)
-  }
-
-// md.renderer.rules.link_open = function(tokens, idx, options, env, self) {
-//   var aIndex = tokens[idx].attrIndex('target');
-//   if (aIndex < 0) {
-//     tokens[idx].attrPush(['target', '_blank']);
-//   } else {
-//     tokens[idx].attrs[aIndex][1] = '_blank';
-//   }
-//   return defaultRender(tokens, idx, options, env, self);
-// };
 
 md.use(require('markdown-it-anchor'))
 md.use(require('markdown-it-table-of-contents'), {
@@ -594,7 +579,11 @@ for (let f = 0; f < filenames.length; f++) {
   )
   report += content + `\n`
 }
-let html = wrap(md.render(report))
+let prehtml = wrap(md.render(report))
+html = prehtml.replace(
+  /(<table[^>]*>(?:.|\n)*?<\/table>)/g,
+  '<div style="width: 100%; overflow-x: auto;">$1</div>'
+)
 
 let write_index_to = path.join(__dirname, 'out/')
 if (deploy_location === 'exp') {

@@ -22,6 +22,7 @@
   "devDependencies": {
     "fs-extra": "^8.1.0",
     "git-directory-deploy": "^1.5.1",
+    "jsdom": "^16.0.1",
     "nodemon": "^1.19.4",
     "reload": "^3.0.3"
   }
