@@ -188,6 +188,34 @@ img {
   margin: 0 auto;
 }
 
+table {
+  text-align: left;
+  margin-top: 14px;
+  font-size: 13.125px;
+  line-height: 18.900000000000002px;
+  border-collapse: collapse;
+}
+table, th, td {
+  border: solid 1px black;
+}
+td {
+  min-width: 20ch;
+  padding-left: 0.5ch;
+  padding-right: 0.5ch;
+  valign: top;
+  vertical-align: top;
+}
+th {
+  padding-left: 0.5ch;
+  padding-right: 0.5ch;
+  vertical-align: top;
+  background: #efefef;
+}
+table ul, table ol {
+  list-style-position: inside;
+  padding-left: 0;
+}
+
   a {
     color: inherit;
   }
@@ -476,7 +504,7 @@ img {
           <h1 id="deep-learning-for-anomaly-detection">Deep Learning for Anomaly Detection</h1>
 <p><div class="table-of-contents"><div id="toc-header" style="display: flex; font-weight: bold; text-transform: uppercase;">
      <div><button id="toggle_contents" style="padding-left: 0.5ch; padding-right: 0.5ch; cursor: pointer; position: relative; top: -1px;">☰</button><span id="contents-label" style="margin-left: 0;"> Contents</span></div>
-  </div><ul><li><a href="#introduction">Introduction</a><ul><li><a href="#applications-of-anomaly-detection">Applications of Anomaly Detection</a><ul><li><a href="#network-intrusion-detection">Network Intrusion Detection</a></li><li><a href="#medical-diagnosis">Medical Diagnosis</a></li><li><a href="#fraud-detection">Fraud Detection</a></li><li><a href="#manufacturing-defect-detection">Manufacturing Defect Detection</a></li></ul></li></ul></li><li><a href="#background">Background</a><ul><li><a href="#anomaly-detection-approaches">Anomaly Detection Approaches</a></li><li><a href="#supervised-learning">Supervised learning</a></li><li><a href="#unsupervised-learning">Unsupervised learning</a></li><li><a href="#semi-supervised-learning">Semi-supervised learning</a></li><li><a href="#evaluating-models%3A-accuracy-is-not-enough">Evaluating Models: Accuracy is not Enough</a></li><li><a href="#anomaly-detection-as-learning-normal-behavior">Anomaly Detection as Learning Normal Behavior</a></li><li><a href="#approaches-to-modeling-normal-behavior">Approaches to Modeling Normal Behavior</a></li><li><a href="#why-deep-learning-for-anomaly-detection">Why Deep Learning for Anomaly Detection</a><ul><li><a href="#multivariate%2C-high-dimensional-data">Multivariate, high dimensional data</a></li><li><a href="#modeling-interaction-between-variables">Modeling interaction between variables</a></li><li><a href="#performance">Performance</a></li><li><a href="#interpretability">Interpretability</a></li></ul></li><li><a href="#what-can-go-wrong%3F">What can go wrong?</a><ul><li><a href="#contaminated-normal-examples">Contaminated normal examples</a></li><li><a href="#computational-complexity">Computational complexity</a></li><li><a href="#human-supervision">Human supervision</a></li><li><a href="#definition-of-anomaly">Definition of anomaly</a></li><li><a href="#threshold-selection">Threshold selection</a></li></ul></li></ul></li><li><a href="#deep-learning-for-anomaly-detection">Deep Learning for Anomaly Detection</a><ul><li><a href="#autoencoders">Autoencoders</a><ul><li><a href="#modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</a></li></ul></li><li><a href="#variational-autoencoders">Variational Autoencoders</a><ul><li><a href="#modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</a></li></ul></li><li><a href="#generative-adversarial-networks">Generative Adversarial Networks</a><ul><li><a href="#modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</a></li></ul></li><li><a href="#sequence-to-sequence-models">Sequence to Sequence Models</a><ul><li><a href="#modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</a></li><li><a href="#modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</a></li></ul></li><li><a href="#additional-considerations">Additional Considerations</a><ul><li><a href="#anomalies-as-rare-events">Anomalies as Rare Events</a></li><li><a href="#discretizing-data-and-handling-stationarity">Discretizing Data and Handling Stationarity</a></li></ul></li><li><a href="#selecting-a-model">Selecting a Model</a><ul><li><a href="#data-properties">Data Properties</a></li><li><a href="#business-requirements">Business Requirements</a></li></ul></li><li><a href="#general-considerations-in-selecting-a-deep-learning-approach">General Considerations in Selecting a Deep Learning Approach</a></li></ul></li><li><a href="#prototype">Prototype</a><ul><li><a href="#datasets">Datasets</a><ul><li><a href="#kdd">KDD</a></li><li><a href="#ecg5000">ECG5000</a></li></ul></li><li><a href="#benchmarking-experiment-setup">Benchmarking Experiment Setup</a></li><li><a href="#web-application-prototypes">Web Application Prototypes</a><ul><li><a href="#prototype-i---grant-to-add-prototype-name">Prototype I - Grant to Add Prototype Name</a></li><li><a href="#prototype-ii---anomagram">Prototype II - Anomagram</a></li></ul></li></ul></li></ul></div></p>
+  </div><ul><li><a href="#introduction">Introduction</a><ul><li><a href="#applications-of-anomaly-detection">Applications of Anomaly Detection</a></li></ul></li><li><a href="#background">Background</a><ul><li><a href="#anomaly-detection-approaches">Anomaly Detection Approaches</a></li><li><a href="#supervised-learning">Supervised learning</a></li><li><a href="#unsupervised-learning">Unsupervised learning</a></li><li><a href="#semi-supervised-learning">Semi-supervised learning</a></li><li><a href="#evaluating-models%3A-accuracy-is-not-enough">Evaluating Models: Accuracy is not Enough</a></li><li><a href="#anomaly-detection-as-learning-normal-behavior">Anomaly Detection as Learning Normal Behavior</a></li><li><a href="#approaches-to-modeling-normal-behavior">Approaches to Modeling Normal Behavior</a></li><li><a href="#why-deep-learning-for-anomaly-detection">Why Deep Learning for Anomaly Detection</a></li><li><a href="#what-can-go-wrong%3F">What can go wrong?</a></li></ul></li><li><a href="#deep-learning-for-anomaly-detection">Deep Learning for Anomaly Detection</a><ul><li><a href="#autoencoders">Autoencoders</a></li><li><a href="#variational-autoencoders">Variational Autoencoders</a></li><li><a href="#generative-adversarial-networks">Generative Adversarial Networks</a></li><li><a href="#sequence-to-sequence-models">Sequence to Sequence Models</a></li><li><a href="#additional-considerations">Additional Considerations</a></li><li><a href="#selecting-a-model">Selecting a Model</a></li><li><a href="#general-considerations-in-selecting-a-deep-learning-approach">General Considerations in Selecting a Deep Learning Approach</a></li></ul></li><li><a href="#prototype">Prototype</a><ul><li><a href="#datasets">Datasets</a></li><li><a href="#benchmarking-experiment-setup">Benchmarking Experiment Setup</a></li><li><a href="#web-application-prototypes">Web Application Prototypes</a></li></ul></li></ul></div></p>
 <figure><img src="figures/cover.png" alt=""></figure>
 <h2 id="introduction">Introduction</h2>
 <blockquote>
@@ -739,7 +767,7 @@ strategies taken by approaches within each category.</p>
 </tr>
 <tr>
 <td>Classification</td>
-<td>&lt;br&gt; 1. A classifier can be learned which distinguishes between normal and anomalous with the given feature space &lt;br&gt; 2. Labeled data exists for normal and abnormal data</td>
+<td><ul><li>A classifier can be learned which distinguishes between normal and anomalous with the given feature space</li><li>Labeled data exists for normal and abnormal data</li></ul></td>
 <td>A measure of classifier estimate (likelihood) that a data point belongs to the normal class</td>
 <td>One Class SVM, Autoencoders, Sequence to Sequence Models</td>
 </tr>
@@ -785,7 +813,7 @@ problems.</p>
 <h4 id="interpretability">Interpretability</h4>
 <p>While deep learning methods can be complex (leading to their reputation as black
 box models), interpretability techniques such as LIME (see our previous report:
-&lt;&lt;Interpretability&gt;&gt;) and Deep SHAP<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> provide opportunities to inspect
+&lt;<Interpretability>&gt;) and Deep SHAP<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> provide opportunities to inspect
 their behaviour and make them more interpretable by analysts.</p>
 <h3 id="what-can-go-wrong%3F">What can go wrong?</h3>
 <p>There is a proliferation of algorithmic approaches that can help tackle an
@@ -1184,33 +1212,33 @@ detection.</figcaption></figure>
 <tbody>
 <tr>
 <td>AutoEncoder</td>
-<td>Flexible approach to modeling complex non-linear patterns in data</td>
-<td>&lt;br&gt; 1.  Does not support variational inference (estimates of uncertainty) &lt;br&gt; 2. Requires a large dataset for training</td>
+<td><ul><li>Flexible approach to modeling complex non-linear patterns in data</li></td>
+<td><ul><li>Does not support variational inference (estimates of uncertainty)</li><li>Requires a large dataset for training</li></ul></td>
 </tr>
 <tr>
 <td>Variational AutoEncoder</td>
-<td>Supports variational inference (probabilistic measure of uncertainty)</td>
-<td>Requires a large amount of training data, training can take a while</td>
+<td><ul><li>Supports variational inference (probabilistic measure of uncertainty)</li></ul></td>
+<td><ul><li>Requires a large amount of training data, training can take a while</li></td>
 </tr>
 <tr>
 <td>GAN (BiGAN)</td>
-<td>&lt;br&gt; 1. Supports variational inference (probabilistic measure of uncertainty) &lt;br&gt; 2. Use of discriminator signal allows better learning of data manifold (useful for high dimensional image data). &lt;br&gt; 3. Performs well for  high dimensional data (images)</td>
-<td>&lt;br&gt; 1. Requires a large amount of training data, training can take a while &lt;br&gt; 2. Training can be unstable (GAN mode collapse)</td>
+<td><ul><li>Supports variational inference (probabilistic measure of uncertainty) </li><li>Use of discriminator signal allows better learning of data manifold (useful for high dimensional image data).</li><li>Performs well for  high dimensional data (images)</li></ul></td>
+<td><ul><li>Requires a large amount of training data, training can take a while </li><li>Training can be unstable (GAN mode collapse)</li></ul></td>
 </tr>
 <tr>
 <td>Sequence to Sequence Mode</td>
-<td>Well suited for data with temporal components (e.g., discretized time series data)</td>
-<td>&lt;br&gt; 1. Slow inference (compute scales with sequence length which needs to be fixed) &lt;br&gt; 2. Training can be slow &lt;br&gt; 3.Limited accuracy when data contains features with no temporal dependence &lt;br&gt; 4. Supports variational inference (probabilistic measure of uncertainty)</td>
+<td><ul><li>Well suited for data with temporal components (e.g., discretized time series data)</li></ul></td>
+<td><ul><li>Slow inference (compute scales with sequence length which needs to be fixed)</li><li>Training can be slow</li><li>Limited accuracy when data contains features with no temporal dependence</li><li>Supports variational inference (probabilistic measure of uncertainty)</li></ul></td>
 </tr>
 <tr>
 <td>One Class SVM</td>
-<td>&lt;br&gt; 1. Does not require a large amount of data &lt;br&gt; 2. Fast to train &lt;br&gt; 3. Fast inference time</td>
-<td>&lt;br&gt; 1. Limited capacity in capturing complex relationships within data &lt;br&gt; 2. Requires kernel selection and other parameters (nu, gamma) that need to be carefully tuned. &lt;br&gt; 3. Does not model a probability distribution, harder to compute estimates of confidence.</td>
+<td><ul><li>Does not require a large amount of data</li><li>Fast to train</li><li>Fast inference time</li></ul></td>
+<td><ul><li>Limited capacity in capturing complex relationships within data</li><li>Requires kernel selection and other parameters (nu, gamma) that need to be carefully tuned.</li><li>Does not model a probability distribution, harder to compute estimates of confidence.</li></ul></td>
 </tr>
 </tbody>
 </table>
 <h2 id="prototype">Prototype</h2>
-<p>In this section, we provide an overview of the data and experiments used to evaluate each of the approaches mentioned in the &lt;&lt;technical&gt;&gt; chapter. We also introduce two prototypes we built to demonstrate results from the experiments and how we designed each prototype.</p>
+<p>In this section, we provide an overview of the data and experiments used to evaluate each of the approaches mentioned in the &lt;<technical>&gt; chapter. We also introduce two prototypes we built to demonstrate results from the experiments and how we designed each prototype.</p>
 <h3 id="datasets">Datasets</h3>
 <h4 id="kdd">KDD</h4>
 <p>The  <a href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">KDD network intrusion dataset</a> is a dataset of TCP connections that have been labelled as normal or representative of network attacks.</p>
@@ -1245,7 +1273,7 @@ Insights: The model tends to expect reconstructions that are close to the mean o
 <p><strong>Visually Compose a Model</strong>: Users can intuitively specify an autoencoder architecture using a direct manipulation model composer. They can add layers and add units to layers using clicks. This architecture is then used to specify the model’s parameters each time the model is compiled. This follows a similar approach used in “A Neural Network Playground”[3]. The model composer connector lines are implemented using the leaderline library. Relevant lines are redrawn or added as layers are added or removed from the model. Insights: There is no marked difference between a smaller model (1 layer) and a larger model (e.g. 8 layers) for the current task. This is likely because the task is not especially complex (a visualization of PCA points for the ECG dataset suggests it is linearly separable). Users can visually compose the autoencoder model — add remove layers in the encoder and decoder. To keep the encoder and decoder symmetrical, add/remove operations on either is mirrored.</p>
 <p><strong>Effect of Learning Rate, Batchsize, Optimizer, Regularization</strong>: The user can select from 6 optimizers (Adam, Adamax, Adadelta, Rmsprop, Momentum, Sgd), various learning rates, and regularizers (l1, l2, l1l2).
 Insights: Adam reaches peak accuracy with less steps compared to other optimizers. Training time increases with no benefit to accuracy as batchsize is reduced (when using Adam). A two layer model will quickly overfit on the data; adding regularization helps address this to some extent. Try them out!</p>
-<p><strong>Effect of Threshold Choices on Precision/Recall</strong>: Earlier in this report (see background section on &lt;&lt;Is Accuracy Enough&gt;&gt;) we highlight the importance of metrics such as precision and recall and why accuracy is not enough. To support this discussion, the user can visualize how threshold choices impact each of these metrics.
+<p><strong>Effect of Threshold Choices on Precision/Recall</strong>: Earlier in this report (see background section on &lt;<Is Accuracy Enough>&gt;) we highlight the importance of metrics such as precision and recall and why accuracy is not enough. To support this discussion, the user can visualize how threshold choices impact each of these metrics.
 Insights: As threshold changes, accuracy can stay the same but, precision and recall can vary. This further illustrates how the threshold can be used by an analyst as a lever to reflect their precision/recall preferences.</p>
 <p><strong>Effect of Data Composition</strong>: We may not always have labelled normal data to train a model. However, given the rarity of anomalies (and domain expertise), we can assume that unlabelled data is mostly comprised of normal samples. However, this assumption raises an important question - does model performance degrade with changes in the percentage of abnormal samples in the dataset? In the train a model section, you can specify the percentage of abnormal samples to include when training the autoencoder model.
 Insights: We see that with 0% abnormal data, the model AUC is ~96%. Great! At 30% abnormal sample composition, AUC drops to ~93%. At 50% abnormal data points, there is just not enough information in the data that allows the model to learn a pattern of normal behaviour. It essentially learns to reconstruct normal and abnormal data well and mse is no longer a good measure of anomaly. At this point, model performance is only slightly above random chance (AUC of 56%).</p>
