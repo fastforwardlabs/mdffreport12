@@ -27,7 +27,7 @@ anomaly or not.  That said, for many anomaly detection use cases the proportion
 of normal versus anomalous examples is highly imbalanced. And while there may be
 multiple anomalous classes, each of them could be quite under-represented. 
 
-![An illustration of supervised learning](figures/supervised_learning.png)
+![An illustration of supervised learning](figures/ill-16.png)
 
 This approach assumes we have labeled examples for all types of anomalies that
 could occur and can correctly classify them. In practice, this is usually not
@@ -47,7 +47,7 @@ activity in the underlying application. In such cases, many of the anomalies
 found in a completely unsupervised manner could correspond to noise, and may not
 be of any interest to the business.
 
-![An illustration of unsupervised learning](figures/unsupervised_learning.png) 
+![An illustration of unsupervised learning](figures/ill-17.png) 
 
 ### Semi-supervised learning
 
@@ -65,7 +65,7 @@ instance, in a network intrusion detection application, one may have examples of
 the normal class and some examples of the intrusion classes, but new kinds of
 intrusions may often arise with time. 
 
-![An illustration of semi-supervised learning](figures/semisupervised_learning.png)
+![An illustration of semi-supervised learning](figures/ill-20.png)
 
 To give another example, in the case of border security or X-ray screening for
 aviation, anomalous items posing a security threat are not commonly encountered.
@@ -73,7 +73,7 @@ Exemplary data of anomalies can be difficult to obtain in any quantity, since no
 such events may have occurred in the first place. In addition, the nature of any
 anomaly posing a potential threat may evolve due to a range of external factors. 
 
-![Exemplary data in certain applications can be difficult to obtain](figures/xray_screening.png)
+![Exemplary data in certain applications can be difficult to obtain](figures/ill-19.png)
 
 Such situations may require the determination of both abnormal classes as well
 as novel classes, for which little to no labeled data is available. One way to
@@ -142,10 +142,10 @@ to each data point that represents a measure of deviation from normal behavior.
 ![Illustration shows the training phase in the anomaly detection loop. Based on
 data (which may or may not contain abnormal samples), the AD model learns a
 model of normal data and assigns an anomaly score based on
-this.](figures/learning_normal_behavior.png)
+this.](figures/ill-13.png)
 
 ![Illustration of the test step in the anomaly detection
-loop.](figures/anomaly_detection_loop)
+loop.](figures/ill-14.png)
 
 The second step in the anomaly detection loop, the test step, introduces the
 concept of threshold-based anomaly tagging. Given the range of scores assigned
@@ -157,7 +157,7 @@ tagging process. Interestingly, while most methods for anomaly detection follow
 this general approach, they differ in how they model normal behaviour and
 generate anomaly scores. 
 
-![Anomaly scoring](figures/anomaly_scoring)
+![Anomaly scoring](figures/ill-15.png)
 
 To further illustrate this process, consider the scenario where the task is to
 detect abnormal temperatures (e.g., spikes), given data from the temperature
@@ -178,7 +178,7 @@ been proposed and rigorously studied over the last few decades. To provide a
 high level summary, we categorize the more popular techniques into four main
 areas: clustering, nearest neighbour, classification, and statistical.^[[Anomaly Detection, A Survey by Chandola et al 2009](https://dl.acm.org/doi/10.1145/1541880.1541882)] 
 The Table below provides a summary of examples, assumptions, and anomaly scoring 
-strategies taken by approaches within each category. Nisha
+strategies taken by approaches within each category.  
 
 | AD Method | Assumptions | Anomaly Scoring | Notable Examples |
 | --------- | ----------- | --------------- | ---------------  |

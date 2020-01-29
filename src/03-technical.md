@@ -40,7 +40,7 @@ has seen during training. As we will see later in this section, this property of
 learning a distribution specific mapping (as opposed to a generic linear
 mapping) is particularly useful for the task of anomaly detection.
 
-![An illustration of the components of autoencoder](figures/autoencoder.png)
+![An illustration of the components of autoencoder](figures/ill-1.png)
 
 #### Modeling Normal Behavior and Anomaly Scoring
 
@@ -61,7 +61,7 @@ the autoencoder attempts to reconstruct abnormal data, it does so in a manner
 that is weighted towards normal samples (square shapes). The difference between
 what it reconstructs and the input is the reconstruction error. We can specify a
 threshold and flag anomalies as samples with reconstruction error above the
-given threshold.](figures/autoencoder.png)
+given threshold.](figures/ill-2.png)
 
 ### Variational Autoencoders
 
@@ -110,7 +110,7 @@ probability measures which offer a principled approach to quantifying
 uncertainty when applied in practice: e.g., the probability that a new data
 point belongs to the distribution of normal data is 80%.  
 
-![An illustration of a variational autoencoder](figures/variational_autoencoder.png)
+![An illustration of a variational autoencoder](figures/ill-3.png)
 
 #### Modeling Normal Behavior and Anomaly Scoring
 
@@ -129,7 +129,7 @@ do this now because we model a distribution as opposed to a point estimate.)
 
 ![An illustration of two approaches to anomaly scoring with a VAE. We can output mean
 reconstruction probability i.e., the probability that a sample belongs to the
-normal data distribution.](figures/variational_autoencoder_scoring.png)
+normal data distribution.](figures/ill-4.png)
 
 ### Generative Adversarial Networks
 
@@ -179,9 +179,11 @@ latent code. At test time, we can leverage this property to infer how different
 a given input sample is from the data distribution on which the model was
 trained.
 
-![A.) An illustration of a traditional GAN, B.) An illustration of a BiGAN - a
+![An illustration of a traditional GAN](figures/ill-5.png)
+
+![An illustration of a BiGAN - a
 traditional GAN extended to include an
-encoder.](figures/gan.png)
+encoder.](figures/ill-6.png)
 
 #### Modeling Normal Behavior and Anomaly Scoring
 
@@ -198,7 +200,7 @@ anomaly score based on the reconstruction loss (difference between X and X_) and
 the discriminator loss (cross entropy loss or feature differences in the last
 dense layer of the discriminator given both X and X_)
 
-![An illustration of a biGAN applied to the task of AD](figures/gan_scoring.png)
+![An illustration of a biGAN applied to the task of AD](figures/ill-7.png)
 
 ### Sequence to Sequence Models
 
@@ -231,7 +233,7 @@ model to output the same tokens as the input (shifted by 1). This way, the
 encoder learns to generate a hidden representation that allows the decoder to
 reconstruct input data that is similar to examples seen in the training dataset.   
 
-![An illustration of sequence to sequence models](figures/seq2seq.png)
+![An illustration of sequence to sequence models](figures/ill-8.png)
 
 #### Modeling Normal Behavior and Anomaly Scoring
 
@@ -266,7 +268,7 @@ non-linear function to project the input data to a higher dimension.
 individual training samples - this affects the "smoothness" of the model.
 
 ![An OCSVM classifier learns a decision boundary around data seen during
-training.](figures/oc-svm.png)
+training.](figures/ill-9.png)
 
 #### Modeling Normal Behavior and Anomaly Scoring
 
@@ -279,7 +281,7 @@ is similar and -1 for data that is not). Both of these scores can be used as an
 anomaly score.
 
 ![At test time, An OCSVM model classifies data points outside the learned
-decision boundary as anomalies (assigned class of -1).](figures/oc-svm_scoring.png)
+decision boundary as anomalies (assigned class of -1).](figures/ill-10.png)
 
 ### Additional Considerations
 
@@ -323,7 +325,7 @@ statistical properties.
 ![The figure above illustrates temperature readings for a datacenter over
 several days and how they can be discretized (sliced) into daily 24hr readings
 and labelled (0 for a normal day temperature, 1 for abnormal temperature) to
-construct a dataset.](figures/discretize_data.png)
+construct a dataset.](figures/ill-11.png)
 
 This notion of constructing a dataset of comparable samples is related to the
 idea of stationarity. A stationary series is one in which properties of the data
@@ -356,16 +358,16 @@ process. In general, discretization should be applied with care.
 ### Selecting a Model
 
 There are several factors that can influence the primary approach taken when it
-comes to detecting anomalies. These include the data type (time series vs
+comes to detecting anomalies. These include the data properties (time series vs
 non-time series, stationary vs non-stationary, univariate versus multivariate,
-low dimensional vs high dimensional), latency requirements, uncertainty
-reporting, and accuracy requirements. More importantly, deep learning methods
+low dimensional vs high dimensional), and business or application requirements (latency, uncertainty
+reporting, and accuracy). More importantly, deep learning methods
 are not always the best approach! To provide a framework for navigating this
 space, we offer the following recommendations (footnote: linear models are
 mentioned below and refer to approaches such as AR, MA, ARMA, ARIMA, SARIMA, VAR
 models).
 
-#### Data Properties: 
+#### Data Properties 
 
 ##### Time series data
 As discussed in the previous sections, it is important to correctly discretize
@@ -378,6 +380,7 @@ has a wide range of features or high dimensional data such as images. For most
 univariate datasets, linear models are both fast and accurate and thus
 recommended.
 
+#### Business Requirements
 ##### Latency
 Deep learning models are slower compared to linear models. For scenarios which
 include high data volume, and low latency requirements, linear models are
@@ -393,7 +396,7 @@ For scenarios where it is a requirement to provide a principled estimate of
 uncertainty for each anomaly classification, deep learning methods such as VAEs
 and BiGANs are recommended.
 
-##### General considerations in selecting a Deep Learning Approach 
+### General Considerations in Selecting a Deep Learning Approach 
 When the (discretized) data contains sequences with temporal dependencies, a
 sequence to sequence model can model these relationships, yielding better
 results. For scenarios requiring principled estimates of uncertainty, a VAE and
@@ -401,7 +404,7 @@ GAN based approaches are suitable. For scenarios where the data is images, AE’
 VAEs and GANs designed with convolution blocks are suitable.  
 
 ![A flow chart illustrating steps for selecting an approach to anomaly
-detection.](figures/flowchart.png)
+detection.](figures/ill-12.png)
 
 
 | Model | Pros | Cons |
