@@ -180,12 +180,12 @@ areas: clustering, nearest neighbour, classification, and statistical.^[[Anomaly
 The Table below provides a summary of examples, assumptions, and anomaly scoring 
 strategies taken by approaches within each category.  
 
-| AD Method | Assumptions | Anomaly Scoring | Notable Examples |
-| --------- | ----------- | --------------- | ---------------  |
-| Clustering | Normal data points belong to a cluster (or lie close to its centroid) in the data while anomalies do not belong to any clusters | Distance from nearest cluster centroid | Self Organising Maps (SOM), K-Means Clustering, Expectation Maximization (EM) |
-| Nearest Neighbour | Normal data instances occur in dense neighborhoods while anomalous data are far from their nearest neighbors | Distance from Kth nearest neighbour| KNN |
-| Classification | <br> 1. A classifier can be learned which distinguishes between normal and anomalous with the given feature space <br> 2. Labeled data exists for normal and abnormal data | A measure of classifier estimate (likelihood) that a data point belongs to the normal class|One Class SVM, Autoencoders, Sequence to Sequence Models|
-|Statistical | Given an assumed stochastic model, normal data falls in high probability regions of the model while abnormal data lie in low probability regions | Probability that datapoint lies a high  probability region in the assumed distribution|Regression Models (ARMA, ARIMA), Gaussian Models, GANs, VAEs |
+| AD Method         | Assumptions                                                                                                                                                                          | Anomaly Scoring                                                                             | Notable Examples                                                              |
+| ---------         | -----------                                                                                                                                                                          | ---------------                                                                             | ---------------                                                               |
+| Clustering        | Normal data points belong to a cluster (or lie close to its centroid) in the data while anomalies do not belong to any clusters                                                      | Distance from nearest cluster centroid                                                      | Self Organising Maps (SOM), K-Means Clustering, Expectation Maximization (EM) |
+| Nearest Neighbour | Normal data instances occur in dense neighborhoods while anomalous data are far from their nearest neighbors                                                                         | Distance from Kth nearest neighbour                                                         | KNN                                                                           |
+| Classification    | <ul><li>A classifier can be learned which distinguishes between normal and anomalous with the given feature space</li><li>Labeled data exists for normal and abnormal data</li></ul> | A measure of classifier estimate (likelihood) that a data point belongs to the normal class | One Class SVM, Autoencoders, Sequence to Sequence Models                      |
+| Statistical       | Given an assumed stochastic model, normal data falls in high probability regions of the model while abnormal data lie in low probability regions                                     | Probability that datapoint lies a high  probability region in the assumed distribution      | Regression Models (ARMA, ARIMA), Gaussian Models, GANs, VAEs                  |
 
 ![Approaches to model normal behavior]
 

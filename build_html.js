@@ -1,6 +1,6 @@
 let fs = require('fs-extra')
 let path = require('path')
-let md = require('markdown-it')({ typographer: true })
+let md = require('markdown-it')({ typographer: true, html: true })
 var implicitFigures = require('markdown-it-implicit-figures')
 
 let deploy_location = process.argv[2]
@@ -33,13 +33,12 @@ var defaultRender =
 
 md.use(require('markdown-it-anchor'))
 md.use(require('markdown-it-table-of-contents'), {
-  includeLevel: [2, 3, 4],
+  includeLevel: [2, 3],
   containerHeaderHtml: `<div id="toc-header" style="display: flex; font-weight: bold; text-transform: uppercase;">
      <div><button id="toggle_contents" style="padding-left: 0.5ch; padding-right: 0.5ch; cursor: pointer; position: relative; top: -1px;">☰</button><span id="contents-label" style="margin-left: 0;"> Contents</span></div>
   </div>`,
 })
-let custom_container = require('markdown-it-container')
-md.use(custom_container, 'info', {})
+md.use(require('markdown-it-container'), 'info', {})
 md.use(require('markdown-it-footnote'))
 md.use(implicitFigures, {
   dataType: false, // <figure data-type="image">, default: false
@@ -134,6 +133,34 @@ img {
   display: block;
   max-width: 100%;
   margin: 0 auto;
+}
+
+table {
+  text-align: left;
+  margin-top: ${lq * 2}px;
+  font-size: ${line * 0.75 * bf}px;
+  line-height: ${line * 0.675}px;
+  border-collapse: collapse;
+}
+table, th, td {
+  border: solid 1px black;
+}
+td {
+  min-width: 20ch;
+  padding-left: 0.5ch;
+  padding-right: 0.5ch;
+  valign: top;
+  vertical-align: top;
+}
+th {
+  padding-left: 0.5ch;
+  padding-right: 0.5ch;
+  vertical-align: top;
+  background: #efefef;
+}
+table ul, table ol {
+  list-style-position: inside;
+  padding-left: 0;
 }
 `
 
