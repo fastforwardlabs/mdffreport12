@@ -48,18 +48,6 @@ md.use(implicitFigures, {
   link: false, // <a href="img.png"><img src="img.png"></a>, default: false
 })
 
-let svg = `<svg width="${line}" height="${line}" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  <line x1="0" y1="0.5" x2="${line}" y2="0.5" stroke="lightblue" stroke-width="1"/>
-  <line x1="0" y1="${lq + 0.5}" x2="${line}" y2="${lq +
-  0.5}" stroke="lightblue" stroke-width="1"/>
-  <line x1="0" y1="${lq * 2 + 0.5}" x2="${line}" y2="${lq * 2 +
-  0.5}" stroke="lightblue" stroke-width="1"/>
-  <line x1="0" y1="${lq * 3 + 0.5}" x2="${line}" y2="${lq * 3 +
-  0.5}" stroke="lightblue" stroke-width="1"/>
-</svg>`
-let buff = new Buffer(svg)
-let svg_encoded = buff.toString('base64')
-
 let hcounter = `
 h1, h2, h3, h4, h5, h6, button { font-size: inherit; line-height: inherit; font-style: inherit; font-weight: inherit; margin: 0; font-feature-settings: "tnum"; border: none; background: transparent; padding: 0;  }
 button:focus, button:hover {
