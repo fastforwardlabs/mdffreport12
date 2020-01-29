@@ -635,18 +635,16 @@ classification approach.</p>
 <h3 id="evaluating-models%3A-accuracy-is-not-enough">Evaluating Models: Accuracy is not Enough</h3>
 <p>As mentioned earlier in <a href="#anomaly-detection-approaches">Anomaly Detection Approaches</a>,
 it is expected that the distribution between the normal and abnormal class(es)
-can be very skewed. This is commonly referred to as <strong>class imbalance</strong>.</p>
-<p>A model that learns from such data may not be robust: it may be accurate when
+can be very skewed. This is commonly referred to as <strong>class imbalance</strong>.
+A model that learns from such data may not be robust: it may be accurate when
 classifying examples within the normal class, but perform poorly when
 classifying anomalous examples.</p>
 <p>For example, consider a dataset of 1000 images of luggage that go through a
 security checkpoint. 950 images are of normal luggage and 50 are abnormal.
-Assuming our model always classifies an image as normal, it can achieve high
-overall accuracy for this dataset (95% - i.e,. 95% for normal data and 0% for
+Assuming we have an unskilled model which simply classifies <strong><em>all</em></strong> images as normal, it can still achieve high overall accuracy for this dataset (95% - i.e,. 95% for normal data and 0% for
 abnormal data).</p>
 <p>Such a model may also misclassify normal examples as anomalous (<strong>false positives,
-FP</strong>), or misclassify anomalous examples as normal ones (<strong>false negatives, FN</strong>).<br>
-As we consider both of these types of errors, it becomes obvious that the
+FP</strong>), or misclassify anomalous examples as normal ones (<strong>false negatives, FN</strong>).  As we consider both of these types of errors, it becomes obvious that the
 traditional accuracy metric (total number of correct classifications divided by
 total classifications) is insufficient in evaluating the skill of an anomaly
 detection model.</p>
@@ -665,10 +663,12 @@ to avoid the cost of incorrectly admitting a dangerous item on a flight). While
 there are several ways to optimize for precision or recall, the manner in which
 a threshold is set can be used to reflect the precision and recall preferences
 for each specific use case.</p>
-<p>In this section, we have reviewed reasons why an unsupervised or semi-supervised
+<div class="info">
+<p>So far, we have reviewed reasons why an unsupervised or semi-supervised
 approach to anomaly detection is desirable, and explored robust metrics for
 evaluating these models. In the next section, we focus on these semi-supervised
 approaches and discuss how they work.</p>
+</div>
 <h3 id="anomaly-detection-as-learning-normal-behavior">Anomaly Detection as Learning Normal Behavior</h3>
 <p>The underlying strategy for most approaches to anomaly detection is to first
 model normal behavior, and then exploit this knowledge in identifying deviations
