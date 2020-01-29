@@ -85,20 +85,17 @@ classification approach.
 As mentioned earlier in [Anomaly Detection Approaches](#anomaly-detection-approaches), 
 it is expected that the distribution between the normal and abnormal class(es) 
 can be very skewed. This is commonly referred to as **class imbalance**. 
-
 A model that learns from such data may not be robust: it may be accurate when
 classifying examples within the normal class, but perform poorly when
 classifying anomalous examples. 
 
 For example, consider a dataset of 1000 images of luggage that go through a
 security checkpoint. 950 images are of normal luggage and 50 are abnormal.
-Assuming our model always classifies an image as normal, it can achieve high
-overall accuracy for this dataset (95% - i.e,. 95% for normal data and 0% for
+Assuming we have an unskilled model which simply classifies **_all_** images as normal, it can still achieve high overall accuracy for this dataset (95% - i.e,. 95% for normal data and 0% for
 abnormal data).
 
 Such a model may also misclassify normal examples as anomalous (**false positives,
-FP**), or misclassify anomalous examples as normal ones (**false negatives, FN**).  
-As we consider both of these types of errors, it becomes obvious that the
+FP**), or misclassify anomalous examples as normal ones (**false negatives, FN**).  As we consider both of these types of errors, it becomes obvious that the
 traditional accuracy metric (total number of correct classifications divided by
 total classifications) is insufficient in evaluating the skill of an anomaly
 detection model.
@@ -120,10 +117,13 @@ there are several ways to optimize for precision or recall, the manner in which
 a threshold is set can be used to reflect the precision and recall preferences
 for each specific use case. 
 
-In this section, we have reviewed reasons why an unsupervised or semi-supervised
+ 
+::: info
+So far, we have reviewed reasons why an unsupervised or semi-supervised
 approach to anomaly detection is desirable, and explored robust metrics for
 evaluating these models. In the next section, we focus on these semi-supervised
 approaches and discuss how they work.
+:::
 
 ### Anomaly Detection as Learning Normal Behavior  
 
