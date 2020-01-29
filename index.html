@@ -476,7 +476,7 @@ img {
           <h1 id="deep-learning-for-anomaly-detection">Deep Learning for Anomaly Detection</h1>
 <p><div class="table-of-contents"><div id="toc-header" style="display: flex; font-weight: bold; text-transform: uppercase;">
      <div><button id="toggle_contents" style="padding-left: 0.5ch; padding-right: 0.5ch; cursor: pointer; position: relative; top: -1px;">☰</button><span id="contents-label" style="margin-left: 0;"> Contents</span></div>
-  </div><ul><li><a href="#introduction">Introduction</a><ul><li><a href="#applications-of-anomaly-detection">Applications of Anomaly Detection</a><ul><li><a href="#network-intrusion-detection">Network Intrusion Detection</a></li><li><a href="#medical-diagnosis">Medical Diagnosis</a></li><li><a href="#fraud-detection">Fraud Detection</a></li><li><a href="#manufacturing-defect-detection">Manufacturing Defect Detection</a></li></ul></li></ul></li><li><a href="#background">Background</a><ul><li><a href="#anomaly-detection-approaches">Anomaly Detection Approaches</a></li><li><a href="#supervised-learning">Supervised learning</a></li><li><a href="#unsupervised-learning">Unsupervised learning</a></li><li><a href="#semi-supervised-learning">Semi-supervised learning</a></li><li><a href="#evaluating-models%3A-accuracy-is-not-enough">Evaluating Models: Accuracy is not Enough</a></li><li><a href="#anomaly-detection-as-learning-normal-behavior">Anomaly Detection as Learning Normal Behavior</a></li><li><a href="#approaches-to-modeling-normal-behavior">Approaches to Modeling Normal Behavior</a></li><li><a href="#why-deep-learning-for-anomaly-detection">Why Deep Learning for Anomaly Detection</a><ul><li><a href="#multivariate%2C-high-dimensional-data">Multivariate, high dimensional data</a></li><li><a href="#modeling-interaction-between-variables">Modeling interaction between variables</a></li><li><a href="#performance">Performance</a></li><li><a href="#interpretability">Interpretability</a></li></ul></li><li><a href="#what-can-go-wrong%3F">What can go wrong?</a><ul><li><a href="#contaminated-normal-examples">Contaminated normal examples</a></li><li><a href="#computational-complexity">Computational complexity</a></li><li><a href="#human-supervision">Human supervision</a></li><li><a href="#definition-of-anomaly">Definition of anomaly</a></li><li><a href="#threshold-selection">Threshold selection</a></li></ul></li></ul></li><li><a href="#deep-learning-for-anomaly-detection">Deep Learning for Anomaly Detection</a><ul><li><a href="#autoencoders">Autoencoders</a><ul><li><a href="#modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</a></li></ul></li><li><a href="#variational-autoencoders">Variational Autoencoders</a><ul><li><a href="#modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</a></li></ul></li><li><a href="#generative-adversarial-networks">Generative Adversarial Networks</a><ul><li><a href="#modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</a></li></ul></li><li><a href="#sequence-to-sequence-models">Sequence to Sequence Models</a><ul><li><a href="#modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</a></li><li><a href="#modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</a></li></ul></li><li><a href="#additional-considerations">Additional Considerations</a><ul><li><a href="#anomalies-as-rare-events">Anomalies as Rare Events</a></li><li><a href="#discretizing-data-and-handling-stationarity">Discretizing Data and Handling Stationarity</a></li></ul></li><li><a href="#selecting-a-model">Selecting a Model</a><ul><li><a href="#data-properties%3A">Data Properties:</a></li></ul></li></ul></li></ul></div></p>
+  </div><ul><li><a href="#introduction">Introduction</a><ul><li><a href="#applications-of-anomaly-detection">Applications of Anomaly Detection</a><ul><li><a href="#network-intrusion-detection">Network Intrusion Detection</a></li><li><a href="#medical-diagnosis">Medical Diagnosis</a></li><li><a href="#fraud-detection">Fraud Detection</a></li><li><a href="#manufacturing-defect-detection">Manufacturing Defect Detection</a></li></ul></li></ul></li><li><a href="#background">Background</a><ul><li><a href="#anomaly-detection-approaches">Anomaly Detection Approaches</a></li><li><a href="#supervised-learning">Supervised learning</a></li><li><a href="#unsupervised-learning">Unsupervised learning</a></li><li><a href="#semi-supervised-learning">Semi-supervised learning</a></li><li><a href="#evaluating-models%3A-accuracy-is-not-enough">Evaluating Models: Accuracy is not Enough</a></li><li><a href="#anomaly-detection-as-learning-normal-behavior">Anomaly Detection as Learning Normal Behavior</a></li><li><a href="#approaches-to-modeling-normal-behavior">Approaches to Modeling Normal Behavior</a></li><li><a href="#why-deep-learning-for-anomaly-detection">Why Deep Learning for Anomaly Detection</a><ul><li><a href="#multivariate%2C-high-dimensional-data">Multivariate, high dimensional data</a></li><li><a href="#modeling-interaction-between-variables">Modeling interaction between variables</a></li><li><a href="#performance">Performance</a></li><li><a href="#interpretability">Interpretability</a></li></ul></li><li><a href="#what-can-go-wrong%3F">What can go wrong?</a><ul><li><a href="#contaminated-normal-examples">Contaminated normal examples</a></li><li><a href="#computational-complexity">Computational complexity</a></li><li><a href="#human-supervision">Human supervision</a></li><li><a href="#definition-of-anomaly">Definition of anomaly</a></li><li><a href="#threshold-selection">Threshold selection</a></li></ul></li></ul></li><li><a href="#deep-learning-for-anomaly-detection">Deep Learning for Anomaly Detection</a><ul><li><a href="#autoencoders">Autoencoders</a><ul><li><a href="#modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</a></li></ul></li><li><a href="#variational-autoencoders">Variational Autoencoders</a><ul><li><a href="#modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</a></li></ul></li><li><a href="#generative-adversarial-networks">Generative Adversarial Networks</a><ul><li><a href="#modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</a></li></ul></li><li><a href="#sequence-to-sequence-models">Sequence to Sequence Models</a><ul><li><a href="#modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</a></li><li><a href="#modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</a></li></ul></li><li><a href="#additional-considerations">Additional Considerations</a><ul><li><a href="#anomalies-as-rare-events">Anomalies as Rare Events</a></li><li><a href="#discretizing-data-and-handling-stationarity">Discretizing Data and Handling Stationarity</a></li></ul></li><li><a href="#selecting-a-model">Selecting a Model</a><ul><li><a href="#data-properties">Data Properties</a></li><li><a href="#business-requirements">Business Requirements</a></li></ul></li><li><a href="#general-considerations-in-selecting-a-deep-learning-approach">General Considerations in Selecting a Deep Learning Approach</a></li></ul></li><li><a href="#prototype">Prototype</a><ul><li><a href="#datasets">Datasets</a><ul><li><a href="#kdd">KDD</a></li><li><a href="#ecg5000">ECG5000</a></li></ul></li><li><a href="#benchmarking-experiment-setup">Benchmarking Experiment Setup</a></li><li><a href="#web-application-prototypes">Web Application Prototypes</a><ul><li><a href="#prototype-i---grant-to-add-prototype-name">Prototype I - Grant to Add Prototype Name</a></li><li><a href="#prototype-ii---anomagram">Prototype II - Anomagram</a></li></ul></li></ul></li></ul></div></p>
 <figure><img src="figures/cover.png" alt=""></figure>
 <h2 id="introduction">Introduction</h2>
 <blockquote>
@@ -495,6 +495,7 @@ of domains: including IT analytics, networks intrusion analytics, medical
 diagnostics, financial fraud protection, manufacturing quality control,
 marketing and social media analytics, and more.</p>
 <h3 id="applications-of-anomaly-detection">Applications of Anomaly Detection</h3>
+<figure><img src="figures/ill-18.png" alt="Anomaly detection is relevant to several usecases - Network intrusion detection, Medical diagnosis, Fraud detection and manufacturing defect detection."><figcaption>Anomaly detection is relevant to several usecases - Network intrusion detection, Medical diagnosis, Fraud detection and manufacturing defect detection.</figcaption></figure>
 <h4 id="network-intrusion-detection">Network Intrusion Detection</h4>
 <p>With the growth of computer networks and application usage dependencies, network
 security is critical to running a modern viable business. Yet all computer
@@ -590,7 +591,7 @@ where the machines can learn to accurately predict whether a given example is an
 anomaly or not.  That said, for many anomaly detection use cases the proportion
 of normal versus anomalous examples is highly imbalanced. And while there may be
 multiple anomalous classes, each of them could be quite under-represented.</p>
-<figure><img src="figures/supervised_learning.png" alt="An illustration of supervised learning"><figcaption>An illustration of supervised learning</figcaption></figure>
+<figure><img src="figures/ill-16.png" alt="An illustration of supervised learning"><figcaption>An illustration of supervised learning</figcaption></figure>
 <p>This approach assumes we have labeled examples for all types of anomalies that
 could occur and can correctly classify them. In practice, this is usually not
 the case, as anomalies can take many different forms, with novel anomalies
@@ -606,7 +607,7 @@ nature of the anomalies is often highly specific to particular kinds of abnormal
 activity in the underlying application. In such cases, many of the anomalies
 found in a completely unsupervised manner could correspond to noise, and may not
 be of any interest to the business.</p>
-<figure><img src="figures/unsupervised_learning.png" alt="An illustration of unsupervised learning"><figcaption>An illustration of unsupervised learning</figcaption></figure>
+<figure><img src="figures/ill-17.png" alt="An illustration of unsupervised learning"><figcaption>An illustration of unsupervised learning</figcaption></figure>
 <h3 id="semi-supervised-learning">Semi-supervised learning</h3>
 <p>Semi-supervised learning falls between supervised and unsupervised learning
 approaches. It includes a set of methods that take advantage of large amounts of
@@ -620,13 +621,13 @@ as  tune the model’s parameters) using a small amount of labeled data.<sup cla
 instance, in a network intrusion detection application, one may have examples of
 the normal class and some examples of the intrusion classes, but new kinds of
 intrusions may often arise with time.</p>
-<figure><img src="figures/semisupervised_learning.png" alt="An illustration of semi-supervised learning"><figcaption>An illustration of semi-supervised learning</figcaption></figure>
+<figure><img src="figures/ill-20.png" alt="An illustration of semi-supervised learning"><figcaption>An illustration of semi-supervised learning</figcaption></figure>
 <p>To give another example, in the case of border security or X-ray screening for
 aviation, anomalous items posing a security threat are not commonly encountered.
 Exemplary data of anomalies can be difficult to obtain in any quantity, since no
 such events may have occurred in the first place. In addition, the nature of any
 anomaly posing a potential threat may evolve due to a range of external factors.</p>
-<figure><img src="figures/xray_screening.png" alt="Exemplary data in certain applications can be difficult to obtain"><figcaption>Exemplary data in certain applications can be difficult to obtain</figcaption></figure>
+<figure><img src="figures/ill-19.png" alt="Exemplary data in certain applications can be difficult to obtain"><figcaption>Exemplary data in certain applications can be difficult to obtain</figcaption></figure>
 <p>Such situations may require the determination of both abnormal classes as well
 as novel classes, for which little to no labeled data is available. One way to
 address this is to use some variant of a supervised or semi-supervised
@@ -680,11 +681,11 @@ points or only normal data points (see <a href="#deep-learning-for-anomaly-detec
 Deep Learning for Anomaly Detection</a> for additional
 details on AD methods).  Based on this model, an anomaly score is then assigned
 to each data point that represents a measure of deviation from normal behavior.</p>
-<figure><img src="figures/learning_normal_behavior.png" alt="Illustration shows the training phase in the anomaly detection loop. Based ondata (which may or may not contain abnormal samples), the AD model learns amodel of normal data and assigns an anomaly score based onthis."><figcaption>Illustration shows the training phase in the anomaly detection loop. Based on
+<figure><img src="figures/ill-13.png" alt="Illustration shows the training phase in the anomaly detection loop. Based ondata (which may or may not contain abnormal samples), the AD model learns amodel of normal data and assigns an anomaly score based onthis."><figcaption>Illustration shows the training phase in the anomaly detection loop. Based on
 data (which may or may not contain abnormal samples), the AD model learns a
 model of normal data and assigns an anomaly score based on
 this.</figcaption></figure>
-<figure><img src="figures/anomaly_detection_loop" alt="Illustration of the test step in the anomaly detectionloop."><figcaption>Illustration of the test step in the anomaly detection
+<figure><img src="figures/ill-14.png" alt="Illustration of the test step in the anomaly detectionloop."><figcaption>Illustration of the test step in the anomaly detection
 loop.</figcaption></figure>
 <p>The second step in the anomaly detection loop, the test step, introduces the
 concept of threshold-based anomaly tagging. Given the range of scores assigned
@@ -695,7 +696,7 @@ provides the analyst some easy lever to tune the “sensitivity” of the anomal
 tagging process. Interestingly, while most methods for anomaly detection follow
 this general approach, they differ in how they model normal behaviour and
 generate anomaly scores.</p>
-<figure><img src="figures/anomaly_scoring" alt="Anomaly scoring"><figcaption>Anomaly scoring</figcaption></figure>
+<figure><img src="figures/ill-15.png" alt="Anomaly scoring"><figcaption>Anomaly scoring</figcaption></figure>
 <p>To further illustrate this process, consider the scenario where the task is to
 detect abnormal temperatures (e.g., spikes), given data from the temperature
 sensor attached to servers in a data center. We can use a statistical approach
@@ -713,7 +714,7 @@ been proposed and rigorously studied over the last few decades. To provide a
 high level summary, we categorize the more popular techniques into four main
 areas: clustering, nearest neighbour, classification, and statistical.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>
 The Table below provides a summary of examples, assumptions, and anomaly scoring
-strategies taken by approaches within each category. Nisha</p>
+strategies taken by approaches within each category.</p>
 <table>
 <thead>
 <tr>
@@ -864,7 +865,7 @@ not succeed at reconstructing data which is significantly different from data it
 has seen during training. As we will see later in this section, this property of
 learning a distribution specific mapping (as opposed to a generic linear
 mapping) is particularly useful for the task of anomaly detection.</p>
-<figure><img src="figures/autoencoder.png" alt="An illustration of the components of autoencoder"><figcaption>An illustration of the components of autoencoder</figcaption></figure>
+<figure><img src="figures/ill-1.png" alt="An illustration of the components of autoencoder"><figcaption>An illustration of the components of autoencoder</figcaption></figure>
 <h4 id="modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</h4>
 <p>Applying an autoencoder for anomaly detection follows the general principle of
 first modeling normal behaviour and subsequently generating an anomaly score for
@@ -877,7 +878,7 @@ at test time, where the reconstruction error is small for normal data samples,
 and large for abnormal data samples. To identify anomalies, we use the
 reconstruction error score as an anomaly score and flag samples with
 reconstruction errors above a given threshold.</p>
-<figure><img src="figures/autoencoder.png" alt="An illustration of how autoencoders can be applied for anomaly detection. Asthe autoencoder attempts to reconstruct abnormal data, it does so in a mannerthat is weighted towards normal samples (square shapes). The difference betweenwhat it reconstructs and the input is the reconstruction error. We can specify athreshold and flag anomalies as samples with reconstruction error above thegiven threshold."><figcaption>An illustration of how autoencoders can be applied for anomaly detection. As
+<figure><img src="figures/ill-2.png" alt="An illustration of how autoencoders can be applied for anomaly detection. Asthe autoencoder attempts to reconstruct abnormal data, it does so in a mannerthat is weighted towards normal samples (square shapes). The difference betweenwhat it reconstructs and the input is the reconstruction error. We can specify athreshold and flag anomalies as samples with reconstruction error above thegiven threshold."><figcaption>An illustration of how autoencoders can be applied for anomaly detection. As
 the autoencoder attempts to reconstruct abnormal data, it does so in a manner
 that is weighted towards normal samples (square shapes). The difference between
 what it reconstructs and the input is the reconstruction error. We can specify a
@@ -925,7 +926,7 @@ latent code for controlled generation of samples. Third, a VAE provides true
 probability measures which offer a principled approach to quantifying
 uncertainty when applied in practice: e.g., the probability that a new data
 point belongs to the distribution of normal data is 80%.</p>
-<figure><img src="figures/variational_autoencoder.png" alt="An illustration of a variational autoencoder"><figcaption>An illustration of a variational autoencoder</figcaption></figure>
+<figure><img src="figures/ill-3.png" alt="An illustration of a variational autoencoder"><figcaption>An illustration of a variational autoencoder</figcaption></figure>
 <h4 id="modeling-normal-behavior-and-anomaly-scoring-2">Modeling Normal Behavior and Anomaly Scoring</h4>
 <p>Similar to an autoencoder, we begin by training the VAE on normal data samples.
 At test time, we can compute an anomaly score in two ways. First, we can draw
@@ -938,7 +939,7 @@ and compute the probability that the new datapoint belongs to the distribution
 of normal data on which the model was trained. If the datapoint lies in a low
 density region (below some threshold) we then flag that as an anomaly. (We can
 do this now because we model a distribution as opposed to a point estimate.)</p>
-<figure><img src="figures/variational_autoencoder_scoring.png" alt="An illustration of two approaches to anomaly scoring with a VAE. We can output meanreconstruction probability i.e., the probability that a sample belongs to thenormal data distribution."><figcaption>An illustration of two approaches to anomaly scoring with a VAE. We can output mean
+<figure><img src="figures/ill-4.png" alt="An illustration of two approaches to anomaly scoring with a VAE. We can output meanreconstruction probability i.e., the probability that a sample belongs to thenormal data distribution."><figcaption>An illustration of two approaches to anomaly scoring with a VAE. We can output mean
 reconstruction probability i.e., the probability that a sample belongs to the
 normal data distribution.</figcaption></figure>
 <h3 id="generative-adversarial-networks">Generative Adversarial Networks</h3>
@@ -981,7 +982,8 @@ images of cars will always output an image that looks like a car given any
 latent code. At test time, we can leverage this property to infer how different
 a given input sample is from the data distribution on which the model was
 trained.</p>
-<figure><img src="figures/gan.png" alt="A.) An illustration of a traditional GAN, B.) An illustration of a BiGAN - atraditional GAN extended to include anencoder."><figcaption>A.) An illustration of a traditional GAN, B.) An illustration of a BiGAN - a
+<figure><img src="figures/ill-5.png" alt="An illustration of a traditional GAN"><figcaption>An illustration of a traditional GAN</figcaption></figure>
+<figure><img src="figures/ill-6.png" alt="An illustration of a BiGAN - atraditional GAN extended to include anencoder."><figcaption>An illustration of a BiGAN - a
 traditional GAN extended to include an
 encoder.</figcaption></figure>
 <h4 id="modeling-normal-behavior-and-anomaly-scoring-3">Modeling Normal Behavior and Anomaly Scoring</h4>
@@ -997,7 +999,7 @@ X, which is fed to the generator and yields a sample X_. Next, we can compute an
 anomaly score based on the reconstruction loss (difference between X and X_) and
 the discriminator loss (cross entropy loss or feature differences in the last
 dense layer of the discriminator given both X and X_)</p>
-<figure><img src="figures/gan_scoring.png" alt="An illustration of a biGAN applied to the task of AD"><figcaption>An illustration of a biGAN applied to the task of AD</figcaption></figure>
+<figure><img src="figures/ill-7.png" alt="An illustration of a biGAN applied to the task of AD"><figcaption>An illustration of a biGAN applied to the task of AD</figcaption></figure>
 <h3 id="sequence-to-sequence-models">Sequence to Sequence Models</h3>
 <p>Sequence to sequence models are a class of neural networks mainly designed to
 learn mappings between data that are best represented as sequences. Data
@@ -1024,7 +1026,7 @@ sequence to sequence model task to function like an autoencoder - train the
 model to output the same tokens as the input (shifted by 1). This way, the
 encoder learns to generate a hidden representation that allows the decoder to
 reconstruct input data that is similar to examples seen in the training dataset.</p>
-<figure><img src="figures/seq2seq.png" alt="An illustration of sequence to sequence models"><figcaption>An illustration of sequence to sequence models</figcaption></figure>
+<figure><img src="figures/ill-8.png" alt="An illustration of sequence to sequence models"><figcaption>An illustration of sequence to sequence models</figcaption></figure>
 <h4 id="modeling-normal-behavior-and-anomaly-scoring-4">Modeling Normal Behavior and Anomaly Scoring</h4>
 <p>To identify anomalies, we take a semi supervised approach where we train the
 sequence to sequence model on normal data. At test time, we can compare the
@@ -1054,7 +1056,7 @@ non-linear function to project the input data to a higher dimension.</li>
 <li>gamma is a parameter of the RBF kernel type and controls the influence of
 individual training samples - this affects the “smoothness” of the model.</li>
 </ul>
-<figure><img src="figures/oc-svm.png" alt="An OCSVM classifier learns a decision boundary around data seen duringtraining."><figcaption>An OCSVM classifier learns a decision boundary around data seen during
+<figure><img src="figures/ill-9.png" alt="An OCSVM classifier learns a decision boundary around data seen duringtraining."><figcaption>An OCSVM classifier learns a decision boundary around data seen during
 training.</figcaption></figure>
 <h4 id="modeling-normal-behavior-and-anomaly-scoring-5">Modeling Normal Behavior and Anomaly Scoring</h4>
 <p>To apply OCSVM for anomaly detection, we train an OCSVM model using normal data,
@@ -1064,7 +1066,7 @@ seen during training. This estimate may be the distance from the decision
 boundary (the separating hyperplane) or discrete class values (+1 for data that
 is similar and -1 for data that is not). Both of these scores can be used as an
 anomaly score.</p>
-<figure><img src="figures/oc-svm_scoring.png" alt="At test time, An OCSVM model classifies data points outside the learneddecision boundary as anomalies (assigned class of -1)."><figcaption>At test time, An OCSVM model classifies data points outside the learned
+<figure><img src="figures/ill-10.png" alt="At test time, An OCSVM model classifies data points outside the learneddecision boundary as anomalies (assigned class of -1)."><figcaption>At test time, An OCSVM model classifies data points outside the learned
 decision boundary as anomalies (assigned class of -1).</figcaption></figure>
 <h3 id="additional-considerations">Additional Considerations</h3>
 <h4 id="anomalies-as-rare-events">Anomalies as Rare Events</h4>
@@ -1100,7 +1102,7 @@ requirement is that each discrete sample is comparable. For example, given that
 temperatures may spike during work hours compared to non-work hours, it may be
 challenging to discretize this data by hour as these hours exhibit different
 statistical properties.</p>
-<figure><img src="figures/discretize_data.png" alt="The figure above illustrates temperature readings for a datacenter overseveral days and how they can be discretized (sliced) into daily 24hr readingsand labelled (0 for a normal day temperature, 1 for abnormal temperature) toconstruct a dataset."><figcaption>The figure above illustrates temperature readings for a datacenter over
+<figure><img src="figures/ill-11.png" alt="The figure above illustrates temperature readings for a datacenter overseveral days and how they can be discretized (sliced) into daily 24hr readingsand labelled (0 for a normal day temperature, 1 for abnormal temperature) toconstruct a dataset."><figcaption>The figure above illustrates temperature readings for a datacenter over
 several days and how they can be discretized (sliced) into daily 24hr readings
 and labelled (0 for a normal day temperature, 1 for abnormal temperature) to
 construct a dataset.</figcaption></figure>
@@ -1132,15 +1134,15 @@ retraining the model as new data arrives; and complicates the model deployment
 process. In general, discretization should be applied with care.</p>
 <h3 id="selecting-a-model">Selecting a Model</h3>
 <p>There are several factors that can influence the primary approach taken when it
-comes to detecting anomalies. These include the data type (time series vs
+comes to detecting anomalies. These include the data properties (time series vs
 non-time series, stationary vs non-stationary, univariate versus multivariate,
-low dimensional vs high dimensional), latency requirements, uncertainty
-reporting, and accuracy requirements. More importantly, deep learning methods
+low dimensional vs high dimensional), and business or application requirements (latency, uncertainty
+reporting, and accuracy). More importantly, deep learning methods
 are not always the best approach! To provide a framework for navigating this
 space, we offer the following recommendations (footnote: linear models are
 mentioned below and refer to approaches such as AR, MA, ARMA, ARIMA, SARIMA, VAR
 models).</p>
-<h4 id="data-properties%3A">Data Properties:</h4>
+<h4 id="data-properties">Data Properties</h4>
 <h5 id="time-series-data">Time series data</h5>
 <p>As discussed in the previous sections, it is important to correctly discretize
 data as well as handle stationarity before training a model.</p>
@@ -1150,6 +1152,7 @@ modeling the interactions between multiple variables. These include data that
 has a wide range of features or high dimensional data such as images. For most
 univariate datasets, linear models are both fast and accurate and thus
 recommended.</p>
+<h4 id="business-requirements">Business Requirements</h4>
 <h5 id="latency">Latency</h5>
 <p>Deep learning models are slower compared to linear models. For scenarios which
 include high data volume, and low latency requirements, linear models are
@@ -1162,13 +1165,13 @@ and recall.</p>
 <p>For scenarios where it is a requirement to provide a principled estimate of
 uncertainty for each anomaly classification, deep learning methods such as VAEs
 and BiGANs are recommended.</p>
-<h5 id="general-considerations-in-selecting-a-deep-learning-approach">General considerations in selecting a Deep Learning Approach</h5>
+<h3 id="general-considerations-in-selecting-a-deep-learning-approach">General Considerations in Selecting a Deep Learning Approach</h3>
 <p>When the (discretized) data contains sequences with temporal dependencies, a
 sequence to sequence model can model these relationships, yielding better
 results. For scenarios requiring principled estimates of uncertainty, a VAE and
 GAN based approaches are suitable. For scenarios where the data is images, AE’s
 VAEs and GANs designed with convolution blocks are suitable.</p>
-<figure><img src="figures/flowchart.png" alt="A flow chart illustrating steps for selecting an approach to anomalydetection."><figcaption>A flow chart illustrating steps for selecting an approach to anomaly
+<figure><img src="figures/ill-12.png" alt="A flow chart illustrating steps for selecting an approach to anomalydetection."><figcaption>A flow chart illustrating steps for selecting an approach to anomaly
 detection.</figcaption></figure>
 <table>
 <thead>
@@ -1206,6 +1209,46 @@ detection.</figcaption></figure>
 </tr>
 </tbody>
 </table>
+<h2 id="prototype">Prototype</h2>
+<p>In this section, we provide an overview of the data and experiments used to evaluate each of the approaches mentioned in the &lt;&lt;technical&gt;&gt; chapter. We also introduce two prototypes we built to demonstrate results from the experiments and how we designed each prototype.</p>
+<h3 id="datasets">Datasets</h3>
+<h4 id="kdd">KDD</h4>
+<p>The  <a href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">KDD network intrusion dataset</a> is a dataset of TCP connections that have been labelled as normal or representative of network attacks.</p>
+<blockquote>
+<p>A connection is a sequence of TCP packets starting and ending at some well defined times, between which data flows to and from a source IP address to a target IP address under some well defined protocol.”</p>
+</blockquote>
+<p>These attacks fall into four main categories - denial of service, unauthorized access from a remote machine, unauthorized access to local superuser privileges, and surveillance e.g. port scanning.  Each TCP connection is represented as a set of attributes or features (derived based on domain knowledge) pertaining to each connection such as the number  of failed logins, connection duration, data bytes from source to destination etc. To make the data more realistic, the test portion of the dataset contains attack types that are not in the train portion.</p>
+<h4 id="ecg5000">ECG5000</h4>
+<p>The  <a href="http://www.timeseriesclassification.com/description.php?Dataset=ECG5000">ECG5000</a> contains examples of ECG signals from a patient. Each data sample, which corresponds to an extracted heartbeat containing 140 points, has been labelled as normal or being indicative of heart conditions related to congestive heart failure. Given an ECG signal sample, the task is to predict if it is normal or abnormal. ECG5000 is well suited to a prototype for a few reasons — it is visual (signals can be visualized easily) and it is based on real data associated with a concrete use case (heart disease detection). While the task itself is not extremely complex, the data is multidimensional (140 values per sample which allows us demonstrate the value of a deep model), but small enough to rapidly train and run inference.</p>
+<h3 id="benchmarking-experiment-setup">Benchmarking Experiment Setup</h3>
+<p>We sought to compare each of the models discussed earlier using the KDD dataset. We preprocessed the data to keep only 18 continuous features (for easy reproducibility). Feature scaling (0-1 minmax scaling) is also applied to the data; scaling parameters are learned from training data and then applied to test data. We then trained each model using normal samples (97,278 samples) and evaluated it with a randomly selected subset of the test data (5,000 normal samples, and 5,000 abnormal samples).</p>
+<p>We implemented each model using comparable parameters (see table below &lt;&lt;&gt;&gt;) that allow us to benchmark them in terms of training (mean time per training epoch, mean training time to best accuracy), inference (mean inference time) and storage (size of weights, number of parameters) metrics. The deep learning models (AE, VAE, Seq2seq, BiGAn) were implemented in Tensorflow (keras api); each model trained till best accuracy on the same validation dataset, using the <a href="https://keras.io/optimizers/">Adam optimizer</a> and a learning rate of  0.01.  OCSVM was implemented using the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.OneClassSVM.html">Sklearn OCSVM</a> library.  Additional details on the parameters for each model are summarized in the table below for reproducibility.</p>
+<p>Table …</p>
+<p>In terms of training, we found that the ocsvm and the autoencoder was the fastest to train to peak accuracy. GANs have known stability issues (foot note: Improved Techniques for Training GANs  https://arxiv.org/abs/1606.03498) and can be challenging to train. Overall, the BiGAN approach, required more training epochs to arrive at stable results compared to the other deep methods. OC SVM had the fastest inference time. In terms of storage, the bigan model has the largest number of parameters and overall size of weights.</p>
+<h3 id="web-application-prototypes">Web Application Prototypes</h3>
+<p>We built two prototypes that demonstrate results and insights from our experiments. The first prototype – is built on on the KDD dataset used in the experiments above and is a visualization of the performance of 4 approaches to anomaly detection. The second prototype is an interactive explainer that focuses on the autoencoder model and results from applying it to detecting anomalies in ECG data.</p>
+<h4 id="prototype-i---grant-to-add-prototype-name">Prototype I - Grant to Add Prototype Name</h4>
+<p>This prototype is built on the KDD network intrusion dataset</p>
+<h4 id="prototype-ii---anomagram">Prototype II - Anomagram</h4>
+<p>This section describes Anomagram - an interactive web based experience where the user can build, train and evaluate an autoencoder to detect anomalous ECG signals. It utilizes the ECG5000 dataset mentioned above &lt;&lt;&gt;&gt;.</p>
+<h5 id="ux-goals-for-anomagram">UX Goals for Anomagram</h5>
+<p>Anomagram is designed as part of a growing area interactive visualizations (see Neural Network Playground [3], ConvNet Playground, GANLab, GAN dissection, etc) that help communicate technical insights on how deep learning models work. It is entirely browser based and  implemented in Tensorflow.js. This way, users can explore live experiments with no installations required. Importantly, Anomagram moves beyond the user of toy/synthetic data and situates learning within the context of a concrete task (anomaly detection for ECG data). The overall user experience goals for Anomagram are summarized as follows.</p>
+<p>Goal 1: Provide an introduction to Autoencoders and how they can be applied to the task of anomaly detection. This is achieved via the <em>Introduction</em> module (see screenshot below). This entails providing definitions of concepts (reconstruction error, thresholds etc) paired with interactive visualizations that demonstrate concepts (e.g. an interactive visualization for inference on test data, a visualization of the structure of an autoencoder, a visualization of error histograms as training progresses, etc). fd</p>
+<figure><img src="figures/anomagram-1.png" alt="Introduction module view."><figcaption><em>Introduction</em> module view.</figcaption></figure>
+<p>Goal 2: Provide an interactive, accessible experience that supports technical learning by doing. This is mostly accomplished within the <em>Train a Model</em> module (see screenshot below)  and is designed for users interested in additional technical depth. It entails providing a direct manipulation interface that allows the user to specify a model (add/remove layers and units within layers), modify model parameters (training steps, batchsize, learning rate, regularizer, optimizer, etc), modify training/test data parameters (data size, data composition), train the model, and evaluate model performance (visualization of accuracy, precision, recall, false positive, false negative, ROC etc metrics) as each parameter is changed. Who should use Anomagram? Anyone interested in an accessible way to learn about autoencoders and anomaly detection . Useful for educators (tool to support guided discussion of the topic), entry level data scientists, and non-ML experts (citizen data scientists, software developers, designers etc).</p>
+<figure><img src="figures/anomagram-2.png" alt="Train a Model module view."><figcaption><em>Train a Model</em> module view.</figcaption></figure>
+<h5 id="interface-affordances-and-insights">Interface Affordances and Insights</h5>
+<p>This section discusses some explorations the user can perform with Anomagram, and some corresponding insights.</p>
+<p><strong>Craft (Adversarial) Input</strong>: Anomalies by definition can take many different and previously unseen forms. This makes the assessment of anomaly detection models more challenging. Ideally, we want the user to conduct their own evaluations of a trained model e.g. by allowing them to upload their own ECG data. In practice, this requires the collection of digitized ECG data with similar preprocessing (heartbeat extraction) and range as the ECG5000 dataset used in training the model. This is challenging. The next best way to allow testing on examples contributed by the user is to provide a simulator — hence the draw your ECG data feature. This provides a (html) canvas on which the user can draw signals and observe the model’s behaviour. Drawing strokes are converted to an array, with interpolation for incomplete drawings (total array size=140) and fed to the model. While this approach has limited realism (users may not have sufficient domain expertise to draw meaningful signals), it provides an opportunity to craft various types of (adversarial) samples and observe the model’s performance.
+Insights: The model tends to expect reconstructions that are close to the mean of normal data samples. Using the Draw your ecg data feature, the user can draw (adversarial) examples of input data and observe model predictions/performance.</p>
+<figure><img src="figures/anomagram-3.png" alt="Using the Draw your ecg data feature, the user can draw (adversarial) examples of input data and observe model predictions/performance."><figcaption>Using the Draw your ecg data feature, the user can draw (adversarial) examples of input data and observe model predictions/performance.</figcaption></figure>
+<p><strong>Visually Compose a Model</strong>: Users can intuitively specify an autoencoder architecture using a direct manipulation model composer. They can add layers and add units to layers using clicks. This architecture is then used to specify the model’s parameters each time the model is compiled. This follows a similar approach used in “A Neural Network Playground”[3]. The model composer connector lines are implemented using the leaderline library. Relevant lines are redrawn or added as layers are added or removed from the model. Insights: There is no marked difference between a smaller model (1 layer) and a larger model (e.g. 8 layers) for the current task. This is likely because the task is not especially complex (a visualization of PCA points for the ECG dataset suggests it is linearly separable). Users can visually compose the autoencoder model — add remove layers in the encoder and decoder. To keep the encoder and decoder symmetrical, add/remove operations on either is mirrored.</p>
+<p><strong>Effect of Learning Rate, Batchsize, Optimizer, Regularization</strong>: The user can select from 6 optimizers (Adam, Adamax, Adadelta, Rmsprop, Momentum, Sgd), various learning rates, and regularizers (l1, l2, l1l2).
+Insights: Adam reaches peak accuracy with less steps compared to other optimizers. Training time increases with no benefit to accuracy as batchsize is reduced (when using Adam). A two layer model will quickly overfit on the data; adding regularization helps address this to some extent. Try them out!</p>
+<p><strong>Effect of Threshold Choices on Precision/Recall</strong>: Earlier in this report (see background section on &lt;&lt;Is Accuracy Enough&gt;&gt;) we highlight the importance of metrics such as precision and recall and why accuracy is not enough. To support this discussion, the user can visualize how threshold choices impact each of these metrics.
+Insights: As threshold changes, accuracy can stay the same but, precision and recall can vary. This further illustrates how the threshold can be used by an analyst as a lever to reflect their precision/recall preferences.</p>
+<p><strong>Effect of Data Composition</strong>: We may not always have labelled normal data to train a model. However, given the rarity of anomalies (and domain expertise), we can assume that unlabelled data is mostly comprised of normal samples. However, this assumption raises an important question - does model performance degrade with changes in the percentage of abnormal samples in the dataset? In the train a model section, you can specify the percentage of abnormal samples to include when training the autoencoder model.
+Insights: We see that with 0% abnormal data, the model AUC is ~96%. Great! At 30% abnormal sample composition, AUC drops to ~93%. At 50% abnormal data points, there is just not enough information in the data that allows the model to learn a pattern of normal behaviour. It essentially learns to reconstruct normal and abnormal data well and mse is no longer a good measure of anomaly. At this point, model performance is only slightly above random chance (AUC of 56%).</p>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">
