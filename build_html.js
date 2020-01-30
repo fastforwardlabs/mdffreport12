@@ -129,7 +129,7 @@ table, th, td {
   border: solid 1px black;
 }
 td {
-  min-width: 20ch;
+  min-width: 18ch;
   padding-left: 0.5ch;
   padding-right: 0.5ch;
   valign: top;
