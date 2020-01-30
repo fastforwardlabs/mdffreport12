@@ -566,6 +566,10 @@ function wrap(content) {
 
 let filenames = fs.readdirSync(path.join(__dirname, 'src'))
 // let filenames = ['00-frontmatter.md', '03-prototype.md'];
+//
+filenames = filenames.filter(function(file) {
+  return path.extname(file).toLowerCase() === '.md'
+})
 console.log(filenames)
 
 let report = ''
