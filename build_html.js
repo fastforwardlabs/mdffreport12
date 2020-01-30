@@ -2,8 +2,6 @@ let fs = require('fs-extra')
 let path = require('path')
 let md = require('markdown-it')({ typographer: true, html: true })
 var implicitFigures = require('markdown-it-implicit-figures')
-const jsdom = require('jsdom')
-const { JSDOM } = jsdom
 
 let deploy_location = process.argv[2]
 
@@ -580,6 +578,8 @@ for (let f = 0; f < filenames.length; f++) {
   report += content + `\n`
 }
 let prehtml = wrap(md.render(report))
+
+// wrap tables for mobile, not supposed to do this
 html = prehtml.replace(
   /(<table[^>]*>(?:.|\n)*?<\/table>)/g,
   '<div style="width: 100%; overflow-x: auto;">$1</div>'
