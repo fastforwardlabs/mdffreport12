@@ -47,7 +47,7 @@ h2 {
   font-size: ${line * 1.5 * hf}px;
   line-height: ${line * 1.5}px;
   font-weight: bold;
-  margin-top: ${lq * 2}px;
+  margin-top: ${rlh * 1}px;
   margin-bottom: ${lq * 2}px;
 }
 h3 {
@@ -268,7 +268,10 @@ function makeStyle() {
 }
  .table-of-contents ul {
     list-style: none;
-    padding-left: 0
+    padding-left: 0;
+  }
+ .table-of-contents > ul {
+    padding-bottom: ${rlh}px;
   }
   .table-of-contents > ul > li > a:before {
           counter-increment: chapters;
@@ -277,11 +280,16 @@ function makeStyle() {
  .table-of-contents > ul > li {
     font-weight: bold;
   }
+ .table-of-contents > ul > li {
+    font-weight: bold;
+  }
+ 
  .table-of-contents > ul > li > ul > li {
     font-weight: normal;
     font-style: normal;
     text-transform: none;
     letter-spacing: 0;
+    margin-left: 0;
   }
  .table-of-contents > ul > li > ul > li > ul > li {
     font-weight: normal;
@@ -308,14 +316,32 @@ function makeStyle() {
   }
 
  .table-of-contents > ul > li > ul > li > a {
-    padding-left: 4ch;
+    font-size: ${line * 0.9 * bf}px;
+      line-height: ${line * 0.9}px;
+    // padding-left: 4ch;
   }
   .table-of-contents > ul > li > ul > li > ul > li > a {
     padding-left: 5ch;
   }
 
-
-
+h1 {
+    counter-reset: chp;
+}
+h2 {
+  position: relative;
+  padding-top: ${rlh + rlh / 2}px;
+}
+  h2:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+      font-size: ${line * bf}px;
+    color: black;
+    counter-increment: chp;
+    content: "chapter " counter(chp);
+    text-transform: uppercase;
+  }
+ 
   .toc-desktop-hidden .table-of-contents {
     width: auto;
   }

@@ -117,7 +117,7 @@ h2 {
   font-size: 31.5px;
   line-height: 42px;
   font-weight: bold;
-  margin-top: 14px;
+  margin-top: 28px;
   margin-bottom: 14px;
 }
 h3 {
@@ -243,7 +243,10 @@ table ul, table ol {
 }
  .table-of-contents ul {
     list-style: none;
-    padding-left: 0
+    padding-left: 0;
+  }
+ .table-of-contents > ul {
+    padding-bottom: 28px;
   }
   .table-of-contents > ul > li > a:before {
           counter-increment: chapters;
@@ -252,11 +255,16 @@ table ul, table ol {
  .table-of-contents > ul > li {
     font-weight: bold;
   }
+ .table-of-contents > ul > li {
+    font-weight: bold;
+  }
+ 
  .table-of-contents > ul > li > ul > li {
     font-weight: normal;
     font-style: normal;
     text-transform: none;
     letter-spacing: 0;
+    margin-left: 0;
   }
  .table-of-contents > ul > li > ul > li > ul > li {
     font-weight: normal;
@@ -283,14 +291,32 @@ table ul, table ol {
   }
 
  .table-of-contents > ul > li > ul > li > a {
-    padding-left: 4ch;
+    font-size: 15.75px;
+      line-height: 25.2px;
+    // padding-left: 4ch;
   }
   .table-of-contents > ul > li > ul > li > ul > li > a {
     padding-left: 5ch;
   }
 
-
-
+h1 {
+    counter-reset: chp;
+}
+h2 {
+  position: relative;
+  padding-top: 42px;
+}
+  h2:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+      font-size: 17.5px;
+    color: black;
+    counter-increment: chp;
+    content: "chapter " counter(chp);
+    text-transform: uppercase;
+  }
+ 
   .toc-desktop-hidden .table-of-contents {
     width: auto;
   }
