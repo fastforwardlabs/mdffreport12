@@ -173,7 +173,7 @@ resolution by identifying KPIs and attributes that are causing the alert.
 
 #### Anodot
 
-*Capabilities*
+##### Capabilities
 [Anodot](https://www.anodot.com/) is a real-time analytics and automated anomaly detection system that
 detects and 
 turns outliers in time series data into business insights. They explore anomaly
@@ -184,13 +184,13 @@ two things:
 with root cause analysis
 - Business forecasting: forecasting, what if, and optimization. 
 
-*Data requirements*
+##### Data requirements
 Anodot supports multiple input data sources including direct uploads, or
 integrations with Amazon’s S3 or Google Cloud storage. They are data agnostic
 and can track a variety of  metrics, e.g., revenue, number of sales, the number
 of page visits, number of daily active users, etc. 
 
-*Modeling approach/technique(s)* 
+##### Modeling approach/technique(s) 
 Anodot analyzes all the business metrics in real-time and at scale by running
 its ML algorithms on the live data stream itself, without reading or writing
 into a database. Every data point that flows into Anodot from all data sources
@@ -207,17 +207,17 @@ they use sequential adaptive learning algorithms which initialize a model of
 what is normal on the fly, and then compute the relation of each new data point
 going forward.
 
-*Point anomalies or intervals*
+##### Point anomalies or intervals
 Instead of flagging individual data points as anomalies, Anodot highlights
 intervals. Points within the entire duration of the interval are considered
 anomalous, preventing redundant alerts.
 
-*Thresholding*
+##### Thresholding
 While users can specify static thresholds which trigger alerts, Anodot also
 provides automatic defaults where no thresholding input from the user is
 required.
 
-*Root cause investigation*
+##### Root cause investigation
 Anodot helps investigate why the alert was triggered. It tries to understand how
 different active anomalies correlate (to expedite root cause investigation) and
 shortens the time to resolution. Anodot bands groups together different
@@ -229,7 +229,7 @@ incident has an Anomap, a graphic distribution of the dimensions most impacted.
 This is essentially a heat map that makes it easier to understand the whole
 picture.
 
-*User Interface*
+##### User Interface
 The Anodot interface enables the user to visualize and explore alerts. With the
 receipt of every alert, users are prompted to give the alert a binary score
 (good catch / bad catch). This input is fed back into the learning model to
@@ -237,7 +237,7 @@ further tune it by providing real-life indications about the validity of its
 performance. By training the algorithms with direct feedback on anomalies, users
 can influence the system’s functionality and results.
 
-*Delivery*
+##### Delivery
 Notifications can be forwarded to every user through his/her choice of
 channel(s). Anodot notification integrations include—but are not limited
 to—Slack, API, email, pagerduty, Jira, Microsoft Teams OpsGenie, etc.
