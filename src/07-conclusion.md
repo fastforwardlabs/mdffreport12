@@ -21,18 +21,14 @@ performance of deep learning models for high dimensional data such as images
 Overall, while deep learning approaches are useful, there are a few challenges
 that may limit their deployment in production settings.
 
-### Latency
-
-Compared to linear models (such as AR, ARMA, etc.) or shallow machine learning
+- **Latency:** Compared to linear models (such as AR, ARMA, etc.) or shallow machine learning
 models (such as One Class SVM), deep learning models can have significant
 latency associated with inference. This makes it expensive to apply them within
 streaming data (high volume, high velocity) use cases at scale. For example, our
 experiments show that inference with OCSVM is 12x faster than with an
 autoencoder. 
 
-### Data Requirements
-
-Deep learning models typically require a large dataset (tens of thousands of
+- **Data Requirements:** Deep learning models typically require a large dataset (tens of thousands of
 samples) for effective training. Further, deep models are prone to overfitting
 and need to be carefully evaluated to address this. Many anomaly use cases can
 frequently have few data points (e.g., daily sales data for two years will
@@ -40,9 +36,7 @@ generate 712 samples, which may be insufficient to train a model). In such
 scenarios, linear models designed to work with smaller datasets are a better
 option.
 
-### Managing Distribution Shift
-
-In many scenarios, the underlying process generating data may legitimately
+- **Managing Distribution Shift:** In many scenarios, the underlying process generating data may legitimately
 change such that a datapoint that was previously anomalous becomes normal. The
 changes could be gradual, cyclical, or even abrupt in nature. This phenomenon,
 although not unique to anomaly detection, is known as concept drift. With
