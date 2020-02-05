@@ -11,7 +11,7 @@ The  [KDD network intrusion dataset](http://kdd.ics.uci.edu/databases/kddcup99/k
 
 > A connection is a sequence of TCP packets starting and ending at some well defined times, between which data flows to and from a source IP address to a target IP address under some well defined protocol.”
 
-These attacks fall into four main categories - denial of service, unauthorized access from a remote machine, unauthorized access to local superuser privileges, and surveillance e.g. port scanning.  Each TCP connection is represented as a set of attributes or features (derived based on domain knowledge) pertaining to each connection such as the number  of failed logins, connection duration, data bytes from source to destination etc. To make the data more realistic, the test portion of the dataset contains attack types that are not in the train portion. 
+These attacks fall into four main categories - denial of service, unauthorized access from a remote machine, unauthorized access to local superuser privileges, and surveillance e.g. port scanning.  Each TCP connection is represented as a set of attributes or features (derived based on domain knowledge) pertaining to each connection such as the number  of failed logins, connection duration, data bytes from source to destination etc. The dataset is comprised of a training set (97278 normal traffic samples, 396743 attack traffic samples ) and a test set (63458 normal packet samples, 185366 attack traffic samples). To make the data more realistic, the test portion of the dataset contains 14 additional attack types that are not in the train portion; thus, a good model should generalize well and detect attacks unseen at during training.
 
 
 #### ECG5000
@@ -19,14 +19,26 @@ The  [ECG5000](http://www.timeseriesclassification.com/description.php?Dataset=E
  
 
 ### Benchmarking Experiment Setup 
-We sought to compare each of the models discussed earlier using the KDD dataset. We preprocessed the data to keep only 18 continuous features (for easy reproducibility). Feature scaling (0-1 minmax scaling) is also applied to the data; scaling parameters are learned from training data and then applied to test data. We then trained each model using normal samples (97,278 samples) and evaluated it with a randomly selected subset of the test data (5,000 normal samples, and 5,000 abnormal samples). 
+We sought to compare each of the models discussed earlier using the KDD dataset. We preprocessed the data to keep only 18 continuous features (for easy reproducibility). Feature scaling (0-1 minmax scaling) is also applied to the data; scaling parameters are learned from training data and then applied to test data. We then trained each model using normal samples (97,278 samples) and evaluated it on the entire training set. 
 
-We implemented each model using comparable parameters (see table below <<>>) that allow us to benchmark them in terms of training (mean time per training epoch, mean training time to best accuracy), inference (mean inference time) and storage (size of weights, number of parameters) metrics. The deep learning models (AE, VAE, Seq2seq, BiGAn) were implemented in Tensorflow (keras api); each model trained till best accuracy on the same validation dataset, using the [Adam optimizer](https://keras.io/optimizers/) and a learning rate of  0.01.  OCSVM was implemented using the [Sklearn OCSVM](https://scikit-learn.org/stable/modules/generated/sklearn.svm.OneClassSVM.html) library.  Additional details on the parameters for each model are summarized in the table below for reproducibility.
+<!-- a randomly selected subset of the test data (8,000 normal samples, and 2,000 abnormal samples).  -->
+
+We implemented each model using comparable parameters (see table below) that allow us to benchmark them in terms of training (mean time per training epoch, mean training time to best accuracy), inference (mean inference time), storage (size of weights, number of parameters), and performance (ROC, precision, recall). The deep learning models (AE, VAE, Seq2seq, BiGAN) were implemented in Tensorflow (keras api); each model was trained till best accuracy measured on the same validation dataset, using the [Adam optimizer](https://keras.io/optimizers/) and a learning rate of  0.01.  OCSVM was implemented using the [Sklearn OCSVM](https://scikit-learn.org/stable/modules/generated/sklearn.svm.OneClassSVM.html) library using the _rbf_ kernel and parameters (_nu_=0.01 and _gamma_=0.5).  Additional details on the parameters for each model are summarized in the table below for reproducibility. These experiments were run on an Intel(R) Xeon(R) CPU @ 2.30GHz
 
 Table ...
 
+#### Observations
 
-In terms of training, we found that the ocsvm and the autoencoder was the fastest to train to peak accuracy. GANs have known stability issues (foot note: Improved Techniques for Training GANs  https://arxiv.org/abs/1606.03498) and can be challenging to train. Overall, the BiGAN approach, required more training epochs to arrive at stable results compared to the other deep methods. OC SVM had the fastest inference time. In terms of storage, the bigan model has the largest number of parameters and overall size of weights.
+##### Training
+In terms of training, ocsvm and an autoencoder were the fastest to implement and train. While the BiGAN based model also demonstrated very good accuracy, it was the most challenging to train. This is in part due to a known stability issue (mostly fluctuating accuracy during training) ^[[Improved Techniques for Training GANs](https://arxiv.org/abs/1606.03498)] associated with GANs. Overall, the BiGAN approach, required more training epochs to arrive at stable results compared to the other deep methods. 
+
+<!-- In terms of training time, we found that ocsvm and the autoencoder were the fastest models to train to peak accuracy. GANs have known stability issues ^[
+[Improved Techniques for Training GANs](https://arxiv.org/abs/1606.03498)]   and can be challenging to train. Overall, the BiGAN approach, required more training epochs to arrive at stable results compared to the other deep methods.  -->
+##### Inference and Storage
+Being the least complex model, OCSVM had the fastest inference time (12x faster than an autoencoder). In terms of storage, the biGAN model has the largest number of parameters and overall size of weights. These values have implications for the number of concurrent models 
+
+##### Performance
+For the current KDD dataset, we found that the autoencoder had the best performance.
 
 
 ###  Web Application Prototypes
