@@ -530,7 +530,7 @@ h2 {
           <h1 id="deep-learning-for-anomaly-detection">Deep Learning for Anomaly Detection</h1>
 <p><div class="table-of-contents"><div id="toc-header" style="display: flex; font-weight: bold; text-transform: uppercase;">
      <div><button id="toggle_contents" style="padding-left: 0.5ch; padding-right: 0.5ch; cursor: pointer; position: relative; top: -1px;">☰</button><span id="contents-label" style="margin-left: 0;"> Contents</span></div>
-  </div><ul><li><a href="#introduction">Introduction</a><ul><li><a href="#applications-of-anomaly-detection">Applications of Anomaly Detection</a></li></ul></li><li><a href="#background">Background</a><ul><li><a href="#anomaly-detection-approaches">Anomaly Detection Approaches</a></li><li><a href="#supervised-learning">Supervised learning</a></li><li><a href="#unsupervised-learning">Unsupervised learning</a></li><li><a href="#semi-supervised-learning">Semi-supervised learning</a></li><li><a href="#evaluating-models%3A-accuracy-is-not-enough">Evaluating Models: Accuracy is not Enough</a></li><li><a href="#anomaly-detection-as-learning-normal-behavior">Anomaly Detection as Learning Normal Behavior</a></li><li><a href="#approaches-to-modeling-normal-behavior">Approaches to Modeling Normal Behavior</a></li><li><a href="#why-deep-learning-for-anomaly-detection">Why Deep Learning for Anomaly Detection</a></li><li><a href="#what-can-go-wrong%3F">What can go wrong?</a></li></ul></li><li><a href="#deep-learning-for-anomaly-detection">Deep Learning for Anomaly Detection</a><ul><li><a href="#autoencoders">Autoencoders</a></li><li><a href="#variational-autoencoders">Variational Autoencoders</a></li><li><a href="#generative-adversarial-networks">Generative Adversarial Networks</a></li><li><a href="#sequence-to-sequence-models">Sequence to Sequence Models</a></li><li><a href="#additional-considerations">Additional Considerations</a></li><li><a href="#selecting-a-model">Selecting a Model</a></li><li><a href="#general-considerations-in-selecting-a-deep-learning-approach">General Considerations in Selecting a Deep Learning Approach</a></li></ul></li><li><a href="#prototype">Prototype</a><ul><li><a href="#datasets">Datasets</a></li><li><a href="#benchmarking-experiment-setup">Benchmarking Experiment Setup</a></li><li><a href="#web-application-prototypes">Web Application Prototypes</a></li></ul></li><li><a href="#landscape">Landscape</a><ul><li><a href="#open-source-tools-and-frameworks">Open Source Tools and Frameworks</a></li><li><a href="#anomaly-detection-as-a-service">Anomaly Detection as a Service</a></li></ul></li><li><a href="#ethics">Ethics</a><ul><li><a href="#diversity-matters">Diversity Matters</a></li><li><a href="#explainability">Explainability</a></li><li><a href="#additional-use-cases">Additional Use Cases</a></li><li><a href="#innovation">Innovation</a></li></ul></li><li><a href="#conclusion">Conclusion</a><ul><li><a href="#latency">Latency</a></li><li><a href="#data-requirements">Data Requirements</a></li><li><a href="#managing-distribution-shift">Managing Distribution Shift</a></li></ul></li></ul></div></p>
+  </div><ul><li><a href="#introduction">Introduction</a><ul><li><a href="#applications-of-anomaly-detection">Applications of Anomaly Detection</a></li></ul></li><li><a href="#background">Background</a><ul><li><a href="#anomaly-detection-approaches">Anomaly Detection Approaches</a></li><li><a href="#supervised-learning">Supervised learning</a></li><li><a href="#unsupervised-learning">Unsupervised learning</a></li><li><a href="#semi-supervised-learning">Semi-supervised learning</a></li><li><a href="#evaluating-models%3A-accuracy-is-not-enough">Evaluating Models: Accuracy is not Enough</a></li><li><a href="#anomaly-detection-as-learning-normal-behavior">Anomaly Detection as Learning Normal Behavior</a></li><li><a href="#approaches-to-modeling-normal-behavior">Approaches to Modeling Normal Behavior</a></li><li><a href="#why-deep-learning-for-anomaly-detection">Why Deep Learning for Anomaly Detection</a></li><li><a href="#what-can-go-wrong%3F">What can go wrong?</a></li></ul></li><li><a href="#deep-learning-for-anomaly-detection">Deep Learning for Anomaly Detection</a><ul><li><a href="#autoencoders">Autoencoders</a></li><li><a href="#variational-autoencoders">Variational Autoencoders</a></li><li><a href="#generative-adversarial-networks">Generative Adversarial Networks</a></li><li><a href="#sequence-to-sequence-models">Sequence to Sequence Models</a></li><li><a href="#additional-considerations">Additional Considerations</a></li><li><a href="#selecting-a-model">Selecting a Model</a></li><li><a href="#general-considerations-in-selecting-a-deep-learning-approach">General Considerations in Selecting a Deep Learning Approach</a></li></ul></li><li><a href="#prototype">Prototype</a><ul><li><a href="#datasets">Datasets</a></li><li><a href="#benchmarking-experiment-setup">Benchmarking Experiment Setup</a></li><li><a href="#web-application-prototypes">Web Application Prototypes</a></li></ul></li><li><a href="#landscape">Landscape</a><ul><li><a href="#open-source-tools-and-frameworks">Open Source Tools and Frameworks</a></li><li><a href="#anomaly-detection-as-a-service">Anomaly Detection as a Service</a></li></ul></li><li><a href="#ethics">Ethics</a><ul><li><a href="#diversity-matters">Diversity Matters</a></li><li><a href="#explainability">Explainability</a></li><li><a href="#additional-use-cases">Additional Use Cases</a></li><li><a href="#innovation">Innovation</a></li></ul></li><li><a href="#conclusion">Conclusion</a></li></ul></div></p>
 <figure><img src="figures/cover.png" alt=""></figure>
 <p><em>Read our full report on using deep learning for anomaly detection below or download it (<a href="#">PDF</a>, <a href="#">ePub</a>, <a href="#">mobi</a>). Also be sure to check out our anomaly detection prototypes: <a href="https://blip.fastforwardlabs.com">Blip</a> and <a href="https://anomagram.fastforwardlabs.com">Anomagram</a>.</em></p>
 <h2 id="introduction">Introduction</h2>
@@ -1842,23 +1842,26 @@ performance of deep learning models for high dimensional data such as images
 (cite).</p>
 <p>Overall, while deep learning approaches are useful, there are a few challenges
 that may limit their deployment in production settings.</p>
-<h3 id="latency-2">Latency</h3>
-<p>Compared to linear models (such as AR, ARMA, etc.) or shallow machine learning
+<ul>
+<li>
+<p><strong>Latency:</strong> Compared to linear models (such as AR, ARMA, etc.) or shallow machine learning
 models (such as One Class SVM), deep learning models can have significant
 latency associated with inference. This makes it expensive to apply them within
 streaming data (high volume, high velocity) use cases at scale. For example, our
 experiments show that inference with OCSVM is 12x faster than with an
 autoencoder.</p>
-<h3 id="data-requirements-6">Data Requirements</h3>
-<p>Deep learning models typically require a large dataset (tens of thousands of
+</li>
+<li>
+<p><strong>Data Requirements:</strong> Deep learning models typically require a large dataset (tens of thousands of
 samples) for effective training. Further, deep models are prone to overfitting
 and need to be carefully evaluated to address this. Many anomaly use cases can
 frequently have few data points (e.g., daily sales data for two years will
 generate 712 samples, which may be insufficient to train a model). In such
 scenarios, linear models designed to work with smaller datasets are a better
 option.</p>
-<h3 id="managing-distribution-shift">Managing Distribution Shift</h3>
-<p>In many scenarios, the underlying process generating data may legitimately
+</li>
+<li>
+<p><strong>Managing Distribution Shift:</strong> In many scenarios, the underlying process generating data may legitimately
 change such that a datapoint that was previously anomalous becomes normal. The
 changes could be gradual, cyclical, or even abrupt in nature. This phenomenon,
 although not unique to anomaly detection, is known as concept drift. With
@@ -1866,6 +1869,8 @@ respect to anomaly detection, one way to handle this is to frequently retrain
 the model as new data arrives - or trigger retraining when concept drift is
 detected. It can be challenging to maintain this continuous learning approach
 for deep models, as training time can be significant.</p>
+</li>
+</ul>
 <p>Going forward, we expect the general approaches discussed in the report to
 continually evolve and mature. As examples, see recent extensions to the
 encoder-decoder model approach that are based on GMMs<sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup>, LSTMs<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup>,
