@@ -17,12 +17,13 @@ marketing and social media analytics, and more.
 
 ### Applications of Anomaly Detection
 
+We'll begin by taking a closer look at some possible use cases, before diving into different approaches to anomaly detection in the next chapter.
+
 ![Anomaly detection is relevant to several usecases - Network intrusion detection, Medical diagnosis, Fraud detection and manufacturing defect detection.](figures/ill-18.png)
 
 #### Network Intrusion Detection
 
-With the growth of computer networks and application usage dependencies, network
-security is critical to running a modern viable business. Yet all computer
+Network security is critical to running a modern viable business, yet all computer
 systems suffer from security vulnerabilities which are both technically
 difficult and economically punishing to resolve once exploited. Business IT
 systems collect data about their own network traffic, user activity in the
