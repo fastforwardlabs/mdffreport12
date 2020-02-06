@@ -626,7 +626,7 @@ report we survey the approaches, highlighting their pros and cons.</p>
 <h2 id="background">Background</h2>
 <p>In this chapter, we provide an overview of approaches to anomaly detection based
 on the type of data available, how to evaluate an anomaly detection model, how
-each approach constructs a model of normal behaviour and why deep learning
+each approach constructs a model of normal behavior and why deep learning
 models are valuable. It concludes with a discussion of pitfalls that may occur
 while deploying these models.</p>
 <h3 id="anomaly-detection-approaches">Anomaly Detection Approaches</h3>
@@ -651,18 +651,17 @@ multiple anomalous classes, each of them could be quite under-represented.</p>
 <p>This approach assumes we have labeled examples for all types of anomalies that
 could occur and can correctly classify them. In practice, this is usually not
 the case, as anomalies can take many different forms, with novel anomalies
-emerging at test time. Thus, we need approaches that generalize well and
-effectively identify anomalies that have previously been unseen.</p>
+emerging at test time. Thus, approaches that generalize well and are more
+effective at identifying previously unseen anomalies are preferable.</p>
 <h3 id="unsupervised-learning">Unsupervised learning</h3>
 <p>When it comes to unsupervised approaches, one does not possess examples that
 illustrate the relationship between input features and output. Instead, in this
 case, machines learn by finding structure within the input features. Owing to
 the frequent lack of labeled anomalous data, unsupervised approaches are more
 popular than supervised ones in the anomaly detection field. That said, the
-nature of the anomalies is often highly specific to particular kinds of abnormal
-activity in the underlying application. In such cases, many of the anomalies
-found in a completely unsupervised manner could correspond to noise, and may not
-be of any interest to the business.</p>
+nature of the anomalies one hopes to detect is often highly specific. Thus,
+many of the anomalies found in a completely unsupervised manner could correspond
+to noise, and may not be of any interest to the business.</p>
 <figure><img src="figures/ill-17.png" alt="An illustration of unsupervised learning"><figcaption>An illustration of unsupervised learning</figcaption></figure>
 <h3 id="semi-supervised-learning">Semi-supervised learning</h3>
 <p>Semi-supervised learning falls between supervised and unsupervised learning
@@ -685,9 +684,9 @@ such events may have occurred in the first place. In addition, the nature of any
 anomaly posing a potential threat may evolve due to a range of external factors.</p>
 <figure><img src="figures/ill-19.png" alt="Exemplary data in certain applications can be difficult to obtain"><figcaption>Exemplary data in certain applications can be difficult to obtain</figcaption></figure>
 <p>Such situations may require the determination of both abnormal classes as well
-as novel classes, for which little to no labeled data is available. One way to
-address this is to use some variant of a supervised or semi-supervised
-classification approach.</p>
+as novel classes, for which little to no labeled data is available. In cases like these,
+a semi-supervised classification approach that enables detection of both known and
+previously unseen anomalies is an ideal solution.</p>
 <h3 id="evaluating-models%3A-accuracy-is-not-enough">Evaluating Models: Accuracy is not Enough</h3>
 <p>As mentioned earlier in <a href="#anomaly-detection-approaches">Anomaly Detection Approaches</a>,
 it is expected that the distribution between the normal and abnormal class(es)
@@ -720,7 +719,7 @@ there are several ways to optimize for precision or recall, the manner in which
 a threshold is set can be used to reflect the precision and recall preferences
 for each specific use case.</p>
 <div class="info">
-<p>So far, we have reviewed reasons why an unsupervised or semi-supervised
+<p>So far, we have reviewed reasons why a semi-supervised
 approach to anomaly detection is desirable, and explored robust metrics for
 evaluating these models. In the next section, we focus on these semi-supervised
 approaches and discuss how they work.</p>
@@ -737,9 +736,9 @@ points or only normal data points (see <a href="#deep-learning-for-anomaly-detec
 Deep Learning for Anomaly Detection</a> for additional
 details on AD methods).  Based on this model, an anomaly score is then assigned
 to each data point that represents a measure of deviation from normal behavior.</p>
-<figure><img src="figures/ill-13.png" alt="Illustration shows the training phase in the anomaly detection loop. Based ondata (which may or may not contain abnormal samples), the AD model learns amodel of normal data and assigns an anomaly score based onthis."><figcaption>Illustration shows the training phase in the anomaly detection loop. Based on
+<figure><img src="figures/ill-13.png" alt="Illustration shows the training phase in the anomaly detection loop. Based ondata (which may or may not contain abnormal samples), the AD model learns amodel of normal behavior and assigns an anomaly score based onthis."><figcaption>Illustration shows the training phase in the anomaly detection loop. Based on
 data (which may or may not contain abnormal samples), the AD model learns a
-model of normal data and assigns an anomaly score based on
+model of normal behavior and assigns an anomaly score based on
 this.</figcaption></figure>
 <figure><img src="figures/ill-14.png" alt="Illustration of the test step in the anomaly detectionloop."><figcaption>Illustration of the test step in the anomaly detection
 loop.</figcaption></figure>
@@ -750,7 +749,7 @@ process - e.g., scores above a given threshold are tagged as anomalies, while
 those below it are tagged as normal. The idea of a threshold is valuable, as it
 provides the analyst some easy lever to tune the “sensitivity” of the anomaly
 tagging process. Interestingly, while most methods for anomaly detection follow
-this general approach, they differ in how they model normal behaviour and
+this general approach, they differ in how they model normal behavior and
 generate anomaly scores.</p>
 <figure><img src="figures/ill-15.png" alt="Anomaly scoring"><figcaption>Anomaly scoring</figcaption></figure>
 <p>To further illustrate this process, consider the scenario where the task is to
@@ -807,7 +806,6 @@ strategies taken by approaches within each category.</p>
 </tr>
 </tbody>
 </table></div>
-<p>![Approaches to model normal behavior]</p>
 <p>The majority of these approaches have been applied to univariate time series
 data -  a single datapoint generated by the same process at various time steps
 (e.g., readings from a temperature sensor over time) and assume linear
@@ -821,62 +819,75 @@ Adversarial Networks present some benefits.</p>
 <h3 id="why-deep-learning-for-anomaly-detection">Why Deep Learning for Anomaly Detection</h3>
 <p>Deep learning approaches, when applied to anomaly detection, offer several
 advantages.</p>
-<h4 id="multivariate%2C-high-dimensional-data">Multivariate, high dimensional data</h4>
-<p>Deep learning approaches are designed to work with multivariate data of
+<ul>
+<li>
+<p><strong>Multivariate, high dimensional data</strong>: Deep learning approaches are designed to work with multivariate data of
 different data types across each variable. This makes it easy to integrate
 information from multiple sources; it also eliminates challenges associated
 with individually modeling anomaly for each variable and aggregating the
 results.</p>
-<h4 id="modeling-interaction-between-variables">Modeling interaction between variables</h4>
-<p>Deep learning approaches work well in jointly modeling the interactions between
+</li>
+<li>
+<p><strong>Modeling interaction between variables</strong>: Deep learning approaches work well in jointly modeling the interactions between
 multiple variables with respect to a given task. In addition, beyond the
 specification of generic hyperparameters (number of layers, units per layer,
 etc.), deep learning models require minimal tuning to achieve good results.</p>
-<h4 id="performance">Performance</h4>
-<p>Deep learning methods offer the opportunity to model complex, non-linear
+</li>
+<li>
+<p><strong>Performance</strong>: Deep learning methods offer the opportunity to model complex, non-linear
 relationships within data, and leverage this for the anomaly detection task. The
 performance of deep learning models can also potentially scale with the
 availability of appropriate training data, making them suitable for data-rich
 problems.</p>
-<h4 id="interpretability">Interpretability</h4>
-<p>While deep learning methods can be complex (leading to their reputation as black
+</li>
+</ul>
+<p>NM: We need to move this somewhere else
+RH: That may not be the right link to use for the Interpretability report.</p>
+<ul>
+<li><strong>Interpretability</strong>: While deep learning methods can be complex (leading to their reputation as black
 box models), interpretability techniques such as LIME (see our previous report:
 &lt;<Interpretability>&gt;) and Deep SHAP<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> provide opportunities to inspect
-their behaviour and make them more interpretable by analysts.</p>
+their behavior and make them more interpretable by analysts.</li>
+</ul>
 <h3 id="what-can-go-wrong%3F">What can go wrong?</h3>
 <p>There is a proliferation of algorithmic approaches that can help tackle an
 anomaly detection task and allow us to build solid models, at times even with
 just normal samples. But what is the catch? Do they really work? What could
 possibly go wrong?</p>
-<h4 id="contaminated-normal-examples">Contaminated normal examples</h4>
-<p>In large scale applications that have huge volumes of data, it is quite possible
+<ul>
+<li>
+<p><strong>Contaminated normal examples</strong>: In large scale applications that have huge volumes of data, it is quite possible
 that the large unlabeled data is considered as the normal class wherein a small
 percentage of examples may actually be anomalous or simply be poor training
 examples. And while some models (like one-class SVM or isolation forest) can
 account for this, there are others that may not be robust to detecting
 anomalies.</p>
-<h4 id="computational-complexity">Computational complexity</h4>
-<p>Anomaly detection scenarios can sometimes have low-latency requirements i.e the
+</li>
+<li>
+<p><strong>Computational complexity</strong>: Anomaly detection scenarios can sometimes have low-latency requirements i.e the
 ability to  speedily retrain existing models as new data becomes available and
 perform inference. This can be computationally expensive at scale, even for
 linear models on univariate data. Deep learning models, also incur
 additional compute costs to estimate their large number of parameters. To
 address these compute issues, it is recommended to explore tradeoffs which
 balance the frequency of retraining and overall accuracy.</p>
-<h4 id="human-supervision">Human supervision</h4>
-<p>One major challenge with unsupervised and semi-supervised approaches is that
+</li>
+<li>
+<p><strong>Human supervision</strong>: One major challenge with unsupervised and semi-supervised approaches is that
 they can be noisy and may generate a large amount of false positives. In turn,
 false positives incur labour costs associated with human review. Given these
 costs, an important goal for anomaly detection systems is to incorporate the
 results of human review (as labels) in improving model quality.</p>
-<h4 id="definition-of-anomaly">Definition of anomaly</h4>
-<p>The boundary between normal and anomalous behavior is often not precisely
+</li>
+<li>
+<p><strong>Definition of anomaly</strong>: The boundary between normal and anomalous behavior is often not precisely
 defined in several data domains and is continually evolving. Unlike other task
 domains where dataset shift occurs sparingly, the anomaly detection systems
 should anticipate (frequent) and account for changes in the distribution of the
 data. In many cases, this can be achieved by frequent retraining of models.</p>
-<h4 id="threshold-selection">Threshold selection</h4>
-<p>The process of selecting a good threshold value can be challenging. In a
+</li>
+<li>
+<p><strong>Threshold selection</strong>: The process of selecting a good threshold value can be challenging. In a
 semi-supervised setting (the approaches covered above), one has access to a pool
 of labeled data. Using these labels (and some domain expertise), we can
 determine a suitable threshold. Specifically, we can explore the range of
@@ -885,6 +896,8 @@ as the point that yields the best performance metric (accuracy, precision,
 recall). In the absence of labeled data, and if we assume that most data points
 are normal, we can use statistics such as standard deviation and percentiles to
 infer a good threshold.</p>
+</li>
+</ul>
 <h2 id="deep-learning-for-anomaly-detection-2">Deep Learning for Anomaly Detection</h2>
 <p>As data becomes high dimensional, it is increasingly challenging to effectively
 learn a model of normal behaviour across variables within each model. In this
@@ -1288,7 +1301,7 @@ detection.</figcaption></figure>
 [Improved Techniques for Training GANs](https://arxiv.org/abs/1606.03498)]   and can be challenging to train. Overall, the BiGAN approach, required more training epochs to arrive at stable results compared to the other deep methods.  -->
 <h5 id="inference-and-storage">Inference and Storage</h5>
 <p>Being the least complex model, OCSVM had the fastest inference time (12x faster than an autoencoder). In terms of storage, the biGAN model has the largest number of parameters and overall size of weights. These values have implications for the number of concurrent models</p>
-<h5 id="performance-2">Performance</h5>
+<h5 id="performance">Performance</h5>
 <p>For the current KDD dataset, we found that the autoencoder had the best performance.</p>
 <h3 id="web-application-prototypes">Web Application Prototypes</h3>
 <p>We built two prototypes that demonstrate results and insights from our experiments. The first prototype – is built on on the KDD dataset used in the experiments above and is a visualization of the performance of 4 approaches to anomaly detection. The second prototype is an interactive explainer that focuses on the autoencoder model and results from applying it to detecting anomalies in ECG data.</p>
