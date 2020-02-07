@@ -93,7 +93,7 @@ direction of anomalies and the window of interest (such as the last day or last 
 and enable or disable piecewise approximation, and the x- and y-axes are 
 annotated to assist visual data analysis.
 
-##### anomalize Package
+##### anomalize package
 
 The [`anomalize` package](https://github.com/business-science/anomalize), open sourced by Business Science, performs time series anomaly detection that goes inline with other [Tidyverse
 packages](https://www.tidyverse.org/) (or packages
@@ -168,7 +168,7 @@ resolution by identifying key performance indicators (KPIs) and attributes that 
 
 #### Anodot
 
-- *Capabilities*:  
+- *Capabilities*  
 [Anodot](https://www.anodot.com/) is a real-time analytics and automated anomaly 
 detection system that detects outliers in time series data and turns them into 
 business insights. It explores anomaly
@@ -177,13 +177,13 @@ based on deviations from expected forecasts.
 The product has a dual focus: business monitoring (SaaS monitoring, anomaly detection, 
 and root cause analysis) and business forecasting (trend prediction, "what ifs," and optimization).
 
-- *Data requirements*:  
+- *Data requirements*  
 Anodot supports multiple input data sources, including direct uploads and
 integrations with Amazon’s S3 or Google Cloud storage. It's data-agnostic
 and can track a variety of metrics: revenue, number of sales, number
 of page visits, number of daily active users, and other.
 
-- *Modeling approach/technique(s)*:  
+- *Modeling approach/technique(s)*  
 Anodot analyzes business metrics in real time and at scale by running
 its ML algorithms on the live data stream itself, without reading or writing
 into a database. Every data point that flows into Anodot from all data sources 
@@ -200,17 +200,17 @@ Anodot uses sequential adaptive learning algorithms which initialize a model of
 what is normal on the fly, and then compute the relation of each new data point
 going forward.
 
-- *Point anomalies or intervals*:  
+- *Point anomalies or intervals*  
 Instead of flagging individual data points as anomalies, Anodot highlights
 intervals. Points within the entire duration of the interval are considered
 anomalous, preventing redundant alerts.
 
-- *Thresholding*:  
+- *Thresholding*  
 While users can specify static thresholds which trigger alerts, Anodot also
 provides automatic defaults where no thresholding input from the user is
 required.
 
-- *Root cause investigation*:  
+- *Root cause investigation*  
 Anodot helps users investigate why an alert was triggered. It tries to understand how
 different active anomalies correlate in order to expedite root cause investigation and
 shorten the time to resolution, grouping together different
@@ -222,7 +222,7 @@ incident has an _Anomap_, a graphic distribution of the dimensions most impacted
 This is essentially a heat map that makes it easier to understand the whole
 picture.
 
-- *User interface*:  
+- *User interface*  
 The Anodot interface enables users to visualize and explore alerts. With the
 receipt of each alert, the user is prompted to assign it a binary score
 (good catch/bad catch). This input is fed back into the learning model to
@@ -230,7 +230,7 @@ further tune it by providing real-life indications about the validity of its
 performance. By training the algorithms with direct feedback on anomalies, users
 can influence the system’s functionality and results.
 
-- *Delivery*:  
+- *Delivery*  
 Notifications can be forwarded to each user through their choice of
 channel(s). Anodot notification integrations include an API, Slack, 
 email, PagerDuty, Jira, Microsoft Teams OpsGenie, and more.
@@ -238,7 +238,7 @@ email, PagerDuty, Jira, Microsoft Teams OpsGenie, and more.
 
 #### Amazon QuickSight
 
-- *Capabilities*:  
+- *Capabilities*  
 [Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/anomaly-detection-function.html) 
 is a cloud-native business intelligence (BI) service that allows its users to create
 dashboards and visualizations to communicate business insights. In early 2019,
@@ -249,7 +249,7 @@ active usage, regardless of the number of users. That said, the
 pricing model could end up being expensive since anomaly detection tasks are
 compute-intensive.
 
-- *Data requirements*:  
+- *Data requirements*  
 QuickSight requires you to connect or import structured data directly query a 
 SQL-compatible source, or ingest the data into SPICE. There is a requirement on
 the number of historical data points that must be provided, which varies based on the task (analyzing
@@ -257,7 +257,7 @@ anomalies or forecasting). There are also restrictions on the number of category
 dimensions that can be included (for example, product category, region,
 segment).
 
-- *Modeling approach/technique(s)*:  
+- *Modeling approach/technique(s)*  
 QuickSight provides a point-and-click solution for learning about anomalous behavior and
 generating forecasts. It utilizes a built-in version of the Random Cut Forest
 (RCF) online algorithm, which not only can be noisy but also can lead to large amounts
@@ -266,12 +266,12 @@ narrative feature that explains key takeaways from the insights generated. For
 instance, it can provide a summary of how revenue compares to a previous
 period or a 30-day average, and/or highlight the event in case of an anomaly. 
 
-- *Point anomalies or intervals*:  
+- *Point anomalies or intervals*  
 Anomalous events are presented discretely, on a point-by-point basis. If an
 anomaly lasts more than a single time unit the system will flag several events,
 which could be noisy and redundant.
 
-- *Thresholding*:  
+- *Thresholding*  
 Anomaly detection with QuickSight employs a thresholding approach to trigger
 anomalous events. The user provides a threshold value (low, medium, high, very 
 high) that determines how sensitive the detector is to anomalies:
@@ -282,7 +282,7 @@ can be tedious, especially when there are multiple time series being
 analyzed across various data hierarchy combinations, and introduces the need for manual
 intervention.
 
-- *Root cause investigation*:  
+- *Root cause investigation*  
 Users can interactively explore anomalies on the QuickSight dashboard or report
 to help understand the root causes. The tool performs a contribution analysis
 which highlights the factors that significantly contributed to an anomaly. If
@@ -291,7 +291,7 @@ addition, QuickSight supports interactive "what-if" queries. In these, some of t
 forecasts can be altered and treated as hypotheticals to provide conditional
 forecasts. 
 
-- *User interface*:  
+- *User interface*  
 QuickSight provides a basic reporting interface. From a UI
 perspective, it is fairly unexceptional. For instance, it lacks a way to 
 understand the overall picture with anomalous points (do the anomalies have
@@ -300,14 +300,14 @@ have confidence intervals associated with them, which would help the end user
 visually understand the magnitude of an anomaly. As it stands, there is no
 basis for comparison. 
 
-- *Delivery*:  
+- *Delivery*  
 QuickSight dashboards and reports can be embedded within applications, shared among
 users, and/or sent via email, as long as the recipients have a QuickSight
 subscription. 
 
 #### Outlier.ai
 
-- *Capabilities*:  
+- *Capabilities*  
 [Outlier.ai](https://outlier.ai/) is licensed software that uses artificial intelligence to automate
 the process of business analytics. It can connect to databases provided by cloud
 services and automatically provides insights to your inbox, without the need to
@@ -315,36 +315,36 @@ create reports or write queries. Outlier works with customers across industry
 segments, applying ML to automatically serve up business-critical
 insights.
 
-- *Data requirements*:  
+- *Data requirements*  
 Outlier can connect to databases provided by cloud services.
 
-- *Modeling approach/technique(s)*:  
+- *Modeling approach/technique(s)*  
 This information is not publicly available.
 
-- *Point anomalies or intervals*:  
+- *Point anomalies or intervals*  
 Anomalous events are presented discretely, on a point-by-point basis. 
 
-- *Thresholding*:  
+- *Thresholding*  
 This information is not publicly available.
 
-- *Root cause investigation*:  
+- *Root cause investigation*  
 Outlier allows customers to not only surface key insights about business
 changes automatically, but also identify the likely root causes of those
 changes; this feature guides teams in making quick, informed business decisions. 
 Teams can easily share stories through PDFs, PowerPoint-optimized images, or
 auto-generated emails, annotated with their comments.
 
-- *User interface*:  
+- *User interface*  
 The UI is similar to that provided by most standard BI tools, making it fairly
 user-friendly.
 
-- *Delivery*:  
+- *Delivery*  
 The generated dashboards can be embedded within applications, shared among users, and/or
 sent via email.
 
 #### Vectra Cognito
 
-- *Capabilities*:  
+- *Capabilities*  
 In simple terms, Vectra.ai’s flagship platform, [Cognito](https://www.vectra.ai/), can be described as an
 intrusion detection system. It's a cloud-based network detection and response
 system that performs a number of cybersecurity-related tasks, including network
@@ -355,11 +355,11 @@ insights about outlier characteristics that can be applied in a wide range of
 cybersecurity detection and response use cases. Cognito works with both
 encrypted and unencrypted traffic.
 
-- *Data requirements*:   
+- *Data requirements*   
 Cognito can connect to databases provided by cloud services. It also uses
 metadata drawn from Active Directory and DHCP logs. 
 
-- *Modeling approach/technique(s)*:   
+- *Modeling approach/technique(s)*   
 According to a
 [whitepaper](https://content.vectra.ai/rs/748-MCE-447/images/WhitePaper_2019_The_data_science_behind_Cognito_AI_threat_detection_models_English.pdf?mkt_tok=eyJpIjoiWkRGaVpHVmtaVGxrTkdFeiIsInQiOiJ2RVhkK3M0cHU3dXNQRDZ2YnA3QW16K0ZKVFVEK1lDeFRwcTZPMGxXZlB0clhOYmhPaVBXenkzRmY1Ylwvakp5d2FcL1dSakVKbDZhcHZtNEdZU1A3aHFMYkpxVlZHWXllXC9xUGRPOXNtZ0NyTFRjTitxUlVkaXBzNFdiQlBaUUxwVSJ9) 
 published by Vectra, a mix of ML approaches are used
@@ -378,25 +378,25 @@ suspicious domain activity; specifically, the detection of
 algorithmically generated domains that are set up by cyberattackers as the
 frontend of their command-and-control infrastructure. 
 
-- *Point anomalies or intervals*:  
+- *Point anomalies or intervals*  
 Anomalous events are presented discretely, on a point-by-point basis. 
 
-- *Thresholding*:   
+- *Thresholding*   
 The scoring of compromised hosts by the Vectra Threat Certainty Index allows 
 security teams to define threshold levels based on a combination of factors. 
 
-- *Root cause investigation*:  
+- *Root cause investigation*  
 All detection events are correlated to specific hosts that show signs of threat
 behaviors. In turn, all context is assimilated into an up-to-the-moment score of
 the overall risk to the organization. 
 
-- *User interface*:  
+- *User interface*  
 Vectra’s Cognito platform delivers detection information via a simple
 dashboard which displays information such as a prioritized (in terms of risk)
 list of compromised hosts, changes in a host’s threat and certainty scores, and 
 "key assets" that show signs of attack. 
 
-- *Delivery*:  
+- *Delivery*  
 The platform supports information sharing by security teams on demand, or on a
 set schedule managed by its customizable reporting engine. Real-time 
 notifications about network hosts, with attack indicators that have been
@@ -405,7 +405,7 @@ are also supported.
 
 #### Yahoo’s Anomaly Detector: Sherlock 
 
-- *Capabilities*:  
+- *Capabilities*  
 [Sherlock](https://github.com/yahoo/sherlock) is an open source anomaly detection 
 service built on top of [Druid](http://druid.io/) (an open source, distributed data store). It leverages the [Extensible
 Generic Anomaly Detection System (EGADS)](https://github.com/yahoo/egads) 
@@ -415,14 +415,14 @@ daily, weekly, or monthly basis (although it also supports ad hoc real-time
 anomaly detection requests). Anomaly reports can be viewed from Sherlock's
 interface, or received via email.
 
-- *Data requirements*:  
+- *Data requirements*   
 Sherlock accesses time series data via Druid JSON queries and uses a Redis
 backend to store job metadata, the anomaly reports (and other information) it
 generates, as well as a persistent job queue. The anomaly reports can be
 accessed via direct requests using the Sherlock client API or delivered via
 scheduled email alerts. 
 
-- *Modeling approach/technique(s)*:  
+- *Modeling approach/technique(s)*  
 Sherlock takes a time series modeling-based approach to anomaly detection using
 three important modules from the EGADS library: Time Series Modeling, Anomaly
 Detection, and Alerting. The Time Series Modeling module supports the use of
@@ -435,24 +435,24 @@ produced by the anomaly detection models and outputs candidate anomalies based o
 dynamically learned thresholds, learning to filter out irrelevant anomalies over
 time. 
 
-- *Point anomalies or intervals*:  
+- *Point anomalies or intervals*  
 Anomalous events are presented both discretely, on a point-by-point basis, and
 as intervals. 
 
-- *Threshold*:  
+- *Threshold*  
 Thresholds are learned dynamically. No thresholding input from the user is
 required/supported.
 
-- *Root cause analysis*:  
+- *Root cause analysis*  
 Out of the box root cause analysis is not supported
 
-- *User interface*:  
+- *User interface*  
 Sherlock’s user interface is built with [Spark Java](http://sparkjava.com/), 
 a UI framework for building
 web applications. The UI enables users to submit instant anomaly analyses, 
 create and launch detection jobs, and view anomalies on both a heat map and a
 graph. 
 
-- *Delivery*:  
+- *Delivery*  
 Scheduled anomaly requests are delivered via email or directly via API-based
 queries. 
