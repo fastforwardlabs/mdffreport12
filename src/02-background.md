@@ -117,7 +117,7 @@ either precision or recall.
 
 Optimizing for precision may be useful when the cost of failure is low, or to
 reduce human workload. Optimizing for high recall may be more appropriate when
-the cost of a false negative is very high&#151;for example, in airport security, where it is
+the cost of a false negative is very high; for example, in airport security, where it is
 better to flag many items for human inspection (low cost) in order
 to avoid the much higher cost of incorrectly admitting a dangerous item onto a flight. While
 there are several ways to optimize for precision or recall, the manner in which
