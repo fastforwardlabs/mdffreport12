@@ -105,4 +105,3 @@ knowledge to identify anomalies. While they're capable of yielding remarkable re
 complex and high-dimensional data, there are several factors that influence the
 choice of approach when building an anomaly detection application. In this
 report we survey the options, highlighting their pros and cons.
-
