@@ -530,7 +530,7 @@ h2 {
           <h1 id="deep-learning-for-anomaly-detection">Deep Learning for Anomaly Detection</h1>
 <p><div class="table-of-contents"><div id="toc-header" style="display: flex; font-weight: bold; text-transform: uppercase;">
      <div><button id="toggle_contents" style="padding-left: 0.5ch; padding-right: 0.5ch; cursor: pointer; position: relative; top: -1px;">☰</button><span id="contents-label" style="margin-left: 0;"> Contents</span></div>
-  </div><ul><li><a href="#introduction">Introduction</a><ul><li><a href="#applications-of-anomaly-detection">Applications of Anomaly Detection</a></li></ul></li><li><a href="#background">Background</a><ul><li><a href="#anomaly-detection-approaches">Anomaly Detection Approaches</a></li><li><a href="#supervised-learning">Supervised learning</a></li><li><a href="#unsupervised-learning">Unsupervised learning</a></li><li><a href="#semi-supervised-learning">Semi-supervised learning</a></li><li><a href="#evaluating-models%3A-accuracy-is-not-enough">Evaluating Models: Accuracy is not Enough</a></li><li><a href="#anomaly-detection-as-learning-normal-behavior">Anomaly Detection as Learning Normal Behavior</a></li><li><a href="#approaches-to-modeling-normal-behavior">Approaches to Modeling Normal Behavior</a></li><li><a href="#why-deep-learning-for-anomaly-detection">Why Deep Learning for Anomaly Detection</a></li><li><a href="#what-can-go-wrong%3F">What can go wrong?</a></li></ul></li><li><a href="#deep-learning-for-anomaly-detection">Deep Learning for Anomaly Detection</a><ul><li><a href="#autoencoders">Autoencoders</a></li><li><a href="#variational-autoencoders">Variational Autoencoders</a></li><li><a href="#generative-adversarial-networks">Generative Adversarial Networks</a></li><li><a href="#sequence-to-sequence-models">Sequence to Sequence Models</a></li><li><a href="#additional-considerations">Additional Considerations</a></li><li><a href="#selecting-a-model">Selecting a Model</a></li><li><a href="#general-considerations-in-selecting-a-deep-learning-approach">General Considerations in Selecting a Deep Learning Approach</a></li></ul></li><li><a href="#prototype">Prototype</a><ul><li><a href="#datasets">Datasets</a></li><li><a href="#benchmarking-experiment-setup">Benchmarking Experiment Setup</a></li><li><a href="#web-application-prototypes">Web Application Prototypes</a></li></ul></li><li><a href="#landscape">Landscape</a><ul><li><a href="#open-source-tools-and-frameworks">Open Source Tools and Frameworks</a></li><li><a href="#anomaly-detection-as-a-service">Anomaly Detection as a Service</a></li></ul></li><li><a href="#ethics">Ethics</a><ul><li><a href="#diversity-matters">Diversity Matters</a></li><li><a href="#explainability">Explainability</a></li><li><a href="#additional-use-cases">Additional Use Cases</a></li><li><a href="#innovation">Innovation</a></li></ul></li><li><a href="#conclusion">Conclusion</a></li></ul></div></p>
+  </div><ul><li><a href="#introduction">Introduction</a><ul><li><a href="#applications-of-anomaly-detection">Applications of Anomaly Detection</a></li></ul></li><li><a href="#background">Background</a><ul><li><a href="#anomaly-detection-approaches">Anomaly Detection Approaches</a></li><li><a href="#supervised-learning">Supervised learning</a></li><li><a href="#unsupervised-learning">Unsupervised learning</a></li><li><a href="#semi-supervised-learning">Semi-supervised learning</a></li><li><a href="#evaluating-models%3A-accuracy-is-not-enough">Evaluating Models: Accuracy is not Enough</a></li><li><a href="#anomaly-detection-as-learning-normal-behavior">Anomaly Detection as Learning Normal Behavior</a></li><li><a href="#approaches-to-modeling-normal-behavior">Approaches to Modeling Normal Behavior</a></li><li><a href="#why-deep-learning-for-anomaly-detection">Why Deep Learning for Anomaly Detection</a></li><li><a href="#what-can-go-wrong%3F">What can go wrong?</a></li></ul></li><li><a href="#deep-learning-for-anomaly-detection">Deep Learning for Anomaly Detection</a><ul><li><a href="#autoencoders">Autoencoders</a></li><li><a href="#variational-autoencoders">Variational Autoencoders</a></li><li><a href="#generative-adversarial-networks">Generative Adversarial Networks</a></li><li><a href="#sequence-to-sequence-models">Sequence to Sequence Models</a></li><li><a href="#one-class-support-vector-machines">One-Class Support Vector Machines</a></li><li><a href="#additional-considerations">Additional Considerations</a></li><li><a href="#selecting-a-model">Selecting a Model</a></li><li><a href="#general-considerations-in-selecting-a-deep-learning-approach">General Considerations in Selecting a Deep Learning Approach</a></li></ul></li><li><a href="#prototype">Prototype</a><ul><li><a href="#datasets">Datasets</a></li><li><a href="#benchmarking-experiment-setup">Benchmarking Experiment Setup</a></li><li><a href="#web-application-prototypes">Web Application Prototypes</a></li></ul></li><li><a href="#landscape">Landscape</a><ul><li><a href="#open-source-tools-and-frameworks">Open Source Tools and Frameworks</a></li><li><a href="#anomaly-detection-as-a-service">Anomaly Detection as a Service</a></li></ul></li><li><a href="#ethics">Ethics</a><ul><li><a href="#diversity-matters">Diversity Matters</a></li><li><a href="#explainability">Explainability</a></li><li><a href="#additional-use-cases">Additional Use Cases</a></li><li><a href="#innovation">Innovation</a></li></ul></li><li><a href="#conclusion">Conclusion</a></li></ul></div></p>
 <figure><img src="figures/cover.png" alt=""></figure>
 <p><em>This is an applied research report by Cloudera Fast Forward, focused on Deep Learning Approaches for Anomaly Detection. Read our full report on using deep learning for anomaly detection below or download it (<a href="#">PDF</a>, <a href="#">ePub</a>, <a href="#">mobi</a>). Also be sure to check out our anomaly detection prototypes: <a href="https://blip.fastforwardlabs.com">Blip</a> and <a href="https://anomagram.fastforwardlabs.com">Anomagram</a>.</em></p>
 <p>Our reports focus on emerging capabilities that are still changing due to algorithmic breakthrough, hardware breakthrough, technological commoditization, and data availability. Accompanying our reports are working prototypes that exhibit the capabilities of the algorithm and offer detailed technical advice on its practical application.</p>
@@ -551,10 +551,10 @@ of domains: including IT analytics, networks intrusion analytics, medical
 diagnostics, financial fraud protection, manufacturing quality control,
 marketing and social media analytics, and more.</p>
 <h3 id="applications-of-anomaly-detection">Applications of Anomaly Detection</h3>
+<p>We’ll begin by taking a closer look at some possible use cases, before diving into different approaches to anomaly detection in the next chapter.</p>
 <figure><img src="figures/ill-18.png" alt="Anomaly detection is relevant to several usecases - Network intrusion detection, Medical diagnosis, Fraud detection and manufacturing defect detection."><figcaption>Anomaly detection is relevant to several usecases - Network intrusion detection, Medical diagnosis, Fraud detection and manufacturing defect detection.</figcaption></figure>
 <h4 id="network-intrusion-detection">Network Intrusion Detection</h4>
-<p>With the growth of computer networks and application usage dependencies, network
-security is critical to running a modern viable business. Yet all computer
+<p>Network security is critical to running a modern viable business, yet all computer
 systems suffer from security vulnerabilities which are both technically
 difficult and economically punishing to resolve once exploited. Business IT
 systems collect data about their own network traffic, user activity in the
@@ -900,86 +900,85 @@ infer a good threshold.</p>
 </ul>
 <h2 id="deep-learning-for-anomaly-detection-2">Deep Learning for Anomaly Detection</h2>
 <p>As data becomes high dimensional, it is increasingly challenging to effectively
-learn a model of normal behaviour across variables within each model. In this
-chapter, we will review a set of relevant deep learning model architectures and
+learn a model of normal behavior. In this chapter, we will review a set of relevant
+deep learning model architectures and
 how they can be applied to the task of anomaly detection. As discussed in
-<a href="#background">Background</a>, anomaly detection using each of these models is
-explored as a function of how they can be applied first in modeling normal
-behaviour within data, and then generating an anomaly score.</p>
-<p>The deep learning approaches discussed below typically consist of two important
-components - an encoder that learns to generate an internal representation of
-the input data, and a decoder which attempts to reconstruct the original input
+<a href="#background">Chapter 2. Background</a>, anomaly detection involves first learning a model
+of normal behavior, then generating anomaly scores that can be used to identify anomalous activity.</p>
+<p>The deep learning approaches discussed here typically consist of two principal
+components: an encoder that learns to generate an internal representation of
+the input data, and a decoder that attempts to reconstruct the original input
 based on this internal representation. While the exact techniques for encoding
 and decoding vary across models, the overall benefit they offer is the ability
 to learn the distribution of normal input data and construct a measure of
 anomaly respectively.</p>
 <h3 id="autoencoders">Autoencoders</h3>
-<p>Autoencoders are neural networks designed to learn a low dimensional
-representation, given some input data. They consist of two components - an
-encoder  which learns to map input data to a low dimensional representation
-(termed the bottleneck), and a decoder which learns to map this low dimensional
+<p>Autoencoders are neural networks designed to learn a low-dimensional
+representation, given some input data. They consist of two components: an
+encoder  that learns to map input data to a low-dimensional representation
+(termed the <em>bottleneck</em>), and a decoder that learns to map this low-dimensional
 representation back to the original input data. By structuring the learning
 problem in this manner, the encoder network learns an efficient “compression”
-function which maps input data to a salient lower dimension representation, such
+function that maps input data to a salient lower-dimensional representation, such
 that the decoder network is able to successfully reconstruct the original input
-data. The model is trained by minimizing the reconstruction error: the
+data. The model is trained by minimizing the reconstruction error, which is the
 difference (mean squared error) between the original input and the reconstructed
 output produced by the decoder. In practice, autoencoders have been applied as a
-dimensionality reduction technique, as well as in other use cases -  such as
-noise removal from images, image colorization, unsupervised feature extraction,
-data compression, etc.</p>
+dimensionality reduction technique, as well as in other use cases such as
+noise removal from images, image colorization, unsupervised feature extraction and
+data compression.</p>
+<figure><img src="figures/ill-1.png" alt="The components of an autoencoder"><figcaption>The components of an autoencoder</figcaption></figure>
 <p>It is important to note that the mapping function learned by an autoencoder is
-specific to the training data distribution, i.e., an autoencoder will typically
-not succeed at reconstructing data which is significantly different from data it
-has seen during training. As we will see later in this section, this property of
-learning a distribution specific mapping (as opposed to a generic linear
+specific to the training data distribution. That is, an autoencoder will typically
+not succeed at reconstructing data that is significantly different from the data it
+has seen during training. As we will see later in this chapter, this property of
+learning a distribution-specific mapping (as opposed to a generic linear
 mapping) is particularly useful for the task of anomaly detection.</p>
-<figure><img src="figures/ill-1.png" alt="An illustration of the components of autoencoder"><figcaption>An illustration of the components of autoencoder</figcaption></figure>
 <h4 id="modeling-normal-behavior-and-anomaly-scoring">Modeling Normal Behavior and Anomaly Scoring</h4>
 <p>Applying an autoencoder for anomaly detection follows the general principle of
-first modeling normal behaviour and subsequently generating an anomaly score for
-a new data sample. To model normal behaviour, we follow a semi-supervised
-approach where we train the autoencoder on a normal data sample. This way, the
+first modeling normal behavior and subsequently generating an anomaly score for
+each new data sample. To model normal behavior, we follow a semi-supervised
+approach where we train the autoencoder on normal data samples. This way, the
 model learns a mapping function that successfully reconstructs normal data
-samples with a very small reconstruction error (the difference between actual
-sample and the version reconstructed by the model). This behaviour is replicated
+samples with a very small reconstruction error. This behavior is replicated
 at test time, where the reconstruction error is small for normal data samples,
 and large for abnormal data samples. To identify anomalies, we use the
 reconstruction error score as an anomaly score and flag samples with
 reconstruction errors above a given threshold.</p>
-<figure><img src="figures/ill-2.png" alt="An illustration of how autoencoders can be applied for anomaly detection. Asthe autoencoder attempts to reconstruct abnormal data, it does so in a mannerthat is weighted towards normal samples (square shapes). The difference betweenwhat it reconstructs and the input is the reconstruction error. We can specify athreshold and flag anomalies as samples with reconstruction error above thegiven threshold."><figcaption>An illustration of how autoencoders can be applied for anomaly detection. As
+<figure><img src="figures/ill-2.png" alt="The use of autoencoders for anomaly detection."><figcaption>The use of autoencoders for anomaly detection.</figcaption></figure>
+<p>This process is illustrated in the following figure. As
 the autoencoder attempts to reconstruct abnormal data, it does so in a manner
-that is weighted towards normal samples (square shapes). The difference between
+that is weighted toward normal samples (square shapes). The difference between
 what it reconstructs and the input is the reconstruction error. We can specify a
-threshold and flag anomalies as samples with reconstruction error above the
-given threshold.</figcaption></figure>
+threshold and flag anomalies as samples with a reconstruction error above the
+given threshold.</p>
 <h3 id="variational-autoencoders">Variational Autoencoders</h3>
 <p>A variational autoencoder (VAE) is an extension of the autoencoder. Similar to
-an autoencoder, it consists of both an encoder and a decoder network component,
-but also includes important changes in the structure of the learning problem to
-accommodate variational inference. As opposed to learning a mapping from input
+an autoencoder, it consists of an encoder and a decoder network component,
+but it also includes important changes in the structure of the learning problem to
+accommodate variational inference. As opposed to learning a mapping from the input
 data to a fixed bottleneck vector (a point estimate), a VAE learns a mapping
 from input to a distribution, and learns to reconstruct the original data by
-sampling from this distribution using a latent code. In Bayesian terms, our
-prior is the distribution of the latent code, our likelihood is the distribution
-of the input given the latent code, and our posterior is the distribution of the
+sampling from this distribution using a latent code. In Bayesian terms, the
+prior is the distribution of the latent code, the likelihood is the distribution
+of the input given the latent code, and the posterior is the distribution of the
 latent code, given our input. The components of a VAE serve to derive good
 estimates for these terms.</p>
 <p>The encoder network learns the parameters (mean and variance) of a distribution
-that outputs a latent code vector, given our input data (posterior). In other
-words, we can draw samples of the bottleneck vector that “correspond” to samples
-from our input data. The nature of this distribution can vary depending on the
-nature of the input data (e.g., while gaussian distributions are commonly used,
-bernoulli distributions can be used if the input data is known to be binary).<br>
+that outputs a latent code vector, given the input data (posterior). In other
+words, one can draw samples of the bottleneck vector that “correspond” to samples
+from the input data. The nature of this distribution can vary depending on the
+nature of the input data (e.g., while Gaussian distributions are commonly used,
+Bernoulli distributions can be used if the input data is known to be binary).<br>
 On the other hand, the decoder learns a distribution that outputs the original
 input data point (or something really close to it), given a latent bottleneck
-sample (likelihood). Typically, an isotropic gaussian distribution is used to
+sample (likelihood). Typically, an isotropic Gaussian distribution is used to
 model this reconstruction space.</p>
 <p>The VAE model is trained by minimizing the difference between the estimated
 distribution produced by the model and the real distribution of the data. This
 difference is estimated using the Kullback-Leibler divergence, which quantifies
 the distance between two distributions by measuring how much information is lost
-when one distribution is used to represent the other. Similar to AEs, VAEs have
+when one distribution is used to represent the other. Similar to autoencoders, VAEs have
 been applied in use cases such as unsupervised feature extraction,
 dimensionality reduction, image colorization, image denoising, etc. In addition,
 given that they use model distributions, they can be leveraged for controlled
@@ -988,14 +987,14 @@ sample generation.</p>
 benefits. First, VAEs enable Bayesian inference; essentially, we can now sample
 from the learned encoder distribution and decode samples that do not explicitly
 exist in the original dataset, but belong to the same data distribution. Second,
-VAEs learn a disentangled representation of a data distribution - i.e., a single
+VAEs learn a disentangled representation of a data distribution�i.e., a single
 unit in the latent code is only sensitive to a single generative factor. This
 allows some interpretability of the output of VAEs, as we can vary units in the
 latent code for controlled generation of samples. Third, a VAE provides true
-probability measures which offer a principled approach to quantifying
-uncertainty when applied in practice: e.g., the probability that a new data
-point belongs to the distribution of normal data is 80%.</p>
-<figure><img src="figures/ill-3.png" alt="An illustration of a variational autoencoder"><figcaption>An illustration of a variational autoencoder</figcaption></figure>
+probability measures that offer a principled approach to quantifying
+uncertainty when applied in practice (for example, the probability that a new data
+point belongs to the distribution of normal data is 80%).</p>
+<figure><img src="figures/ill-3.png" alt="A variational autoencoder"><figcaption>A variational autoencoder</figcaption></figure>
 <h4 id="modeling-normal-behavior-and-anomaly-scoring-2">Modeling Normal Behavior and Anomaly Scoring</h4>
 <p>Similar to an autoencoder, we begin by training the VAE on normal data samples.
 At test time, we can compute an anomaly score in two ways. First, we can draw
@@ -1003,245 +1002,251 @@ samples of the latent code z from the encoder given our input data, sample
 reconstructed values from the decoder using z, and compute a mean reconstruction
 error. Anomalies are flagged based on some threshold on the reconstruction
 error.</p>
-<p>In addition, we can also output a mean and variance parameter from the decoder,
-and compute the probability that the new datapoint belongs to the distribution
-of normal data on which the model was trained. If the datapoint lies in a low
-density region (below some threshold) we then flag that as an anomaly. (We can
-do this now because we model a distribution as opposed to a point estimate.)</p>
-<figure><img src="figures/ill-4.png" alt="An illustration of two approaches to anomaly scoring with a VAE. We can output meanreconstruction probability i.e., the probability that a sample belongs to thenormal data distribution."><figcaption>An illustration of two approaches to anomaly scoring with a VAE. We can output mean
-reconstruction probability i.e., the probability that a sample belongs to the
-normal data distribution.</figcaption></figure>
+<p>Alternatively, we can output a mean and a variance parameter from the decoder,
+and compute the probability that the new data point belongs to the distribution
+of normal data on which the model was trained. If the data point lies in a
+low-density region (below some threshold), we flag that as an anomaly. We can
+do this because we’re modeling a distribution as opposed to a point estimate.</p>
+<figure><img src="figures/ill-4.png" alt="Two approaches to anomaly scoring with a VAE: we have the option of outputting the meanreconstruction probability (i.e., the probability that a sample belongs to thenormal data distribution)."><figcaption>Two approaches to anomaly scoring with a VAE: we have the option of outputting the mean
+reconstruction probability (i.e., the probability that a sample belongs to the
+normal data distribution).</figcaption></figure>
 <h3 id="generative-adversarial-networks">Generative Adversarial Networks</h3>
-<p>GANs are neural networks designed to learn a generative model of an input data
-distribution. In their classic formulation, GANs are composed of a pair of
-typically feed-forward neural networks termed a generator G and discriminator D.
+<p>Generative adversarial networks (GANs) are neural networks designed to learn a generative model of an input data
+distribution. In their classic formulation, they’re composed of a pair of
+(typically feed-forward) neural networks termed a generator, G, and discriminator, D.
 Both networks are trained jointly and play a competitive skill game with the end
-goal of learning the distribution of input data X.</p>
-<p>The generator network G learns a mapping from random noise of a fixed dimension
+goal of learning the distribution of the input data, X.</p>
+<p><strong>NM: we use “images” instead of “input datapoints or samples” below - check</strong>
+The generator network G learns a mapping from random noise of a fixed dimension
 (Z) to samples X_ that closely resemble members of the input data distribution.
-The discriminator D learns to correctly tell apart real samples that originated
-in the source data (X) from fake images (X_) that are generated by G. At each
-epoch during training, the parameters of G are updated to to maximise its
+The discriminator D learns to correctly discern real samples that originated
+in the source data (X) from fake samples (X_) that are generated by G. At each
+epoch during training, the parameters of G are updated to maximize its
 ability to generate samples that are indistinguishable by D, while the
-parameters of  D are updated to maximize its ability to to correctly tell apart
+parameters of D are updated to maximize its ability to to correctly discern
 true samples X from generated samples X_. As training progresses, G becomes
 proficient at producing samples that are similar to X, and D also upskills on
-the task of distinguishing true X from X_.</p>
+the task of distinguishing real from fake samples.</p>
 <p>In this classic formulation of GANs, while G learns to model the source
 distribution X well (it learns to map random noise from Z to the source
 distribution), there is no straightforward approach that allows us to harness
-this knowledge for controlled inference - i.e,. generate an image that is
-similar to a given known image. While we can conduct a broad search over the
+this knowledge for controlled inference�i.e., to generate a sample that is
+similar to a given known sample. While we can conduct a broad search over the
 latent space with the goal of recovering the most representative latent noise
-vector for an arbitrary image, this process is compute intensive and very slow
+vector for an arbitrary sample, this process is compute-intensive and very slow
 in practice.</p>
 <p>To address these issues, recent research studies have explored new formulations
-of GANs that enable just this sort of controlled, adversarial inference by
-introducing an encoder (E) network.<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup> <sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup> In simple terms, the encoder learns the
-reverse mapping of the generator G; it learns to generate a fixed vector Z_,
-given an image. Given this change, the input to the discriminator is also
-modified - the discriminator now takes in pairs of input that include the latent
-representation  (Z, and Z_), in addition to the data samples (X and X_).  The
+of GANs (known as BiGANs) that enable just this sort of controlled adversarial inference by
+introducing an encoder network, E.^[[See e.g. Jeff Donahue et al., “Adversarial Feature Learning” (2016), <a href="https://arxiv.org/abs/1605.09782">arXiv:1605.09782</a>, and Samet AkCay et al., “GANomaly: Semi-Supervised Anomaly Detection via Adversarial Training” (2018), <a href="https://arxiv.org/abs/1805.06725">arXiv:1805.06725</a>.] In simple terms, the encoder learns the
+reverse mapping of the generator; it learns to generate a fixed vector Z_,
+given a sample. Given this change, the input to the discriminator is also
+modified; the discriminator now takes in pairs of input that include the latent
+representation (Z, and Z_), in addition to the data samples (X and X_). The
 encoder E is then jointly trained with the generator G; G learns an induced
 distribution that outputs samples of X given a latent code z, while E learns an
 induced distribution that outputs Z, given a sample X.</p>
-<p>Again, the mappings learned by components in the GAN network are specific to the
+<figure><img src="figures/ill-5.png" alt="A traditional GAN (A) and a BiGAN (B)."><figcaption>A traditional GAN (A) and a BiGAN (B).</figcaption></figure>
+<p>Again, the mappings learned by components in the GAN are specific to the
 data used in training. For example, the generator component of a GAN trained on
-images of cars will always output an image that looks like a car given any
+images of cars will always output an image that looks like a car, given any
 latent code. At test time, we can leverage this property to infer how different
 a given input sample is from the data distribution on which the model was
 trained.</p>
-<figure><img src="figures/ill-5.png" alt="An illustration of a traditional GAN"><figcaption>An illustration of a traditional GAN</figcaption></figure>
-<figure><img src="figures/ill-6.png" alt="An illustration of a BiGAN - atraditional GAN extended to include anencoder."><figcaption>An illustration of a BiGAN - a
-traditional GAN extended to include an
-encoder.</figcaption></figure>
 <h4 id="modeling-normal-behavior-and-anomaly-scoring-3">Modeling Normal Behavior and Anomaly Scoring</h4>
-<p>To model normal behaviour, we train a BiGAN on normal data samples. At the end
+<p>To model normal behavior, we train a BiGAN on normal data samples. At the end
 of the training process, we have an encoder E that has learned a mapping from
-data sample (X) to latent code space (Z_), a discriminator D that has learned to
+data samples (X) to latent code space (Z_), a discriminator D that has learned to
 distinguish real from generated data, and a Generator G that has learned a
-mapping from latent code space  to sample space. Note that these mappings are
+mapping from latent code space to sample space. Note that these mappings are
 specific to the distribution of normal data that has been seen during training.
 At test time, we perform the following steps to generate an anomaly score for a
 given sample X. First, we obtain a latent space value z from the encoder given
 X, which is fed to the generator and yields a sample X_. Next, we can compute an
 anomaly score based on the reconstruction loss (difference between X and X_) and
 the discriminator loss (cross entropy loss or feature differences in the last
-dense layer of the discriminator given both X and X_)</p>
-<figure><img src="figures/ill-7.png" alt="An illustration of a biGAN applied to the task of AD"><figcaption>An illustration of a biGAN applied to the task of AD</figcaption></figure>
+dense layer of the discriminator, given both X and X_).</p>
+<figure><img src="figures/ill-7.png" alt="A BiGAN applied to the task of anomaly detection."><figcaption>A BiGAN applied to the task of anomaly detection.</figcaption></figure>
 <h3 id="sequence-to-sequence-models">Sequence to Sequence Models</h3>
 <p>Sequence to sequence models are a class of neural networks mainly designed to
 learn mappings between data that are best represented as sequences. Data
 containing sequences can be challenging as each token in a sequence may have
-some form of temporal dependence on other tokens, a relationship that has to be
+some form of temporal dependence on other tokens�a relationship that has to be
 modeled to achieve good results. For example, consider the task of language
 translation where a sequence of words in one language needs to be mapped to a
-sequence of words in a different language. To excel at these tasks, a model must
+sequence of words in a different language. To excel at such a task, a model must
 take into consideration the (contextual) location of each word/token within the
-broader sentence in order to generate an appropriate translation (See our
-previous report on Natural Language Processing to learn more about this area.)</p>
-<p>On a high level, sequence to sequence models typically consist of an encoder E
-which generates a hidden representation of the input tokens, and a decoder D,
-which takes in the encoder representation and sequentially generates a set of
-output tokens. Traditionally, the encoder and decoder are composed of LSTM
-blocks which are particularly suitable for modelling temporal relationships
+broader sentence; this allows it to generate an appropriate translation (See our
+previous report on <a href="https://blog.fastforwardlabs.com/2019/07/17/new-research-transfer-learning-for-natural-language-processing.html">Natural Language Processing</a> to learn more about this area.)</p>
+<p>On a high level, sequence to sequence models typically consist of an encoder, E,
+that generates a hidden representation of the input tokens, and a decoder, D,
+that takes in the encoder representation and sequentially generates a set of
+output tokens. Traditionally, the encoder and decoder are composed of long short-term memory (LSTM)
+blocks, that are particularly suitable for modeling temporal relationships
 within input data tokens.</p>
-<p>While sequence to sequence models excel at modeling data with temporal
-dependence, they can be slow during inference (each individual token in the
+<p><strong>// RH: with the total number of steps determining the length of the output token? Or is it the reverse?</strong>
+While sequence to sequence models excel at modeling data with temporal
+dependence, they can be slow during inference�each individual token in the
 model output is sequentially generated at each time step, where the total number
 of steps is the length of the output token).</p>
-<p>We can use this encoder-decoder structure for anomaly detection by revising the
-sequence to sequence model task to function like an autoencoder - train the
-model to output the same tokens as the input (shifted by 1). This way, the
+<p>We can use this encoder/decoder structure for anomaly detection by revising the
+sequence to sequence model to function like an autoencoder, training the
+model to output the same tokens as the input, shifted by 1. This way, the
 encoder learns to generate a hidden representation that allows the decoder to
 reconstruct input data that is similar to examples seen in the training dataset.</p>
-<figure><img src="figures/ill-8.png" alt="An illustration of sequence to sequence models"><figcaption>An illustration of sequence to sequence models</figcaption></figure>
+<figure><img src="figures/ill-8.png" alt="A sequence to sequence models"><figcaption>A sequence to sequence models</figcaption></figure>
 <h4 id="modeling-normal-behavior-and-anomaly-scoring-4">Modeling Normal Behavior and Anomaly Scoring</h4>
-<p>To identify anomalies, we take a semi supervised approach where we train the
-sequence to sequence model on normal data. At test time, we can compare the
-difference (mean square error) between output sequence generated by the model to
-its input. Similar to other approaches discussed above, we can use this value as
+<p>To identify anomalies, we take a semi-supervised approach where we train the
+sequence to sequence model on normal data. At test time, we can then compare the
+difference (mean squared error) between the output sequence generated by the model and
+its input. As in the approaches discussed previously, we can use this value as
 an anomaly score.</p>
-<p>In this section, we discuss One-Class Support Vector Machines (OCSVM), a
-non-deep-learning technique which we will later use (see <a href="#prototype">Prototype</a>)
-as a baseline approach.</p>
+<h3 id="one-class-support-vector-machines">One-Class Support Vector Machines</h3>
+<p>In this section, we discuss <em>one-class support vector machines</em> (OCSVMs), a
+non-deep learning approach to classification that we will use later (see
+<a href="#prototype">Chapter 4. Prototype</a>) as a baseline.</p>
 <p>Traditionally, the goal of classification approaches is to help distinguish
-between a number of classes using some training data. However, consider a
+between different classes, using some training data. However, consider a
 scenario where we have data for only one class, and the goal is to determine
-whether test data samples are similar to the training samples or not. One-class
-SVMs were introduced exactly for this sort of task - novelty detection - or the
-detection of novel samples. SVMs have been very popular for classification, and
-introduced the use of kernel functions to create non-linear decision boundaries
+whether test data samples are similar to the training samples.
+OCSVMs were introduced for exactly this sort of task: <em>novelty detection</em>, or the
+detection of unfamiliar samples. SVMs have proven very popular for classification, and they
+introduced the use of kernel functions to create nonlinear decision boundaries
 (hyperplanes) by projecting data into a higher dimension. Similarly, OCSVMs
 learn a decision function which specifies regions in the input data space where
-the probability density of the data is high. The model is trained with various
+the probability density of the data is high. An OCSVM model is trained with various
 hyperparameters:</p>
 <ul>
-<li>nu, the outliers_fraction, specifies the proportion of outliers (data samples
-that do not belong to our class of interest) which we expect in our data</li>
-<li>kernel specifies the kernel type to be used in the algorithm. Examples of kernel
-functions include RBF, Poly and Linear, kernels. This enables SVMs to use a
-non-linear function to project the input data to a higher dimension.</li>
-<li>gamma is a parameter of the RBF kernel type and controls the influence of
-individual training samples - this affects the “smoothness” of the model.</li>
+<li><code>nu</code> specifies the fraction of outliers (data samples
+that do not belong to our class of interest) that we expect in our data.</li>
+<li><code>kernel</code> specifies the kernel type to be used in the algorithm; examples include RBF, polynomial (poly), and linear. This enables SVMs to use a nonlinear function to project the input data to a higher dimension.</li>
+<li><code>gamma</code> is a parameter of the RBF kernel type that controls the influence of
+individual training samples; this affects the “smoothness” of the model.</li>
 </ul>
 <figure><img src="figures/ill-9.png" alt="An OCSVM classifier learns a decision boundary around data seen duringtraining."><figcaption>An OCSVM classifier learns a decision boundary around data seen during
 training.</figcaption></figure>
 <h4 id="modeling-normal-behavior-and-anomaly-scoring-5">Modeling Normal Behavior and Anomaly Scoring</h4>
 <p>To apply OCSVM for anomaly detection, we train an OCSVM model using normal data,
-or data containing some abnormal samples. Within most implementations of OCSVM,
+or data containing a small fraction of abnormal samples. Within most implementations of OCSVM,
 the model returns an estimate of how similar a data point is to the data samples
 seen during training. This estimate may be the distance from the decision
-boundary (the separating hyperplane) or discrete class values (+1 for data that
-is similar and -1 for data that is not). Both of these scores can be used as an
+boundary (the separating hyperplane), or a discrete class value (+1 for data that
+is similar and -1 for data that is not). Either type of score can be used as an
 anomaly score.</p>
 <figure><img src="figures/ill-10.png" alt="At test time, An OCSVM model classifies data points outside the learneddecision boundary as anomalies (assigned class of -1)."><figcaption>At test time, An OCSVM model classifies data points outside the learned
 decision boundary as anomalies (assigned class of -1).</figcaption></figure>
 <h3 id="additional-considerations">Additional Considerations</h3>
+<p><strong>// RH: Possible to add some text between these headings?</strong></p>
 <h4 id="anomalies-as-rare-events">Anomalies as Rare Events</h4>
-<p>For the training approaches discussed above, we operate on the assumption of the
+<p>For the training approaches discussed thus far, we operate on the assumption of the
 availability of “normal” labeled data, which is then used to learn a model of
-normal behaviour. In practice, it is often the case that labels do not exist or
-can be expensive to obtain. However, it is also a frequent observation that
+normal behavior. In practice, it is often the case that labels do not exist or
+can be expensive to obtain. However, it is also a common observation that
 anomalies (by definition) are relatively infrequent events and therefore
-constitute a small percentage of the entire event dataset (e.g., the occurrence
-of fraud, machine failure, cyber attacks, etc.). Based on our experiments (see
-<a href="#prototype">Prototype</a> for more discussion), the neural network approaches
-discussed above remain robust in the presence of small amounts of anomaly (less
-than 10%). This is mainly because introducing a small percentage of anomalies
-does not significantly affect the network’s model of normal behaviour.  For
-scenarios where anomalies are known to occur sparingly, our experiment results
-relax the requirement of assembling a dataset of labeled normal samples for
+constitute a small percentage of the entire event dataset (for example, the occurrence
+of fraud, machine failure, cyberattacks, etc.). Our experiments (see
+<a href="#prototype">Chapter 4. Prototype</a> for more discussion) have shown that the neural network approaches
+discussed above remain robust in the presence of a small percentage of anomalies (less
+than 10%). This is mainly because introducing a small fraction of anomalies
+does not significantly affect the network’s model of normal behavior. For
+scenarios where anomalies are known to occur sparingly, our experiments show that it’s possible to
+relax the requirement of assembling a dataset consisting only of labeled normal samples for
 training.</p>
 <h4 id="discretizing-data-and-handling-stationarity">Discretizing Data and Handling Stationarity</h4>
 <p>To apply deep learning approaches for anomaly detection (as with any other
 task), we need to construct a dataset of training samples. For problem spaces
 where data is already discrete, we can use the data as is (e.g., a dataset of
 images of wall panels, where the task is to find images containing abnormal
-walls). When data exists as a time series, we can construct our dataset by
+panels). When data exists as a time series, we can construct our dataset by
 discretizing the series into training samples. Typically this involves slicing
 the data into chunks with comparable statistical properties. For example, given
-a series of recordings generated by a datacenter temperature sensor, we can
+a series of recordings generated by a data center temperature sensor, we can
 discretize the data into daily or weekly time slices and construct a dataset
-based on these chunks. This becomes our basis of anomaly comparison (e.g., the
+based on these chunks. This becomes our basis for anomaly comparison (e.g., the
 temperature pattern for today is anomalous compared to patterns for the last 20
-days). The choice of the discretization approach (e.g., daily, weekly,
-averages.) will often require some domain expertise; however, the one
-requirement is that each discrete sample is comparable. For example, given that
-temperatures may spike during work hours compared to non-work hours, it may be
-challenging to discretize this data by hour as these hours exhibit different
-statistical properties.</p>
-<figure><img src="figures/ill-11.png" alt="The figure above illustrates temperature readings for a datacenter overseveral days and how they can be discretized (sliced) into daily 24hr readingsand labelled (0 for a normal day temperature, 1 for abnormal temperature) toconstruct a dataset."><figcaption>The figure above illustrates temperature readings for a datacenter over
-several days and how they can be discretized (sliced) into daily 24hr readings
-and labelled (0 for a normal day temperature, 1 for abnormal temperature) to
+days). The choice of the discretization approach (daily, weekly,
+averages, etc.) will often require some domain expertise; the one
+requirement is that each discrete sample be comparable. For example, given that
+temperatures may spike during work hours compared to non-work hours in the scenario
+we’re considering, it may be challenging to discretize this data by hour as
+different hours exhibit different statistical properties.</p>
+<figure><img src="figures/ill-11.png" alt="Temperature readings for a data center overseveral days can be discretized (sliced) into daily 24-hour readingsand labeled (0 for a normal average daily temperature, 1 for an abnormal temperature) toconstruct a dataset."><figcaption>Temperature readings for a data center over
+several days can be discretized (sliced) into daily 24-hour readings
+and labeled (0 for a normal average daily temperature, 1 for an abnormal temperature) to
 construct a dataset.</figcaption></figure>
 <p>This notion of constructing a dataset of comparable samples is related to the
-idea of stationarity. A stationary series is one in which properties of the data
-(mean, variance) do not vary with time. Data containing trends (e.g., rising
-global temperatures) or with seasonality (e.g., the hourly temperature within
-each day) represents examples of non-stationary data. These need to be handled
+idea of <em>stationarity</em>. A stationary series is one in which properties of the data
+(mean, variance) do not vary with time. Examples of non-stationary data include
+data containing trends (e.g., rising global temperatures) or with seasonality
+(e.g., hourly temperatures within each day). These variations need to be handled
 during discretization. We can remove trends by applying a differencing function
 to the entire dataset. To handle seasonality, we can explicitly include
-information on seasonality as a feature of each discrete sample (e.g., to
-discretize by hour, we can attach a categorical variable representing hour of
-day). A common misconception regarding the application of neural networks (e.g.,
-LSTMs) is that they automatically learn/model properties of the data useful for
+information on seasonality as a feature of each discrete sample;for instance, to
+discretize by hour, we can attach a categorical variable representing the hour of
+the day. A common misconception regarding the application of neural networks capable of modeling temporal relationships such as LSTMs is that they automatically learn/model properties of the data useful for
 predictions (including trends and seasonality). However, the extent to which
-this is possible is dependent on how much of this behaviour is represented in
-each training sample (e.g., to automatically account for trends or patterns
+this is possible is dependent on how much of this behavior is represented in
+each training sample. For example, to automatically account for trends or patterns
 across the day, we can discretize data by hour with an additional categorical
-feature for hour_of_day, or discretize by day (24 features for each hour).</p>
-<p>Note: For most ML algorithms, it is a requirement that samples be independent
-and identically distributed. Ensuring we construct comparable samples (handle
-trends and seasonality) from time series data allows us to satisfy the identical
-requirement but not the independence requirement. This can impact model
-performance. In addition, by constructing our dataset, there is a chance that
-the learned model may perform poorly in correctly predicting output values that
-lie outside the range of values (distribution) seen during training i.e a
-distribution shift. This greatly amplifies the need to - and frequency of -
-retraining the model as new data arrives; and complicates the model deployment
-process. In general, discretization should be applied with care.</p>
+feature for hour of day, or discretize by day (24 features for each hour).</p>
+<p>Note: For most machine learning algorithms, it is a requirement that samples be <em>independent</em>
+and <em>identically distributed</em>. Ensuring we construct comparable samples (i.e., handle
+trends and seasonality) from time series data allows us to satisfy the latter
+requirement, but not the former. This can affect model
+performance. In addition, constructing a dataset in this way raises the possibility that
+the learned model may perform poorly in predicting output values that
+lie outside the distribution (range of values) seen during training�i.e.,
+if there is a distribution shift. This greatly amplifies the need to
+retrain the model as new data arrives, and complicates the model deployment process.
+In general, discretization should be applied with care.</p>
 <h3 id="selecting-a-model">Selecting a Model</h3>
 <p>There are several factors that can influence the primary approach taken when it
-comes to detecting anomalies. These include the data properties (time series vs
-non-time series, stationary vs non-stationary, univariate versus multivariate,
-low dimensional vs high dimensional), and business or application requirements (latency, uncertainty
-reporting, and accuracy). More importantly, deep learning methods
+comes to detecting anomalies. These include the data properties (time series vs.
+non-time series, stationary vs. non-stationary, univariate vs. multivariate,
+low-dimensional vs. high-dimensional), latency requirements, uncertainty
+reporting, and accuracy requirements. More importantly, deep learning methods
 are not always the best approach! To provide a framework for navigating this
-space, we offer the following recommendations (footnote: linear models are
-mentioned below and refer to approaches such as AR, MA, ARMA, ARIMA, SARIMA, VAR
-models).</p>
+space, we offer the following recommendations:</p>
 <h4 id="data-properties">Data Properties</h4>
-<h5 id="time-series-data">Time series data</h5>
-<p>As discussed in the previous sections, it is important to correctly discretize
-data as well as handle stationarity before training a model.</p>
-<h5 id="univariate-vs-multivariate">Univariate vs Multivariate</h5>
-<p>Deep learning methods are recommended for high dimensional data and work well in
-modeling the interactions between multiple variables. These include data that
-has a wide range of features or high dimensional data such as images. For most
-univariate datasets, linear models are both fast and accurate and thus
-recommended.</p>
+<ul>
+<li>
+<p><strong>Time series data</strong>: As discussed in the previous section, it is important to correctly discretize
+the data and to handle stationarity before training a model. In addition, for discretized data with temporal relationships, the use of LSTM layers as part of the encoder or decoder can help model these relationships.</p>
+</li>
+<li>
+<p><strong>Univariate vs Multivariate</strong>: Deep learning methods are well suited to data that has a wide range of features:
+they’re recommended for high-dimensional data, such as images, and work well for
+modeling the interactions between multiple variables. For most
+univariate datasets, linear models<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup> are both fast and accurate and thus typically preferred.
+<strong>// RH: That’s a lot of acronyms to throw at the reader (in the footnote). It would be helpful to point them to a reference they can look at to explain them all (“For a survey of linear models, see…”). Keep the formatting consistent with refs in earlier footnotes or just include a URL.</strong></p>
+</li>
+</ul>
 <h4 id="business-requirements">Business Requirements</h4>
-<h5 id="latency">Latency</h5>
-<p>Deep learning models are slower compared to linear models. For scenarios which
-include high data volume, and low latency requirements, linear models are
-recommended (e.g., detecting anomalies in the authentication requests for
+<ul>
+<li>
+<p><strong>Latency</strong>: Deep learning models are slower than linear models. For scenarios that
+include high volumes of data and have low latency requirements, linear models are
+recommended (e.g., for detecting anomalies in authentication requests for
 200,000 work sites, with each machine generating 500 requests per second).</p>
-<h5 id="accuracy">Accuracy</h5>
-<p>Deep learning approaches tend to be robust, providing better accuracy, precision
+</li>
+<li>
+<p><strong>Accuracy</strong>: Deep learning approaches tend to be robust, providing better accuracy, precision,
 and recall.</p>
-<h5 id="uncertainty">Uncertainty</h5>
-<p>For scenarios where it is a requirement to provide a principled estimate of
-uncertainty for each anomaly classification, deep learning methods such as VAEs
-and BiGANs are recommended.</p>
+</li>
+<li>
+<p><strong>Uncertainty</strong>: For scenarios where it is a requirement to provide a principled estimate of
+uncertainty for each anomaly classification, deep learning models such as VAEs and BiGANs are recommended.</p>
+</li>
+</ul>
 <h3 id="general-considerations-in-selecting-a-deep-learning-approach">General Considerations in Selecting a Deep Learning Approach</h3>
 <p>When the (discretized) data contains sequences with temporal dependencies, a
 sequence to sequence model can model these relationships, yielding better
 results. For scenarios requiring principled estimates of uncertainty, a VAE and
 GAN based approaches are suitable. For scenarios where the data is images, AE’s
 VAEs and GANs designed with convolution blocks are suitable.</p>
-<figure><img src="figures/ill-12.png" alt="A flow chart illustrating steps for selecting an approach to anomalydetection."><figcaption>A flow chart illustrating steps for selecting an approach to anomaly
+<figure><img src="figures/ill-12.png" alt="The steps for selecting an approach to anomalydetection."><figcaption>The steps for selecting an approach to anomaly
 detection.</figcaption></figure>
+<p><strong>// RH: Add intro to table (something like “The following table highlights the pros and cons of the different types of models, to give you an idea of what kinds of data they are most useful for.”?) Also, in the GAN row of the table, what do you mean by “learning of data manifold”? And is it necessary to say “(useful for high-dimensional image data)” in item 2, given item 3?</strong></p>
+<p>The following table highlights the pros and cons of the different types of models, to give you an idea under what kind of scenarios they are recommended.</p>
 <div style="width: 100%; overflow-x: auto;"><table>
 <thead>
 <tr>
@@ -1263,18 +1268,18 @@ detection.</figcaption></figure>
 </tr>
 <tr>
 <td>GAN (BiGAN)</td>
-<td><ul><li>Supports variational inference (probabilistic measure of uncertainty) </li><li>Use of discriminator signal allows better learning of data manifold (useful for high dimensional image data).</li><li>Performs well for  high dimensional data (images)</li></ul></td>
-<td><ul><li>Requires a large amount of training data, training can take a while </li><li>Training can be unstable (GAN mode collapse)</li></ul></td>
+<td><ul><li>Supports variational inference (probabilistic measure of uncertainty) </li><li>Use of discriminator signal allows better learning of data manifold (useful for high dimensional image data).</li><li>Performs well for  high dimensional data (images) </li><li>GANs trained in semi-supervised learning mode have shown great promise, even with very few labeled data<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup></li></ul></td>
+<td><ul><li>Requires a large amount of training data, and longer training time (epochs) to arrive at stable results<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup> </li><li>Training can be unstable (GAN mode collapse)</li></ul></td>
 </tr>
 <tr>
-<td>Sequence to Sequence Mode</td>
+<td>Sequence to Sequence Model</td>
 <td><ul><li>Well suited for data with temporal components (e.g., discretized time series data)</li></ul></td>
 <td><ul><li>Slow inference (compute scales with sequence length which needs to be fixed)</li><li>Training can be slow</li><li>Limited accuracy when data contains features with no temporal dependence</li><li>Supports variational inference (probabilistic measure of uncertainty)</li></ul></td>
 </tr>
 <tr>
 <td>One Class SVM</td>
 <td><ul><li>Does not require a large amount of data</li><li>Fast to train</li><li>Fast inference time</li></ul></td>
-<td><ul><li>Limited capacity in capturing complex relationships within data</li><li>Requires kernel selection and other parameters (nu, gamma) that need to be carefully tuned.</li><li>Does not model a probability distribution, harder to compute estimates of confidence.</li></ul></td>
+<td><ul><li>Limited capacity in capturing complex relationships within data</li><li>Requires careful parameter selection (kernel, nu, gamma) that need to be carefully tuned.</li><li>Does not model a probability distribution, harder to compute estimates of confidence.</li></ul></td>
 </tr>
 </tbody>
 </table></div>
@@ -1296,7 +1301,7 @@ detection.</figcaption></figure>
 <p>Table …</p>
 <h4 id="observations">Observations</h4>
 <h5 id="training">Training</h5>
-<p>In terms of training, ocsvm and an autoencoder were the fastest to implement and train. While the BiGAN based model also demonstrated very good accuracy, it was the most challenging to train. This is in part due to a known stability issue (mostly fluctuating accuracy during training) <sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup> associated with GANs. Overall, the BiGAN approach, required more training epochs to arrive at stable results compared to the other deep methods.</p>
+<p>In terms of training, ocsvm and an autoencoder were the fastest to implement and train. While the BiGAN based model also demonstrated very good accuracy, it was the most challenging to train. This is in part due to a known stability issue (mostly fluctuating accuracy during training) <sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup> associated with GANs. Overall, the BiGAN approach, required more training epochs to arrive at stable results compared to the other deep methods.</p>
 <!-- In terms of training time, we found that ocsvm and the autoencoder were the fastest models to train to peak accuracy. GANs have known stability issues ^[
 [Improved Techniques for Training GANs](https://arxiv.org/abs/1606.03498)]   and can be challenging to train. Overall, the BiGAN approach, required more training epochs to arrive at stable results compared to the other deep methods.  -->
 <h5 id="inference-and-storage">Inference and Storage</h5>
@@ -1776,11 +1781,11 @@ could be identified by measuring model loss.</p>
 individuals. Improper disclosure of such data can have adverse consequences for
 a data subject’s private information, or even lead to civil liability or bodily
 harm. One way to minimize these effects is to use a technique called
-differential privacy<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup> on the data before it is fed into an anomaly detection
+differential privacy<sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup> on the data before it is fed into an anomaly detection
 system. This technique essentially adds a small amount of noise to the data, in
 order to mask individual identities while maintaining the accuracy of aggregated
 statistics. When coupled with an anomaly detection system, differential privacy
-has been shown to reduce the false positives<sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup>, thus protecting the privacy of
+has been shown to reduce the false positives<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup>, thus protecting the privacy of
 more individuals who would otherwise have been scrutinized by being singled out.</p>
 <h4 id="health-care-diagnostics">Health Care Diagnostics</h4>
 <p>Anomaly detection can be applied in health care scenarios to provide quick and
@@ -1896,8 +1901,8 @@ for deep models, as training time can be significant.</p>
 </ul>
 <p>Going forward, we expect the general approaches discussed in the report to
 continually evolve and mature. As examples, see recent extensions to the
-encoder-decoder model approach that are based on GMMs<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup>, LSTMs<sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup>,
-CNNs<sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup>, and GANs<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup>.
+encoder-decoder model approach that are based on GMMs<sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup>, LSTMs<sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup>,
+CNNs<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup>, and GANs<sup class="footnote-ref"><a href="#fn13" id="fnref13">[13]</a></sup>.
 Like everything else in machine learning, there is no “one size fits all”; no
 one model works best for every problem. The right approach always depends on the
 use case and data.</p>
@@ -1912,32 +1917,34 @@ use case and data.</p>
 <li id="fn3" class="footnote-item"><p><a href="https://arxiv.org/abs/1705.07874">A Unified Approach to Interpreting Model
 Predictions</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn4" class="footnote-item"><p><a href="https://arxiv.org/abs/1605.09782">BiGAN, Donahue,
-2016</a> <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+<li id="fn4" class="footnote-item"><p>Approaches such as AR, MA, ARMA, ARIMA,
+SARIMA, and VAR models. <a href="#fnref4" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn5" class="footnote-item"><p><a href="https://arxiv.org/abs/1805.06725">GANomaly AkCay et al 2018</a> <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+<li id="fn5" class="footnote-item"><p><a href="https://arxiv.org/abs/1901.03407">Deep Learning for Anomaly Detection: A Survey</a> <a href="#fnref5" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn6" class="footnote-item"><p><a href="https://arxiv.org/abs/1606.03498">Improved Techniques for Training GANs</a> <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+<li id="fn6" class="footnote-item"><p><a href="http://papers.nips.cc/paper/6125-improved-techniques-for-training-gans.pdf">Improved Techniques for Training GANs</a> <a href="#fnref6" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn7" class="footnote-item"><p>Differential Privacy, Dwork 2006 <a href="#fnref7" class="footnote-backref">↩︎</a></p>
+<li id="fn7" class="footnote-item"><p><a href="https://arxiv.org/abs/1606.03498">Improved Techniques for Training GANs</a> <a href="#fnref7" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn8" class="footnote-item"><p><a href="https://arxiv.org/abs/1911.07116">Robust Anomaly Detection and
+<li id="fn8" class="footnote-item"><p>Differential Privacy, Dwork 2006 <a href="#fnref8" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn9" class="footnote-item"><p><a href="https://arxiv.org/abs/1911.07116">Robust Anomaly Detection and
 Backdoor Attack Detection Via Differential
-Privacy</a> <a href="#fnref8" class="footnote-backref">↩︎</a></p>
+Privacy</a> <a href="#fnref9" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn9" class="footnote-item"><p><a href="https://openreview.net/forum?id=BJJLHbb0-"> Deep Autoencoding
+<li id="fn10" class="footnote-item"><p><a href="https://openreview.net/forum?id=BJJLHbb0-"> Deep Autoencoding
 Gaussian Mixture Model for Unsupervised Anomaly
-Detection</a> <a href="#fnref9" class="footnote-backref">↩︎</a></p>
+Detection</a> <a href="#fnref10" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn10" class="footnote-item"><p><a href="https://arxiv.org/abs/1910.03818">Sequential
-VAE-LSTM for Anomaly Detection on Time Series</a> <a href="#fnref10" class="footnote-backref">↩︎</a></p>
+<li id="fn11" class="footnote-item"><p><a href="https://arxiv.org/abs/1910.03818">Sequential
+VAE-LSTM for Anomaly Detection on Time Series</a> <a href="#fnref11" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn11" class="footnote-item"><p><a href="https://arxiv.org/abs/1906.03821">Time-Series Anomaly Detection Service at
-Microsoft</a> <a href="#fnref11" class="footnote-backref">↩︎</a></p>
+<li id="fn12" class="footnote-item"><p><a href="https://arxiv.org/abs/1906.03821">Time-Series Anomaly Detection Service at
+Microsoft</a> <a href="#fnref12" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn12" class="footnote-item"><p><a href="https://arxiv.org/abs/1901.04997">MAD-GAN: Multivariate
+<li id="fn13" class="footnote-item"><p><a href="https://arxiv.org/abs/1901.04997">MAD-GAN: Multivariate
 Anomaly Detection for Time Series Data with Generative Adversarial
-Networks</a> <a href="#fnref12" class="footnote-backref">↩︎</a></p>
+Networks</a> <a href="#fnref13" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
 </section>
