@@ -1,16 +1,15 @@
 ## Deep Learning for Anomaly Detection
 
 As data becomes high dimensional, it is increasingly challenging to effectively
-learn a model of normal behaviour across variables within each model. In this
+learn a model of normal behavior across variables. In this
 chapter, we will review a set of relevant deep learning model architectures and
 how they can be applied to the task of anomaly detection. As discussed in
-[Background](#background), anomaly detection using each of these models is
-explored as a function of how they can be applied first in modeling normal
-behaviour within data, and then generating an anomaly score.
+[Background](#background), anomaly detection involves first learning a model 
+of normal behavior, then generating anomaly scores that can be used to identify anomalous activity.
 
-The deep learning approaches discussed below typically consist of two important
-components - an encoder that learns to generate an internal representation of
-the input data, and a decoder which attempts to reconstruct the original input
+The deep learning approaches discussed here typically consist of two principal
+components: an encoder that learns to generate an internal representation of
+the input data, and a decoder that attempts to reconstruct the original input
 based on this internal representation. While the exact techniques for encoding
 and decoding vary across models, the overall benefit they offer is the ability
 to learn the distribution of normal input data and construct a measure of
@@ -45,23 +44,18 @@ mapping) is particularly useful for the task of anomaly detection.
 #### Modeling Normal Behavior and Anomaly Scoring
 
 Applying an autoencoder for anomaly detection follows the general principle of
-first modeling normal behaviour and subsequently generating an anomaly score for
-a new data sample. To model normal behaviour, we follow a semi-supervised
+first modeling normal behavior and subsequently generating an anomaly score for
+a new data sample. To model normal behavior, we follow a semi-supervised
 approach where we train the autoencoder on a normal data sample. This way, the
 model learns a mapping function that successfully reconstructs normal data
 samples with a very small reconstruction error (the difference between actual
-sample and the version reconstructed by the model). This behaviour is replicated
+sample and the version reconstructed by the model). This behavior is replicated
 at test time, where the reconstruction error is small for normal data samples,
 and large for abnormal data samples. To identify anomalies, we use the
 reconstruction error score as an anomaly score and flag samples with
 reconstruction errors above a given threshold.
 
-![An illustration of how autoencoders can be applied for anomaly detection. As
-the autoencoder attempts to reconstruct abnormal data, it does so in a manner
-that is weighted towards normal samples (square shapes). The difference between
-what it reconstructs and the input is the reconstruction error. We can specify a
-threshold and flag anomalies as samples with reconstruction error above the
-given threshold.](figures/ill-2.png)
+![The use of autoencoders for anomaly detection.](figures/ill-2.png)
 
 ### Variational Autoencoders
 
@@ -110,7 +104,7 @@ probability measures which offer a principled approach to quantifying
 uncertainty when applied in practice: e.g., the probability that a new data
 point belongs to the distribution of normal data is 80%.  
 
-![An illustration of a variational autoencoder](figures/ill-3.png)
+![A variational autoencoder](figures/ill-3.png)
 
 #### Modeling Normal Behavior and Anomaly Scoring
 
@@ -121,7 +115,7 @@ reconstructed values from the decoder using z, and compute a mean reconstruction
 error. Anomalies are flagged based on some threshold on the reconstruction
 error.
 
-In addition, we can also output a mean and variance parameter from the decoder,
+Alternatively, we can also output a mean and variance parameter from the decoder,
 and compute the probability that the new datapoint belongs to the distribution
 of normal data on which the model was trained. If the datapoint lies in a low
 density region (below some threshold) we then flag that as an anomaly. (We can
@@ -139,6 +133,7 @@ typically feed-forward neural networks termed a generator G and discriminator D.
 Both networks are trained jointly and play a competitive skill game with the end
 goal of learning the distribution of input data X.
 
+**NM: we use "images" instead of "input datapoints or samples" below - check**
 The generator network G learns a mapping from random noise of a fixed dimension
 (Z) to samples X_ that closely resemble members of the input data distribution.
 The discriminator D learns to correctly tell apart real samples that originated
@@ -148,7 +143,7 @@ ability to generate samples that are indistinguishable by D, while the
 parameters of  D are updated to maximize its ability to to correctly tell apart
 true samples X from generated samples X_. As training progresses, G becomes
 proficient at producing samples that are similar to X, and D also upskills on
-the task of distinguishing true X from X_. 
+the task of distinguishing real from fake images. 
 
 In this classic formulation of GANs, while G learns to model the source
 distribution X well (it learns to map random noise from Z to the source
@@ -187,9 +182,9 @@ encoder.](figures/ill-6.png)
 
 #### Modeling Normal Behavior and Anomaly Scoring
 
-To model normal behaviour, we train a BiGAN on normal data samples. At the end
+To model normal behavior, we train a BiGAN on normal data samples. At the end
 of the training process, we have an encoder E that has learned a mapping from
-data sample (X) to latent code space (Z_), a discriminator D that has learned to
+data samples (X) to latent code space (Z_), a discriminator D that has learned to
 distinguish real from generated data, and a Generator G that has learned a
 mapping from latent code space  to sample space. Note that these mappings are
 specific to the distribution of normal data that has been seen during training.
@@ -200,7 +195,7 @@ anomaly score based on the reconstruction loss (difference between X and X_) and
 the discriminator loss (cross entropy loss or feature differences in the last
 dense layer of the discriminator given both X and X_)
 
-![An illustration of a biGAN applied to the task of AD](figures/ill-7.png)
+![A BiGAN applied to the task of anomaly detection.](figures/ill-7.png)
 
 ### Sequence to Sequence Models
 
@@ -219,21 +214,22 @@ On a high level, sequence to sequence models typically consist of an encoder E
 which generates a hidden representation of the input tokens, and a decoder D,
 which takes in the encoder representation and sequentially generates a set of
 output tokens. Traditionally, the encoder and decoder are composed of LSTM
-blocks which are particularly suitable for modelling temporal relationships
+blocks which are particularly suitable for modeling temporal relationships
 within input data tokens. 
 
+**// RH: with the total number of steps determining the length of the output token? Or is it the reverse?**
 While sequence to sequence models excel at modeling data with temporal
 dependence, they can be slow during inference (each individual token in the
 model output is sequentially generated at each time step, where the total number
 of steps is the length of the output token).
 
 We can use this encoder-decoder structure for anomaly detection by revising the
-sequence to sequence model task to function like an autoencoder - train the
+sequence to sequence model to function like an autoencoder - train the
 model to output the same tokens as the input (shifted by 1). This way, the
 encoder learns to generate a hidden representation that allows the decoder to
 reconstruct input data that is similar to examples seen in the training dataset.   
 
-![An illustration of sequence to sequence models](figures/ill-8.png)
+![A sequence to sequence models](figures/ill-8.png)
 
 #### Modeling Normal Behavior and Anomaly Scoring
 
@@ -252,7 +248,7 @@ between a number of classes using some training data. However, consider a
 scenario where we have data for only one class, and the goal is to determine
 whether test data samples are similar to the training samples or not. One-class
 SVMs were introduced exactly for this sort of task - novelty detection - or the
-detection of novel samples. SVMs have been very popular for classification, and
+detection of unfamiliar samples. SVMs have been very popular for classification, and
 introduced the use of kernel functions to create non-linear decision boundaries
 (hyperplanes) by projecting data into a higher dimension. Similarly, OCSVMs
 learn a decision function which specifies regions in the input data space where
@@ -273,7 +269,7 @@ training.](figures/ill-9.png)
 #### Modeling Normal Behavior and Anomaly Scoring
 
 To apply OCSVM for anomaly detection, we train an OCSVM model using normal data,
-or data containing some abnormal samples. Within most implementations of OCSVM,
+or data containing a small fraction of abnormal samples. Within most implementations of OCSVM,
 the model returns an estimate of how similar a data point is to the data samples
 seen during training. This estimate may be the distance from the decision
 boundary (the separating hyperplane) or discrete class values (+1 for data that
@@ -285,11 +281,13 @@ decision boundary as anomalies (assigned class of -1).](figures/ill-10.png)
 
 ### Additional Considerations
 
+**// RH: Possible to add some text between these headings?**
+
 #### Anomalies as Rare Events
 
 For the training approaches discussed above, we operate on the assumption of the
 availability of “normal” labeled data, which is then used to learn a model of
-normal behaviour. In practice, it is often the case that labels do not exist or
+normal behavior. In practice, it is often the case that labels do not exist or
 can be expensive to obtain. However, it is also a frequent observation that
 anomalies (by definition) are relatively infrequent events and therefore
 constitute a small percentage of the entire event dataset (e.g., the occurrence
@@ -297,7 +295,7 @@ of fraud, machine failure, cyber attacks, etc.). Based on our experiments (see
 [Prototype](#prototype) for more discussion), the neural network approaches
 discussed above remain robust in the presence of small amounts of anomaly (less
 than 10%). This is mainly because introducing a small percentage of anomalies
-does not significantly affect the network’s model of normal behaviour.  For
+does not significantly affect the network’s model of normal behavior.  For
 scenarios where anomalies are known to occur sparingly, our experiment results
 relax the requirement of assembling a dataset of labeled normal samples for
 training.
@@ -322,25 +320,25 @@ temperatures may spike during work hours compared to non-work hours, it may be
 challenging to discretize this data by hour as these hours exhibit different
 statistical properties. 
 
-![The figure above illustrates temperature readings for a datacenter over
-several days and how they can be discretized (sliced) into daily 24hr readings
-and labelled (0 for a normal day temperature, 1 for abnormal temperature) to
+![Temperature readings for a data center over
+several days can be discretized (sliced) into daily 24-hour readings
+and labeled (0 for a normal average daily temperature, 1 for an abnormal temperature) to
 construct a dataset.](figures/ill-11.png)
 
 This notion of constructing a dataset of comparable samples is related to the
 idea of stationarity. A stationary series is one in which properties of the data
-(mean, variance) do not vary with time. Data containing trends (e.g., rising
+(mean, variance) do not vary with time. Data containing trends (for instance, rising
 global temperatures) or with seasonality (e.g., the hourly temperature within
-each day) represents examples of non-stationary data. These need to be handled
+each day) represents examples of non-stationary data. These variations need to be handled
 during discretization. We can remove trends by applying a differencing function
 to the entire dataset. To handle seasonality, we can explicitly include
 information on seasonality as a feature of each discrete sample (e.g., to
 discretize by hour, we can attach a categorical variable representing hour of
-day). A common misconception regarding the application of neural networks (e.g.,
-LSTMs) is that they automatically learn/model properties of the data useful for
+day). A common misconception regarding the application of neural networks such as
+LSTMs is that they automatically learn/model properties of the data useful for
 predictions (including trends and seasonality). However, the extent to which
-this is possible is dependent on how much of this behaviour is represented in
-each training sample (e.g., to automatically account for trends or patterns
+this is possible is dependent on how much of this behavior is represented in
+each training sample. For example, to automatically account for trends or patterns
 across the day, we can discretize data by hour with an additional categorical
 feature for hour_of_day, or discretize by day (24 features for each hour).   
 
@@ -350,50 +348,43 @@ trends and seasonality) from time series data allows us to satisfy the identical
 requirement but not the independence requirement. This can impact model
 performance. In addition, by constructing our dataset, there is a chance that
 the learned model may perform poorly in correctly predicting output values that
-lie outside the range of values (distribution) seen during training i.e a
-distribution shift. This greatly amplifies the need to - and frequency of -
-retraining the model as new data arrives; and complicates the model deployment
-process. In general, discretization should be applied with care. 
+lie outside the range of values (distribution) seen during training if there is a
+distribution shift. This greatly amplifies the need to retrain the model as new data arrives 
+and complicates the model deployment process. In general, discretization should be applied with care. 
 
 ### Selecting a Model
 
 There are several factors that can influence the primary approach taken when it
-comes to detecting anomalies. These include the data properties (time series vs
+comes to detecting anomalies. These include the data type (time series vs
 non-time series, stationary vs non-stationary, univariate versus multivariate,
-low dimensional vs high dimensional), and business or application requirements (latency, uncertainty
-reporting, and accuracy). More importantly, deep learning methods
+low dimensional vs high dimensional), and latency requirements, uncertainty
+reporting, and accuracy requirements. More importantly, deep learning methods
 are not always the best approach! To provide a framework for navigating this
 space, we offer the following recommendations (footnote: linear models are
 mentioned below and refer to approaches such as AR, MA, ARMA, ARIMA, SARIMA, VAR
 models).
 
 #### Data Properties 
-
-##### Time series data
-As discussed in the previous sections, it is important to correctly discretize
+- **Time series data**: As discussed in the previous sections, it is important to correctly discretize
 data as well as handle stationarity before training a model.  
 
-##### Univariate vs Multivariate
-Deep learning methods are recommended for high dimensional data and work well in
+- **Univariate vs Multivariate**: Deep learning methods are recommended for high dimensional data and work well in
 modeling the interactions between multiple variables. These include data that
 has a wide range of features or high dimensional data such as images. For most
 univariate datasets, linear models are both fast and accurate and thus
 recommended.
 
 #### Business Requirements
-##### Latency
-Deep learning models are slower compared to linear models. For scenarios which
+- **Latency**: Deep learning models are slower compared to linear models. For scenarios which
 include high data volume, and low latency requirements, linear models are
 recommended (e.g., detecting anomalies in the authentication requests for
 200,000 work sites, with each machine generating 500 requests per second). 
 
-##### Accuracy
-Deep learning approaches tend to be robust, providing better accuracy, precision
+- **Accuracy**: Deep learning approaches tend to be robust, providing better accuracy, precision
 and recall.
 
-##### Uncertainty
-For scenarios where it is a requirement to provide a principled estimate of
-uncertainty for each anomaly classification, deep learning methods such as VAEs
+- **Uncertainty**: For scenarios where it is a requirement to provide a principled estimate of
+uncertainty for each anomaly classification, deep learning models such as VAEs
 and BiGANs are recommended.
 
 ### General Considerations in Selecting a Deep Learning Approach 
@@ -403,9 +394,12 @@ results. For scenarios requiring principled estimates of uncertainty, a VAE and
 GAN based approaches are suitable. For scenarios where the data is images, AE’s
 VAEs and GANs designed with convolution blocks are suitable.  
 
-![A flow chart illustrating steps for selecting an approach to anomaly
+![The steps for selecting an approach to anomaly
 detection.](figures/ill-12.png)
 
+**// RH: Add intro to table (something like "The following table highlights the pros and cons of the different types of models, to give you an idea of what kinds of data they are most useful for."?) Also, in the GAN row of the table, what do you mean by "learning of data manifold"? And is it necessary to say "(useful for high-dimensional image data)" in item 2, given item 3?**
+
+The following table highlights the pros and cons of the different types of models, to give you an idea under what kind of scenarios they are recommended.
 
 | Model                     | Pros                                                                                                                                                                                                                                                                       | Cons                                                                                                                                                                                                                                                                                         |
 | ----                      | ----                                                                                                                                                                                                                                                                       | ----                                                                                                                                                                                                                                                                                         |
