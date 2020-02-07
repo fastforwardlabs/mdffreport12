@@ -466,7 +466,7 @@ function makeJS() {
     }
 
     window.addEventListener("load", (event) => {
-      let headings = document.querySelectorAll('h1, h2, h3, h4');
+      let headings = document.querySelectorAll('h2, h3');
       let links = document.querySelectorAll('.table-of-contents ul li a')
 
       observer = new IntersectionObserver((entry, observer) => {
