@@ -4,7 +4,7 @@ As data becomes high dimensional, it is increasingly challenging to effectively
 learn a model of normal behavior. In this chapter, we will review a set of relevant 
 deep learning model architectures and
 how they can be applied to the task of anomaly detection. As discussed in
-[Background](#background), anomaly detection involves first learning a model 
+[Chapter 2. Background](#background), anomaly detection involves first learning a model 
 of normal behavior, then generating anomaly scores that can be used to identify anomalous activity.
 
 The deep learning approaches discussed here typically consist of two principal
@@ -332,10 +332,9 @@ data containing trends (e.g., rising global temperatures) or with seasonality
 (e.g., hourly temperatures within each day). These variations need to be handled
 during discretization. We can remove trends by applying a differencing function
 to the entire dataset. To handle seasonality, we can explicitly include
-information on seasonality as a feature of each discrete sample&#151;for instance, to
+information on seasonality as a feature of each discrete sample;for instance, to
 discretize by hour, we can attach a categorical variable representing the hour of
-the day. A common misconception regarding the application of neural networks such as LSTMs 
-is that they automatically learn/model properties of the data useful for
+the day. A common misconception regarding the application of neural networks capable of modeling temporal relationships such as LSTMs is that they automatically learn/model properties of the data useful for
 predictions (including trends and seasonality). However, the extent to which
 this is possible is dependent on how much of this behavior is represented in
 each training sample. For example, to automatically account for trends or patterns
@@ -356,7 +355,7 @@ In general, discretization should be applied with care.
 ### Selecting a Model
 
 There are several factors that can influence the primary approach taken when it
-comes to detecting anomalies. These include the data type (time series vs.
+comes to detecting anomalies. These include the data properties (time series vs.
 non-time series, stationary vs. non-stationary, univariate vs. multivariate,
 low-dimensional vs. high-dimensional), latency requirements, uncertainty
 reporting, and accuracy requirements. More importantly, deep learning methods
@@ -365,7 +364,7 @@ space, we offer the following recommendations:
 
 #### Data Properties 
 - **Time series data**: As discussed in the previous section, it is important to correctly discretize
-the data and to handle stationarity before training a model. 
+the data and to handle stationarity before training a model. In addition, for discretized data with temporal relationships, the use of LSTM layers as part of the encoder or decoder can help model these relationships.
 
 - **Univariate vs Multivariate**: Deep learning methods are well suited to data that has a wide range of features: 
 they're recommended for high-dimensional data, such as images, and work well for
