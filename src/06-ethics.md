@@ -2,14 +2,12 @@
 
 Machine learning models that learn to solve tasks independently from data are
 susceptible to biases and other issues that may raise ethical concerns. Anomaly
-detection models have 
-// RH: Or "are associated with"?
-specific risks and mitigation tactics. In anomaly
+detection models are associated with specific risks and mitigation tactics. In anomaly
 detection, when the definition of “normal” is independently learned and applied
 without controls, it may inadvertently reflect societal biases that can lead to
 harm. This presents risks to human welfare in scenarios where anomaly detection
 applications intersect with human behavior. It should go without saying that in
-relation to humans, one must resist the assumption that different is bad. 
+relation to humans, one must resist the assumption that different is bad.
 
 ### Diversity Matters
 
@@ -21,9 +19,7 @@ parts of the world, where the items packed might differ greatly.
 
 To limit the potential harm of a machine learning model’s tendency to assume
 that “different is bad,” one can use a larger (or more varied) dataset and
-provide human supervision of the model 
-// RH: Or "have a human review the model's output"? If so, perhaps change "using human review" below to "relying on human supervision"?
-(both measures reduce the likelihood of
+have a human review the model's output (both measures reduce the likelihood of
 errors). In the luggage example, this translates to using more varied X-ray image
 data to expand the machine’s view of what is normal, and using human review to
 ensure that positive predictions aren’t false positives.
@@ -38,12 +34,11 @@ anomalous, leaving the end user with no particular guidance on where to begin
 investigation. Blindly relying on such applications may cause or, in certain
 cases, exacerbate bias.
 
-### Use Cases
+### Additional Use Cases
 
 Ethical considerations are important in every use of machine learning,
 particularly when the use case affects humans. In this section we consider 
 a few use cases that highlight ethical concerns with regard to anomaly detection.
-// RH: Does that look OK?
 
 #### Data Privacy
 
@@ -54,23 +49,21 @@ laws don’t just penalize data breaches, but also guide and limit
 how an individual’s personal data can be used and processed. Thus, when anomaly
 detection methods are used on protected data, privacy is a top concern.
 
-To give an example, in [Chapter 3](#deep-learning-for-anomaly-detection) we
+To give an example, in [Chapter 3. Deep Learning for Anomaly Detection](#deep-learning-for-anomaly-detection) we
 discussed the autoencoder, a type of neural network that has been widely used for
 anomaly detection. As we saw, autoencoders have two parts: an encoder network that reduces the dimensions
-// RH: or "dimensionality"?
 of the input data, and a decoder network that aims to reconstruct the input. Their
 learning goal is to minimize the reconstruction error, which is
 consequently the loss function. Because the dimensionality reduction brings
 information loss, and the learning goal encourages preservation of the information
-that is common to most training samples, anomalies that contain rare information
-can be identified by measuring model loss. 
+that is common to most training samples, anomalies that contain rare information 
+can be identified by measuring model loss.
 
 In certain use cases, these identified anomalies could correspond to
 individuals. Improper disclosure of such data can have adverse consequences for
 a data subject’s privacy, or even lead to civil liability or bodily
-harm. One way to minimize these effects is to use a technique called
-_differential privacy_^[Cynthia Dwork, "Differential Privacy" (2006), _Proceedings of the 33rd International Conference on Automata, Languages and Programming_ Part II: 1-12, https://doi.org/10.1007/11787006_1.] on the data before it is fed into an anomaly detection
-system. This technique essentially adds a small amount of noise to the data, in
+harm. One way to minimize these effects is to use a technique called 
+_differential privacy_^[Cynthia Dwork, "Differential Privacy" (2006), _Proceedings of the 33rd International Conference on Automata, Languages and Programming_ Part II: 1-12, https://doi.org/10.1007/11787006_1.] on the data before it is fed into an anomaly detection system. This technique essentially adds a small amount of noise to the data, in
 order to mask individual identities while maintaining the accuracy of aggregated
 statistics. When coupled with an anomaly detection system, differential privacy
 has been shown to reduce the rate of false positives,^[Min Du et al., "Robust Anomaly Detection and
@@ -89,14 +82,14 @@ lead to unnecessary (and potentially painful or even harmful) treatment.
 
 For other machine learning tasks, such as churn prediction or resume review, analysts
 strive to remove racial or socioeconomic factors from the equation. But in health
-care diagnostics, it may be both appropriate and advantageous to consider them.
+care diagnostics, it may be both appropriate and advantageous to consider them.  
 
 To the extent that an anomaly to be detected is connected with a certain group
 of people, models can be tailored to that group. For example, sickle-cell
 disease is more prevalent in parts of Africa and Asia than in Europe and the
 Americas. A diagnostic system for detecting this disease should include enough
 samples of Asian and African patients and acknowledgment of their ethnicity to
-ensure the disease is identified.
+ensure the disease is identified.  
 
 In any event, it is important to ensure that these systems remain curated (i.e.,
 that a medical professional verifies the results) and that the models are correctly
@@ -109,7 +102,7 @@ security systems trained to identify anomalies present a problem of the
 “different is bad” variety. These systems need to have enough data&#151;in terms of
 quantity and variability&#151;to prevent bias that would make them more likely to
 identify people of different races, body types, or socioeconomic status as anomalies based
-on, for example, their skin color, size, or clothing.
+on, for example, their skin color, size, or clothing.  
 
 #### Content Moderation
 
@@ -124,7 +117,7 @@ appeal/review process.
 Determining what harmful anomalies are in financial services applications is complex. On 
 the one hand, fraudsters are actively trying to steal and launder money, and move it
 around the world. On the other hand, the vast majority of transactions are legitimate
-services for valuable customers. Fraudsters emulate normal
+services for valuable customers. Fraudsters emulate normal 
 business, making anomalies especially difficult to identify. As a result,
 financial services organizations should consider first whether anomaly detection
 is desirable in their use cases, and then consider the potential ethical and
@@ -132,7 +125,7 @@ practical risks.
 
 For example, banks use customer data to offer mortgages and student loans. A lack
 of diverse data could lead to unfavorable results for certain demographic
-groups. Such biased algorithms can result in costly mistakes, reduce customer
+groups. Such biased algorithms can result in costly mistakes, reduce customer 
 satisfaction, and damage a brand’s reputation. To combat this, one should pose
 questions (like the following) that can help check for bias in the data or
 model:
@@ -146,9 +139,8 @@ As we have seen, the term _anomaly_ can carry negative connotations.
 Anomaly detection by its very nature involves identifying samples that are different from the bulk of the
 other samples&#151;but as discussed here, assuming that different is bad may not
 be fair in many cases. Instead of associating faulty
-interpretations with anomalies, it may be helpful to investigate them to reveal new truths.
-// RH: OK? 
+interpretations with anomalies, it may be helpful to investigate them to reveal new truths. 
 
 After all, progress in science is often triggered by anomalous activities that
 lead to innovation!
-// RH: or something like "triggered by innovation spurred by the discovery of anomalies"?
+
