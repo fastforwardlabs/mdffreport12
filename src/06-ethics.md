@@ -9,6 +9,8 @@ harm. This presents risks to human welfare in scenarios where anomaly detection
 applications intersect with human behavior. It should go without saying that in
 relation to humans, one must resist the assumption that different is bad.
 
+![Different is _not_ necessarily bad.](figures/ill-21.png)
+
 ### Diversity Matters
 
 Although anomalies are often scrutinized, their absence in the data may be even
@@ -137,7 +139,7 @@ model:
 
 As we have seen, the term _anomaly_ can carry negative connotations. 
 Anomaly detection by its very nature involves identifying samples that are different from the bulk of the
-other samples&#151;but as discussed here, assuming that different is bad may not
+other samples; but as discussed here, assuming that different is bad may not
 be fair in many cases. Instead of associating faulty
 interpretations with anomalies, it may be helpful to investigate them to reveal new truths. 
 
