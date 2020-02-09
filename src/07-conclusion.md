@@ -9,8 +9,8 @@ as a deep learning problem and how deep models perform.
 - A semi-supervised approach is desirable in handling previously unseen, unknown anomalies
 and does not incur vast data labeling costs for businesses.
 - Traditional machine learning approaches are suboptimal for handling 
-high-dimensional, complex data and modeling interactions between each variable. 
-
+high-dimensional, complex data and modeling interactions between each variable.  
+   
 In our prototype, described in [Chapter 4. Prototype](#prototype), we show how deep learning models can achieve competitive
 performance on a multivariate tabular dataset (for the task of network intrusion detection).
 Our findings are in concurrence with results from existing research that show the superior
@@ -19,25 +19,25 @@ performance of deep learning models for high-dimensional data such as images.^[/
 But while deep learning approaches are useful, there are a few challenges
 that may limit their deployment in production settings. Problems to consider include: 
 
-_Latency_
-: Compared to linear models (AR, ARMA, etc.) or shallow machine learning
+_Latency_   
+Compared to linear models (AR, ARMA, etc.) or shallow machine learning
 models such as OCSVMs, deep learning models can have significant
 latency associated with inference. This makes it expensive to apply them in
 streaming data use cases at scale (high volume, high velocity). For example, our
 experiments show that inference with an OCSVM is 12x faster than with an
 autoencoder. 
 
-_Data requirements_
-: Deep learning models typically require a large dataset (tens of thousands of
+_Data requirements_   
+Deep learning models typically require a large dataset (tens of thousands of
 samples) for effective training. The models are also prone to overfitting
 and need to be carefully evaluated to address this risk. Anomaly detection use cases
-frequently have relatively few data points&#151;for example, daily sales data for two years will
+frequently have relatively few data points; for example, daily sales data for two years will
 generate 712 samples, which may be insufficient to train a model. In such
 scenarios, linear models designed to work with smaller datasets are a better
 option.  
 
-_Managing distribution shift_
-: In many scenarios (including but certainly not limited to anomaly detection),
+_Managing distribution shift_   
+In many scenarios (including but certainly not limited to anomaly detection),
 the underlying process generating data may legitimately
 change such that a data point that was previously anomalous becomes normal. The
 changes could be gradual, cyclical, or even abrupt in nature. This phenomenon
