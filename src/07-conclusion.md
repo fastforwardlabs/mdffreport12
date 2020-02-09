@@ -14,7 +14,7 @@ high-dimensional, complex data and modeling interactions between each variable.
 In our prototype, described in [Chapter 4. Prototype](#prototype), we show how deep learning models can achieve competitive
 performance on a multivariate tabular dataset (for the task of network intrusion detection).
 Our findings are in concurrence with results from existing research that show the superior
-performance of deep learning models for high-dimensional data such as images.^[//RH: add citations in format Author, "Title" (year), publication/URL.] 
+performance of deep learning models for high-dimensional data such as images. 
 
 But while deep learning approaches are useful, there are a few challenges
 that may limit their deployment in production settings. Problems to consider include: 
