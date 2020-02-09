@@ -56,11 +56,11 @@ reconstruction errors above a given threshold.
 
 ![The use of autoencoders for anomaly detection.](figures/ill-2.png)
 
-This process is illustrated in the following figure. As
+This process is illustrated in the figure above. As
 the autoencoder attempts to reconstruct abnormal data, it does so in a manner 
 that is weighted toward normal samples (square shapes). The difference between
 what it reconstructs and the input is the reconstruction error. We can specify a
-threshold and flag anomalies as samples with a reconstruction error above the
+threshold and flag anomalies as samples with a reconstruction error above a
 given threshold.
 
 ### Variational Autoencoders
@@ -82,7 +82,7 @@ that outputs a latent code vector, given the input data (posterior). In other
 words, one can draw samples of the bottleneck vector that “correspond” to samples
 from the input data. The nature of this distribution can vary depending on the
 nature of the input data (e.g., while Gaussian distributions are commonly used,
-Bernoulli distributions can be used if the input data is known to be binary).  
+Bernoulli distributions can be used if the input data is known to be binary).
 On the other hand, the decoder learns a distribution that outputs the original
 input data point (or something really close to it), given a latent bottleneck
 sample (likelihood). Typically, an isotropic Gaussian distribution is used to
@@ -102,7 +102,7 @@ The probabilistic Bayesian components introduced in VAEs lead to a few useful
 benefits. First, VAEs enable Bayesian inference; essentially, we can now sample
 from the learned encoder distribution and decode samples that do not explicitly
 exist in the original dataset, but belong to the same data distribution. Second,
-VAEs learn a disentangled representation of a data distribution&#151;i.e., a single
+VAEs learn a disentangled representation of a data distribution; i.e., a single
 unit in the latent code is only sensitive to a single generative factor. This
 allows some interpretability of the output of VAEs, as we can vary units in the
 latent code for controlled generation of samples. Third, a VAE provides true
@@ -113,6 +113,7 @@ point belongs to the distribution of normal data is 80%).
 ![A variational autoencoder](figures/ill-3.png)
 
 #### Modeling Normal Behavior and Anomaly Scoring
+**NM: "samples of the latent code z ", z not referenced earlier, is that okay?**   
 
 Similar to an autoencoder, we begin by training the VAE on normal data samples.
 At test time, we can compute an anomaly score in two ways. First, we can draw
@@ -125,7 +126,9 @@ Alternatively, we can output a mean and a variance parameter from the decoder,
 and compute the probability that the new data point belongs to the distribution
 of normal data on which the model was trained. If the data point lies in a 
 low-density region (below some threshold), we flag that as an anomaly. We can
-do this because we're modeling a distribution as opposed to a point estimate.
+do this because we're modeling a distribution as opposed to a point estimate.  
+
+**NM: Update the figure caption**
 
 ![Two approaches to anomaly scoring with a VAE: we have the option of outputting the mean
 reconstruction probability (i.e., the probability that a sample belongs to the
@@ -139,7 +142,8 @@ distribution. In their classic formulation, they're composed of a pair of
 Both networks are trained jointly and play a competitive skill game with the end
 goal of learning the distribution of the input data, X.
 
-**NM: we use "images" instead of "input datapoints or samples" below - check**
+**NM: we use "images" instead of "input datapoints or samples" below - check**  
+
 The generator network G learns a mapping from random noise of a fixed dimension
 (Z) to samples X_ that closely resemble members of the input data distribution.
 The discriminator D learns to correctly discern real samples that originated
@@ -154,15 +158,17 @@ the task of distinguishing real from fake samples.
 In this classic formulation of GANs, while G learns to model the source
 distribution X well (it learns to map random noise from Z to the source
 distribution), there is no straightforward approach that allows us to harness
-this knowledge for controlled inference&#151;i.e., to generate a sample that is
+this knowledge for controlled inference; i.e., to generate a sample that is
 similar to a given known sample. While we can conduct a broad search over the
 latent space with the goal of recovering the most representative latent noise
 vector for an arbitrary sample, this process is compute-intensive and very slow
 in practice. 
 
+![A traditional GAN.](figures/ill-5.png)
+
 To address these issues, recent research studies have explored new formulations
 of GANs (known as BiGANs) that enable just this sort of controlled adversarial inference by
-introducing an encoder network, E.^[[See e.g. Jeff Donahue et al., "Adversarial Feature Learning" (2016), [arXiv:1605.09782](https://arxiv.org/abs/1605.09782), and Samet AkCay et al., "GANomaly: Semi-Supervised Anomaly Detection via Adversarial Training" (2018), [arXiv:1805.06725](https://arxiv.org/abs/1805.06725).] In simple terms, the encoder learns the
+introducing an encoder network, E.^[[Jeff Donahue et al., "Adversarial Feature Learning" (2016)](https://arxiv.org/abs/1605.09782), [Samet AkCay et al., "GANomaly: Semi-Supervised Anomaly Detection via Adversarial Training" (2018)](https://arxiv.org/abs/1805.06725).] In simple terms, the encoder learns the
 reverse mapping of the generator; it learns to generate a fixed vector Z_,
 given a sample. Given this change, the input to the discriminator is also
 modified; the discriminator now takes in pairs of input that include the latent
@@ -171,7 +177,9 @@ encoder E is then jointly trained with the generator G; G learns an induced
 distribution that outputs samples of X given a latent code z, while E learns an
 induced distribution that outputs Z, given a sample X.
 
-![A traditional GAN (A) and a BiGAN (B).](figures/ill-5.png)
+**NM: was the "z" ever introduced above? "given a latent code z"**
+
+![A BiGAN.](figures/ill-6.png)
 
 Again, the mappings learned by components in the GAN are specific to the
 data used in training. For example, the generator component of a GAN trained on
@@ -185,7 +193,7 @@ trained.
 To model normal behavior, we train a BiGAN on normal data samples. At the end
 of the training process, we have an encoder E that has learned a mapping from
 data samples (X) to latent code space (Z_), a discriminator D that has learned to
-distinguish real from generated data, and a Generator G that has learned a
+distinguish real from generated data, and a generator G that has learned a
 mapping from latent code space to sample space. Note that these mappings are
 specific to the distribution of normal data that has been seen during training.
 At test time, we perform the following steps to generate an anomaly score for a
@@ -197,12 +205,12 @@ dense layer of the discriminator, given both X and X_).
 
 ![A BiGAN applied to the task of anomaly detection.](figures/ill-7.png)
 
-### Sequence to Sequence Models
+### Sequence-to-Sequence Models
 
-Sequence to sequence models are a class of neural networks mainly designed to
+Sequence-to-sequence models are a class of neural networks mainly designed to
 learn mappings between data that are best represented as sequences. Data
 containing sequences can be challenging as each token in a sequence may have
-some form of temporal dependence on other tokens&#151;a relationship that has to be
+some form of temporal dependence on other tokens; a relationship that has to be
 modeled to achieve good results. For example, consider the task of language
 translation where a sequence of words in one language needs to be mapped to a
 sequence of words in a different language. To excel at such a task, a model must
@@ -210,34 +218,36 @@ take into consideration the (contextual) location of each word/token within the
 broader sentence; this allows it to generate an appropriate translation (See our
 previous report on [Natural Language Processing](https://blog.fastforwardlabs.com/2019/07/17/new-research-transfer-learning-for-natural-language-processing.html) to learn more about this area.) 
 
-On a high level, sequence to sequence models typically consist of an encoder, E,
+On a high level, sequence-to-sequence models typically consist of an encoder, E,
 that generates a hidden representation of the input tokens, and a decoder, D,
 that takes in the encoder representation and sequentially generates a set of
 output tokens. Traditionally, the encoder and decoder are composed of long short-term memory (LSTM)
 blocks, that are particularly suitable for modeling temporal relationships
 within input data tokens. 
 
-**// RH: with the total number of steps determining the length of the output token? Or is it the reverse?**
-While sequence to sequence models excel at modeling data with temporal
-dependence, they can be slow during inference&#151;each individual token in the
+**// RH: with the total number of steps determining the length of the output token? Or is it the reverse?**   
+While sequence-to-sequence models excel at modeling data with temporal
+dependence, they can be slow during inference; each individual token in the
 model output is sequentially generated at each time step, where the total number
-of steps is the length of the output token).
+of steps is the length of the output token.  
 
 We can use this encoder/decoder structure for anomaly detection by revising the
-sequence to sequence model to function like an autoencoder, training the
+sequence-to-sequence model to function like an autoencoder, training the
 model to output the same tokens as the input, shifted by 1. This way, the
 encoder learns to generate a hidden representation that allows the decoder to
 reconstruct input data that is similar to examples seen in the training dataset.   
 
-![A sequence to sequence models](figures/ill-8.png)
+![A sequence-to-sequence models.](figures/ill-8.png)
 
 #### Modeling Normal Behavior and Anomaly Scoring
 
 To identify anomalies, we take a semi-supervised approach where we train the
-sequence to sequence model on normal data. At test time, we can then compare the
+sequence-to-sequence model on normal data. At test time, we can then compare the
 difference (mean squared error) between the output sequence generated by the model and
 its input. As in the approaches discussed previously, we can use this value as
 an anomaly score.
+
+**NM: Shall we move this section to Background? since this is not DL**
 
 ### One-Class Support Vector Machines
 
@@ -347,7 +357,7 @@ trends and seasonality) from time series data allows us to satisfy the latter
 requirement, but not the former. This can affect model
 performance. In addition, constructing a dataset in this way raises the possibility that
 the learned model may perform poorly in predicting output values that
-lie outside the distribution (range of values) seen during training&#151;i.e., 
+lie outside the distribution (range of values) seen during training; i.e., 
 if there is a distribution shift. This greatly amplifies the need to 
 retrain the model as new data arrives, and complicates the model deployment process. 
 In general, discretization should be applied with care. 
@@ -363,6 +373,7 @@ are not always the best approach! To provide a framework for navigating this
 space, we offer the following recommendations: 
 
 #### Data Properties 
+
 - **Time series data**: As discussed in the previous section, it is important to correctly discretize
 the data and to handle stationarity before training a model. In addition, for discretized data with temporal relationships, the use of LSTM layers as part of the encoder or decoder can help model these relationships.
 
@@ -374,6 +385,7 @@ SARIMA, and VAR models.] are both fast and accurate and thus typically preferred
 **// RH: That's a lot of acronyms to throw at the reader (in the footnote). It would be helpful to point them to a reference they can look at to explain them all ("For a survey of linear models, see..."). Keep the formatting consistent with refs in earlier footnotes or just include a URL.**
 
 #### Business Requirements
+
 - **Latency**: Deep learning models are slower than linear models. For scenarios that
 include high volumes of data and have low latency requirements, linear models are
 recommended (e.g., for detecting anomalies in authentication requests for
@@ -386,10 +398,11 @@ and recall.
 uncertainty for each anomaly classification, deep learning models such as VAEs and BiGANs are recommended.
 
 ### General Considerations in Selecting a Deep Learning Approach 
+
 When the (discretized) data contains sequences with temporal dependencies, a
-sequence to sequence model can model these relationships, yielding better
+sequence-to-sequence model can model these relationships, yielding better
 results. For scenarios requiring principled estimates of uncertainty, a VAE and
-GAN based approaches are suitable. For scenarios where the data is images, AE’s
+GAN based approaches are suitable. For scenarios where the data is images, AEs,
 VAEs and GANs designed with convolution blocks are suitable.  
 
 ![The steps for selecting an approach to anomaly
@@ -404,5 +417,5 @@ The following table highlights the pros and cons of the different types of model
 | AutoEncoder               | <ul><li>Flexible approach to modeling complex non-linear patterns in data</li>                                                                                                                                                                                             | <ul><li>Does not support variational inference (estimates of uncertainty)</li><li>Requires a large dataset for training</li></ul>                                                                                                                                                            |
 | Variational AutoEncoder   | <ul><li>Supports variational inference (probabilistic measure of uncertainty)</li></ul>                                                                                                                                                                                    | <ul><li>Requires a large amount of training data, training can take a while</li>                                                                                                                                                                                                             |
 | GAN (BiGAN)               | <ul><li>Supports variational inference (probabilistic measure of uncertainty) </li><li>Use of discriminator signal allows better learning of data manifold (useful for high dimensional image data).</li><li>Performs well for  high dimensional data (images) </li><li>GANs trained in semi-supervised learning mode have shown great promise, even with very few labeled data^[[Deep Learning for Anomaly Detection: A Survey](https://arxiv.org/abs/1901.03407)]</li></ul> | <ul><li>Requires a large amount of training data, and longer training time (epochs) to arrive at stable results^[[Improved Techniques for Training GANs]( http://papers.nips.cc/paper/6125-improved-techniques-for-training-gans.pdf)] </li><li>Training can be unstable (GAN mode collapse)</li></ul>                                                                                                                                                  |
-| Sequence to Sequence Model | <ul><li>Well suited for data with temporal components (e.g., discretized time series data)</li></ul>                                                                                                                                                                       | <ul><li>Slow inference (compute scales with sequence length which needs to be fixed)</li><li>Training can be slow</li><li>Limited accuracy when data contains features with no temporal dependence</li><li>Supports variational inference (probabilistic measure of uncertainty)</li></ul> |
+| Sequence-to-Sequence Model | <ul><li>Well suited for data with temporal components (e.g., discretized time series data)</li></ul>                                                                                                                                                                       | <ul><li>Slow inference (compute scales with sequence length which needs to be fixed)</li><li>Training can be slow</li><li>Limited accuracy when data contains features with no temporal dependence</li><li>Supports variational inference (probabilistic measure of uncertainty)</li></ul> |
 | One Class SVM             | <ul><li>Does not require a large amount of data</li><li>Fast to train</li><li>Fast inference time</li></ul>                                                                                                                                                                | <ul><li>Limited capacity in capturing complex relationships within data</li><li>Requires careful parameter selection (kernel, nu, gamma) that need to be carefully tuned.</li><li>Does not model a probability distribution, harder to compute estimates of confidence.</li></ul>         |
