@@ -121,7 +121,7 @@ while fitting a time series model.
 #### Numenta’s HTM (Hierarchical Temporal Memory)
 
 Research organization [Numenta](https://numenta.com/) has introduced 
-a machine learning model for anomaly detection called _Hierarchical Temporal Memory_ (HTM). 
+a machine intelligence framework for anomaly detection called _Hierarchical Temporal Memory_ (HTM). 
 At the core of HTM are time-based learning algorithms that store and recall temporal patterns. Unlike
 most other ML methods, HTM algorithms learn time-based patterns in
 unlabeled data on a continuous basis. They are robust to noise and high-capacity, 
