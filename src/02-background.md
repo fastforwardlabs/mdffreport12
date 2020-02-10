@@ -201,13 +201,11 @@ modeling of interactions between each variable. For these sorts of problems,
 deep learning approaches (the focus of this report) such as autoencoders,
 VAEs, sequence-to-sequence models, and GANs present some benefits.
 
-### Why Use Deep Learning for Anomaly Detection
-
-**NM/ RH: Clarify "data of different data types across each variable.?" below? or remove it?**  
+### Why Use Deep Learning for Anomaly Detection?
 
 Deep learning approaches, when applied to anomaly detection, offer several
 advantages. First, these approaches are designed to work with 
-multivariate data of different data types across each variable. 
+multivariate and high dimensional data. 
 This makes it easy to integrate information from multiple sources, 
 and eliminates challenges associated with individually modeling anomaly for each variable and aggregating the
 results. Deep learning approaches are also well adapted to jointly modeling the interactions between
@@ -220,13 +218,6 @@ relationships within data, and leverage this for the anomaly detection task. The
 performance of deep learning models can also potentially scale with the
 availability of appropriate training data, making them suitable for data-rich
 problems. 
-
-**NM: We need to move this somewhere else, like the section below or Ch3. Additional Considerations?**
-
-Finally, while deep learning methods can be complex (leading to their reputation as black
-box models), interpretability techniques such as LIME (see our previous report,
-["Interpretability"](https://blog.fastforwardlabs.com/2017/08/02/interpretability.html)) and [Deep SHAP](https://arxiv.org/abs/1705.07874) provide opportunities for analysts to inspect 
-their behavior and make them more interpretable. 
 
 ### What Can Go Wrong?
 
@@ -275,3 +266,9 @@ the point that yields the best performance metric (accuracy, precision,
 recall). In the absence of labeled data, and assuming that most data points 
 are normal, one can use statistics such as standard deviation and percentiles to 
 infer a good threshold. 
+
+_Interpretability_  
+Deep learning methods for anomaly detection can be complex, leading to their reputation as black
+box models. However, interpretability techniques such as LIME (see our previous report,
+["Interpretability"](https://blog.fastforwardlabs.com/2017/08/02/interpretability.html)) and [Deep SHAP](https://arxiv.org/abs/1705.07874) provide opportunities for analysts to inspect 
+their behavior and make them more interpretable. 
