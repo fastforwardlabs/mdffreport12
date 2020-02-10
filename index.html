@@ -77,8 +77,7 @@
       padding-left: 2ch;
       padding-right: 2ch;
       margin: 0 auto;
-      display: flex;
-      flex-direction: column;
+      display: block;
       padding-bottom: 0px;
     }
    p, ul, ol {
@@ -151,10 +150,16 @@ h6 {
 p {
   margin-bottom: 14px;
 }
+.content {
+  position: relative;
+  }
 figure {
   margin: 0;
   margin-top: 14px;
   margin-bottom: 28px;
+  display: block;
+  position: relative;
+  page-break-inside: avoid;
 }
 blockquote {
   margin: 0;
@@ -184,8 +189,10 @@ figcaption {
 }
 img {
   display: block;
+  position: relative;
   max-width: 100%;
   margin: 0 auto;
+  page-break-inside: avoid;
 }
 
 table {
@@ -304,6 +311,8 @@ h1 {
 }
 h2 {
   position: relative;
+  display: block;
+  page-break-before: always;
   padding-top: 42px;
 }
   h2:before {
@@ -438,7 +447,7 @@ h2 {
     }
 
     window.addEventListener("load", (event) => {
-      let headings = document.querySelectorAll('h1, h2, h3, h4');
+      let headings = document.querySelectorAll('h2, h3');
       let links = document.querySelectorAll('.table-of-contents ul li a')
 
       observer = new IntersectionObserver((entry, observer) => {
@@ -527,7 +536,7 @@ h2 {
       <body>
         <div class="content" style="position: relative;">
           <div style="margin-top: 28px;"><a href="https://experiments.fastforwardlabs.com" >Cloudera Fast Forward</a></div>
-          <h1 id="deep-learning-for-anomaly-detection">Deep Learning for Anomaly Detection</h1>
+          <h1>Deep Learning for Anomaly Detection</h1>
 <p><div class="table-of-contents"><div id="toc-header" style="display: flex; font-weight: bold; text-transform: uppercase;">
      <div><button id="toggle_contents" style="padding-left: 0.5ch; padding-right: 0.5ch; cursor: pointer; position: relative; top: -1px;">☰</button><span id="contents-label" style="margin-left: 0;"> Contents</span></div>
   </div><ul><li><a href="#introduction">Introduction</a><ul><li><a href="#applications-of-anomaly-detection">Applications of Anomaly Detection</a></li></ul></li><li><a href="#background">Background</a><ul><li><a href="#anomaly-detection-approaches">Anomaly Detection Approaches</a></li><li><a href="#supervised-learning">Supervised Learning</a></li><li><a href="#unsupervised-learning">Unsupervised learning</a></li><li><a href="#semi-supervised-learning">Semi-supervised learning</a></li><li><a href="#evaluating-models%3A-accuracy-is-not-enough">Evaluating Models: Accuracy Is Not Enough</a></li><li><a href="#anomaly-detection-as-learning-normal-behavior">Anomaly Detection as Learning Normal Behavior</a></li><li><a href="#approaches-to-modeling-normal-behavior">Approaches to Modeling Normal Behavior</a></li><li><a href="#why-use-deep-learning-for-anomaly-detection">Why Use Deep Learning for Anomaly Detection</a></li><li><a href="#what-can-go-wrong%3F">What Can Go Wrong?</a></li></ul></li><li><a href="#deep-learning-for-anomaly-detection">Deep Learning for Anomaly Detection</a><ul><li><a href="#autoencoders">Autoencoders</a></li><li><a href="#variational-autoencoders">Variational Autoencoders</a></li><li><a href="#generative-adversarial-networks">Generative Adversarial Networks</a></li><li><a href="#sequence-to-sequence-models">Sequence-to-Sequence Models</a></li><li><a href="#one-class-support-vector-machines">One-Class Support Vector Machines</a></li><li><a href="#additional-considerations">Additional Considerations</a></li><li><a href="#selecting-a-model">Selecting a Model</a></li><li><a href="#general-considerations-in-selecting-a-deep-learning-approach">General Considerations in Selecting a Deep Learning Approach</a></li></ul></li><li><a href="#prototype">Prototype</a><ul><li><a href="#datasets">Datasets</a></li><li><a href="#benchmarking-experiment-setup">Benchmarking Experiment Setup</a></li><li><a href="#web-application-prototypes">Web Application Prototypes</a></li></ul></li><li><a href="#landscape">Landscape</a><ul><li><a href="#open-source-tools-and-frameworks">Open Source Tools and Frameworks</a></li><li><a href="#anomaly-detection-as-a-service">Anomaly Detection as a Service</a></li></ul></li><li><a href="#ethics">Ethics</a><ul><li><a href="#diversity-matters">Diversity Matters</a></li><li><a href="#explainability">Explainability</a></li><li><a href="#additional-use-cases">Additional Use Cases</a></li><li><a href="#innovation">Innovation</a></li></ul></li><li><a href="#conclusion">Conclusion</a></li></ul></div></p>
@@ -809,7 +818,13 @@ strategies employed by approaches within each category, and some examples of eac
 <td>Statistical</td>
 <td>Given an assumed stochastic model, normal data instances fall in high-probability regions of the model while abnormal data points lie in low-probability regions.</td>
 <td>Probability that a data point lies in a high-probability region in the assumed distribution</td>
-<td>Regression models (ARMA, ARIMA), Gaussian models, generative adversarial networks (GANs), variational autoencoders (VAEs)</td>
+<td>Regression models (ARMA, ARIMA)</td>
+</tr>
+<tr>
+<td>Deep learning</td>
+<td>Given an assumed stochastic model, normal data instances fall in high-probability regions of the model while abnormal data points lie in low-probability regions.</td>
+<td>Probability that a data point lies in a high-probability region in the assumed distribution</td>
+<td>generative adversarial networks (GANs), variational autoencoders (VAEs)</td>
 </tr>
 </tbody>
 </table></div>
@@ -885,7 +900,7 @@ the point that yields the best performance metric (accuracy, precision,
 recall). In the absence of labeled data, and assuming that most data points
 are normal, one can use statistics such as standard deviation and percentiles to
 infer a good threshold.</p>
-<h2 id="deep-learning-for-anomaly-detection-2">Deep Learning for Anomaly Detection</h2>
+<h2 id="deep-learning-for-anomaly-detection">Deep Learning for Anomaly Detection</h2>
 <p>As data becomes high dimensional, it is increasingly challenging to effectively
 learn a model of normal behavior. In this chapter, we will review a set of relevant
 deep learning model architectures and
