@@ -32,7 +32,7 @@ dimensionality reduction technique, as well as in other use cases such as
 noise removal from images, image colorization, unsupervised feature extraction and
 data compression. 
 
-![The components of an autoencoder](figures/ill-1.png)
+![The components of an autoencoder.](figures/ill-1.png)
 
 It is important to note that the mapping function learned by an autoencoder is
 specific to the training data distribution. That is, an autoencoder will typically
@@ -78,7 +78,7 @@ latent code, given our input. The components of a VAE serve to derive good
 estimates for these terms. 
 
 The encoder network learns the parameters (mean and variance) of a distribution
-that outputs a latent code vector, given the input data (posterior). In other
+that outputs a latent code vector Z, given the input data (posterior). In other
 words, one can draw samples of the bottleneck vector that “correspond” to samples
 from the input data. The nature of this distribution can vary depending on the
 nature of the input data (e.g., while Gaussian distributions are commonly used,
@@ -110,15 +110,14 @@ probability measures that offer a principled approach to quantifying
 uncertainty when applied in practice (for example, the probability that a new data
 point belongs to the distribution of normal data is 80%).  
 
-![A variational autoencoder](figures/ill-3.png)
+![A variational autoencoder.](figures/ill-3.png)
 
 #### Modeling Normal Behavior and Anomaly Scoring
-**NM: "samples of the latent code z ", z not referenced earlier, is that okay?**   
 
 Similar to an autoencoder, we begin by training the VAE on normal data samples.
 At test time, we can compute an anomaly score in two ways. First, we can draw
-samples of the latent code z from the encoder given our input data, sample
-reconstructed values from the decoder using z, and compute a mean reconstruction
+samples of the latent code Z from the encoder given our input data, sample
+reconstructed values from the decoder using Z, and compute a mean reconstruction
 error. Anomalies are flagged based on some threshold on the reconstruction
 error.
 
@@ -128,9 +127,7 @@ of normal data on which the model was trained. If the data point lies in a
 low-density region (below some threshold), we flag that as an anomaly. We can
 do this because we're modeling a distribution as opposed to a point estimate.  
 
-**NM: Update the figure caption**
-
-![Two approaches to anomaly scoring with a VAE: we have the option of outputting the mean
+![Anomaly scoring with a VAE: we output the mean
 reconstruction probability (i.e., the probability that a sample belongs to the
 normal data distribution).](figures/ill-4.png)
 
