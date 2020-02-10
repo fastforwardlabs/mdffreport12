@@ -101,8 +101,8 @@ evaluated (precision, recall) before being put into production.
 
 Similar to the luggage example mentioned at the beginning of the chapter, home or business
 security systems trained to identify anomalies present a problem of the
-“different is bad” variety. These systems need to have enough data&#151;in terms of
-quantity and variability&#151;to prevent bias that would make them more likely to
+“different is bad” variety. These systems need to have enough data; in terms of
+quantity and variability; to prevent bias that would make them more likely to
 identify people of different races, body types, or socioeconomic status as anomalies based
 on, for example, their skin color, size, or clothing.  
 
