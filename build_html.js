@@ -81,10 +81,16 @@ h6 {
 p {
   margin-bottom: ${lq * 2}px;
 }
+.content {
+  position: relative;
+  }
 figure {
   margin: 0;
   margin-top: ${lq * 2}px;
   margin-bottom: ${lq * 4}px;
+  display: block;
+  position: relative;
+  page-break-inside: avoid;
 }
 blockquote {
   margin: 0;
@@ -114,8 +120,10 @@ figcaption {
 }
 img {
   display: block;
+  position: relative;
   max-width: 100%;
   margin: 0 auto;
+  page-break-inside: avoid;
 }
 
 table {
@@ -217,8 +225,7 @@ function makeStyle() {
       padding-left: 2ch;
       padding-right: 2ch;
       margin: 0 auto;
-      display: flex;
-      flex-direction: column;
+      display: block;
       padding-bottom: ${line * 0}px;
     }
    p, ul, ol {
@@ -329,6 +336,8 @@ h1 {
 }
 h2 {
   position: relative;
+  display: block;
+  page-break-before: always;
   padding-top: ${rlh + rlh / 2}px;
 }
   h2:before {
@@ -623,27 +632,3 @@ if (deploy_location === 'exp') {
 }
 
 fs.writeFileSync(write_index_to + 'index.html', html)
-
-let margin = '0.5in'
-
-// turned off for now (function not called)
-// async () => {
-//   let browser = await puppeteer.launch();
-//   let page = await browser.newPage();
-//   await page.goto(`file:${path.join(__dirname, 'out/index.html')}`, {
-//     waitUntil: 'networkidle2',
-//   });
-//   await page.pdf({
-//     path: 'out/book.pdf',
-//     height: '8.5in',
-//     width: '5.5in',
-//     displayHeaderFooter: true,
-//     margin: {
-//       top: margin,
-//       left: margin,
-//       right: margin,
-//       bottom: margin,
-//     },
-//   });
-//   await browser.close();
-// }();
