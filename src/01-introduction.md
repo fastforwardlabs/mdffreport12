@@ -30,9 +30,7 @@ difficult and economically punishing to resolve once exploited. Business IT
 systems collect data about their own network traffic, user activity in the
 system, types of connection requests, and more. While most activity will be benign
 and routine, analysis of this data may provide insights into unusual (anomalous)
-activity within the network after and ideally before a substantive attack. In
-practice, the damage incurred during an intrusion event often escalates faster
-than most teams are able to mount an effective response. Thus, it becomes 
+activity within the network after and ideally before a substantive attack. In practice, the damage and cost incurred right after an intrusion event escalates faster than most teams are able to respond. Thus, it becomes 
 critical to have special-purpose intrusion detection systems (IDSs) in place that 
 can surface potential threat events and anomalous probing early and in a reliable manner.
 
@@ -83,8 +81,8 @@ This is possible using a deep anomaly detection model.
 In particular, ScoleMans can use an autoencoder or GAN-based model built with
 convolutional neural network blocks (see [Chapter 3. Deep Learning for Anomaly Detection](#deep-learning-for-anomaly-detection) for more
 information) to create a model of normal data based on images of normal panels.
-This model can then be used to tag new images as normal or abnormal, and set thresholds for alerts.   
-**NM: delete this - "and set thresholds for alerts"? **
+This model can then be used to tag new images as normal or abnormal.   
+
 :::
 
 Similarly, the task of predictive maintenance can be cast as an anomaly detection problem.
