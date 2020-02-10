@@ -1,5 +1,7 @@
 ## Deep Learning for Anomaly Detection
 
+**DT: suggest "learn a model of normal behavior" -> "teach a model to recognize normal behavior" (both instances)**
+
 As data becomes high dimensional, it is increasingly challenging to effectively
 learn a model of normal behavior. In this chapter, we will review a set of relevant 
 deep learning model architectures and
@@ -29,7 +31,7 @@ data. The model is trained by minimizing the reconstruction error, which is the
 difference (mean squared error) between the original input and the reconstructed
 output produced by the decoder. In practice, autoencoders have been applied as a
 dimensionality reduction technique, as well as in other use cases such as
-noise removal from images, image colorization, unsupervised feature extraction and
+noise removal from images, image colorization, unsupervised feature extraction, and
 data compression. 
 
 ![The components of an autoencoder.](figures/ill-1.png)
@@ -65,6 +67,10 @@ given threshold.
 
 ### Variational Autoencoders
 
+**DT: "a VAE learns a mapping
+from input to a distribution" -> "a VAE learns a mapping
+from an input to a distribution"**
+
 A variational autoencoder (VAE) is an extension of the autoencoder. Similar to
 an autoencoder, it consists of an encoder and a decoder network component,
 but it also includes important changes in the structure of the learning problem to
@@ -93,7 +99,7 @@ distribution produced by the model and the real distribution of the data. This
 difference is estimated using the Kullback-Leibler divergence, which quantifies
 the distance between two distributions by measuring how much information is lost
 when one distribution is used to represent the other. Similar to autoencoders, VAEs have
-been applied in use cases such as unsupervised feature extraction,
+been applied in use-cases such as unsupervised feature extraction,
 dimensionality reduction, image colorization, image denoising, etc. In addition,
 given that they use model distributions, they can be leveraged for controlled
 sample generation.
@@ -200,6 +206,8 @@ dense layer of the discriminator, given both X and X_).
 
 ### Sequence-to-Sequence Models
 
+**DT: Should we link to the report itself, or to the blog? (I think there are other places we linked to the report instead of blogpost when we mention our previous work - blogposts make sense since not everyone will have access, but we should be consistent.**
+
 Sequence-to-sequence models are a class of neural networks mainly designed to
 learn mappings between data that are best represented as sequences. Data
 containing sequences can be challenging as each token in a sequence may have
@@ -222,6 +230,8 @@ While sequence-to-sequence models excel at modeling data with temporal
 dependence, they can be slow during inference; each individual token in the
 model output is sequentially generated at each time step, where the total number
 of steps is the length of the output token.  
+
+**DT: encoder/decoder or encoder-decoder?**
 
 We can use this encoder/decoder structure for anomaly detection by revising the
 sequence-to-sequence model to function like an autoencoder, training the
@@ -286,6 +296,9 @@ explores them in detail.
 
 #### Anomalies as Rare Events
 
+**DT: "to learn a model of
+normal behavior" -> "teach a model normal behavior"**
+
 For the training approaches discussed thus far, we operate on the assumption of the
 availability of “normal” labeled data, which is then used to learn a model of
 normal behavior. In practice, it is often the case that labels do not exist or
@@ -333,7 +346,7 @@ data containing trends (e.g., rising global temperatures) or with seasonality
 (e.g., hourly temperatures within each day). These variations need to be handled
 during discretization. We can remove trends by applying a differencing function
 to the entire dataset. To handle seasonality, we can explicitly include
-information on seasonality as a feature of each discrete sample;for instance, to
+information on seasonality as a feature of each discrete sample; for instance, to
 discretize by hour, we can attach a categorical variable representing the hour of
 the day. A common misconception regarding the application of neural networks capable of modeling temporal relationships such as LSTMs is that they automatically learn/model properties of the data useful for
 predictions (including trends and seasonality). However, the extent to which
