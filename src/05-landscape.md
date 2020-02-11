@@ -1,11 +1,7 @@
 ## Landscape
 
-**DT:  "that can be used for anomaly detection, considering the trade-offs and when to use each." -> "available for anomaly detection, and considers the trade-offs as well as when to use each."**
-
-
-
 This chapter provides an overview of the landscape of currently available open source tools and service vendor
-offerings that can be used for anomaly detection, considering the trade-offs and when to use each.
+offerings available for anomaly detection, and considers the trade-offs as well as when to use each.
 
 ### Open Source Tools and Frameworks
 
@@ -311,8 +307,6 @@ subscription.
 
 #### Outlier.ai
 
-**DT: For the two sections where info is not available, it might be better to leave them out, rather than highlight the lack of information?**
-
 - *Capabilities*  
 [Outlier.ai](https://outlier.ai/) is licensed software that uses artificial intelligence to automate
 the process of business analytics. It can connect to databases provided by cloud
@@ -324,14 +318,8 @@ insights.
 - *Data requirements*  
 Outlier can connect to databases provided by cloud services.
 
-- *Modeling approach/technique(s)*  
-This information is not publicly available.
-
 - *Point anomalies or intervals*  
 Anomalous events are presented discretely, on a point-by-point basis. 
-
-- *Thresholding*  
-This information is not publicly available.
 
 - *Root cause investigation*  
 Outlier allows customers to not only surface key insights about business
