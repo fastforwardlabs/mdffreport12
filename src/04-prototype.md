@@ -46,11 +46,19 @@ We built two prototypes that demonstrate results and insights from our experimen
 
 #### Blip
 
+![The Blip prototype.](figures/blip-1.png)
+
 [Blip](https://blip.fastforwardlabs.com) plays back and visualizes the performance of four different algorithms on a subset of the KDD network intrusion dataset. Blip  dramatizes the analogy detection process and builds user intution about the trade-offs involved.
+
+![The terminal section shows the data streaming in.](figures/blip-2.png)
 
 The concept of an anomaly is easy to visualize: something that doesn't look the same. The conceptual simplicity of it actually makes the prototype's job tricker. If we show you a dataset where the anomalies are easy to spot, it's not clear what you need an algorithm for. Instead, we want to place you in a situation where the data is complicated enough, and streaming in fast enough, that the benefits of an algorithm are clear. Often in a data visualization you want to remove complexity, in Blip we wanted to preserve it, but place it in context. We did this by including at the top a terminal-like view of the connection data coming in. The speed and number of features involved make the usefulness of an algorithm, which can operate at a higher speed and scale than a human, clear.
 
+![The strategy section shows the performance of the algorithms across different metrics.](figures/blip-3.png)
+
 Directly below the terminal-like streaming data, we show performance metrics for each of the algorithms. These metrics include accuracy, recall, and precision. The three different measurements hint at the trade-offs involved in choosing an anomaly detection algorithm. You will want to prioritize different metrics depending on the situation. Accuracy is a mesure of how often the algorithm is right. Prioritizing precision will minimize false positives, while focusing on recall will minimize false negatives. By showing the formulas for each of these metrics, updated in real-time with the streaming data, we build intuition about how the different measures interact.
+
+![The last section visualizes the performance of each algorithm.](figures/blip-4.png)
 
 In the visualizations we want to give the user a feel for how each algorithm performs across the various metrics. If a connection is classified by the algorithm as an anomaly it is stacked on the left, if it is classified as normal it is placed on the right. The ground truth is indicated by the color: red for anomaly, black for normal. In a perfectly performing algorithm, the left side would be completely red and the right completely black. An algorithm that has lots of false negatives (low recall) will have a higher density of red mixed in with the black of its right side. A low precision performance will show up as lots of black mixed into the left side. The fact that each connection gets its own spot makes the scale of the dataset clear (versus the streaming-terminal view where old connections quickly leave the screen). Our ability to quickly assess visual density makes it easier to get a feel for what differences in performance metrics across algorithms really means.
 
