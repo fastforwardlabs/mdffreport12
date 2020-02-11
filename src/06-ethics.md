@@ -39,7 +39,7 @@ cases, exacerbate bias.
 ### Additional Use Cases
 
 Ethical considerations are important in every use of machine learning,
-particularly when the use case affects humans. In this section we consider 
+particularly when the use-case affects humans. In this section, we consider 
 a few use cases that highlight ethical concerns with regard to anomaly detection.
 
 #### Data Privacy
@@ -82,7 +82,7 @@ tremendous consequences for the patient: in addition to the positive outcomes,
 a false negative might mean an undetected disease, and a false positive could 
 lead to unnecessary (and potentially painful or even harmful) treatment. 
 
-For other machine learning tasks, such as churn prediction or resume review, analysts
+For other machine learning tasks, such as churn prediction or resumé review, analysts
 strive to remove racial or socioeconomic factors from the equation. But in health
 care diagnostics, it may be both appropriate and advantageous to consider them.  
 
@@ -122,7 +122,7 @@ around the world. On the other hand, the vast majority of transactions are legit
 services for valuable customers. Fraudsters emulate normal 
 business, making anomalies especially difficult to identify. As a result,
 financial services organizations should consider first whether anomaly detection
-is desirable in their use cases, and then consider the potential ethical and
+is desirable in their use-cases, and then consider the potential ethical and
 practical risks.
 
 For example, banks use customer data to offer mortgages and student loans. A lack
@@ -139,7 +139,7 @@ model:
 
 As we have seen, the term _anomaly_ can carry negative connotations. 
 Anomaly detection by its very nature involves identifying samples that are different from the bulk of the
-other samples; but as discussed here, assuming that different is bad may not
+other samples - but, as discussed here, assuming that different is bad may not
 be fair in many cases. Instead of associating faulty
 interpretations with anomalies, it may be helpful to investigate them to reveal new truths. 
 
