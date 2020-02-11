@@ -16,7 +16,7 @@ let margin = '0.5in'
       'html { font-size: 12px; line-height: 18px; } body { padding-left: 0; } .table-of-contents { display: none; } figcaption { font-size: 10px; line-height: 18px; }',
   })
   await page.pdf({
-    path: 'out/book.pdf',
+    path: 'out/ff12-deep-learning-for-anomaly-detection.pdf',
     height: '8.5in',
     width: '5.5in',
     displayHeaderFooter: true,
