@@ -23,8 +23,6 @@ We'll begin by taking a closer look at some possible use cases, before diving in
 ![Anomaly detection is relevant to several usecases - Network intrusion detection, Medical diagnosis, Fraud detection and manufacturing defect detection.](figures/ill-18.png)
 
 #### Network Intrusion Detection
-**NM: "than most teams are able to mount an effective response"? mount?**
-**DT: NM,  I like the revision - "mount" works; you could also use "escalate, enact, raise, stage, or prepare"?
 
 Network security is critical to running a modern viable business, yet all computer
 systems suffer from security vulnerabilities which are both technically
@@ -32,7 +30,7 @@ difficult and economically punishing to resolve once exploited. Business IT
 systems collect data about their own network traffic, user activity in the
 system, types of connection requests, and more. While most activity will be benign
 and routine, analysis of this data may provide insights into unusual (anomalous)
-activity within the network after and ideally before a substantive attack. In practice, the damage and cost incurred right after an intrusion event escalates faster than most teams are able to respond. Thus, it becomes 
+activity within the network after and ideally before a substantive attack. In practice, the damage and cost incurred right after an intrusion event escalates faster than most teams are able to mount an effective response. Thus, it becomes 
 critical to have special-purpose intrusion detection systems (IDSs) in place that 
 can surface potential threat events and anomalous probing early and in a reliable manner.
 
@@ -47,8 +45,6 @@ be indicative of health conditions or precursor signals of medical incidents.
 
 #### Fraud Detection
 
-**DT: Change "unauthorized account access" -> "unauthorized access-based"
-
 In 2018, fraud was estimated to have a [global financial cost](http://www.crowe.ie/wp-content/uploads/2019/08/The-Financial-Cost-of-Fraud-2019.pdf) of over £3.89 trillion (about $5
 trillion USD). Within the financial services industry, it is critical for service
 providers to quickly and correctly identify and react to fraudulent transactions. In the
@@ -57,7 +53,7 @@ by comparison to the historical transactions by a given party or to all
 other transactions occurring within the same time period for a peer group. Here,
 fraud can be cast as a deviation from normal transaction data and addressed
 using anomaly detection approaches. Even as financial fraud is further clustered
-into card-based, check-based, unauthorized account access, or authorized
+into card-based, check-based, unauthorized account access-based, or authorized
 payment-based categories, the core concepts of baselining an individual’s
 standard behavior and looking for signals of unusual activity apply.
 
@@ -94,23 +90,16 @@ For example, anomaly detection approaches can be applied to data from machine
 sensors (vibrations, temperature, drift, and more), where abnormal sensor readings
 can be indicative of impending failures.
 
-**DT: "manners" -> "ways" ; also I think you could delete "as we'll see in the next chapters, 
-the "**
-
 As these examples suggest, anomaly detection is useful in a variety of areas.
 Detecting and correctly classifying as anomalous something previously unseen is a
-challenging problem that has been tackled in many different manners over the
-years. While there are many approaches, as we'll see in the next chapters, 
+challenging problem that has been tackled in many different ways over the
+years. While there are many approaches, 
 the traditional machine learning (ML) techniques
 are suboptimal when it comes to high-dimensional data and sequence
 datasets, because they fail to capture the complex structures in the data.
-
-**DT: "In this
-report, " could be deleted from the last sentence in the paragraph below**
 
 This report, with its accompanying prototype, explores deep learning-based
 approaches that first learn to model normal behavior and then exploit this
 knowledge to identify anomalies. While they're capable of yielding remarkable results on
 complex and high-dimensional data, there are several factors that influence the
-choice of approach when building an anomaly detection application. In this
-report, we survey the options, highlighting their pros and cons.
+choice of approach when building an anomaly detection application. We survey the options, highlighting their pros and cons.
