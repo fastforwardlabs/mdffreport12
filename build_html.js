@@ -595,6 +595,15 @@ function wrap(content) {
           ${content}
         </div>
       </body>
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-157475426-2"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-157475426-2');
+      </script>
     </html>
   `
 }
