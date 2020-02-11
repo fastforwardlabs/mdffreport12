@@ -1,13 +1,10 @@
 ## Deep Learning for Anomaly Detection
 
-**DT: suggest "learn a model of normal behavior" -> "teach a model to recognize normal behavior" (both instances)**
-
 As data becomes high dimensional, it is increasingly challenging to effectively
-learn a model of normal behavior. In this chapter, we will review a set of relevant 
+teach a model to recognize normal behavior. In this chapter, we will review a set of relevant 
 deep learning model architectures and
 how they can be applied to the task of anomaly detection. As discussed in
-[Chapter 2. Background](#background), anomaly detection involves first learning a model 
-of normal behavior, then generating anomaly scores that can be used to identify anomalous activity.
+[Chapter 2. Background](#background), anomaly detection involves first teaching a model to recognize normal behavior, then generating anomaly scores that can be used to identify anomalous activity.
 
 The deep learning approaches discussed here typically consist of two principal
 components: an encoder that learns to generate an internal representation of
@@ -67,16 +64,12 @@ given threshold.
 
 ### Variational Autoencoders
 
-**DT: "a VAE learns a mapping
-from input to a distribution" -> "a VAE learns a mapping
-from an input to a distribution"**
-
 A variational autoencoder (VAE) is an extension of the autoencoder. Similar to
 an autoencoder, it consists of an encoder and a decoder network component,
 but it also includes important changes in the structure of the learning problem to
 accommodate variational inference. As opposed to learning a mapping from the input
 data to a fixed bottleneck vector (a point estimate), a VAE learns a mapping
-from input to a distribution, and learns to reconstruct the original data by
+from an input to a distribution, and learns to reconstruct the original data by
 sampling from this distribution using a latent code. In Bayesian terms, the
 prior is the distribution of the latent code, the likelihood is the distribution
 of the input given the latent code, and the posterior is the distribution of the
@@ -99,7 +92,7 @@ distribution produced by the model and the real distribution of the data. This
 difference is estimated using the Kullback-Leibler divergence, which quantifies
 the distance between two distributions by measuring how much information is lost
 when one distribution is used to represent the other. Similar to autoencoders, VAEs have
-been applied in use-cases such as unsupervised feature extraction,
+been applied in use cases such as unsupervised feature extraction,
 dimensionality reduction, image colorization, image denoising, etc. In addition,
 given that they use model distributions, they can be leveraged for controlled
 sample generation.
@@ -206,8 +199,6 @@ dense layer of the discriminator, given both X and X_).
 
 ### Sequence-to-Sequence Models
 
-**DT: Should we link to the report itself, or to the blog? (I think there are other places we linked to the report instead of blogpost when we mention our previous work - blogposts make sense since not everyone will have access, but we should be consistent.**
-
 Sequence-to-sequence models are a class of neural networks mainly designed to
 learn mappings between data that are best represented as sequences. Data
 containing sequences can be challenging as each token in a sequence may have
@@ -217,7 +208,7 @@ translation where a sequence of words in one language needs to be mapped to a
 sequence of words in a different language. To excel at such a task, a model must
 take into consideration the (contextual) location of each word/token within the
 broader sentence; this allows it to generate an appropriate translation (See our
-previous report on [Natural Language Processing](https://blog.fastforwardlabs.com/2019/07/17/new-research-transfer-learning-for-natural-language-processing.html) to learn more about this area.) 
+previous report on [Natural Language Processing](https://clients.fastforwardlabs.com/ff11/report) to learn more about this area.) 
 
 On a high level, sequence-to-sequence models typically consist of an encoder, E,
 that generates a hidden representation of the input tokens, and a decoder, D,
@@ -231,9 +222,7 @@ dependence, they can be slow during inference; each individual token in the
 model output is sequentially generated at each time step, where the total number
 of steps is the length of the output token.  
 
-**DT: encoder/decoder or encoder-decoder?**
-
-We can use this encoder/decoder structure for anomaly detection by revising the
+We can use this encoder-decoder structure for anomaly detection by revising the
 sequence-to-sequence model to function like an autoencoder, training the
 model to output the same tokens as the input, shifted by 1. This way, the
 encoder learns to generate a hidden representation that allows the decoder to
@@ -296,11 +285,8 @@ explores them in detail.
 
 #### Anomalies as Rare Events
 
-**DT: "to learn a model of
-normal behavior" -> "teach a model normal behavior"**
-
 For the training approaches discussed thus far, we operate on the assumption of the
-availability of “normal” labeled data, which is then used to learn a model of
+availability of “normal” labeled data, which is then used to teach a model recognize 
 normal behavior. In practice, it is often the case that labels do not exist or
 can be expensive to obtain. However, it is also a common observation that
 anomalies (by definition) are relatively infrequent events and therefore
