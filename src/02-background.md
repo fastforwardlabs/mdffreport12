@@ -17,13 +17,9 @@ most applications today. In the following sections, we touch on how the
 availability of labeled data impacts the choice of approach.
 
 ### Supervised Learning 
-**NM: "machines rely on examples that illustrate the
-relationship between the input features and the output" replace with 
-"learning a function that maps input features to outputs based on example input-output pairs"** 
-**DT: +1**
 
-When learning with supervision, machines rely on examples that illustrate the
-relationship between the input features and the output. The goal of supervised
+When learning with supervision, machines learn a function that maps input features 
+to outputs based on example input-output pairs. The goal of supervised
 anomaly detection algorithms is to incorporate application-specific knowledge
 into the anomaly detection process. With sufficient normal and anomalous
 examples, the anomaly detection task can be reframed as a classification task
@@ -40,13 +36,10 @@ the case, as anomalies can take many different forms, with novel anomalies
 emerging at test time. Thus, approaches that generalize well and are more effective at identifying previously unseen anomalies are preferable. 
 
 ### Unsupervised learning 
-**NM: this "one does not possess examples that
-illustrate the relationship between the input features and the output" does not sound good. How about, "machines do not possess example input-output pairs that allow it to learn a function that maps the input features to outputs"?**
-**DT: +1. Then also change, "Instead, machines" -> "Instead, they"
 
-With unsupervised learning, one does not possess examples that
-illustrate the relationship between the input features and the output. Instead, 
-machines learn by finding structure within the input features. Because, as 
+With unsupervised learning, machines do not possess example input-output pairs 
+that allow it to learn a function that maps the input features to outputs. Instead, 
+they learn by finding structure within the input features. Because, as 
 mentioned previously, labeled anomalous data is relatively rare, unsupervised approaches are more
 popular than supervised ones in the anomaly detection field. That said, the 
 nature of the anomalies one hopes to detect is often highly specific. Thus, many of the anomalies 
@@ -57,13 +50,11 @@ be of interest for the task at hand.
 
 ### Semi-supervised learning
 
-**DT: below, "available to be learned from" -> "available from which to learn"** 
-
 Semi-supervised learning approaches represent a sort of middle ground, employing 
 a set of methods that take advantage of large amounts of
 unlabeled data as well as small amounts of labeled data. Many real-world
-anomaly detection use-cases are well suited to semi-supervised learning, in that 
-there are a huge number of normal examples available to be learned from, but 
+anomaly detection use cases are well suited to semi-supervised learning, in that 
+there are a huge number of normal examples available from which to learn, but 
 relatively few examples of the more unusual or abnormal classes of interest. Following
 the assumption that most data points within an unlabeled dataset are normal, one
 can train a robust model on an unlabeled dataset and evaluate its performance (and 
@@ -115,7 +106,7 @@ model skill: _precision_ and _recall_. Precision is defined as the number of _tr
 positives_ (TP) divided by the number of true positives plus the number of
 _false positives_ (FP), while recall is the number of true positives divided
 by the number of true positives plus the number of false negatives (FN).
-Depending on the use-case or application, it may be desirable to optimize for
+Depending on the use case or application, it may be desirable to optimize for
 either precision or recall.  
 
 Optimizing for precision may be useful when the cost of failure is low, or to
@@ -136,21 +127,19 @@ approaches and discuss how they work.
 
 ### Anomaly Detection as Learning Normal Behavior  
 
-**DT: Unless we are going to continue to employ AD throughout the rest of the report as a replacement for "anomaly detection," I think it is better to simply spell it out here. So, suggest subbing in "anomaly detection" for every use of AD in this section.**
-
-The underlying strategy for most approaches to anomaly detection (AD) is to first
+The underlying strategy for most approaches to anomaly detection is to first
 model normal behavior, and then exploit this knowledge to identify deviations
 (anomalies). This approach typically falls under the semi-supervised learning
-category and is accomplished through two steps in the AD loop. The first
+category and is accomplished through two steps in the anomaly detection loop. The first
 step, referred to as the training step, involves building a model of
 normal behavior using available data. Depending on the specific anomaly
 detection method, this training data may contain both normal and abnormal data
 points, or only normal data points (see [Chapter 3. Deep Learning for Anomaly Detection](#deep-learning-for-anomaly-detection) for additional
-details on AD methods). Based on this model, an anomaly score is then assigned
+details on anomaly detection methods). Based on this model, an anomaly score is then assigned
 to each data point that represents a measure of deviation from normal behavior.
 
 ![The training step in the anomaly detection loop: based on
-data (which may or may not contain abnormal samples), the AD model learns a
+data (which may or may not contain abnormal samples), the anomaly detection model learns a
 model of normal behavior which it uses to assign anomaly scores.](figures/ill-13.png)
 
 The second step in the anomaly detection loop, the test step, introduces the
@@ -179,8 +168,6 @@ temperature readings and generate a report.
 ![Anomaly scoring](figures/ill-15.png)
 
 ### Approaches to Modeling Normal Behavior
-**NM: After re-reading have concerns about the table. For example, AEs or VAEs are un/semi-supervised approaches, GANs generative, but we are trying to group them based on some other criteria? The survey paper doesn't classify them that
-way either**
 
 Given the importance of the anomaly detection task, multiple approaches have
 been proposed and rigorously studied over the last few decades. To provide a
@@ -189,22 +176,13 @@ areas: clustering, nearest neighbor, classification, and statistical.^[For a sur
 The following table provides a summary of the assumptions and anomaly scoring 
 strategies employed by approaches within each category, and some examples of each.
 
-| AD Method         | Assumptions                                                                                                                                                                          | Anomaly Scoring                                                                             | Notable Examples                                                              |
+| Anomaly Detection Method         | Assumptions                                                                                                                                                                          | Anomaly Scoring                                                                             | Notable Examples                                                              |
 | ---------         | -----------                                                                                                                                                                          | ---------------                                                                             | ---------------                                                               |
 | Clustering        | Normal data points belong to a cluster (or lie close to its centroid) in the data while anomalies do not belong to any clusters.                                                       | Distance from nearest cluster centroid                                                      | Self-organizing maps (SOMs), _k_-means clustering, expectation maximization (EM) |
 | Nearest Neighbour | Normal data instances occur in dense neighborhoods while anomalous data are far from their nearest neighbors                                                                         | Distance from _k_th nearest neighbour                                                         | _k_-nearest neighbors (KNN)                                                                         |
 | Classification    | <ul><li>A classifier can be learned which distinguishes between normal and anomalous with the given feature space</li><li>Labeled data exists for normal and abnormal classes</li></ul> | A measure of classifier estimate (likelihood) that a data point belongs to the normal class | One-class support vector machines (OCSVMs)                      |
 | Statistical       | Given an assumed stochastic model, normal data instances fall in high-probability regions of the model while abnormal data points lie in low-probability regions.| Probability that a data point lies in a high-probability region in the assumed distribution | Regression models (ARMA, ARIMA)   |
 | Deep learning       | Given an assumed stochastic model, normal data instances fall in high-probability regions of the model while abnormal data points lie in low-probability regions.| Probability that a data point lies in a high-probability region in the assumed distribution | autoencoders, sequence-to-sequence models, generative adversarial networks (GANs), variational autoencoders (VAEs)                |
-
-**DT: This doesn't seem to read quite right: "The majority of these approaches have been applied to univariate time series
-data; a single data point generated by the same process at various time steps
-(e.g., readings from a temperature sensor over time); and assume linear
-relationships within the data."  
-Should it be: "The majority of these approaches have been applied to univariate time series
-data; a single data point generated by the same process at various time steps
-(e.g., readings from a temperature sensor over time) assumes linear
-relationships within the data."?**
 
 The majority of these approaches have been applied to univariate time series
 data; a single data point generated by the same process at various time steps
@@ -218,13 +196,11 @@ VAEs, sequence-to-sequence models, and GANs present some benefits.
 
 ### Why Use Deep Learning for Anomaly Detection?
 
-**DT: "individually modeling anomaly for each variable" - should it be "an anomaly" or "anomalies" instead?
-
 Deep learning approaches, when applied to anomaly detection, offer several
 advantages. First, these approaches are designed to work with 
 multivariate and high dimensional data. 
 This makes it easy to integrate information from multiple sources, 
-and eliminates challenges associated with individually modeling anomaly for each variable and aggregating the
+and eliminates challenges associated with individually modeling anomalies for each variable and aggregating the
 results. Deep learning approaches are also well-adapted to jointly modeling the interactions between
 multiple variables with respect to a given task and - beyond the
 specification of generic hyperparameters (number of layers, units per layer,
