@@ -39,7 +39,7 @@ cases, exacerbate bias.
 ### Additional Use Cases
 
 Ethical considerations are important in every use of machine learning,
-particularly when the use-case affects humans. In this section, we consider 
+particularly when the use case affects humans. In this section, we consider 
 a few use cases that highlight ethical concerns with regard to anomaly detection.
 
 #### Data Privacy
@@ -122,7 +122,7 @@ around the world. On the other hand, the vast majority of transactions are legit
 services for valuable customers. Fraudsters emulate normal 
 business, making anomalies especially difficult to identify. As a result,
 financial services organizations should consider first whether anomaly detection
-is desirable in their use-cases, and then consider the potential ethical and
+is desirable in their use cases, and then consider the potential ethical and
 practical risks.
 
 For example, banks use customer data to offer mortgages and student loans. A lack
