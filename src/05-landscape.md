@@ -1,5 +1,9 @@
 ## Landscape
 
+**DT:  "that can be used for anomaly detection, considering the trade-offs and when to use each." -> "available for anomaly detection, and considers the trade-offs as well as when to use each."**
+
+
+
 This chapter provides an overview of the landscape of currently available open source tools and service vendor
 offerings that can be used for anomaly detection, considering the trade-offs and when to use each.
 
@@ -181,7 +185,7 @@ and root cause analysis) and business forecasting (trend prediction, "what ifs,"
 Anodot supports multiple input data sources, including direct uploads and
 integrations with Amazon’s S3 or Google Cloud storage. It's data-agnostic
 and can track a variety of metrics: revenue, number of sales, number
-of page visits, number of daily active users, and other.
+of page visits, number of daily active users, and others.
 
 - *Modeling approach/technique(s)*  
 Anodot analyzes business metrics in real time and at scale by running
@@ -244,9 +248,9 @@ is a cloud-native business intelligence (BI) service that allows its users to cr
 dashboards and visualizations to communicate business insights. In early 2019,
 Amazon’s machine learning capability was integrated with QuickSight to provide
 anomaly detection, forecasting, and auto-narrative capabilities as part of the
-BI tool. It's licensed software and pricing is usage-based; you only pay for
+BI tool. Its licensed software and pricing is usage-based; you only pay for
 active usage, regardless of the number of users. That said, the
-pricing model could end up being expensive since anomaly detection tasks are
+pricing model could end up being expensive, since anomaly detection tasks are
 compute-intensive.
 
 - *Data requirements*  
@@ -254,7 +258,7 @@ QuickSight requires you to connect or import structured data directly query a
 SQL-compatible source, or ingest the data into SPICE. There is a requirement on
 the number of historical data points that must be provided, which varies based on the task (analyzing
 anomalies or forecasting). There are also restrictions on the number of category
-dimensions that can be included (for example, product category, region,
+dimensions that can be included (for example: product category, region,
 segment).
 
 - *Modeling approach/technique(s)*  
@@ -286,7 +290,7 @@ intervention.
 Users can interactively explore anomalies on the QuickSight dashboard or report
 to help understand the root causes. The tool performs a contribution analysis
 which highlights the factors that significantly contributed to an anomaly. If
-you have dimensions in your data that are not being used in the anomaly detection, you can add up to four of them for the contribution analysis task. In
+there are dimensions in the data that are not being used in the anomaly detection, it's possible to add up to four of them for the contribution analysis task. In
 addition, QuickSight supports interactive "what-if" queries. In these, some of the
 forecasts can be altered and treated as hypotheticals to provide conditional
 forecasts. 
@@ -306,6 +310,8 @@ users, and/or sent via email, as long as the recipients have a QuickSight
 subscription. 
 
 #### Outlier.ai
+
+**DT: For the two sections where info is not available, it might be better to leave them out, rather than highlight the lack of information?**
 
 - *Capabilities*  
 [Outlier.ai](https://outlier.ai/) is licensed software that uses artificial intelligence to automate
@@ -444,7 +450,7 @@ Thresholds are learned dynamically. No thresholding input from the user is
 required/supported.
 
 - *Root cause analysis*  
-Out of the box root cause analysis is not supported
+Out of the box root cause analysis is not supported.
 
 - *User interface*  
 Sherlock’s user interface is built with [Spark Java](http://sparkjava.com/), 
