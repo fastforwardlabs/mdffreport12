@@ -23,14 +23,14 @@ _Latency_
 Compared to linear models (AR, ARMA, etc.) or shallow machine learning
 models such as OCSVMs, deep learning models can have significant
 latency associated with inference. This makes it expensive to apply them in
-streaming data use-cases at scale (high volume, high velocity). For example, our
+streaming data use cases at scale (high volume, high velocity). For example, our
 experiments show that inference with an OCSVM is 12x faster than with an
 autoencoder. 
 
 _Data requirements_   
 Deep learning models typically require a large dataset (tens of thousands of
 samples) for effective training. The models are also prone to overfitting
-and need to be carefully evaluated to address this risk. Anomaly detection use-cases
+and need to be carefully evaluated to address this risk. Anomaly detection use cases
 frequently have relatively few data points; for example, daily sales data for two years will
 generate 712 samples, which may be insufficient to train a model. In such
 scenarios, linear models designed to work with smaller datasets are a better
@@ -57,4 +57,4 @@ Microsoft" (2019), [arXiv:1906.03821](https://arxiv.org/abs/1906.03821).] and GA
 Networks" (2019) [arXiv:1901.04997](https://arxiv.org/abs/1901.04997).]
 As with everything else in machine learning, there is no “one size fits all”; no 
 one model works best for every problem. The right approach always depends on the 
-use-case and the data. 
+use case and the data. 
