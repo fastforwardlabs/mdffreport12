@@ -263,5 +263,5 @@ infer a good threshold.
 _Interpretability_  
 Deep learning methods for anomaly detection can be complex, leading to their reputation as black
 box models. However, interpretability techniques such as LIME (see our previous report,
-["Interpretability"](https://blog.fastforwardlabs.com/2017/08/02/interpretability.html)) and [Deep SHAP](https://arxiv.org/abs/1705.07874) provide opportunities for analysts to inspect 
+["Interpretability"](https://clients.fastforwardlabs.com/ff06/report)) and [Deep SHAP](https://arxiv.org/abs/1705.07874) provide opportunities for analysts to inspect 
 their behavior and make them more interpretable. 
