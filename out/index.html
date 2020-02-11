@@ -539,14 +539,15 @@ h2 {
           <h1>Deep Learning for Anomaly Detection</h1>
 <p><div class="table-of-contents"><div id="toc-header" style="display: flex; font-weight: bold; text-transform: uppercase;">
      <div><button id="toggle_contents" style="padding-left: 0.5ch; padding-right: 0.5ch; cursor: pointer; position: relative; top: -1px;">☰</button><span id="contents-label" style="margin-left: 0;"> Contents</span></div>
-  </div><ul><li><a href="#introduction">Introduction</a><ul><li><a href="#applications-of-anomaly-detection">Applications of Anomaly Detection</a></li></ul></li><li><a href="#background">Background</a><ul><li><a href="#anomaly-detection-approaches">Anomaly Detection Approaches</a></li><li><a href="#supervised-learning">Supervised Learning</a></li><li><a href="#unsupervised-learning">Unsupervised learning</a></li><li><a href="#semi-supervised-learning">Semi-supervised learning</a></li><li><a href="#evaluating-models%3A-accuracy-is-not-enough">Evaluating Models: Accuracy Is Not Enough</a></li><li><a href="#anomaly-detection-as-learning-normal-behavior">Anomaly Detection as Learning Normal Behavior</a></li><li><a href="#approaches-to-modeling-normal-behavior">Approaches to Modeling Normal Behavior</a></li><li><a href="#why-use-deep-learning-for-anomaly-detection">Why Use Deep Learning for Anomaly Detection</a></li><li><a href="#what-can-go-wrong%3F">What Can Go Wrong?</a></li></ul></li><li><a href="#deep-learning-for-anomaly-detection">Deep Learning for Anomaly Detection</a><ul><li><a href="#autoencoders">Autoencoders</a></li><li><a href="#variational-autoencoders">Variational Autoencoders</a></li><li><a href="#generative-adversarial-networks">Generative Adversarial Networks</a></li><li><a href="#sequence-to-sequence-models">Sequence to Sequence Models</a></li><li><a href="#one-class-support-vector-machines">One-Class Support Vector Machines</a></li><li><a href="#additional-considerations">Additional Considerations</a></li><li><a href="#selecting-a-model">Selecting a Model</a></li><li><a href="#general-considerations-in-selecting-a-deep-learning-approach">General Considerations in Selecting a Deep Learning Approach</a></li></ul></li><li><a href="#prototype">Prototype</a><ul><li><a href="#datasets">Datasets</a></li><li><a href="#benchmarking-experiment-setup">Benchmarking Experiment Setup</a></li><li><a href="#web-application-prototypes">Web Application Prototypes</a></li></ul></li><li><a href="#landscape">Landscape</a><ul><li><a href="#open-source-tools-and-frameworks">Open Source Tools and Frameworks</a></li><li><a href="#anomaly-detection-as-a-service">Anomaly Detection as a Service</a></li></ul></li><li><a href="#ethics">Ethics</a><ul><li><a href="#diversity-matters">Diversity Matters</a></li><li><a href="#explainability">Explainability</a></li><li><a href="#additional-use-cases">Additional Use Cases</a></li><li><a href="#innovation">Innovation</a></li></ul></li><li><a href="#conclusion">Conclusion</a></li></ul></div></p>
+  </div><ul><li><a href="#introduction">Introduction</a><ul><li><a href="#applications-of-anomaly-detection">Applications of Anomaly Detection</a></li></ul></li><li><a href="#background">Background</a><ul><li><a href="#anomaly-detection-approaches">Anomaly Detection Approaches</a></li><li><a href="#supervised-learning">Supervised Learning</a></li><li><a href="#unsupervised-learning">Unsupervised learning</a></li><li><a href="#semi-supervised-learning">Semi-supervised learning</a></li><li><a href="#evaluating-models%3A-accuracy-is-not-enough">Evaluating Models: Accuracy Is Not Enough</a></li><li><a href="#anomaly-detection-as-learning-normal-behavior">Anomaly Detection as Learning Normal Behavior</a></li><li><a href="#approaches-to-modeling-normal-behavior">Approaches to Modeling Normal Behavior</a></li><li><a href="#why-use-deep-learning-for-anomaly-detection%3F">Why Use Deep Learning for Anomaly Detection?</a></li><li><a href="#what-can-go-wrong%3F">What Can Go Wrong?</a></li></ul></li><li><a href="#deep-learning-for-anomaly-detection">Deep Learning for Anomaly Detection</a><ul><li><a href="#autoencoders">Autoencoders</a></li><li><a href="#variational-autoencoders">Variational Autoencoders</a></li><li><a href="#generative-adversarial-networks">Generative Adversarial Networks</a></li><li><a href="#sequence-to-sequence-models">Sequence-to-Sequence Models</a></li><li><a href="#one-class-support-vector-machines">One-Class Support Vector Machines</a></li><li><a href="#additional-considerations">Additional Considerations</a></li><li><a href="#how-to-decide-on-a-modeling-approach%3F">How to Decide on a Modeling Approach?</a></li></ul></li><li><a href="#prototype">Prototype</a><ul><li><a href="#datasets">Datasets</a></li><li><a href="#benchmarking-experiment-setup">Benchmarking Experiment Setup</a></li><li><a href="#web-application-prototypes">Web Application Prototypes</a></li></ul></li><li><a href="#landscape">Landscape</a><ul><li><a href="#open-source-tools-and-frameworks">Open Source Tools and Frameworks</a></li><li><a href="#anomaly-detection-as-a-service">Anomaly Detection as a Service</a></li></ul></li><li><a href="#ethics">Ethics</a><ul><li><a href="#diversity-matters">Diversity Matters</a></li><li><a href="#explainability">Explainability</a></li><li><a href="#additional-use-cases">Additional Use Cases</a></li><li><a href="#innovation">Innovation</a></li></ul></li><li><a href="#conclusion">Conclusion</a></li></ul></div></p>
 <figure><img src="figures/cover.png" alt=""></figure>
-<p><em>This is an applied research report by Cloudera Fast Forward, focused on Deep Learning Approaches for Anomaly Detection. Read our full report on using deep learning for anomaly detection below or download it (<a href="#">PDF</a>, <a href="#">ePub</a>, <a href="#">mobi</a>). Also be sure to check out our anomaly detection prototypes: <a href="https://blip.fastforwardlabs.com">Blip</a> and <a href="https://anomagram.fastforwardlabs.com">Anomagram</a>.</em></p>
-<p>Our reports focus on emerging capabilities that are still changing due to algorithmic breakthrough, hardware breakthrough, technological commoditization, and data availability. Accompanying our reports are working prototypes that exhibit the capabilities of the algorithm and offer detailed technical advice on its practical application.</p>
+<p><em>This is an applied research report by Cloudera Fast Forward. We write reports and build prototypes about emerging technologies. Read our full report on using deep learning for anomaly detection below or <a href="#">download the PDF</a>. Accompanying each report are working prototypes that exhibit the capabilities of the algorithm and offer detailed technical advice on its practical application. For this report we built two prototypes: <a href="https://blip.fastforwardlabs.com">Blip</a> and <a href="https://anomagram.fastforwardlabs.com">Anomagram</a>.</em></p>
 <h2 id="introduction">Introduction</h2>
 <blockquote>
-<p>“An outlier is an observation which deviates so much from other observations as to arouse suspicions that it was generated by a different mechanism”
-– Hawkins, <em>Identification of Outliers</em> (1980)</p>
+<p>“An outlier is an observation which deviates so much from other observations as to arouse suspicions that it was generated by a different mechanism.”</p>
+</blockquote>
+<blockquote>
+<p>– Hawkins, <em>Identification of Outliers</em> (1980)</p>
 </blockquote>
 <p>Anomalies, often referred to as outliers, abnormalities, rare events, or
 deviants, are data points or patterns in data that do not conform to a notion of
@@ -569,9 +570,7 @@ difficult and economically punishing to resolve once exploited. Business IT
 systems collect data about their own network traffic, user activity in the
 system, types of connection requests, and more. While most activity will be benign
 and routine, analysis of this data may provide insights into unusual (anomalous)
-activity within the network after and ideally before a substantive attack. In
-practice, the damage incurred during an intrusion event often escalates faster
-than most teams are able to mount an effective response. Thus, it becomes
+activity within the network after and ideally before a substantive attack. In practice, the damage and cost incurred right after an intrusion event escalates faster than most teams are able to mount an effective response. Thus, it becomes
 critical to have special-purpose intrusion detection systems (IDSs) in place that
 can surface potential threat events and anomalous probing early and in a reliable manner.</p>
 <h4 id="medical-diagnosis">Medical Diagnosis</h4>
@@ -582,15 +581,15 @@ devices (e.g., glucose monitors, pacemakers, smart watches). Anomaly detection
 approaches can be applied to highlight situations of abnormal readings that may
 be indicative of health conditions or precursor signals of medical incidents.</p>
 <h4 id="fraud-detection">Fraud Detection</h4>
-<p>In 2018, fraud was estimated to have a <a href="http://www.crowe.ie/wp-content/uploads/2019/08/The-Financial-Cost-of-Fraud-2019.pdf">global financial cost</a> of over £3.89 trillion ($5
-trillion). Within the financial services industry, it is critical for service
+<p>In 2018, fraud was estimated to have a <a href="http://www.crowe.ie/wp-content/uploads/2019/08/The-Financial-Cost-of-Fraud-2019.pdf">global financial cost</a> of over £3.89 trillion (about $5
+trillion USD). Within the financial services industry, it is critical for service
 providers to quickly and correctly identify and react to fraudulent transactions. In the
 most straightforward cases, a transaction may be identified as fraudulent
 by comparison to the historical transactions by a given party or to all
 other transactions occurring within the same time period for a peer group. Here,
 fraud can be cast as a deviation from normal transaction data and addressed
 using anomaly detection approaches. Even as financial fraud is further clustered
-into card-based, check-based, unauthorized account access, or authorized
+into card-based, check-based, unauthorized account access-based, or authorized
 payment-based categories, the core concepts of baselining an individual’s
 standard behavior and looking for signals of unusual activity apply.</p>
 <h4 id="manufacturing-defect-detection">Manufacturing Defect Detection</h4>
@@ -602,36 +601,35 @@ ideal (normal) items that have passed QA tests. The amount of
 acceptable deviation is determined by the company and customers, as well as
 industry and regulatory standards.</p>
 <div class="info">
-<p>Use Case Example</p>
-<p>ScoleMans have been making drywall panels for years and are the leading regional
+<p>Use-Case Example</p>
+<p>ScoleMans has been making drywall panels for years and is the leading regional
 supplier for construction companies. Occasionally, some of the wall panels they
 produce have defects: cracks, chips at the edges, paint/coating issues, etc. As
-part of their QA process they capture both RGB and thermal images of each produced
+part of their QA process, they capture both RGB and thermal images of each produced
 panel, which their QA engineers use to flag defective units. They want to automate
-this process�i.e., develop tools that automatically identify these defects.
+this process; i.e., develop tools that automatically identify these defects.
 This is possible using a deep anomaly detection model.
 In particular, ScoleMans can use an autoencoder or GAN-based model built with
 convolutional neural network blocks (see <a href="#deep-learning-for-anomaly-detection">Chapter 3. Deep Learning for Anomaly Detection</a> for more
 information) to create a model of normal data based on images of normal panels.
-This model can then be used to tag new images as normal or abnormal, andset thresholds for alerts.</p>
+This model can then be used to tag new images as normal or abnormal.</p>
 </div>
 <p>Similarly, the task of predictive maintenance can be cast as an anomaly detection problem.
 For example, anomaly detection approaches can be applied to data from machine
-sensors (vibrations, temperature, drift, etc.), where abnormal sensor readings
+sensors (vibrations, temperature, drift, and more), where abnormal sensor readings
 can be indicative of impending failures.</p>
-<p>As these examples suggest, anomaly detection is critical in a variety of areas.
+<p>As these examples suggest, anomaly detection is useful in a variety of areas.
 Detecting and correctly classifying as anomalous something previously unseen is a
-challenging problem that has been tackled in many different manners over the
-years. While there are many approaches, as we’ll see in the next chapters,
+challenging problem that has been tackled in many different ways over the
+years. While there are many approaches,
 the traditional machine learning (ML) techniques
 are suboptimal when it comes to high-dimensional data and sequence
-datasets because they fail to capture the complex structures in the data.</p>
+datasets, because they fail to capture the complex structures in the data.</p>
 <p>This report, with its accompanying prototype, explores deep learning-based
 approaches that first learn to model normal behavior and then exploit this
 knowledge to identify anomalies. While they’re capable of yielding remarkable results on
 complex and high-dimensional data, there are several factors that influence the
-choice of approach when building an anomaly detection application. In this
-report we survey the options, highlighting their pros and cons.</p>
+choice of approach when building an anomaly detection application. We survey the options, highlighting their pros and cons.</p>
 <h2 id="background">Background</h2>
 <p>In this chapter, we provide an overview of approaches to anomaly detection based
 on the type of data available, how to evaluate an anomaly detection model, how
@@ -647,8 +645,8 @@ readily available than abnormal samples. This assumption is critical for
 most applications today. In the following sections, we touch on how the
 availability of labeled data impacts the choice of approach.</p>
 <h3 id="supervised-learning">Supervised Learning</h3>
-<p>When learning with supervision, machines rely on examples that illustrate the
-relationship between the input features and the output. The goal of supervised
+<p>When learning with supervision, machines learn a function that maps input features
+to outputs based on example input-output pairs. The goal of supervised
 anomaly detection algorithms is to incorporate application-specific knowledge
 into the anomaly detection process. With sufficient normal and anomalous
 examples, the anomaly detection task can be reframed as a classification task
@@ -660,13 +658,13 @@ multiple anomalous classes, each of them could be quite underrepresented.</p>
 <p>This approach assumes that one has labeled examples for all types of anomalies that
 could occur and can correctly classify them. In practice, this is usually not
 the case, as anomalies can take many different forms, with novel anomalies
-emerging at test time. &quot;Thus, approaches that generalize well and are more effective at identifying previously unseen anomalies are preferable.</p>
+emerging at test time. Thus, approaches that generalize well and are more effective at identifying previously unseen anomalies are preferable.</p>
 <h3 id="unsupervised-learning">Unsupervised learning</h3>
-<p>With unsupervised learning, one does not possess examples that
-illustrate the relationship between the input features and the output. Instead,
-machines learn by finding structure within the input features. Because, as
+<p>With unsupervised learning, machines do not possess example input-output pairs
+that allow it to learn a function that maps the input features to outputs. Instead,
+they learn by finding structure within the input features. Because, as
 mentioned previously, labeled anomalous data is relatively rare, unsupervised approaches are more
-popular than supervised ones in the anomaly detection field. hat said, the
+popular than supervised ones in the anomaly detection field. That said, the
 nature of the anomalies one hopes to detect is often highly specific. Thus, many of the anomalies
 found in a completely unsupervised manner could correspond to noise, and may not
 be of interest for the task at hand.</p>
@@ -676,7 +674,7 @@ be of interest for the task at hand.</p>
 a set of methods that take advantage of large amounts of
 unlabeled data as well as small amounts of labeled data. Many real-world
 anomaly detection use cases are well suited to semi-supervised learning, in that
-there are a huge number of normal examples available to be learned from, but
+there are a huge number of normal examples available from which to learn, but
 relatively few examples of the more unusual or abnormal classes of interest. Following
 the assumption that most data points within an unlabeled dataset are normal, one
 can train a robust model on an unlabeled dataset and evaluate its performance (and
@@ -690,11 +688,6 @@ aviation or border security. Anomalous items posing a security threat are not co
 encountered and can take many forms. In addition, the nature of any
 anomaly posing a potential threat may evolve due to a range of external factors.
 Exemplary data of anomalies can therefore be difficult to obtain in any useful quantity.</p>
-<p>To give another example, in the case of border security or X-ray screening for
-aviation, anomalous items posing a security threat are not commonly encountered.
-Exemplary data of anomalies can be difficult to obtain in any quantity, since no
-such events may have occurred in the first place. In addition, the nature of any
-anomaly posing a potential threat may evolve due to a range of external factors.</p>
 <figure><img src="figures/ill-19.png" alt="Exemplary data in certain applications can be difficult to obtain"><figcaption>Exemplary data in certain applications can be difficult to obtain</figcaption></figure>
 <p>Such situations may require the determination of abnormal classes as well
 as novel classes, for which little or no labeled data is available.
@@ -703,7 +696,7 @@ In cases like these, a semi-supervised classification approach that enables dete
 <p>As mentioned in the previous section, in anomaly detection applications
 it is expected that the distribution between the normal and abnormal class(es)
 may be highly skewed. This is commonly referred to as the <em>class imbalance problem</em>.
-A model that learns from such skewed data may not be robust: it may be accurate when
+A model that learns from such skewed data may not be robust; it may be accurate when
 classifying examples within the normal class, but perform poorly when
 classifying anomalous examples.</p>
 <p>For example, consider a dataset consisting of 1,000 images of luggage passing through a
@@ -739,23 +732,23 @@ evaluating these models. In the next section, we focus on semi-supervised
 approaches and discuss how they work.</p>
 </div>
 <h3 id="anomaly-detection-as-learning-normal-behavior">Anomaly Detection as Learning Normal Behavior</h3>
-<p>The underlying strategy for most approaches to anomaly detection (AD) is to first
+<p>The underlying strategy for most approaches to anomaly detection is to first
 model normal behavior, and then exploit this knowledge to identify deviations
 (anomalies). This approach typically falls under the semi-supervised learning
-category and is accomplished through two steps in the AD loop. The first
+category and is accomplished through two steps in the anomaly detection loop. The first
 step, referred to as the training step, involves building a model of
 normal behavior using available data. Depending on the specific anomaly
 detection method, this training data may contain both normal and abnormal data
 points, or only normal data points (see <a href="#deep-learning-for-anomaly-detection">Chapter 3. Deep Learning for Anomaly Detection</a> for additional
-details on AD methods). Based on this model, an anomaly score is then assigned
+details on anomaly detection methods). Based on this model, an anomaly score is then assigned
 to each data point that represents a measure of deviation from normal behavior.</p>
-<figure><img src="figures/ill-13.png" alt="The training step in the anomaly detection loop: based ondata (which may or may not contain abnormal samples), the AD model learns amodel of normal behavior which it uses to assign anomaly scores."><figcaption>The training step in the anomaly detection loop: based on
-data (which may or may not contain abnormal samples), the AD model learns a
+<figure><img src="figures/ill-13.png" alt="The training step in the anomaly detection loop: based ondata (which may or may not contain abnormal samples), the anomaly detection model learns amodel of normal behavior which it uses to assign anomaly scores."><figcaption>The training step in the anomaly detection loop: based on
+data (which may or may not contain abnormal samples), the anomaly detection model learns a
 model of normal behavior which it uses to assign anomaly scores.</figcaption></figure>
 <p>The second step in the anomaly detection loop, the test step, introduces the
 concept of threshold-based anomaly tagging. Based on the range of scores assigned
 by the model, one can select a threshold rule that drives the anomaly tagging
-process;e.g., scores above a given threshold are tagged as anomalies, while
+process; e.g., scores above a given threshold are tagged as anomalies, while
 those below it are tagged as normal. The idea of a threshold is valuable, as it
 provides the analyst an easy lever with which to tune the “sensitivity” of the anomaly
 tagging process. Interestingly, while most methods for anomaly detection follow
@@ -783,7 +776,7 @@ strategies employed by approaches within each category, and some examples of eac
 <div style="width: 100%; overflow-x: auto;"><table>
 <thead>
 <tr>
-<th>AD Method</th>
+<th>Anomaly Detection Method</th>
 <th>Assumptions</th>
 <th>Anomaly Scoring</th>
 <th>Notable Examples</th>
@@ -806,75 +799,79 @@ strategies employed by approaches within each category, and some examples of eac
 <td>Classification</td>
 <td><ul><li>A classifier can be learned which distinguishes between normal and anomalous with the given feature space</li><li>Labeled data exists for normal and abnormal classes</li></ul></td>
 <td>A measure of classifier estimate (likelihood) that a data point belongs to the normal class</td>
-<td>One-class support vector machines (OCSVMs), autoencoders, sequence-to-sequence models</td>
+<td>One-class support vector machines (OCSVMs)</td>
 </tr>
 <tr>
 <td>Statistical</td>
 <td>Given an assumed stochastic model, normal data instances fall in high-probability regions of the model while abnormal data points lie in low-probability regions.</td>
 <td>Probability that a data point lies in a high-probability region in the assumed distribution</td>
-<td>Regression models (ARMA, ARIMA), Gaussian models, generative adversarial networks (GANs), variational autoencoders (VAEs)</td>
+<td>Regression models (ARMA, ARIMA)</td>
+</tr>
+<tr>
+<td>Deep learning</td>
+<td>Given an assumed stochastic model, normal data instances fall in high-probability regions of the model while abnormal data points lie in low-probability regions.</td>
+<td>Probability that a data point lies in a high-probability region in the assumed distribution</td>
+<td>autoencoders, sequence-to-sequence models, generative adversarial networks (GANs), variational autoencoders (VAEs)</td>
 </tr>
 </tbody>
 </table></div>
 <p>The majority of these approaches have been applied to univariate time series
-data;a single data point generated by the same process at various time steps
-(e.g., readings from a temperature sensor over time);and assume linear
-relationships within the data. Examples include KNN, <em>k</em>-means clustering, ARMA,
+data; a single data point generated by the same process at various time steps
+(e.g., readings from a temperature sensor over time); and assume linear
+relationships within the data. Examples include <em>k</em>-means clustering, ARMA,
 ARIMA, etc. However, data is increasingly high-dimensional (e.g., multivariate
 datasets, images, videos), and the detection of anomalies may require the joint
 modeling of interactions between each variable. For these sorts of problems,
 deep learning approaches (the focus of this report) such as autoencoders,
 VAEs, sequence-to-sequence models, and GANs present some benefits.</p>
-<h3 id="why-use-deep-learning-for-anomaly-detection">Why Use Deep Learning for Anomaly Detection</h3>
-<p>Deep learning approaches, when applied to anomaly detection, offer several
-advantages.</p>
+<h3 id="why-use-deep-learning-for-anomaly-detection%3F">Why Use Deep Learning for Anomaly Detection?</h3>
 <p>Deep learning approaches, when applied to anomaly detection, offer several
 advantages. First, these approaches are designed to work with
-multivariate data of different data types across each variable.
+multivariate and high dimensional data.
 This makes it easy to integrate information from multiple sources,
-and eliminates challenges associated with individually modeling anomaly for each variable and aggregating the
-results. Deep learning approaches are also well adapted to jointly modeling the interactions between
-multiple variables with respect to a given task; and beyond the
+and eliminates challenges associated with individually modeling anomalies for each variable and aggregating the
+results. Deep learning approaches are also well-adapted to jointly modeling the interactions between
+multiple variables with respect to a given task and - beyond the
 specification of generic hyperparameters (number of layers, units per layer,
-etc.), deep learning models require minimal tuning to achieve good results.</p>
+etc.) - deep learning models require minimal tuning to achieve good results.</p>
 <p>Performance is another advantage. Deep learning methods offer the opportunity to model complex, nonlinear
 relationships within data, and leverage this for the anomaly detection task. The
 performance of deep learning models can also potentially scale with the
 availability of appropriate training data, making them suitable for data-rich
 problems.</p>
-<p><strong>NM: We need to move this somewhere else</strong></p>
-<p>Finally, while deep learning methods can be complex (leading to their reputation as black
-box models), interpretability techniques such as LIME (see our previous report,
-<a href="https://blog.fastforwardlabs.com/2017/08/02/interpretability.html">“Interpretability”</a>) and <a href="https://arxiv.org/abs/1705.07874">Deep SHAP</a> provide opportunities for analysts to inspect
-their behavior and make them more interpretable.</p>
 <h3 id="what-can-go-wrong%3F">What Can Go Wrong?</h3>
 <p>There are a proliferation of algorithmic approaches that can help one tackle an
 anomaly detection task and build solid models, at times even with
 just normal samples. But do they really work? What could
 possibly go wrong? Here are some of the issues that need to be considered:</p>
-<p><em>Contaminated normal examples</em>: In large-scale applications that have huge volumes of data, it’s possible
-that within the large unlabeled dataset that’s considered the normal class
+<p><em>Contaminated normal examples</em><br>
+In large-scale applications that have huge volumes of data, it’s possible
+that within the large unlabeled dataset that’s considered the normal class,
 a small percentage of the examples may actually be anomalous, or simply be poor training
 examples. And while some models (like a one-class SVM or isolation forest) can
 account for this, there are others that may not be robust to detecting
 anomalies.</p>
-<p><em>Computational complexity</em>: Anomaly detection scenarios can sometimes have low latency requirements�i.e., it may be necessary to be able to speedily retrain existing models as new data becomes available, and
+<p><em>Computational complexity</em><br>
+Anomaly detection scenarios can sometimes have low latency requirements; i.e., it may be necessary to be able to speedily retrain existing models as new data becomes available, and
 perform inference. This can be computationally expensive at scale, even for
 linear models for univariate data. Deep learning models also incur
 additional compute costs to estimate their large number of parameters. To
 address these issues, it is recommended to explore trade-offs that
 balance the frequency of retraining and overall accuracy.</p>
-<p><em>Human supervision</em>: One major challenge with unsupervised and semi-supervised approaches is that
+<p><em>Human supervision</em><br>
+One major challenge with unsupervised and semi-supervised approaches is that
 they can be noisy and may generate a large amount of false positives. In turn,
 false positives incur labor costs associated with human review. Given these
 costs, an important goal for anomaly detection systems is to incorporate the
 results of human review (as labels) to improve model quality.</p>
-<p><em>Definition of anomaly</em>: In many data domains, the boundary between normal and anomalous behavior is not precisely
+<p><em>Definition of anomaly</em><br>
+In many data domains, the boundary between normal and anomalous behavior is not precisely
 defined and is continually evolving. Unlike in other task
 domains where dataset shift occurs sparingly, anomaly detection systems
 should anticipate and account for (frequent) changes in the distribution of the
 data. In many cases, this can be achieved by frequent retraining of the models.</p>
-<p><em>Threshold selection</em>: The process of selecting a good threshold value can be challenging. In a
+<p><em>Threshold selection</em><br>
+The process of selecting a good threshold value can be challenging. In a
 semi-supervised setting (the approaches covered above), one has access to a pool
 of labeled data. Using these labels, and some domain expertise, it is possible to
 determine a suitable threshold. Specifically, one can explore the range of
@@ -883,13 +880,17 @@ the point that yields the best performance metric (accuracy, precision,
 recall). In the absence of labeled data, and assuming that most data points
 are normal, one can use statistics such as standard deviation and percentiles to
 infer a good threshold.</p>
+<p><em>Interpretability</em><br>
+Deep learning methods for anomaly detection can be complex, leading to their reputation as black
+box models. However, interpretability techniques such as LIME (see our previous report,
+<a href="https://clients.fastforwardlabs.com/ff06/report">“Interpretability”</a>) and <a href="https://arxiv.org/abs/1705.07874">Deep SHAP</a> provide opportunities for analysts to inspect
+their behavior and make them more interpretable.</p>
 <h2 id="deep-learning-for-anomaly-detection">Deep Learning for Anomaly Detection</h2>
 <p>As data becomes high dimensional, it is increasingly challenging to effectively
-learn a model of normal behavior. In this chapter, we will review a set of relevant
+teach a model to recognize normal behavior. In this chapter, we will review a set of relevant
 deep learning model architectures and
 how they can be applied to the task of anomaly detection. As discussed in
-<a href="#background">Chapter 2. Background</a>, anomaly detection involves first learning a model
-of normal behavior, then generating anomaly scores that can be used to identify anomalous activity.</p>
+<a href="#background">Chapter 2. Background</a>, anomaly detection involves first teaching a model to recognize normal behavior, then generating anomaly scores that can be used to identify anomalous activity.</p>
 <p>The deep learning approaches discussed here typically consist of two principal
 components: an encoder that learns to generate an internal representation of
 the input data, and a decoder that attempts to reconstruct the original input
@@ -910,9 +911,9 @@ data. The model is trained by minimizing the reconstruction error, which is the
 difference (mean squared error) between the original input and the reconstructed
 output produced by the decoder. In practice, autoencoders have been applied as a
 dimensionality reduction technique, as well as in other use cases such as
-noise removal from images, image colorization, unsupervised feature extraction and
+noise removal from images, image colorization, unsupervised feature extraction, and
 data compression.</p>
-<figure><img src="figures/ill-1.png" alt="The components of an autoencoder"><figcaption>The components of an autoencoder</figcaption></figure>
+<figure><img src="figures/ill-1.png" alt="The components of an autoencoder."><figcaption>The components of an autoencoder.</figcaption></figure>
 <p>It is important to note that the mapping function learned by an autoencoder is
 specific to the training data distribution. That is, an autoencoder will typically
 not succeed at reconstructing data that is significantly different from the data it
@@ -931,11 +932,11 @@ and large for abnormal data samples. To identify anomalies, we use the
 reconstruction error score as an anomaly score and flag samples with
 reconstruction errors above a given threshold.</p>
 <figure><img src="figures/ill-2.png" alt="The use of autoencoders for anomaly detection."><figcaption>The use of autoencoders for anomaly detection.</figcaption></figure>
-<p>This process is illustrated in the following figure. As
+<p>This process is illustrated in the figure above. As
 the autoencoder attempts to reconstruct abnormal data, it does so in a manner
 that is weighted toward normal samples (square shapes). The difference between
 what it reconstructs and the input is the reconstruction error. We can specify a
-threshold and flag anomalies as samples with a reconstruction error above the
+threshold and flag anomalies as samples with a reconstruction error above a
 given threshold.</p>
 <h3 id="variational-autoencoders">Variational Autoencoders</h3>
 <p>A variational autoencoder (VAE) is an extension of the autoencoder. Similar to
@@ -943,18 +944,18 @@ an autoencoder, it consists of an encoder and a decoder network component,
 but it also includes important changes in the structure of the learning problem to
 accommodate variational inference. As opposed to learning a mapping from the input
 data to a fixed bottleneck vector (a point estimate), a VAE learns a mapping
-from input to a distribution, and learns to reconstruct the original data by
+from an input to a distribution, and learns to reconstruct the original data by
 sampling from this distribution using a latent code. In Bayesian terms, the
 prior is the distribution of the latent code, the likelihood is the distribution
 of the input given the latent code, and the posterior is the distribution of the
 latent code, given our input. The components of a VAE serve to derive good
 estimates for these terms.</p>
 <p>The encoder network learns the parameters (mean and variance) of a distribution
-that outputs a latent code vector, given the input data (posterior). In other
+that outputs a latent code vector Z, given the input data (posterior). In other
 words, one can draw samples of the bottleneck vector that “correspond” to samples
 from the input data. The nature of this distribution can vary depending on the
 nature of the input data (e.g., while Gaussian distributions are commonly used,
-Bernoulli distributions can be used if the input data is known to be binary).<br>
+Bernoulli distributions can be used if the input data is known to be binary).
 On the other hand, the decoder learns a distribution that outputs the original
 input data point (or something really close to it), given a latent bottleneck
 sample (likelihood). Typically, an isotropic Gaussian distribution is used to
@@ -972,19 +973,19 @@ sample generation.</p>
 benefits. First, VAEs enable Bayesian inference; essentially, we can now sample
 from the learned encoder distribution and decode samples that do not explicitly
 exist in the original dataset, but belong to the same data distribution. Second,
-VAEs learn a disentangled representation of a data distribution�i.e., a single
+VAEs learn a disentangled representation of a data distribution; i.e., a single
 unit in the latent code is only sensitive to a single generative factor. This
 allows some interpretability of the output of VAEs, as we can vary units in the
 latent code for controlled generation of samples. Third, a VAE provides true
 probability measures that offer a principled approach to quantifying
 uncertainty when applied in practice (for example, the probability that a new data
 point belongs to the distribution of normal data is 80%).</p>
-<figure><img src="figures/ill-3.png" alt="A variational autoencoder"><figcaption>A variational autoencoder</figcaption></figure>
+<figure><img src="figures/ill-3.png" alt="A variational autoencoder."><figcaption>A variational autoencoder.</figcaption></figure>
 <h4 id="modeling-normal-behavior-and-anomaly-scoring-2">Modeling Normal Behavior and Anomaly Scoring</h4>
 <p>Similar to an autoencoder, we begin by training the VAE on normal data samples.
 At test time, we can compute an anomaly score in two ways. First, we can draw
-samples of the latent code z from the encoder given our input data, sample
-reconstructed values from the decoder using z, and compute a mean reconstruction
+samples of the latent code Z from the encoder given our input data, sample
+reconstructed values from the decoder using Z, and compute a mean reconstruction
 error. Anomalies are flagged based on some threshold on the reconstruction
 error.</p>
 <p>Alternatively, we can output a mean and a variance parameter from the decoder,
@@ -992,7 +993,7 @@ and compute the probability that the new data point belongs to the distribution
 of normal data on which the model was trained. If the data point lies in a
 low-density region (below some threshold), we flag that as an anomaly. We can
 do this because we’re modeling a distribution as opposed to a point estimate.</p>
-<figure><img src="figures/ill-4.png" alt="Two approaches to anomaly scoring with a VAE: we have the option of outputting the meanreconstruction probability (i.e., the probability that a sample belongs to thenormal data distribution)."><figcaption>Two approaches to anomaly scoring with a VAE: we have the option of outputting the mean
+<figure><img src="figures/ill-4.png" alt="Anomaly scoring with a VAE: we output the meanreconstruction probability (i.e., the probability that a sample belongs to thenormal data distribution)."><figcaption>Anomaly scoring with a VAE: we output the mean
 reconstruction probability (i.e., the probability that a sample belongs to the
 normal data distribution).</figcaption></figure>
 <h3 id="generative-adversarial-networks">Generative Adversarial Networks</h3>
@@ -1001,8 +1002,7 @@ distribution. In their classic formulation, they’re composed of a pair of
 (typically feed-forward) neural networks termed a generator, G, and discriminator, D.
 Both networks are trained jointly and play a competitive skill game with the end
 goal of learning the distribution of the input data, X.</p>
-<p><strong>NM: we use “images” instead of “input datapoints or samples” below - check</strong>
-The generator network G learns a mapping from random noise of a fixed dimension
+<p>The generator network G learns a mapping from random noise of a fixed dimension
 (Z) to samples X_ that closely resemble members of the input data distribution.
 The discriminator D learns to correctly discern real samples that originated
 in the source data (X) from fake samples (X_) that are generated by G. At each
@@ -1015,22 +1015,23 @@ the task of distinguishing real from fake samples.</p>
 <p>In this classic formulation of GANs, while G learns to model the source
 distribution X well (it learns to map random noise from Z to the source
 distribution), there is no straightforward approach that allows us to harness
-this knowledge for controlled inference�i.e., to generate a sample that is
+this knowledge for controlled inference; i.e., to generate a sample that is
 similar to a given known sample. While we can conduct a broad search over the
 latent space with the goal of recovering the most representative latent noise
 vector for an arbitrary sample, this process is compute-intensive and very slow
 in practice.</p>
+<figure><img src="figures/ill-5.png" alt="A traditional GAN."><figcaption>A traditional GAN.</figcaption></figure>
 <p>To address these issues, recent research studies have explored new formulations
 of GANs (known as BiGANs) that enable just this sort of controlled adversarial inference by
-introducing an encoder network, E.^[[See e.g. Jeff Donahue et al., “Adversarial Feature Learning” (2016), <a href="https://arxiv.org/abs/1605.09782">arXiv:1605.09782</a>, and Samet AkCay et al., “GANomaly: Semi-Supervised Anomaly Detection via Adversarial Training” (2018), <a href="https://arxiv.org/abs/1805.06725">arXiv:1805.06725</a>.] In simple terms, the encoder learns the
+introducing an encoder network, E.<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> In simple terms, the encoder learns the
 reverse mapping of the generator; it learns to generate a fixed vector Z_,
 given a sample. Given this change, the input to the discriminator is also
 modified; the discriminator now takes in pairs of input that include the latent
 representation (Z, and Z_), in addition to the data samples (X and X_). The
 encoder E is then jointly trained with the generator G; G learns an induced
-distribution that outputs samples of X given a latent code z, while E learns an
+distribution that outputs samples of X given a latent code Z, while E learns an
 induced distribution that outputs Z, given a sample X.</p>
-<figure><img src="figures/ill-5.png" alt="A traditional GAN (A) and a BiGAN (B)."><figcaption>A traditional GAN (A) and a BiGAN (B).</figcaption></figure>
+<figure><img src="figures/ill-6.png" alt="A BiGAN."><figcaption>A BiGAN.</figcaption></figure>
 <p>Again, the mappings learned by components in the GAN are specific to the
 data used in training. For example, the generator component of a GAN trained on
 images of cars will always output an image that looks like a car, given any
@@ -1041,47 +1042,46 @@ trained.</p>
 <p>To model normal behavior, we train a BiGAN on normal data samples. At the end
 of the training process, we have an encoder E that has learned a mapping from
 data samples (X) to latent code space (Z_), a discriminator D that has learned to
-distinguish real from generated data, and a Generator G that has learned a
+distinguish real from generated data, and a generator G that has learned a
 mapping from latent code space to sample space. Note that these mappings are
 specific to the distribution of normal data that has been seen during training.
 At test time, we perform the following steps to generate an anomaly score for a
-given sample X. First, we obtain a latent space value z from the encoder given
+given sample X. First, we obtain a latent space value Z_ from the encoder given
 X, which is fed to the generator and yields a sample X_. Next, we can compute an
 anomaly score based on the reconstruction loss (difference between X and X_) and
 the discriminator loss (cross entropy loss or feature differences in the last
 dense layer of the discriminator, given both X and X_).</p>
 <figure><img src="figures/ill-7.png" alt="A BiGAN applied to the task of anomaly detection."><figcaption>A BiGAN applied to the task of anomaly detection.</figcaption></figure>
-<h3 id="sequence-to-sequence-models">Sequence to Sequence Models</h3>
-<p>Sequence to sequence models are a class of neural networks mainly designed to
+<h3 id="sequence-to-sequence-models">Sequence-to-Sequence Models</h3>
+<p>Sequence-to-sequence models are a class of neural networks mainly designed to
 learn mappings between data that are best represented as sequences. Data
 containing sequences can be challenging as each token in a sequence may have
-some form of temporal dependence on other tokens�a relationship that has to be
+some form of temporal dependence on other tokens; a relationship that has to be
 modeled to achieve good results. For example, consider the task of language
 translation where a sequence of words in one language needs to be mapped to a
 sequence of words in a different language. To excel at such a task, a model must
 take into consideration the (contextual) location of each word/token within the
 broader sentence; this allows it to generate an appropriate translation (See our
-previous report on <a href="https://blog.fastforwardlabs.com/2019/07/17/new-research-transfer-learning-for-natural-language-processing.html">Natural Language Processing</a> to learn more about this area.)</p>
-<p>On a high level, sequence to sequence models typically consist of an encoder, E,
+previous report on <a href="https://clients.fastforwardlabs.com/ff11/report">Natural Language Processing</a> to learn more about this area.)</p>
+<p>On a high level, sequence-to-sequence models typically consist of an encoder, E,
 that generates a hidden representation of the input tokens, and a decoder, D,
 that takes in the encoder representation and sequentially generates a set of
 output tokens. Traditionally, the encoder and decoder are composed of long short-term memory (LSTM)
 blocks, that are particularly suitable for modeling temporal relationships
 within input data tokens.</p>
-<p><strong>// RH: with the total number of steps determining the length of the output token? Or is it the reverse?</strong>
-While sequence to sequence models excel at modeling data with temporal
-dependence, they can be slow during inference�each individual token in the
+<p>While sequence-to-sequence models excel at modeling data with temporal
+dependence, they can be slow during inference; each individual token in the
 model output is sequentially generated at each time step, where the total number
-of steps is the length of the output token).</p>
-<p>We can use this encoder/decoder structure for anomaly detection by revising the
-sequence to sequence model to function like an autoencoder, training the
+of steps is the length of the output token.</p>
+<p>We can use this encoder-decoder structure for anomaly detection by revising the
+sequence-to-sequence model to function like an autoencoder, training the
 model to output the same tokens as the input, shifted by 1. This way, the
 encoder learns to generate a hidden representation that allows the decoder to
 reconstruct input data that is similar to examples seen in the training dataset.</p>
-<figure><img src="figures/ill-8.png" alt="A sequence to sequence models"><figcaption>A sequence to sequence models</figcaption></figure>
+<figure><img src="figures/ill-8.png" alt="A sequence-to-sequence model."><figcaption>A sequence-to-sequence model.</figcaption></figure>
 <h4 id="modeling-normal-behavior-and-anomaly-scoring-4">Modeling Normal Behavior and Anomaly Scoring</h4>
 <p>To identify anomalies, we take a semi-supervised approach where we train the
-sequence to sequence model on normal data. At test time, we can then compare the
+sequence-to-sequence model on normal data. At test time, we can then compare the
 difference (mean squared error) between the output sequence generated by the model and
 its input. As in the approaches discussed previously, we can use this value as
 an anomaly score.</p>
@@ -1120,10 +1120,11 @@ anomaly score.</p>
 <figure><img src="figures/ill-10.png" alt="At test time, An OCSVM model classifies data points outside the learneddecision boundary as anomalies (assigned class of -1)."><figcaption>At test time, An OCSVM model classifies data points outside the learned
 decision boundary as anomalies (assigned class of -1).</figcaption></figure>
 <h3 id="additional-considerations">Additional Considerations</h3>
-<p><strong>// RH: Possible to add some text between these headings?</strong></p>
+<p>In practice, applying deep learning relies on a few data and modeling assumptions. This section
+explores them in detail.</p>
 <h4 id="anomalies-as-rare-events">Anomalies as Rare Events</h4>
 <p>For the training approaches discussed thus far, we operate on the assumption of the
-availability of “normal” labeled data, which is then used to learn a model of
+availability of “normal” labeled data, which is then used to teach a model recognize
 normal behavior. In practice, it is often the case that labels do not exist or
 can be expensive to obtain. However, it is also a common observation that
 anomalies (by definition) are relatively infrequent events and therefore
@@ -1165,7 +1166,7 @@ data containing trends (e.g., rising global temperatures) or with seasonality
 (e.g., hourly temperatures within each day). These variations need to be handled
 during discretization. We can remove trends by applying a differencing function
 to the entire dataset. To handle seasonality, we can explicitly include
-information on seasonality as a feature of each discrete sample;for instance, to
+information on seasonality as a feature of each discrete sample; for instance, to
 discretize by hour, we can attach a categorical variable representing the hour of
 the day. A common misconception regarding the application of neural networks capable of modeling temporal relationships such as LSTMs is that they automatically learn/model properties of the data useful for
 predictions (including trends and seasonality). However, the extent to which
@@ -1179,11 +1180,11 @@ trends and seasonality) from time series data allows us to satisfy the latter
 requirement, but not the former. This can affect model
 performance. In addition, constructing a dataset in this way raises the possibility that
 the learned model may perform poorly in predicting output values that
-lie outside the distribution (range of values) seen during training�i.e.,
+lie outside the distribution (range of values) seen during training; i.e.,
 if there is a distribution shift. This greatly amplifies the need to
 retrain the model as new data arrives, and complicates the model deployment process.
 In general, discretization should be applied with care.</p>
-<h3 id="selecting-a-model">Selecting a Model</h3>
+<h4 id="selecting-a-model">Selecting a Model</h4>
 <p>There are several factors that can influence the primary approach taken when it
 comes to detecting anomalies. These include the data properties (time series vs.
 non-time series, stationary vs. non-stationary, univariate vs. multivariate,
@@ -1191,7 +1192,7 @@ low-dimensional vs. high-dimensional), latency requirements, uncertainty
 reporting, and accuracy requirements. More importantly, deep learning methods
 are not always the best approach! To provide a framework for navigating this
 space, we offer the following recommendations:</p>
-<h4 id="data-properties">Data Properties</h4>
+<h5 id="data-properties">Data Properties</h5>
 <ul>
 <li>
 <p><strong>Time series data</strong>: As discussed in the previous section, it is important to correctly discretize
@@ -1201,11 +1202,10 @@ the data and to handle stationarity before training a model. In addition, for di
 <p><strong>Univariate vs Multivariate</strong>: Deep learning methods are well suited to data that has a wide range of features:
 they’re recommended for high-dimensional data, such as images, and work well for
 modeling the interactions between multiple variables. For most
-univariate datasets, linear models<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> are both fast and accurate and thus typically preferred.
-<strong>// RH: That’s a lot of acronyms to throw at the reader (in the footnote). It would be helpful to point them to a reference they can look at to explain them all (“For a survey of linear models, see…”). Keep the formatting consistent with refs in earlier footnotes or just include a URL.</strong></p>
+univariate datasets, linear models<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup> are both fast and accurate and thus typically preferred.</p>
 </li>
 </ul>
-<h4 id="business-requirements">Business Requirements</h4>
+<h5 id="business-requirements">Business Requirements</h5>
 <ul>
 <li>
 <p><strong>Latency</strong>: Deep learning models are slower than linear models. For scenarios that
@@ -1222,15 +1222,14 @@ and recall.</p>
 uncertainty for each anomaly classification, deep learning models such as VAEs and BiGANs are recommended.</p>
 </li>
 </ul>
-<h3 id="general-considerations-in-selecting-a-deep-learning-approach">General Considerations in Selecting a Deep Learning Approach</h3>
+<h3 id="how-to-decide-on-a-modeling-approach%3F">How to Decide on a Modeling Approach?</h3>
 <p>When the (discretized) data contains sequences with temporal dependencies, a
-sequence to sequence model can model these relationships, yielding better
+sequence-to-sequence model can model these relationships, yielding better
 results. For scenarios requiring principled estimates of uncertainty, a VAE and
-GAN based approaches are suitable. For scenarios where the data is images, AE’s
+GAN based approaches are suitable. For scenarios where the data is images, AEs,
 VAEs and GANs designed with convolution blocks are suitable.</p>
 <figure><img src="figures/ill-12.png" alt="The steps for selecting an approach to anomalydetection."><figcaption>The steps for selecting an approach to anomaly
 detection.</figcaption></figure>
-<p><strong>// RH: Add intro to table (something like “The following table highlights the pros and cons of the different types of models, to give you an idea of what kinds of data they are most useful for.”?) Also, in the GAN row of the table, what do you mean by “learning of data manifold”? And is it necessary to say “(useful for high-dimensional image data)” in item 2, given item 3?</strong></p>
 <p>The following table highlights the pros and cons of the different types of models, to give you an idea under what kind of scenarios they are recommended.</p>
 <div style="width: 100%; overflow-x: auto;"><table>
 <thead>
@@ -1253,11 +1252,11 @@ detection.</figcaption></figure>
 </tr>
 <tr>
 <td>GAN (BiGAN)</td>
-<td><ul><li>Supports variational inference (probabilistic measure of uncertainty) </li><li>Use of discriminator signal allows better learning of data manifold (useful for high dimensional image data).</li><li>Performs well for  high dimensional data (images) </li><li>GANs trained in semi-supervised learning mode have shown great promise, even with very few labeled data<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></li></ul></td>
-<td><ul><li>Requires a large amount of training data, and longer training time (epochs) to arrive at stable results<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup> </li><li>Training can be unstable (GAN mode collapse)</li></ul></td>
+<td><ul><li>Supports variational inference (probabilistic measure of uncertainty) </li><li>Use of discriminator signal allows better learning of data manifold<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup> (useful for high dimensional image data).</li><li>GANs trained in semi-supervised learning mode have shown great promise, even with very few labeled data<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup></li></ul></td>
+<td><ul><li>Requires a large amount of training data, and longer training time (epochs) to arrive at stable results<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup> </li><li>Training can be unstable (GAN mode collapse)</li></ul></td>
 </tr>
 <tr>
-<td>Sequence to Sequence Model</td>
+<td>Sequence-to-Sequence Model</td>
 <td><ul><li>Well suited for data with temporal components (e.g., discretized time series data)</li></ul></td>
 <td><ul><li>Slow inference (compute scales with sequence length which needs to be fixed)</li><li>Training can be slow</li><li>Limited accuracy when data contains features with no temporal dependence</li><li>Supports variational inference (probabilistic measure of uncertainty)</li></ul></td>
 </tr>
@@ -1286,7 +1285,7 @@ detection.</figcaption></figure>
 <p>Table …</p>
 <h4 id="observations">Observations</h4>
 <h5 id="training">Training</h5>
-<p>In terms of training, ocsvm and an autoencoder were the fastest to implement and train. While the BiGAN based model also demonstrated very good accuracy, it was the most challenging to train. This is in part due to a known stability issue (mostly fluctuating accuracy during training) <sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup> associated with GANs. Overall, the BiGAN approach, required more training epochs to arrive at stable results compared to the other deep methods.</p>
+<p>In terms of training, ocsvm and an autoencoder were the fastest to implement and train. While the BiGAN based model also demonstrated very good accuracy, it was the most challenging to train. This is in part due to a known stability issue (mostly fluctuating accuracy during training) <sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup> associated with GANs. Overall, the BiGAN approach, required more training epochs to arrive at stable results compared to the other deep methods.</p>
 <!-- In terms of training time, we found that ocsvm and the autoencoder were the fastest models to train to peak accuracy. GANs have known stability issues ^[
 [Improved Techniques for Training GANs](https://arxiv.org/abs/1606.03498)]   and can be challenging to train. Overall, the BiGAN approach, required more training epochs to arrive at stable results compared to the other deep methods.  -->
 <h5 id="inference-and-storage">Inference and Storage</h5>
@@ -1322,487 +1321,560 @@ Insights: As threshold changes, accuracy can stay the same but, precision and re
 <p><strong>Effect of Data Composition</strong>: We may not always have labelled normal data to train a model. However, given the rarity of anomalies (and domain expertise), we can assume that unlabelled data is mostly comprised of normal samples. However, this assumption raises an important question - does model performance degrade with changes in the percentage of abnormal samples in the dataset? In the train a model section, you can specify the percentage of abnormal samples to include when training the autoencoder model.
 Insights: We see that with 0% abnormal data, the model AUC is ~96%. Great! At 30% abnormal sample composition, AUC drops to ~93%. At 50% abnormal data points, there is just not enough information in the data that allows the model to learn a pattern of normal behaviour. It essentially learns to reconstruct normal and abnormal data well and mse is no longer a good measure of anomaly. At this point, model performance is only slightly above random chance (AUC of 56%).</p>
 <h2 id="landscape">Landscape</h2>
-<p>In this section, we review the landscape of open source tools, service vendor
-offerings, their trade-offs, and when to use each.</p>
+<p>This chapter provides an overview of the landscape of currently available open source tools and service vendor
+offerings available for anomaly detection, and considers the trade-offs as well as when to use each.</p>
 <h3 id="open-source-tools-and-frameworks">Open Source Tools and Frameworks</h3>
-<p>Popular open source machine learning libraries or packages in Python and R
+<p>Several popular open source machine learning libraries and packages in Python and R
 include implementations of algorithmic techniques that can be applied to anomaly
-detection tasks.  Algorithms (e.g., clustering, OC-SVM, isolation forests) exist
-as part of a general-purpose framework like scikit-learn and do not cater
+detection tasks. Useful algorithms (e.g., clustering, OCSVMs, isolation forests) also exist
+as part of general-purpose frameworks like <code>scikit-learn</code> that do not cater
 specifically to anomaly detection. In addition, generic packages for univariate
 time series forecasting (e.g., Facebook’s
 <a href="https://facebook.github.io/prophet/">Prophet</a>) have been applied widely to
 anomaly detection tasks where anomalies are identified based on the difference
 between the true value and a forecast.</p>
-<p>In this section of the report, our focus is on comprehensive toolboxes that
+<p>In this section, our focus is on comprehensive toolboxes that
 specifically address the task of anomaly detection.</p>
 <h4 id="python-outlier-detection-(pyod)">Python Outlier Detection (PyOD)</h4>
-<p><a href="https://github.com/yzhao062/pyod">PyOD</a> is an open-source Python toolbox for performing scalable outlier detection
-on multivariate data. Uniquely, it provides access to a wide range of outlier
+<p><a href="https://github.com/yzhao062/pyod">PyOD</a> is an open source Python toolbox for performing scalable outlier detection
+on multivariate data. It provides access to a wide range of outlier
 detection algorithms, including established outlier ensembles and more recent
 neural network-based approaches, under a single, well-documented API.</p>
-<p>Distinct advantages:</p>
+<p>PyOD offers several distinct advantages:</p>
 <ul>
-<li>It contains more than 20 algorithms which cover both classical techniques such
-as local outlier factor and recent neural network architectures such as
-autoencoders or adversarial models.</li>
-<li>PyOD implements combination methods for merging the results of multiple
-detectors and outlier ensembles which are an emerging set of models.</li>
+<li>It gives access to over 20 algorithms, ranging from classical techniques such
+as local outlier factor (LOF) to recent neural network architectures such as
+autoencoders and adversarial models.</li>
+<li>It implements combination methods for merging the results of multiple
+detectors and outlier ensembles, which are an emerging set of models.</li>
 <li>It includes a unified API, detailed documentation, and interactive examples
 across all algorithms for clarity and ease of use.</li>
 <li>All models are covered by unit testing with cross-platform continuous
 integration, code coverage, and code maintainability checks.</li>
 <li>Optimization instruments are employed when possible: just-in-time (JIT)
 compilation and parallelization are enabled in select models for scalable
-outlier detection. Lastly, PyOD is compatible with both Python 2 and 3 across
-major operating systems.</li>
+outlier detection.</li>
+<li>It’s compatible with both Python 2 and 3 across major operating systems.</li>
 </ul>
 <h4 id="seldon%E2%80%99s-anomaly-detection-package">Seldon’s Anomaly Detection Package</h4>
-<p><a href="https://github.com/SeldonIO">Seldon.io</a> is known for its open source machine learning deployment solution for
+<p><a href="https://github.com/SeldonIO">Seldon.io</a> is known for its open source ML deployment solution for
 Kubernetes, which can in principle be used to serve arbitrary models. In
 addition, the Seldon team has recently released
-<a href="https://github.com/SeldonIO/alibi-detect">alibi-detect</a> - a Python package
+<a href="https://github.com/SeldonIO/alibi-detect"><code>alibi-detect</code></a>, a Python package
 focused on outlier, adversarial, and concept drift detection. The package aims
-to cover both online and offline detectors for tabular data, text, images and
-time series. The outlier detection methods should allow the user to identify
-global, contextual and collective outliers.</p>
-<p>They have identified anomaly detection as a sufficiently important capability to
-warrant a dedicated attention in the framework, and have implemented several
-models to use “out-the-box.” The existing models include seq2seq LSTMs,
-variational auto-encoders, spectral residual for time series, gaussian mixture
-models, isolation forests, Mahalanobis distance, and others. Note that they also
-provide examples and documentation on how to use along with their platform.</p>
+to provide both online and offline detectors for tabular data, text, images, and
+time series data. The outlier detection methods should allow the user to identify
+global, contextual, and collective outliers.</p>
+<p>Seldon has identified anomaly detection as a sufficiently important capability to
+warrant dedicated attention in the framework, and has implemented several
+models to use out of the box. The existing models include sequence-to-sequence LSTMs,
+variational autoencoders, spectral residual models for time series, Gaussian mixture
+models, isolation forests, Mahalanobis distance, and others. Examples and
+documentation are provided.</p>
 <p>In the Seldon Core architecture, anomaly detection methods may be implemented as
-either a model or an input transformer. In the latter case, they can be composed
+either models or input transformers. In the latter case, they can be composed
 with other data transformations to process inputs to another model. This nicely
-illustrates one role anomaly detection can play in machine learning systems:
+illustrates one role anomaly detection can play in ML systems:
 flagging bad inputs before they pass through the rest of a pipeline.</p>
-<h4 id="r-packages">R packages</h4>
+<h4 id="r-packages">R Packages</h4>
 <p>The following section reviews R packages that have been created for anomaly
 detection. Interestingly, most of them deal with time series data.</p>
 <h5 id="twitter%E2%80%99s-anomalydetection-package">Twitter’s AnomalyDetection package</h5>
-<p>Twitter’s <a href="https://github.com/twitter/AnomalyDetection">AnomalyDetection</a> is an open-source R package to automatically detect
+<p>Twitter’s <a href="https://github.com/twitter/AnomalyDetection">AnomalyDetection</a> is an
+open source R package that can be used to automatically detect
 anomalies. It is applicable across a wide variety of contexts (for example,
-detecting anomalies in system metrics after a new software release, user
+anomaly detection in system metrics after a new software release, user
 engagement after an A/B test, or problems in econometrics, financial
-engineering, political and social sciences). It can help detect global/local
-anomalies as well as positive/negative (i.e., a point-in-time increase/decrease
-in values) anomalies.</p>
-<p>The primary algorithm, Seasonal Hybrid ESD (S-H-ESD), builds upon the
-Generalized ESD test for detecting anomalies - which can be global as well as
+engineering, or the political and social sciences). It can help detect both global and local
+anomalies as well as positive/negative anomalies (i.e., a point-in-time increase/decrease
+in values).</p>
+<p>The primary algorithm, Seasonal Hybrid Extreme Studentized Deviate (S-H-ESD), builds upon the
+Generalized ESD test for detecting anomalies, which can be either global or
 local. This is achieved by employing time series decomposition and using robust
-statistical metrics, i.e., median together with ESD. In addition, for a long
+statistical metrics; i.e., median together with ESD. In addition, for long
 time series (say, 6 months of minutely data), the algorithm employs piecewise
 approximation.</p>
-<p>Besides time series, the package can also be used to detect anomalies in a
-vector of numerical values when the corresponding timestamps are not available.
-The package provides rich visualization support. The user can specify the
-direction of anomalies, the window of interest (such as last day, last hour), as
-well as enable/disable piecewise approximation, and the x- and y-axis are
+<p>The package can also be used to detect anomalies in a
+vector of numerical values when the corresponding timestamps are not available,
+and it provides rich visualization support. The user can specify the
+direction of anomalies and the window of interest (such as the last day or last hour)
+and enable or disable piecewise approximation, and the x- and y-axes are
 annotated to assist visual data analysis.</p>
-<h5 id="anomalize-package">Anomalize package</h5>
-<p>The <a href="https://github.com/business-science/anomalize">anomalize</a> package, open sourced by Business Science, does time series
-anomaly detection that goes inline with other <a href="https://www.tidyverse.org/">Tidyverse
+<h5 id="anomalize-package">anomalize package</h5>
+<p>The <a href="https://github.com/business-science/anomalize"><code>anomalize</code> package</a>, open sourced by Business Science, performs time series anomaly detection that goes inline with other <a href="https://www.tidyverse.org/">Tidyverse
 packages</a> (or packages
 supporting tidy data).</p>
 <p>Anomalize has three main functions:</p>
 <ul>
-<li>Decompose: separates out the time series into seasonal, trend, and remainder
-components</li>
-<li>Anomalize: applies anomaly detection methods to the remainder component</li>
-<li>Recompose: calculates upper and lower limits that separate the “normal” data
-from the anomalies</li>
+<li><em>Decompose</em> separates out the time series into seasonal, trend, and remainder
+components.</li>
+<li><em>Anomalize</em> applies anomaly detection methods to the remainder component.</li>
+<li><em>Recompose</em> calculates upper and lower limits that separate the “normal” data
+from the anomalies.</li>
 </ul>
-<h5 id="tsoutliers-package">Tsoutliers package</h5>
+<h5 id="tsoutliers-package">tsoutliers package</h5>
 <p>This <a href="https://www.rdocumentation.org/packages/tsoutliers/versions/0.6-8">package</a>
 implements a procedure based on the approach described in <a href="https://www.researchgate.net/publication/243768707_Joint_Estimation_of_Model_Parameters_and_Outlier_Effects_in_Time_Series">Chen and
 Liu
 (1993)</a>
 for automatic detection of outliers in time series. Time series data
-often undergoes non-systematic changes that alter the dynamics of the data
-transitory or permanently. The approach considers innovational outliers,
-additive outliers, level shifts, temporary changes, and seasonal level shifts -
+often undergoes nonsystematic changes that alter the dynamics of the data, either
+transitorily or permanently. The approach considers innovational outliers,
+additive outliers, level shifts, temporary changes, and seasonal level shifts
 while fitting a time series model.</p>
 <h4 id="numenta%E2%80%99s-htm-(hierarchical-temporal-memory)">Numenta’s HTM (Hierarchical Temporal Memory)</h4>
-<p>Research organization <a href="https://numenta.com/">Numenta</a> has introduced hierarchical temporal memory (HTM)
-\– a machine learning model for anomaly detection. At the core of HTM are
-time-based learning algorithms that store and recall temporal patterns. Unlike
-most other machine learning methods, HTM algorithms learn time-based patterns in
-unlabeled data on a continuous basis. They are robust to noise, and high
-capacity - meaning they can learn multiple patterns simultaneously. The HTM
-algorithms are documented and available through its open source project, NuPIC
-(Numenta Platform for Intelligent Computing). The HTM technology is suited to
-address a number of problems, particularly those with the following
-characteristics: streaming data, underlying patterns in data change over time,
+<p>Research organization <a href="https://numenta.com/">Numenta</a> has introduced
+a machine intelligence framework for anomaly detection called <em>Hierarchical Temporal Memory</em> (HTM).
+At the core of HTM are time-based learning algorithms that store and recall temporal patterns. Unlike
+most other ML methods, HTM algorithms learn time-based patterns in
+unlabeled data on a continuous basis. They are robust to noise and high-capacity,
+meaning they can learn multiple patterns simultaneously. The HTM
+algorithms are documented and available through the open source
+Numenta Platform for Intelligent Computing (NuPIC). They’re particularly suited to
+problems involving streaming data and to identifying underlying patterns in data change over time,
 subtle patterns, and time-based patterns.</p>
-<p>One of the first commercial applications developed using NuPIC is
-<a href="https://grokstream.com/">Grok</a>, which
+<p>One of the first commercial applications to be developed using NuPIC is
+<a href="https://grokstream.com/">Grok</a>, a tool that
 performs IT analytics, giving insight into IT systems to identify unusual
 behavior and reduce business downtime. Another is
 <a href="https://www.cortical.io/">Cortical.io</a>, which enables
 applications in natural language processing.</p>
-<p>The NuPIC platform also offers several tools such as the HTM Studio and the
-Numenta Anomaly Benchmark (NAB). HTM Studio is a desktop tool that finds
-anomalies in time series without the need to program, code, or set parameters.
+<p>The NuPIC platform also offers several tools, such as HTM Studio and
+Numenta Anomaly Benchmark (NAB). HTM Studio is a free desktop tool that enables developers to find
+anomalies in time series data without the need to program, code, or set parameters.
 NAB is a novel benchmark for evaluating and comparing algorithms for anomaly
 detection in streaming, real-time applications. It is composed of over 50
 labeled real-world and artificial time series data files, plus a novel scoring
 mechanism designed for real-time applications.</p>
 <p>Besides this, there are example applications available on NuPIC that include
-sample code and white papers for: tracking anomalies in the stock market, ogue
-behavior detection - finding anomalies in human behavior, geospatial tracking -
-finding anomalies in objects moving through space and time</p>
+sample code and whitepapers for tracking anomalies in the stock market, rogue
+behavior detection (finding anomalies in human behavior), and geospatial tracking
+(finding anomalies in objects moving through space and time).</p>
 <p>Numenta is a technology provider and does not create go-to-market solutions for
-specific use cases. The company licenses their technology and application code
-to developers, organizations, and companies who wish to build upon their
-technology. Numenta has several different types of licenses, including open
-source, trial, and commercial licenses. Developers can use Numenta technology
-within NuPIC using the AGPL v3 open source license. Their HTM Studio is a free,
-desktop tool allows you to test whether our Hierarchical Temporal Memory (HTM)
-algorithms will find anomalies in your data without having to program, code or
-set parameters.</p>
+specific use cases. The company licenses its technology and application code
+to developers, organizations, and companies that wish to build upon it.
+Open source, trial, and commercial licenses are available. Developers can use Numenta technology
+within NuPIC via the AGPL v3 open source license.</p>
 <h3 id="anomaly-detection-as-a-service">Anomaly Detection as a Service</h3>
-<p>In this section, we survey a sample of anomaly detection service providers. Most
-of these providers can access data from public cloud databases, provide some
-kind of dashboard/report format to view/analyze data, have an alert mechanism
-when an anomaly occurs, and view underlying causes. An anomaly detection
+<p>In this section, we survey a sample of the anomaly detection services available at the time of writing. Most
+of these services can access data from public cloud databases, provide some
+kind of dashboard/report format to view and analyze data, have an alert mechanism
+to indicate when an anomaly occurs, and enable developers to view underlying causes. An anomaly detection
 solution should try to reduce the time to detect and speed up the time to
-resolution by identifying KPIs and attributes that are causing the alert.</p>
+resolution by identifying key performance indicators (KPIs) and attributes that are causing the alert. We compare the offerings across a range of criteria, from capabilities to delivery.</p>
 <h4 id="anodot">Anodot</h4>
-<h5 id="capabilities">Capabilities</h5>
-<p><a href="https://www.anodot.com/">Anodot</a> is a real-time analytics and automated anomaly detection system that
-detects and
-turns outliers in time series data into business insights. They explore anomaly
-detection from the perspective of forecasting, where anomalies are identified
-based on deviations from expected forecasts. As part of their product, they do
-two things:</p>
 <ul>
-<li>Business monitoring: the system does SAAS monitoring, finds anomalies and helps
-with root cause analysis</li>
-<li>Business forecasting: forecasting, what if, and optimization.</li>
-</ul>
-<h5 id="data-requirements">Data requirements</h5>
-<p>Anodot supports multiple input data sources including direct uploads, or
-integrations with Amazon’s S3 or Google Cloud storage. They are data agnostic
-and can track a variety of  metrics, e.g., revenue, number of sales, the number
-of page visits, number of daily active users, etc.</p>
-<h5 id="modeling-approach%2Ftechnique(s)">Modeling approach/technique(s)</h5>
-<p>Anodot analyzes all the business metrics in real-time and at scale by running
+<li>
+<p><em>Capabilities</em><br>
+<a href="https://www.anodot.com/">Anodot</a> is a real-time analytics and automated anomaly
+detection system that detects outliers in time series data and turns them into
+business insights. It explores anomaly
+detection from the perspective of forecasting, where anomalies are identified
+based on deviations from expected forecasts.
+The product has a dual focus: business monitoring (SaaS monitoring, anomaly detection,
+and root cause analysis) and business forecasting (trend prediction, “what ifs,” and optimization).</p>
+</li>
+<li>
+<p><em>Data requirements</em><br>
+Anodot supports multiple input data sources, including direct uploads and
+integrations with Amazon’s S3 or Google Cloud storage. It’s data-agnostic
+and can track a variety of metrics: revenue, number of sales, number
+of page visits, number of daily active users, and others.</p>
+</li>
+<li>
+<p><em>Modeling approach/technique(s)</em><br>
+Anodot analyzes business metrics in real time and at scale by running
 its ML algorithms on the live data stream itself, without reading or writing
 into a database. Every data point that flows into Anodot from all data sources
-is correlated with the relevant metric’s existing normal model, and either
-flagged as an anomaly or serves to update the normal model. They believe that no
-single model can be used to cover all metrics. To allocate the optimal model for
-each metric, they first create a library of model types for different signal
-types (metrics that are stationary, non-stationary, multimodal, discrete,
+is correlated with the relevant metric’s existing normal model, and either is
+flagged as an anomaly or serves to update the normal model. Anodot’s philosophy is that
+no single model can be used to cover all metrics. To allocate the optimal model for
+each metric, they’ve created a library of model types for different signal
+types (metrics that are stationary or non-stationary, multimodal or discrete,
 irregularly sampled, sparse, stepwise, etc.). Each new metric goes through a
-classification phase, and is matched with the optimal model. The model then
-learns “normal behavior” for each metric, which is a prerequisite to identifying
-anomalous behavior. To accommodate this kind of learning in real-time at scale,
-they use sequential adaptive learning algorithms which initialize a model of
+classification phase and is matched with the optimal model. The model then
+learns “normal behavior” for that metric, which is a prerequisite to identifying
+anomalous behavior. To accommodate this kind of learning in real time at scale,
+Anodot uses sequential adaptive learning algorithms which initialize a model of
 what is normal on the fly, and then compute the relation of each new data point
 going forward.</p>
-<h5 id="point-anomalies-or-intervals">Point anomalies or intervals</h5>
-<p>Instead of flagging individual data points as anomalies, Anodot highlights
+</li>
+<li>
+<p><em>Point anomalies or intervals</em><br>
+Instead of flagging individual data points as anomalies, Anodot highlights
 intervals. Points within the entire duration of the interval are considered
 anomalous, preventing redundant alerts.</p>
-<h5 id="thresholding">Thresholding</h5>
-<p>While users can specify static thresholds which trigger alerts, Anodot also
+</li>
+<li>
+<p><em>Thresholding</em><br>
+While users can specify static thresholds which trigger alerts, Anodot also
 provides automatic defaults where no thresholding input from the user is
 required.</p>
-<h5 id="root-cause-investigation">Root cause investigation</h5>
-<p>Anodot helps investigate why the alert was triggered. It tries to understand how
-different active anomalies correlate (to expedite root cause investigation) and
-shortens the time to resolution. Anodot bands groups together different
-anomalies (or “incidents”) which tell the story of the phenomena. These can be
-(a) multiple anomalous values in the same dimension (e.g., a drop in traffic
-from sources A and B, but not C, D or E), or (b) correlation between different
-anomalous KPIs, such as visits, conversions, orders revenue, error rate. Each
-incident has an Anomap, a graphic distribution of the dimensions most impacted.
+</li>
+<li>
+<p><em>Root cause investigation</em><br>
+Anodot helps users investigate why an alert was triggered. It tries to understand how
+different active anomalies correlate in order to expedite root cause investigation and
+shorten the time to resolution, grouping together different
+anomalies (or “incidents”) that tell the story of the phenomena. These might be
+multiple anomalous values in the same dimension (e.g., a drop in traffic
+from sources A and B, but not C, D, or E), or correlations between different
+anomalous KPIs, such as visits, conversions, orders, revenue, or error rate. Each
+incident has an <em>Anomap</em>, a graphic distribution of the dimensions most impacted.
 This is essentially a heat map that makes it easier to understand the whole
 picture.</p>
-<h5 id="user-interface">User Interface</h5>
-<p>The Anodot interface enables the user to visualize and explore alerts. With the
-receipt of every alert, users are prompted to give the alert a binary score
-(good catch / bad catch). This input is fed back into the learning model to
+</li>
+<li>
+<p><em>User interface</em><br>
+The Anodot interface enables users to visualize and explore alerts. With the
+receipt of each alert, the user is prompted to assign it a binary score
+(good catch/bad catch). This input is fed back into the learning model to
 further tune it by providing real-life indications about the validity of its
 performance. By training the algorithms with direct feedback on anomalies, users
 can influence the system’s functionality and results.</p>
-<h5 id="delivery">Delivery</h5>
-<p>Notifications can be forwarded to every user through his/her choice of
-channel(s). Anodot notification integrations include—but are not limited
-to—Slack, API, email, pagerduty, Jira, Microsoft Teams OpsGenie, etc.</p>
-<h4 id="amazon%E2%80%99s-quicksight">Amazon’s QuickSight</h4>
-<h5 id="capabilities-2">Capabilities</h5>
-<p>Amazon <a href="https://docs.aws.amazon.com/quicksight/latest/user/anomaly-detection-function.html">QuickSight</a>
-is a cloud-native BI service that allows its users to create
-dashboards and visualizations to communicate business insights. In winter 2019,
+</li>
+<li>
+<p><em>Delivery</em><br>
+Notifications can be forwarded to each user through their choice of
+channel(s). Anodot notification integrations include an API, Slack,
+email, PagerDuty, Jira, Microsoft Teams OpsGenie, and more.</p>
+</li>
+</ul>
+<h4 id="amazon-quicksight">Amazon QuickSight</h4>
+<ul>
+<li>
+<p><em>Capabilities</em><br>
+<a href="https://docs.aws.amazon.com/quicksight/latest/user/anomaly-detection-function.html">Amazon QuickSight</a>
+is a cloud-native business intelligence (BI) service that allows its users to create
+dashboards and visualizations to communicate business insights. In early 2019,
 Amazon’s machine learning capability was integrated with QuickSight to provide
 anomaly detection, forecasting, and auto-narrative capabilities as part of the
-BI tool. It is a licensed software and pricing is usage-based; you only pay for
-the active usage, regardless of the number of users. That said, the
-pay-per-session could end up being expensive since anomaly detection tasks are
-compute intensive</p>
-<h5 id="data-requirements-2">Data requirements</h5>
-<p>QuickSight requires you to connect or import structured data  directly query a
+BI tool. Its licensed software and pricing is usage-based; you only pay for
+active usage, regardless of the number of users. That said, the
+pricing model could end up being expensive, since anomaly detection tasks are
+compute-intensive.</p>
+</li>
+<li>
+<p><em>Data requirements</em><br>
+QuickSight requires you to connect or import structured data directly query a
 SQL-compatible source, or ingest the data into SPICE. There is a requirement on
-the number of  historical data points varying based on the task (analyzing
+the number of historical data points that must be provided, which varies based on the task (analyzing
 anomalies or forecasting). There are also restrictions on the number of category
-dimensions that could be included (for example, product category, region,
+dimensions that can be included (for example: product category, region,
 segment).</p>
-<h5 id="modeling-approach%2Ftechnique(s)-2">Modeling approach/technique(s)</h5>
-<p>QuickSight provides a point and click solution to learn anomalous behavior and
-generate forecasts. It utilizes a built-in version of the Random Cut Forest
-(RCF) online algorithm, which can not only  be noisy, but lead to large amounts
+</li>
+<li>
+<p><em>Modeling approach/technique(s)</em><br>
+QuickSight provides a point-and-click solution for learning about anomalous behavior and
+generating forecasts. It utilizes a built-in version of the Random Cut Forest
+(RCF) online algorithm, which not only can be noisy but also can lead to large amounts
 of false positive alerts. On the plus side, it provides a customizable
 narrative feature that explains key takeaways from the insights generated. For
-instance, it could provide a summary of how the revenue compares to a previous
-period or a 30-day average, and/or highlight the event (in case of an anomaly).</p>
-<h5 id="point-anomalies-or-intervals-2">Point anomalies or intervals</h5>
-<p>Anomalous events are presented discretely, on a point-by-point basis. So if an
-anomaly lasts more than a single time unit, the system will flag several events
+instance, it can provide a summary of how revenue compares to a previous
+period or a 30-day average, and/or highlight the event in case of an anomaly.</p>
+</li>
+<li>
+<p><em>Point anomalies or intervals</em><br>
+Anomalous events are presented discretely, on a point-by-point basis. If an
+anomaly lasts more than a single time unit the system will flag several events,
 which could be noisy and redundant.</p>
-<h5 id="thresholding-2">Thresholding</h5>
-<p>Anomaly detection with QuickSight employs a thresholding approach to trigger
+</li>
+<li>
+<p><em>Thresholding</em><br>
+Anomaly detection with QuickSight employs a thresholding approach to trigger
 anomalous events. The user provides a threshold value (low, medium, high, very
-high) that determines how sensitive the detector is to detected anomalies.
-Expect to see more anomalies when the setting is low, and fewer anomalies when
-the setting is set to high. This sensitivity is determined based on standard
+high) that determines how sensitive the detector is to anomalies:
+expect to see more anomalies when the setting is low, and fewer anomalies when
+it’s high. The sensitivity is determined based on standard
 deviations of the anomaly score generated by the RCF algorithm. This approach
-could be very tedious - especially when there are multiple time series being
-analyzed across various data hierarchy combinations - and introduces manual
+can be tedious, especially when there are multiple time series being
+analyzed across various data hierarchy combinations, and introduces the need for manual
 intervention.</p>
-<h5 id="root-cause-investigation-2">Root cause investigation</h5>
-<p>One can interactively explore the anomalies on the Quicksight dashboard/report
-to help understand the root cause. QuickSight performs a contribution analysis
-which highlights  the factors that significantly contribute to an anomaly. If
-you have dimensions in your data that are not being used in the anomaly
-detection, you can add up to four of them for contribution analysis. In
-addition, it can support interactive “what-if” queries. In these, some of the
+</li>
+<li>
+<p><em>Root cause investigation</em><br>
+Users can interactively explore anomalies on the QuickSight dashboard or report
+to help understand the root causes. The tool performs a contribution analysis
+which highlights the factors that significantly contributed to an anomaly. If
+there are dimensions in the data that are not being used in the anomaly detection, it’s possible to add up to four of them for the contribution analysis task. In
+addition, QuickSight supports interactive “what-if” queries. In these, some of the
 forecasts can be altered and treated as hypotheticals to provide conditional
 forecasts.</p>
-<h5 id="user-interface-2">User interface</h5>
-<p>Quicksight anomaly detection provides a basic reporting interface. From a UI
+</li>
+<li>
+<p><em>User interface</em><br>
+QuickSight provides a basic reporting interface. From a UI
 perspective, it is fairly unexceptional. For instance, it lacks a way to
-understand the overall picture with anomalous points. (Do the anomalies have
-some common contributing factors?) Furthermore, the forecasted values do not
-have confidence intervals associated with them, which would help the end-user
-visually understand the magnitude of the anomaly. As it stands, there is no
+understand the overall picture with anomalous points (do the anomalies have
+some common contributing factors?). Furthermore, the forecasted values do not
+have confidence intervals associated with them, which would help the end user
+visually understand the magnitude of an anomaly. As it stands, there is no
 basis for comparison.</p>
-<h5 id="delivery-2">Delivery</h5>
-<p>The QuickSight dashboards can be embedded within applications, shared among
-users, and/or be sent via email - as long as the recipients have a QuickSight
+</li>
+<li>
+<p><em>Delivery</em><br>
+QuickSight dashboards and reports can be embedded within applications, shared among
+users, and/or sent via email, as long as the recipients have a QuickSight
 subscription.</p>
+</li>
+</ul>
 <h4 id="outlier.ai">Outlier.ai</h4>
-<h5 id="capabilities-3">Capabilities</h5>
-<p><a href="https://outlier.ai/">Outlier.ai</a> is a licensed software that uses artificial intelligence to automate
+<ul>
+<li>
+<p><em>Capabilities</em><br>
+<a href="https://outlier.ai/">Outlier.ai</a> is licensed software that uses artificial intelligence to automate
 the process of business analytics. It can connect to databases provided by cloud
-services and automatically provides insights to your inbox - without the need to
+services and automatically provides insights to your inbox, without the need to
 create reports or write queries. Outlier works with customers across industry
-segments, applying machine learning to automatically serve up business critical
+segments, applying ML to automatically serve up business-critical
 insights.</p>
-<h5 id="data-requirements-3">Data requirements</h5>
-<p>Outlier.ai can connect to databases provided by cloud services.</p>
-<h5 id="modeling-approach%2Ftechnique(s)-3">Modeling approach/technique(s)</h5>
-<p>Unknown</p>
-<h5 id="point-anomalies-or-intervals-3">Point anomalies or intervals</h5>
-<p>Anomalous events are presented discretely, on a point-by-point basis.</p>
-<h5 id="thresholding-3">Thresholding</h5>
-<p>N/A</p>
-<h5 id="root-cause-investigation-3">Root cause investigation</h5>
-<p>Outlier.ai allows customers to not only surface key insights about business
+</li>
+<li>
+<p><em>Data requirements</em><br>
+Outlier can connect to databases provided by cloud services.</p>
+</li>
+<li>
+<p><em>Point anomalies or intervals</em><br>
+Anomalous events are presented discretely, on a point-by-point basis.</p>
+</li>
+<li>
+<p><em>Root cause investigation</em><br>
+Outlier allows customers to not only surface key insights about business
 changes automatically, but also identify the likely root causes of those
 changes; this feature guides teams in making quick, informed business decisions.
-Teams can easily share stories through PDF, PowerPoint optimized images, or an
-auto-generated email, annotated with their comments.</p>
-<h5 id="user-interface-3">User interface</h5>
-<p>The UI is very similar to most standard BI tools, making it fairly
+Teams can easily share stories through PDFs, PowerPoint-optimized images, or
+auto-generated emails, annotated with their comments.</p>
+</li>
+<li>
+<p><em>User interface</em><br>
+The UI is similar to that provided by most standard BI tools, making it fairly
 user-friendly.</p>
-<h5 id="delivery-3">Delivery</h5>
-<p>The dashboards can be embedded within applications, shared among users, and/or
-be sent via email.</p>
-<h4 id="vectra.ai">Vectra.ai</h4>
-<h5 id="capabilities-4">Capabilities</h5>
-<p>In simple terms, Vectra’s flagship platform, <a href="https://www.vectra.ai/">Cognito</a> can be described as an
-intrusion detection system. This cloud-based, network detection-and-response
-system performs a number of cybersecurity related tasks including network
+</li>
+<li>
+<p><em>Delivery</em><br>
+The generated dashboards can be embedded within applications, shared among users, and/or
+sent via email.</p>
+</li>
+</ul>
+<h4 id="vectra-cognito">Vectra Cognito</h4>
+<ul>
+<li>
+<p><em>Capabilities</em><br>
+In simple terms, Vectra.ai’s flagship platform, <a href="https://www.vectra.ai/">Cognito</a>, can be described as an
+intrusion detection system. It’s a cloud-based network detection and response
+system that performs a number of cybersecurity-related tasks, including network
 traffic monitoring and anomaly detection. For this latter task, metadata
-collected from captured packets (rather than via deep-packet inspection) is
+collected from captured packets (rather than via deep packet inspection) is
 analyzed using a range of behavioral detection algorithms. This provides
 insights about outlier characteristics that can be applied in a wide range of
-cybersecurity detection-and-response use cases. Cognito works with both
+cybersecurity detection and response use cases. Cognito works with both
 encrypted and unencrypted traffic.</p>
-<h5 id="data-requirements-4">Data requirements</h5>
-<p>It can connect to databases provided by cloud services. Cognitio also uses
+</li>
+<li>
+<p><em>Data requirements</em><br>
+Cognito can connect to databases provided by cloud services. It also uses
 metadata drawn from Active Directory and DHCP logs.</p>
-<h5 id="modeling-approach%2F-technique(s)">Modeling approach/ technique(s)</h5>
-<p>According to a
+</li>
+<li>
+<p><em>Modeling approach/technique(s)</em><br>
+According to a
 <a href="https://content.vectra.ai/rs/748-MCE-447/images/WhitePaper_2019_The_data_science_behind_Cognito_AI_threat_detection_models_English.pdf?mkt_tok=eyJpIjoiWkRGaVpHVmtaVGxrTkdFeiIsInQiOiJ2RVhkK3M0cHU3dXNQRDZ2YnA3QW16K0ZKVFVEK1lDeFRwcTZPMGxXZlB0clhOYmhPaVBXenkzRmY1Ylwvakp5d2FcL1dSakVKbDZhcHZtNEdZU1A3aHFMYkpxVlZHWXllXC9xUGRPOXNtZ0NyTFRjTitxUlVkaXBzNFdiQlBaUUxwVSJ9">whitepaper</a>
 published by Vectra, a mix of ML approaches are used
 to deliver the cybersecurity features the platform supports, in both global and
-local (network) contexts. For example, supervised learning techniques (such as
-Random Forest) can help to address cyberthreats associated with suspicious HTTP
+local (network) contexts. For example, supervised learning techniques such as
+random forests can help to address cyberthreats associated with suspicious HTTP
 traffic patterns. Drawing on large-scale analysis of many types of malicious
-traffic and content as well as domain expertise, RF can be used to identify
+traffic and content as well as domain expertise, the random forest technique can be used to identify
 patterns of command-and-control behavior that don’t exist in benign HTTP
 traffic.
-Vectra also uses unsupervised ML techniques such as k-means clustering to
+Cognito also uses unsupervised ML techniques such as <em>k</em>-means clustering to
 identify valid credentials that have potentially been stolen from a compromised
 host. This type of theft is the basis of cyberattacks such as pass-the-hash and
 golden ticket. Elsewhere, deep learning has proven effective in detecting
 suspicious domain activity; specifically, the detection of
-algorithmically-generated domains that are set up by cyberattackers as the
-front-end of their command-and-control infrastructure.</p>
-<h5 id="point-anomalies-or-intervals-4">Point anomalies or intervals</h5>
-<p>Anomalous events are presented discretely, on a point-by-point basis.</p>
-<h5 id="thresholding-4">Thresholding</h5>
-<p>The scoring of compromised hosts by the Vectra Threat Certainty Index allows
-security teams to define threshold levels based on combined scoring.</p>
-<h5 id="root-cause-investigation-4">Root cause investigation</h5>
-<p>All detection events are correlated to specific hosts that show signs of threat
+algorithmically generated domains that are set up by cyberattackers as the
+frontend of their command-and-control infrastructure.</p>
+</li>
+<li>
+<p><em>Point anomalies or intervals</em><br>
+Anomalous events are presented discretely, on a point-by-point basis.</p>
+</li>
+<li>
+<p><em>Thresholding</em><br>
+The scoring of compromised hosts by the Vectra Threat Certainty Index allows
+security teams to define threshold levels based on a combination of factors.</p>
+</li>
+<li>
+<p><em>Root cause investigation</em><br>
+All detection events are correlated to specific hosts that show signs of threat
 behaviors. In turn, all context is assimilated into an up-to-the-moment score of
 the overall risk to the organization.</p>
-<h5 id="user-interface-4">User interface</h5>
-<p>Vectra.ai’s Cognito platform delivers detection information via a simple
-dashboard which displays information such as: a prioritized (in terms of risk)
+</li>
+<li>
+<p><em>User interface</em><br>
+Vectra’s Cognito platform delivers detection information via a simple
+dashboard which displays information such as a prioritized (in terms of risk)
 list of compromised hosts, changes in a host’s threat and certainty scores, and
-‘key assets’ that show signs of attack.</p>
-<h5 id="delivery-4">Delivery</h5>
-<p>The platform supports information-sharing by security teams on demand, or on a
+“key assets” that show signs of attack.</p>
+</li>
+<li>
+<p><em>Delivery</em><br>
+The platform supports information sharing by security teams on demand, or on a
 set schedule managed by its customizable reporting engine. Real-time
-notifications about network hosts - with attack indicators that have been
-identified (with the highest degree of certainty) as posing the biggest risk -
-is also a supported feature.</p>
-<h4 id="yahoo%E2%80%99s-anomaly-detector---sherlock">Yahoo’s Anomaly Detector - Sherlock</h4>
-<h5 id="capabilities-5">Capabilities</h5>
-<p><a href="https://github.com/yahoo/sherlock">Sherlock</a> is an open source anomaly detection
-service built on top of <a href="http://druid.io/">Druid</a> (an
-open-source, distributed data store). It leverages the <a href="https://github.com/yahoo/egads">Java library, Extensible
-Generic Anomaly Detection System (EGADS)</a> to detect anomalies in time-series
-data. It’s fast and scalable. It allows users to schedule jobs on an hourly,
+notifications about network hosts, with attack indicators that have been
+identified (with the highest degree of certainty) as posing the biggest risk,
+are also supported.</p>
+</li>
+</ul>
+<h4 id="yahoo%E2%80%99s-anomaly-detector%3A-sherlock">Yahoo’s Anomaly Detector: Sherlock</h4>
+<ul>
+<li>
+<p><em>Capabilities</em><br>
+<a href="https://github.com/yahoo/sherlock">Sherlock</a> is an open source anomaly detection
+service built on top of <a href="http://druid.io/">Druid</a> (an open source, distributed data store). It leverages the <a href="https://github.com/yahoo/egads">Extensible
+Generic Anomaly Detection System (EGADS)</a>
+Java library to detect anomalies in time series
+data. Sherlock is fast and scalable. It allows users to schedule jobs on an hourly,
 daily, weekly, or monthly basis (although it also supports ad hoc real-time
 anomaly detection requests). Anomaly reports can be viewed from Sherlock’s
 interface, or received via email.</p>
-<h5 id="data-requirements-5">Data requirements</h5>
-<p>Sherlock accesses time series data via Druid JSON queries and uses a Redis
+</li>
+<li>
+<p><em>Data requirements</em><br>
+Sherlock accesses time series data via Druid JSON queries and uses a Redis
 backend to store job metadata, the anomaly reports (and other information) it
-generates, as well as a persistent job queue. These anomaly reports can be
+generates, as well as a persistent job queue. The anomaly reports can be
 accessed via direct requests using the Sherlock client API or delivered via
 scheduled email alerts.</p>
-<h5 id="modeling-approach%2F-technique(s)-2">Modeling approach/ technique(s)</h5>
-<p>Sherlock takes a time-series modeling based approach to anomaly detection using
-three important modules from the EGADS library - time series modelling, anomaly
-detection, and alerting. The times-series modeling module supports the use of
-historical data to learn trends and seasonality in the data using model classes
-such as ARIMA. The resulting values are applied to the anomaly detection models
-that comprise the Anomaly Detection module.  These models support a number of
+</li>
+<li>
+<p><em>Modeling approach/technique(s)</em><br>
+Sherlock takes a time series modeling-based approach to anomaly detection using
+three important modules from the EGADS library: Time Series Modeling, Anomaly
+Detection, and Alerting. The Time Series Modeling module supports the use of
+historical data to learn trends and seasonality in the data using models
+such as ARIMA. The resulting values are applied to the models
+that comprise the Anomaly Detection module. These models support a number of
 detection scenarios that are relevant in a cybersecurity context (e.g., outlier
 detection and change point detection). The Alerting module uses the error metric
-produced from anomaly detection models and outputs candidate anomalies based on
-dynamically learnt thresholds, learning to filter out irrelevant anomalies over
+produced by the anomaly detection models and outputs candidate anomalies based on
+dynamically learned thresholds, learning to filter out irrelevant anomalies over
 time.</p>
-<h5 id="point-anomalies-or-intervals-5">Point anomalies or intervals</h5>
-<p>Anomalous events are presented both discretely, on a point-by-point basis, and
+</li>
+<li>
+<p><em>Point anomalies or intervals</em><br>
+Anomalous events are presented both discretely, on a point-by-point basis, and
 as intervals.</p>
-<h5 id="threshold">Threshold</h5>
-<p>Thresholds are learnt dynamically. No thresholding input from the user is
+</li>
+<li>
+<p><em>Threshold</em><br>
+Thresholds are learned dynamically. No thresholding input from the user is
 required/supported.</p>
-<h5 id="root-cause-analysis">Root cause analysis</h5>
-<p>N/A</p>
-<h5 id="user-interface-5">User interface</h5>
-<p>Sherlock’s user interface is built with <a href="http://sparkjava.com/">Spark Java</a> -
+</li>
+<li>
+<p><em>Root cause analysis</em><br>
+Out of the box root cause analysis is not supported.</p>
+</li>
+<li>
+<p><em>User interface</em><br>
+Sherlock’s user interface is built with <a href="http://sparkjava.com/">Spark Java</a>,
 a UI framework for building
 web applications. The UI enables users to submit instant anomaly analyses,
-create and launch detection jobs, and view anomalies on both a heatmap and a
+create and launch detection jobs, and view anomalies on both a heat map and a
 graph.</p>
-<h5 id="delivery-5">Delivery</h5>
-<p>Scheduled anomaly requests are delivered via email or directly via API-based
+</li>
+<li>
+<p><em>Delivery</em><br>
+Scheduled anomaly requests are delivered via email or directly via API-based
 queries.</p>
+</li>
+</ul>
 <h2 id="ethics">Ethics</h2>
 <p>Machine learning models that learn to solve tasks independently from data are
 susceptible to biases and other issues that may raise ethical concerns. Anomaly
-detection models have specific risks and mitigation tactics. In anomaly
+detection models are associated with specific risks and mitigation tactics. In anomaly
 detection, when the definition of “normal” is independently learned and applied
 without controls, it may inadvertently reflect societal biases that can lead to
 harm. This presents risks to human welfare in scenarios where anomaly detection
 applications intersect with human behavior. It should go without saying that in
-relation to humans, we must resist the assumption that different is bad.</p>
+relation to humans, one must resist the assumption that different is bad.</p>
+<figure><img src="figures/ill-21.png" alt="Different is not necessarily bad."><figcaption>Different is <em>not</em> necessarily bad.</figcaption></figure>
 <h3 id="diversity-matters">Diversity Matters</h3>
 <p>Although anomalies are often scrutinized, their absence in the data may be even
-worse! Consider a model that is trained on x-ray images of normal luggage
-content that only uses images of luggage packed by citizens of North America.
+more problematic. Consider a model that is trained on X-ray images of normal luggage
+contents, but where the training data includes only images of luggage packed by citizens of North America.
 This could lead to unusually high stop and search rates for users from other
-parts of the world, where items packed might differ greatly.</p>
+parts of the world, where the items packed might differ greatly.</p>
 <p>To limit the potential harm of a machine learning model’s tendency to assume
-that “different is bad,” we can use a larger (or more varied) dataset, and
-provide human supervision of the model (both measures reduce the likelihood of
-errors). In the above example, this translates to using more varied x-ray image
+that “different is bad,” one can use a larger (or more varied) dataset and
+have a human review the model’s output (both measures reduce the likelihood of
+errors). In the luggage example, this translates to using more varied X-ray image
 data to expand the machine’s view of what is normal, and using human review to
 ensure that positive predictions aren’t false positives.</p>
 <h3 id="explainability">Explainability</h3>
 <p>In many anomaly detection applications, the system presents anomalous instances
-to the end user - a decision maker to provide a verdict (label) which can then
+to the end user, who provides a verdict (label) that can then
 be fed back to the model to refine it further. Unfortunately, some applications
 may not provide enough explanation about why an instance was considered
 anomalous, leaving the end user with no particular guidance on where to begin
-investigation. Blindly relying on such applications may cause or in certain
-cases exacerbate bias.</p>
+investigation. Blindly relying on such applications may cause or, in certain
+cases, exacerbate bias.</p>
 <h3 id="additional-use-cases">Additional Use Cases</h3>
 <p>Ethical considerations are important in every use of machine learning,
-particularly when the use case affects humans. Below are a few use cases in
-which this is particularly true of anomaly detection.</p>
+particularly when the use case affects humans. In this section, we consider
+a few use cases that highlight ethical concerns with regard to anomaly detection.</p>
 <h4 id="data-privacy">Data Privacy</h4>
-<p>Protecting an individual’s data has been a growing concern in the last few
-years, culminating in recent data privacy laws like the GDPR and CCPA. These
-laws don’t just consider and penalize data breaches, but also guide and limit
+<p>Protecting individuals’ data has been a growing concern in the last few
+years, culminating in recent data privacy laws like the EU’s General Data Protection
+Regulation (GDPR) and the California Consumer Privacy Act (CCPA). These
+laws don’t just penalize data breaches, but also guide and limit
 how an individual’s personal data can be used and processed. Thus, when anomaly
-detection methods are used on protected data, privacy is paramount.</p>
-<p>To give an example, in &lt;&lt;Chapter 3. Deep Learning for Anomaly Detection&gt;&gt; we
-discussed autoencoders, a type of neural network that has been widely used for
-anomaly detection. It contains an encoder network which reduces the dimension of
-the input data, and a decoder network which aims to reconstruct the input. The
-learning goal of autoencoders is to minimize the reconstruction error, which is
+detection methods are used on protected data, privacy is a top concern.</p>
+<p>To give an example, in <a href="#deep-learning-for-anomaly-detection">Chapter 3. Deep Learning for Anomaly Detection</a> we
+discussed the autoencoder, a type of neural network that has been widely used for
+anomaly detection. As we saw, autoencoders have two parts: an encoder network that reduces the dimensions
+of the input data, and a decoder network that aims to reconstruct the input. Their
+learning goal is to minimize the reconstruction error, which is
 consequently the loss function. Because the dimensionality reduction brings
-information loss, and the learning goal encourages to preserve the information
+information loss, and the learning goal encourages preservation of the information
 that is common to most training samples, anomalies that contain rare information
-could be identified by measuring model loss.</p>
+can be identified by measuring model loss.</p>
 <p>In certain use cases, these identified anomalies could correspond to
 individuals. Improper disclosure of such data can have adverse consequences for
-a data subject’s private information, or even lead to civil liability or bodily
+a data subject’s privacy, or even lead to civil liability or bodily
 harm. One way to minimize these effects is to use a technique called
-differential privacy<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup> on the data before it is fed into an anomaly detection
-system. This technique essentially adds a small amount of noise to the data, in
+<em>differential privacy</em><sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup> on the data before it is fed into an anomaly detection system. This technique essentially adds a small amount of noise to the data, in
 order to mask individual identities while maintaining the accuracy of aggregated
 statistics. When coupled with an anomaly detection system, differential privacy
-has been shown to reduce the false positives<sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup>, thus protecting the privacy of
-more individuals who would otherwise have been scrutinized by being singled out.</p>
+has been shown to reduce the rate of false positives,<sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup> thus protecting the privacy of
+more individuals who might otherwise have been singled out and scrutinized.</p>
 <h4 id="health-care-diagnostics">Health Care Diagnostics</h4>
 <p>Anomaly detection can be applied in health care scenarios to provide quick and
 early warnings for medical conditions. For example, a model can surface chest
-x-rays that substantially differ from normal chest x-rays, or highlight images
-of tissue samples as containing abnormalities. These analyses can have
-tremendous consequences for the patient. A false negative means an undetected
-disease, and a false positive means unnecessary - and potentially painful or
-even harmful - treatment.</p>
-<p>For other machine learning tasks (e.g., churn prediction, resume review), we
-strive to remove racial or socioeconomic factors from the equation. In health
-care diagnostics, it may be both appropriate and advantageous to focus on them.</p>
+X-rays that substantially differ from normal chest X-rays, or highlight images
+of tissue samples that contain abnormalities. These analyses can have
+tremendous consequences for the patient: in addition to the positive outcomes,
+a false negative might mean an undetected disease, and a false positive could
+lead to unnecessary (and potentially painful or even harmful) treatment.</p>
+<p>For other machine learning tasks, such as churn prediction or resumé review, analysts
+strive to remove racial or socioeconomic factors from the equation. But in health
+care diagnostics, it may be both appropriate and advantageous to consider them.</p>
 <p>To the extent that an anomaly to be detected is connected with a certain group
 of people, models can be tailored to that group. For example, sickle-cell
 disease is more prevalent in parts of Africa and Asia than in Europe and the
 Americas. A diagnostic system for detecting this disease should include enough
-samples of Asian and African patients and acknowledgement of their ethnicity to
-make sure the disease is identified.</p>
+samples of Asian and African patients and acknowledgment of their ethnicity to
+ensure the disease is identified.</p>
 <p>In any event, it is important to ensure that these systems remain curated (i.e.,
-a medical professional verifies results) and that the models are correctly
+that a medical professional verifies the results) and that the models are correctly
 evaluated (precision, recall) before being put into production.</p>
 <h4 id="security">Security</h4>
-<p>Similar to the luggage example we’ve already referenced, home or business
-security systems trained to identify anomalies also present a problem of the
-“different is bad” variety. These systems need to have enough data - in terms of
-quantity and variability -  to prevent bias that would make them more likely to
-identify people of different races or socioeconomic status as anomalies based
-on, for example, their color or clothing.</p>
+<p>Similar to the luggage example mentioned at the beginning of the chapter, home or business
+security systems trained to identify anomalies present a problem of the
+“different is bad” variety. These systems need to have enough data; in terms of
+quantity and variability; to prevent bias that would make them more likely to
+identify people of different races, body types, or socioeconomic status as anomalies based
+on, for example, their skin color, size, or clothing.</p>
 <h4 id="content-moderation">Content Moderation</h4>
 <p>Blind reliance on anomaly detection systems for content moderation can lead to
 false positives that limit or silence system users based on the language or
@@ -1810,91 +1882,84 @@ types of devices they use. Content moderation software should be monitored for
 patterns of inappropriate blocking or reporting, and should have a user
 appeal/review process.</p>
 <h4 id="financial-services">Financial Services</h4>
-<p>Determining what harmful anomalies are in financial services is complex. On one
-hand, fraudsters are actively trying to steal and launder money, and move it
-around the world. On the other hand, nearly all transactions are legitimate
-services for valuable customers. Fraudsters affirmatively emulate normal
+<p>Determining what harmful anomalies are in financial services applications is complex. On
+the one hand, fraudsters are actively trying to steal and launder money, and move it
+around the world. On the other hand, the vast majority of transactions are legitimate
+services for valuable customers. Fraudsters emulate normal
 business, making anomalies especially difficult to identify. As a result,
 financial services organizations should consider first whether anomaly detection
 is desirable in their use cases, and then consider the potential ethical and
 practical risks.</p>
-<p>For example, banks use customer data to offer mortgages or student loans. A lack
+<p>For example, banks use customer data to offer mortgages and student loans. A lack
 of diverse data could lead to unfavorable results for certain demographic
-groups. These biased algorithms can result in costly mistakes, reduce customer
+groups. Such biased algorithms can result in costly mistakes, reduce customer
 satisfaction, and damage a brand’s reputation. To combat this, one should pose
 questions (like the following) that can help check for bias in the data or
 model:</p>
 <ul>
 <li>Fact check: do the detected anomalies mostly belong to underrepresented groups?</li>
 <li>Are there enough features that explain minority groups?</li>
-<li>Has model performance been evaluated for each subgroup within your data?</li>
+<li>Has model performance been evaluated for each subgroup within the data?</li>
 </ul>
 <h3 id="innovation">Innovation</h3>
-<p>As we have seen, the term anomaly can carry negative connotations. The nature of
-anomaly detection is identifying samples that are different from the bulk of the
-other samples - but as discussed, assuming that “different is bad” is not
-necessarily fair in many cases. Perhaps instead of associating faulty
-interpretations with anomalies, pursuing them to reveal new truths could be
-helpful.</p>
+<p>As we have seen, the term <em>anomaly</em> can carry negative connotations.
+Anomaly detection by its very nature involves identifying samples that are different from the bulk of the
+other samples - but, as discussed here, assuming that different is bad may not
+be fair in many cases. Instead of associating faulty
+interpretations with anomalies, it may be helpful to investigate them to reveal new truths.</p>
 <p>After all, progress in science is often triggered by anomalous activities that
 lead to innovation!</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>Anomaly detection is a classic problem, common to many business domains. In this
-report, we have explored how a set of deep learning approaches can be applied in
-a semi-supervised setting for addressing the anomaly detection task. We think
-this focus is useful for the following reasons:</p>
+report, we have explored how a set of deep learning approaches can be applied to this task in
+a semi-supervised setting. We think this focus is useful for the following reasons:</p>
 <ul>
 <li>While deep learning has demonstrated superior performance for many business
 tasks, there is fairly limited information on how anomaly detection can be cast
 as a deep learning problem and how deep models perform.</li>
-<li>A semi-supervised approach is desirable in handling unseen, unknown anomalies
+<li>A semi-supervised approach is desirable in handling previously unseen, unknown anomalies
 and does not incur vast data labeling costs for businesses.</li>
-<li>Traditional machine learning approaches are suboptimal for handling high
-dimensional, complex data and modeling interactions between each variable.</li>
+<li>Traditional machine learning approaches are suboptimal for handling
+high-dimensional, complex data and for modeling interactions between each variable.</li>
 </ul>
-<p>In our &lt;<prototype>&gt;, we show how deep learning models can achieve competitive
-performance on a multivariate tabular dataset (network intrusion detection).
-This is in concurrence with results from existing research that show superior
-performance of deep learning models for high dimensional data such as images
-(cite).</p>
-<p>Overall, while deep learning approaches are useful, there are a few challenges
-that may limit their deployment in production settings.</p>
-<ul>
-<li>
-<p><strong>Latency:</strong> Compared to linear models (such as AR, ARMA, etc.) or shallow machine learning
-models (such as One Class SVM), deep learning models can have significant
-latency associated with inference. This makes it expensive to apply them within
-streaming data (high volume, high velocity) use cases at scale. For example, our
-experiments show that inference with OCSVM is 12x faster than with an
+<p>In our prototype, described in <a href="#prototype">Chapter 4. Prototype</a>, we show how deep learning models can achieve competitive
+performance on a multivariate tabular dataset (for the task of network intrusion detection).
+Our findings are in concurrence with results from existing research that show the superior
+performance of deep learning models for high-dimensional data, such as images.</p>
+<p>But while deep learning approaches are useful, there are a few challenges
+that may limit their deployment in production settings. Problems to consider include:</p>
+<p><em>Latency</em><br>
+Compared to linear models (AR, ARMA, etc.) or shallow machine learning
+models such as OCSVMs, deep learning models can have significant
+latency associated with inference. This makes it expensive to apply them in
+streaming data use cases at scale (high volume, high velocity). For example, our
+experiments show that inference with an OCSVM is 12x faster than with an
 autoencoder.</p>
-</li>
-<li>
-<p><strong>Data Requirements:</strong> Deep learning models typically require a large dataset (tens of thousands of
-samples) for effective training. Further, deep models are prone to overfitting
-and need to be carefully evaluated to address this. Many anomaly use cases can
-frequently have few data points (e.g., daily sales data for two years will
-generate 712 samples, which may be insufficient to train a model). In such
+<p><em>Data requirements</em><br>
+Deep learning models typically require a large dataset (tens of thousands of
+samples) for effective training. The models are also prone to overfitting
+and need to be carefully evaluated to address this risk. Anomaly detection use cases
+frequently have relatively few data points; for example, daily sales data for two years will
+generate 712 samples, which may be insufficient to train a model. In such
 scenarios, linear models designed to work with smaller datasets are a better
 option.</p>
-</li>
-<li>
-<p><strong>Managing Distribution Shift:</strong> In many scenarios, the underlying process generating data may legitimately
-change such that a datapoint that was previously anomalous becomes normal. The
-changes could be gradual, cyclical, or even abrupt in nature. This phenomenon,
-although not unique to anomaly detection, is known as concept drift. With
-respect to anomaly detection, one way to handle this is to frequently retrain
-the model as new data arrives - or trigger retraining when concept drift is
+<p><em>Managing distribution shift</em><br>
+In many scenarios (including, but certainly not limited to, anomaly detection),
+the underlying process generating data may legitimately
+change such that a data point that was previously anomalous becomes normal. The
+changes could be gradual, cyclical, or even abrupt in nature. This phenomenon
+is known as <em>concept drift</em>. With
+respect to anomaly detection, one way to handle it is to frequently retrain
+the model as new data arrives, or to trigger retraining when concept drift is
 detected. It can be challenging to maintain this continuous learning approach
 for deep models, as training time can be significant.</p>
-</li>
-</ul>
-<p>Going forward, we expect the general approaches discussed in the report to
-continually evolve and mature. As examples, see recent extensions to the
-encoder-decoder model approach that are based on GMMs<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup>, LSTMs<sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup>,
-CNNs<sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup>, and GANs<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup>.
-Like everything else in machine learning, there is no “one size fits all”; no
+<p>Going forward, we expect the general approaches discussed in this report to
+continue evolving and maturing. As examples, see recent extensions to the
+encoder-decoder model approach that are based on Gaussian mixture models,<sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup> LSTMs,<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup>,
+convolutional neural networks,<sup class="footnote-ref"><a href="#fn13" id="fnref13">[13]</a></sup> and GANs.<sup class="footnote-ref"><a href="#fn14" id="fnref14">[14]</a></sup>
+As with everything else in machine learning, there is no “one size fits all”; no
 one model works best for every problem. The right approach always depends on the
-use case and data.</p>
+use case and the data.</p>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">
@@ -1903,34 +1968,34 @@ use case and data.</p>
 </li>
 <li id="fn2" class="footnote-item"><p>For a survey of existing techniques, see Varun Chandola et al., “Anomaly Detection, A Survey” (2009), <em>ACM Computing Surveys</em> 41(3), https://dl.acm.org/doi/10.1145/1541880.1541882. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn3" class="footnote-item"><p>Approaches such as AR, MA, ARMA, ARIMA,
-SARIMA, and VAR models. <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+<li id="fn3" class="footnote-item"><p><a href="https://arxiv.org/abs/1605.09782">Jeff Donahue et al., “Adversarial Feature Learning” (2016)</a>, <a href="https://arxiv.org/abs/1805.06725">Samet AkCay et al., “GANomaly: Semi-Supervised Anomaly Detection via Adversarial Training” (2018)</a>. <a href="#fnref3" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn4" class="footnote-item"><p><a href="https://arxiv.org/abs/1901.03407">Deep Learning for Anomaly Detection: A Survey</a> <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+<li id="fn4" class="footnote-item"><p>Refer to footnote 2. <a href="#fnref4" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn5" class="footnote-item"><p><a href="http://papers.nips.cc/paper/6125-improved-techniques-for-training-gans.pdf">Improved Techniques for Training GANs</a> <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+<li id="fn5" class="footnote-item"><p><a href="http://efrosgans.eecs.berkeley.edu/CVPR18_slides/VAE_GANS_by_Rosca.pdf">VAEs and GANs</a> <a href="#fnref5" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn6" class="footnote-item"><p><a href="https://arxiv.org/abs/1606.03498">Improved Techniques for Training GANs</a> <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+<li id="fn6" class="footnote-item"><p><a href="https://arxiv.org/abs/1901.03407">Deep Learning for Anomaly Detection: A Survey</a> <a href="#fnref6" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn7" class="footnote-item"><p>Differential Privacy, Dwork 2006 <a href="#fnref7" class="footnote-backref">↩︎</a></p>
+<li id="fn7" class="footnote-item"><p><a href="http://papers.nips.cc/paper/6125-improved-techniques-for-training-gans.pdf">Improved Techniques for Training GANs</a> <a href="#fnref7" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn8" class="footnote-item"><p><a href="https://arxiv.org/abs/1911.07116">Robust Anomaly Detection and
-Backdoor Attack Detection Via Differential
-Privacy</a> <a href="#fnref8" class="footnote-backref">↩︎</a></p>
+<li id="fn8" class="footnote-item"><p><a href="https://arxiv.org/abs/1606.03498">Improved Techniques for Training GANs</a> <a href="#fnref8" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn9" class="footnote-item"><p><a href="https://openreview.net/forum?id=BJJLHbb0-"> Deep Autoencoding
-Gaussian Mixture Model for Unsupervised Anomaly
-Detection</a> <a href="#fnref9" class="footnote-backref">↩︎</a></p>
+<li id="fn9" class="footnote-item"><p>Cynthia Dwork, “Differential Privacy” (2006), <em>Proceedings of the 33rd International Conference on Automata, Languages and Programming</em> Part II: 1-12, https://doi.org/10.1007/11787006_1. <a href="#fnref9" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn10" class="footnote-item"><p><a href="https://arxiv.org/abs/1910.03818">Sequential
-VAE-LSTM for Anomaly Detection on Time Series</a> <a href="#fnref10" class="footnote-backref">↩︎</a></p>
+<li id="fn10" class="footnote-item"><p>Min Du et al., “Robust Anomaly Detection and
+Backdoor Attack Detection Via Differential Privacy” (2019), <a href="https://arxiv.org/abs/1911.07116">arXiv:1911.07116</a>. <a href="#fnref10" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn11" class="footnote-item"><p><a href="https://arxiv.org/abs/1906.03821">Time-Series Anomaly Detection Service at
-Microsoft</a> <a href="#fnref11" class="footnote-backref">↩︎</a></p>
+<li id="fn11" class="footnote-item"><p>Bo Zong et al., “Deep Autoencoding
+Gaussian Mixture Model for Unsupervised Anomaly Detection” (2018), https://openreview.net/forum?id=BJJLHbb0-. <a href="#fnref11" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn12" class="footnote-item"><p><a href="https://arxiv.org/abs/1901.04997">MAD-GAN: Multivariate
-Anomaly Detection for Time Series Data with Generative Adversarial
-Networks</a> <a href="#fnref12" class="footnote-backref">↩︎</a></p>
+<li id="fn12" class="footnote-item"><p>Run-Qing Chen et al., “Sequential
+VAE-LSTM for Anomaly Detection on Time Series” (2019), <a href="https://arxiv.org/abs/1910.03818">arXiv:1910.03818</a>. <a href="#fnref12" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn13" class="footnote-item"><p>Hansheng Ren et al., “Time-Series Anomaly Detection Service at
+Microsoft” (2019), <a href="https://arxiv.org/abs/1906.03821">arXiv:1906.03821</a>. <a href="#fnref13" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn14" class="footnote-item"><p>Dan Li et al., “MAD-GAN: Multivariate Anomaly Detection for Time Series Data with Generative Adversarial
+Networks” (2019) <a href="https://arxiv.org/abs/1901.04997">arXiv:1901.04997</a>. <a href="#fnref14" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
 </section>

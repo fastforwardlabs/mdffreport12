@@ -4,6 +4,5 @@
 
 ![](figures/cover.png)
 
-*This is an applied research report by Cloudera Fast Forward, focused on Deep Learning Approaches for Anomaly Detection. Read our full report on using deep learning for anomaly detection below or download it ([PDF](#), [ePub](#), [mobi](#)). Also be sure to check out our anomaly detection prototypes: [Blip](https://blip.fastforwardlabs.com) and [Anomagram](https://anomagram.fastforwardlabs.com).*
-
-Our reports focus on emerging capabilities that are still changing due to algorithmic breakthrough, hardware breakthrough, technological commoditization, and data availability. Accompanying our reports are working prototypes that exhibit the capabilities of the algorithm and offer detailed technical advice on its practical application. 
+*This is an applied research report by Cloudera Fast Forward. We write reports and build prototypes about emerging technologies. Read our full report on using deep learning for anomaly detection below or [download the PDF](#). Accompanying each report are working prototypes that exhibit the capabilities of the algorithm and offer detailed technical advice on its practical application. For this report we built two prototypes: [Blip](https://blip.fastforwardlabs.com) and [Anomagram](https://anomagram.fastforwardlabs.com).*
+ 
