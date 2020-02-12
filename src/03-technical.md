@@ -132,7 +132,7 @@ normal data distribution).](figures/ill-4.png)
 
 ### Generative Adversarial Networks
 
-Generative adversarial networks (GANs) are neural networks designed to learn a generative model of an input data
+Generative adversarial networks (GANs^[Goodfellow, Ian, et al. (2014) "Generative adversarial nets." Advances in neural information processing systems. [https://arxiv.org/abs/1406.2661](https://arxiv.org/abs/1406.2661)]) are neural networks designed to learn a generative model of an input data
 distribution. In their classic formulation, they're composed of a pair of
 (typically feed-forward) neural networks termed a generator, G, and discriminator, D.
 Both networks are trained jointly and play a competitive skill game with the end
@@ -161,8 +161,8 @@ in practice.
 ![A traditional GAN.](figures/ill-5.png)
 
 To address these issues, recent research studies have explored new formulations
-of GANs (known as BiGANs) that enable just this sort of controlled adversarial inference by
-introducing an encoder network, E.^[ Jeff Donahue et al. (2016), "Adversarial Feature Learning" [https://arxiv.org/abs/1605.09782](https://arxiv.org/abs/1605.09782)], ^[ Samet AkCay et al. (2018), "GANomaly: Semi-Supervised Anomaly Detection via Adversarial Training" [https://arxiv.org/abs/1805.06725](https://arxiv.org/abs/1805.06725).]]  In simple terms, the encoder learns the
+of GANs that enable just this sort of controlled adversarial inference by
+introducing an encoder network, E (BiGANs^[ Jeff Donahue et al. (2016), "Adversarial Feature Learning" [https://arxiv.org/abs/1605.09782](https://arxiv.org/abs/1605.09782)]) with applications in anomaly detection (See GANomaly^[ Samet AkCay et al. (2018), "GANomaly: Semi-Supervised Anomaly Detection via Adversarial Training" [https://arxiv.org/abs/1805.06725](https://arxiv.org/abs/1805.06725).]^[ Di Mattia, F., Galeone, P., De Simoni, M. and Ghelfi, E., (2019). "A survey on gans for anomaly detection". arXiv preprint arXiv:1906.11632.]). In simple terms, the encoder learns the
 reverse mapping of the generator; it learns to generate a fixed vector Z_,
 given a sample. Given this change, the input to the discriminator is also
 modified; the discriminator now takes in pairs of input that include the latent

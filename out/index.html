@@ -988,7 +988,7 @@ do this because we’re modeling a distribution as opposed to a point estimate.<
 reconstruction probability (i.e., the probability that a sample belongs to the
 normal data distribution).</figcaption></figure>
 <h3 id="generative-adversarial-networks">Generative Adversarial Networks</h3>
-<p>Generative adversarial networks (GANs) are neural networks designed to learn a generative model of an input data
+<p>Generative adversarial networks (GANs<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>) are neural networks designed to learn a generative model of an input data
 distribution. In their classic formulation, they’re composed of a pair of
 (typically feed-forward) neural networks termed a generator, G, and discriminator, D.
 Both networks are trained jointly and play a competitive skill game with the end
@@ -1013,8 +1013,8 @@ vector for an arbitrary sample, this process is compute-intensive and very slow
 in practice.</p>
 <figure><img src="figures/ill-5.png" alt="A traditional GAN."><figcaption>A traditional GAN.</figcaption></figure>
 <p>To address these issues, recent research studies have explored new formulations
-of GANs (known as BiGANs) that enable just this sort of controlled adversarial inference by
-introducing an encoder network, E.<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>, <sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>]  In simple terms, the encoder learns the
+of GANs that enable just this sort of controlled adversarial inference by
+introducing an encoder network, E (BiGANs<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>) with applications in anomaly detection (See GANomaly<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup><sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup>). In simple terms, the encoder learns the
 reverse mapping of the generator; it learns to generate a fixed vector Z_,
 given a sample. Given this change, the input to the discriminator is also
 modified; the discriminator now takes in pairs of input that include the latent
@@ -1243,8 +1243,8 @@ detection.</figcaption></figure>
 </tr>
 <tr>
 <td>GAN (BiGAN)</td>
-<td><ul><li>Supports variational inference (probabilistic measure of uncertainty) </li><li>Use of discriminator signal allows better learning of data manifold<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup> (useful for high dimensional image data).</li><li>GANs trained in semi-supervised learning mode have shown great promise, even with very few labeled data<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup></li></ul></td>
-<td><ul><li>Requires a large amount of training data, and longer training time (epochs) to arrive at stable results<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup> </li><li>Training can be unstable (GAN mode collapse)</li></ul></td>
+<td><ul><li>Supports variational inference (probabilistic measure of uncertainty) </li><li>Use of discriminator signal allows better learning of data manifold<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup> (useful for high dimensional image data).</li><li>GANs trained in semi-supervised learning mode have shown great promise, even with very few labeled data<sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup></li></ul></td>
+<td><ul><li>Requires a large amount of training data, and longer training time (epochs) to arrive at stable results<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup> </li><li>Training can be unstable (GAN mode collapse)</li></ul></td>
 </tr>
 <tr>
 <td>Sequence-to-Sequence Model</td>
@@ -1379,7 +1379,7 @@ detection.</figcaption></figure>
 </tbody>
 </table></div>
 <br/>
-<figure><img src="figures/storagemetrics.png" alt="Comparison of anomaly detection models in terms of model size, inference time, parameters and training time."><figcaption>Comparison of anomaly detection models in terms of model size, inference time, parameters and training time.</figcaption></figure>
+<figure><img src="figures/storagemetrics.png" alt="Comparison of anomaly detection models in terms of model size, inference time and training time."><figcaption>Comparison of anomaly detection models in terms of model size, inference time and training time.</figcaption></figure>
 <p>Each model is compared in terms of inference time on the entire test dataset, total training time to peak accuracy, number of parameters (deep models), and model size.</p>
 <p>As expected, a linear model like PCA is both fast to train and fast for inference. This is followed by OCSVM, autoencoders, variational autoencoders, BiGAN, and sequence-to-sequence models in order of increasing model complexity. The GAN-based model required the most training epochs to achieve stable results; this is in part due to a known <a href="https://arxiv.org/abs/1606.03498">stability issue</a> associated with GANs. The sequence-to-sequence model is particularly slow for inference given the sequential nature of the decoder.</p>
 <p>For each of the deep models, we store the network weights to disk and compute the size of weights. For OCSVM and PCA, we serialize the model to disk using <a href="https://docs.python.org/3/library/pickle.html">pickle</a> and compute the size of each model file. These values are helpful in estimating memory and storage costs when deploying these models in production.</p>
@@ -2012,10 +2012,10 @@ can be identified by measuring model loss.</p>
 individuals. Improper disclosure of such data can have adverse consequences for
 a data subject’s privacy, or even lead to civil liability or bodily
 harm. One way to minimize these effects is to use a technique called
-<em>differential privacy</em><sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup> on the data before it is fed into an anomaly detection system. This technique essentially adds a small amount of noise to the data, in
+<em>differential privacy</em><sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup> on the data before it is fed into an anomaly detection system. This technique essentially adds a small amount of noise to the data, in
 order to mask individual identities while maintaining the accuracy of aggregated
 statistics. When coupled with an anomaly detection system, differential privacy
-has been shown to reduce the rate of false positives,<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup> thus protecting the privacy of
+has been shown to reduce the rate of false positives,<sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup> thus protecting the privacy of
 more individuals who might otherwise have been singled out and scrutinized.</p>
 <h4 id="health-care-diagnostics">Health Care Diagnostics</h4>
 <p>Anomaly detection can be applied in health care scenarios to provide quick and
@@ -2122,8 +2122,8 @@ detected. It can be challenging to maintain this continuous learning approach
 for deep models, as training time can be significant.</p>
 <p>Going forward, we expect the general approaches discussed in this report to
 continue evolving and maturing. As examples, see recent extensions to the
-encoder-decoder model approach that are based on Gaussian mixture models,<sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup> LSTMs,<sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup>,
-convolutional neural networks,<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup> and GANs.<sup class="footnote-ref"><a href="#fn13" id="fnref13">[13]</a></sup>
+encoder-decoder model approach that are based on Gaussian mixture models,<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup> LSTMs,<sup class="footnote-ref"><a href="#fn13" id="fnref13">[13]</a></sup>,
+convolutional neural networks,<sup class="footnote-ref"><a href="#fn14" id="fnref14">[14]</a></sup> and GANs.<sup class="footnote-ref"><a href="#fn15" id="fnref15">[15]</a></sup>
 As with everything else in machine learning, there is no “one size fits all”; no
 one model works best for every problem. The right approach always depends on the
 use case and the data.</p>
@@ -2135,32 +2135,36 @@ use case and the data.</p>
 </li>
 <li id="fn2" class="footnote-item"><p> Varun Chandola et al. (2009), “Anomaly Detection, A Survey” , <em>ACM Computing Surveys</em> 41(3), <a href="https://dl.acm.org/doi/10.1145/1541880.1541882">https://dl.acm.org/doi/10.1145/1541880.1541882</a>. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn3" class="footnote-item"><p> Jeff Donahue et al. (2016), “Adversarial Feature Learning” <a href="https://arxiv.org/abs/1605.09782">https://arxiv.org/abs/1605.09782</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+<li id="fn3" class="footnote-item"><p>Goodfellow, Ian, et al. (2014) “Generative adversarial nets.” Advances in neural information processing systems. <a href="https://arxiv.org/abs/1406.2661">https://arxiv.org/abs/1406.2661</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn4" class="footnote-item"><p> Samet AkCay et al. (2018), “GANomaly: Semi-Supervised Anomaly Detection via Adversarial Training” <a href="https://arxiv.org/abs/1805.06725">https://arxiv.org/abs/1805.06725</a>. <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+<li id="fn4" class="footnote-item"><p> Jeff Donahue et al. (2016), “Adversarial Feature Learning” <a href="https://arxiv.org/abs/1605.09782">https://arxiv.org/abs/1605.09782</a> <a href="#fnref4" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn5" class="footnote-item"><p>Mihaela Rosca (2018), Issues with  <a href="http://efrosgans.eecs.berkeley.edu/CVPR18_slides/VAE_GANS_by_Rosca.pdf">VAEs and GANs, CVPR18</a> <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+<li id="fn5" class="footnote-item"><p> Samet AkCay et al. (2018), “GANomaly: Semi-Supervised Anomaly Detection via Adversarial Training” <a href="https://arxiv.org/abs/1805.06725">https://arxiv.org/abs/1805.06725</a>. <a href="#fnref5" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn6" class="footnote-item"><p> Raghavendra Chalapathy et al. (2019) “Deep Learning for Anomaly Detection: A Survey” <a href="https://arxiv.org/abs/1901.03407">https://arxiv.org/abs/1901.03407</a> <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+<li id="fn6" class="footnote-item"><p> Di Mattia, F., Galeone, P., De Simoni, M. and Ghelfi, E., (2019). “A survey on gans for anomaly detection”. arXiv preprint arXiv:1906.11632. <a href="#fnref6" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn7" class="footnote-item"><p>Tim Salimans et al. (2016) “Improved Techniques for Training GANs”, Neurips 2016  <a href="https://arxiv.org/abs/1606.03498">https://arxiv.org/abs/1606.03498</a> <a href="#fnref7" class="footnote-backref">↩︎</a></p>
+<li id="fn7" class="footnote-item"><p>Mihaela Rosca (2018), Issues with  <a href="http://efrosgans.eecs.berkeley.edu/CVPR18_slides/VAE_GANS_by_Rosca.pdf">VAEs and GANs, CVPR18</a> <a href="#fnref7" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn8" class="footnote-item"><p>Cynthia Dwork  (2006), “Differential Privacy”, <em>Proceedings of the 33rd International Conference on Automata, Languages and Programming</em> Part II: 1-12, <a href="https://doi.org/10.1007/11787006_1">https://doi.org/10.1007/11787006_1</a>. <a href="#fnref8" class="footnote-backref">↩︎</a></p>
+<li id="fn8" class="footnote-item"><p> Raghavendra Chalapathy et al. (2019) “Deep Learning for Anomaly Detection: A Survey” <a href="https://arxiv.org/abs/1901.03407">https://arxiv.org/abs/1901.03407</a> <a href="#fnref8" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn9" class="footnote-item"><p>Min Du et al.  (2019), “Robust Anomaly Detection and
-Backdoor Attack Detection Via Differential Privacy”, <a href="https://arxiv.org/abs/1911.07116">arXiv:1911.07116</a>. <a href="#fnref9" class="footnote-backref">↩︎</a></p>
+<li id="fn9" class="footnote-item"><p>Tim Salimans et al. (2016) “Improved Techniques for Training GANs”, Neurips 2016  <a href="https://arxiv.org/abs/1606.03498">https://arxiv.org/abs/1606.03498</a> <a href="#fnref9" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn10" class="footnote-item"><p>Bo Zong et al. (2018), “Deep Autoencoding
-Gaussian Mixture Model for Unsupervised Anomaly Detection” ICLR 2018, <a href="https://openreview.net/forum?id=BJJLHbb0-">https://openreview.net/forum?id=BJJLHbb0-</a>. <a href="#fnref10" class="footnote-backref">↩︎</a></p>
+<li id="fn10" class="footnote-item"><p>Cynthia Dwork  (2006), “Differential Privacy”, <em>Proceedings of the 33rd International Conference on Automata, Languages and Programming</em> Part II: 1-12, <a href="https://doi.org/10.1007/11787006_1">https://doi.org/10.1007/11787006_1</a>. <a href="#fnref10" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn11" class="footnote-item"><p>Run-Qing Chen et al. (2019), “Sequential
-VAE-LSTM for Anomaly Detection on Time Series” , <a href="https://arxiv.org/abs/1910.03818">arXiv:1910.03818</a>. <a href="#fnref11" class="footnote-backref">↩︎</a></p>
+<li id="fn11" class="footnote-item"><p>Min Du et al.  (2019), “Robust Anomaly Detection and
+Backdoor Attack Detection Via Differential Privacy”, <a href="https://arxiv.org/abs/1911.07116">arXiv:1911.07116</a>. <a href="#fnref11" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn12" class="footnote-item"><p>Hansheng Ren et al. (2019), “Time-Series Anomaly Detection Service at
-Microsoft” , <a href="https://arxiv.org/abs/1906.03821">arXiv:1906.03821</a>. <a href="#fnref12" class="footnote-backref">↩︎</a></p>
+<li id="fn12" class="footnote-item"><p>Bo Zong et al. (2018), “Deep Autoencoding
+Gaussian Mixture Model for Unsupervised Anomaly Detection” ICLR 2018, <a href="https://openreview.net/forum?id=BJJLHbb0-">https://openreview.net/forum?id=BJJLHbb0-</a>. <a href="#fnref12" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn13" class="footnote-item"><p>Dan Li et al. (2019), “MAD-GAN: Multivariate Anomaly Detection for Time Series Data with Generative Adversarial
-Networks”  <a href="https://arxiv.org/abs/1901.04997">arXiv:1901.04997</a>. <a href="#fnref13" class="footnote-backref">↩︎</a></p>
+<li id="fn13" class="footnote-item"><p>Run-Qing Chen et al. (2019), “Sequential
+VAE-LSTM for Anomaly Detection on Time Series” , <a href="https://arxiv.org/abs/1910.03818">arXiv:1910.03818</a>. <a href="#fnref13" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn14" class="footnote-item"><p>Hansheng Ren et al. (2019), “Time-Series Anomaly Detection Service at
+Microsoft” , <a href="https://arxiv.org/abs/1906.03821">arXiv:1906.03821</a>. <a href="#fnref14" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn15" class="footnote-item"><p>Dan Li et al. (2019), “MAD-GAN: Multivariate Anomaly Detection for Time Series Data with Generative Adversarial
+Networks”  <a href="https://arxiv.org/abs/1901.04997">arXiv:1901.04997</a>. <a href="#fnref15" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
 </section>

@@ -48,7 +48,7 @@ We implemented each model using comparable parameters (see the table above) that
 
 <br/>
 
-![Comparison of anomaly detection models in terms of model size, inference time, parameters and training time.](figures/storagemetrics.png)
+![Comparison of anomaly detection models in terms of model size, inference time and training time.](figures/storagemetrics.png)
 
 
 Each model is compared in terms of inference time on the entire test dataset, total training time to peak accuracy, number of parameters (deep models), and model size.
