@@ -127,6 +127,7 @@ img {
 }
 
 table {
+  min-width: 100%;
   text-align: left;
   margin-top: ${lq * 2}px;
   font-size: ${line * 0.75 * bf}px;
