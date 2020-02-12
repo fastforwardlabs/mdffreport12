@@ -530,7 +530,7 @@ h2 {
           <h1>Deep Learning for Anomaly Detection</h1>
 <p><div class="table-of-contents"><div id="toc-header" style="display: flex; font-weight: bold; text-transform: uppercase;">
      <div><button id="toggle_contents" style="padding-left: 0.5ch; padding-right: 0.5ch; cursor: pointer; position: relative; top: -1px;">☰</button><span id="contents-label" style="margin-left: 0;"> Contents</span></div>
-  </div><ul><li><a href="#introduction">Introduction</a><ul><li><a href="#applications-of-anomaly-detection">Applications of Anomaly Detection</a></li></ul></li><li><a href="#background">Background</a><ul><li><a href="#anomaly-detection-approaches">Anomaly Detection Approaches</a></li><li><a href="#supervised-learning">Supervised Learning</a></li><li><a href="#unsupervised-learning">Unsupervised learning</a></li><li><a href="#semi-supervised-learning">Semi-supervised learning</a></li><li><a href="#evaluating-models%3A-accuracy-is-not-enough">Evaluating Models: Accuracy Is Not Enough</a></li><li><a href="#anomaly-detection-as-learning-normal-behavior">Anomaly Detection as Learning Normal Behavior</a></li><li><a href="#approaches-to-modeling-normal-behavior">Approaches to Modeling Normal Behavior</a></li><li><a href="#why-use-deep-learning-for-anomaly-detection%3F">Why Use Deep Learning for Anomaly Detection?</a></li><li><a href="#what-can-go-wrong%3F">What Can Go Wrong?</a></li></ul></li><li><a href="#deep-learning-for-anomaly-detection">Deep Learning for Anomaly Detection</a><ul><li><a href="#autoencoders">Autoencoders</a></li><li><a href="#variational-autoencoders">Variational Autoencoders</a></li><li><a href="#generative-adversarial-networks">Generative Adversarial Networks</a></li><li><a href="#sequence-to-sequence-models">Sequence-to-Sequence Models</a></li><li><a href="#one-class-support-vector-machines">One-Class Support Vector Machines</a></li><li><a href="#additional-considerations">Additional Considerations</a></li><li><a href="#how-to-decide-on-a-modeling-approach%3F">How to Decide on a Modeling Approach?</a></li></ul></li><li><a href="#prototype">Prototype</a><ul><li><a href="#datasets">Datasets</a></li><li><a href="#benchmarking-experiment-setup">Benchmarking Experiment Setup</a></li><li><a href="#web-application-prototypes">Web Application Prototypes</a></li></ul></li><li><a href="#landscape">Landscape</a><ul><li><a href="#open-source-tools-and-frameworks">Open Source Tools and Frameworks</a></li><li><a href="#anomaly-detection-as-a-service">Anomaly Detection as a Service</a></li></ul></li><li><a href="#ethics">Ethics</a><ul><li><a href="#diversity-matters">Diversity Matters</a></li><li><a href="#explainability">Explainability</a></li><li><a href="#additional-use-cases">Additional Use Cases</a></li><li><a href="#innovation">Innovation</a></li></ul></li><li><a href="#conclusion">Conclusion</a></li></ul></div></p>
+  </div><ul><li><a href="#introduction">Introduction</a><ul><li><a href="#applications-of-anomaly-detection">Applications of Anomaly Detection</a></li></ul></li><li><a href="#background">Background</a><ul><li><a href="#anomaly-detection-approaches">Anomaly Detection Approaches</a></li><li><a href="#supervised-learning">Supervised Learning</a></li><li><a href="#unsupervised-learning">Unsupervised learning</a></li><li><a href="#semi-supervised-learning">Semi-supervised learning</a></li><li><a href="#evaluating-models%3A-accuracy-is-not-enough">Evaluating Models: Accuracy Is Not Enough</a></li><li><a href="#anomaly-detection-as-learning-normal-behavior">Anomaly Detection as Learning Normal Behavior</a></li><li><a href="#approaches-to-modeling-normal-behavior">Approaches to Modeling Normal Behavior</a></li><li><a href="#why-use-deep-learning-for-anomaly-detection%3F">Why Use Deep Learning for Anomaly Detection?</a></li><li><a href="#what-can-go-wrong%3F">What Can Go Wrong?</a></li></ul></li><li><a href="#deep-learning-for-anomaly-detection">Deep Learning for Anomaly Detection</a><ul><li><a href="#autoencoders">Autoencoders</a></li><li><a href="#variational-autoencoders">Variational Autoencoders</a></li><li><a href="#generative-adversarial-networks">Generative Adversarial Networks</a></li><li><a href="#sequence-to-sequence-models">Sequence-to-Sequence Models</a></li><li><a href="#one-class-support-vector-machines">One-Class Support Vector Machines</a></li><li><a href="#additional-considerations">Additional Considerations</a></li><li><a href="#how-to-decide-on-a-modeling-approach%3F">How to Decide on a Modeling Approach?</a></li></ul></li><li><a href="#prototype">Prototype</a><ul><li><a href="#datasets">Datasets</a></li><li><a href="#benchmarking-models">Benchmarking Models</a></li><li><a href="#web-application-prototypes">Web Application Prototypes</a></li></ul></li><li><a href="#landscape">Landscape</a><ul><li><a href="#open-source-tools-and-frameworks">Open Source Tools and Frameworks</a></li><li><a href="#anomaly-detection-as-a-service">Anomaly Detection as a Service</a></li></ul></li><li><a href="#ethics">Ethics</a><ul><li><a href="#diversity-matters">Diversity Matters</a></li><li><a href="#explainability">Explainability</a></li><li><a href="#additional-use-cases">Additional Use Cases</a></li><li><a href="#innovation">Innovation</a></li></ul></li><li><a href="#conclusion">Conclusion</a></li></ul></div></p>
 <figure><img src="figures/cover.png" alt=""></figure>
 <p><em>This is an applied research report by Cloudera Fast Forward. We write reports about emerging technologies.  Accompanying each report are working prototypes that exhibit the capabilities of the algorithm and offer detailed technical advice on its practical application. Read our full report on using deep learning for anomaly detection below or <a href="/ff12-deep-learning-for-anomaly-detection.pdf" target="_blank" id="report-pdf-download">download the PDF</a>. For this report we built two prototypes: <a href="https://blip.fastforwardlabs.com">Blip</a> and <a href="https://anomagram.fastforwardlabs.com">Anomagram</a>.</em></p>
 <h2 id="introduction">Introduction</h2>
@@ -1262,59 +1262,232 @@ detection.</figcaption></figure>
 <p>In this section, we provide an overview of the data and experiments used to evaluate each of the approaches mentioned in the &lt;<technical>&gt; chapter. We also introduce two prototypes we built to demonstrate results from the experiments and how we designed each prototype.</p>
 <h3 id="datasets">Datasets</h3>
 <h4 id="kdd">KDD</h4>
-<p>The  <a href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">KDD network intrusion dataset</a> is a dataset of TCP connections that have been labelled as normal or representative of network attacks.</p>
+<p>The  <a href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">KDD network intrusion dataset</a> is a dataset of TCP connections that have been labeled as normal or representative of network attacks.</p>
 <blockquote>
-<p>A connection is a sequence of TCP packets starting and ending at some well defined times, between which data flows to and from a source IP address to a target IP address under some well defined protocol.”</p>
+<p>A connection is a sequence of TCP packets starting and ending at some well-defined times, between which data flows to and from a source IP address to a target IP address under some well-defined protocol.”</p>
 </blockquote>
-<p>These attacks fall into four main categories - denial of service, unauthorized access from a remote machine, unauthorized access to local superuser privileges, and surveillance e.g. port scanning.  Each TCP connection is represented as a set of attributes or features (derived based on domain knowledge) pertaining to each connection such as the number  of failed logins, connection duration, data bytes from source to destination etc. The dataset is comprised of a training set (97278 normal traffic samples, 396743 attack traffic samples ) and a test set (63458 normal packet samples, 185366 attack traffic samples). To make the data more realistic, the test portion of the dataset contains 14 additional attack types that are not in the train portion; thus, a good model should generalize well and detect attacks unseen at during training.</p>
+<p>These attacks fall into four main categories - denial of service, unauthorized access from a remote machine, unauthorized access to local superuser privileges, and surveillance, e.g., port scanning. Each TCP connection is represented as a set of attributes or features (derived based on domain knowledge) pertaining to each connection such as the number of failed logins, connection duration, data bytes from source to destination, etc. The dataset is comprised of a training set (97278 normal traffic samples, 396743 attack traffic samples) and a test set (63458 normal packet samples, 185366 attack traffic samples). To make the data more realistic, the test portion of the dataset contains 14 additional attack types that are not in the train portion; thus, a good model should generalize well and detect attacks unseen at during training.</p>
 <h4 id="ecg5000">ECG5000</h4>
-<p>The  <a href="http://www.timeseriesclassification.com/description.php?Dataset=ECG5000">ECG5000</a> contains examples of ECG signals from a patient. Each data sample, which corresponds to an extracted heartbeat containing 140 points, has been labelled as normal or being indicative of heart conditions related to congestive heart failure. Given an ECG signal sample, the task is to predict if it is normal or abnormal. ECG5000 is well suited to a prototype for a few reasons — it is visual (signals can be visualized easily) and it is based on real data associated with a concrete use case (heart disease detection). While the task itself is not extremely complex, the data is multidimensional (140 values per sample which allows us demonstrate the value of a deep model), but small enough to rapidly train and run inference.</p>
-<h3 id="benchmarking-experiment-setup">Benchmarking Experiment Setup</h3>
-<p>We sought to compare each of the models discussed earlier using the KDD dataset. We preprocessed the data to keep only 18 continuous features (for easy reproducibility). Feature scaling (0-1 minmax scaling) is also applied to the data; scaling parameters are learned from training data and then applied to test data. We then trained each model using normal samples (97,278 samples) and evaluated it on the entire training set.</p>
+<p>The  <a href="http://www.timeseriesclassification.com/description.php?Dataset=ECG5000">ECG5000</a> dataset contains examples of ECG signals from a patient. Each data sample, which corresponds to an extracted heartbeat containing 140 points, has been labeled as normal or being indicative of heart conditions related to congestive heart failure. Given an ECG signal sample, the task is to predict if it is normal or abnormal. ECG5000 is well suited to a prototype for a few reasons — it is visual (signals can be visualized easily) and it is based on real data associated with a concrete use case (heart disease detection). While the task itself is not extremely complex, the data is multidimensional (140 values per sample, which allows us to demonstrate the value of a deep model), but small enough to rapidly train and run inference.</p>
+<h3 id="benchmarking-models">Benchmarking Models</h3>
+<p>We sought to compare each of the models discussed earlier using the KDD dataset. We preprocessed the data to keep only 18 continuous features (Note: this slightly simplifies the problem and results on differences from similar benchmarks on the same dataset). Feature scaling (0-1 minmax scaling) is also applied to the data; scaling parameters are learned from training data and then applied to test data. We then trained each model using normal samples (97,278 samples) and evaluated it on a random subset of the test data (8000 normal samples and 2000 normal samples).</p>
 <!-- a randomly selected subset of the test data (8,000 normal samples, and 2,000 abnormal samples).  -->
-<p>We implemented each model using comparable parameters (see table below) that allow us to benchmark them in terms of training (mean time per training epoch, mean training time to best accuracy), inference (mean inference time), storage (size of weights, number of parameters), and performance (ROC, precision, recall). The deep learning models (AE, VAE, Seq2seq, BiGAN) were implemented in Tensorflow (keras api); each model was trained till best accuracy measured on the same validation dataset, using the <a href="https://keras.io/optimizers/">Adam optimizer</a> and a learning rate of  0.01.  OCSVM was implemented using the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.OneClassSVM.html">Sklearn OCSVM</a> library using the <em>rbf</em> kernel and parameters (<em>nu</em>=0.01 and <em>gamma</em>=0.5).  Additional details on the parameters for each model are summarized in the table below for reproducibility. These experiments were run on an Intel® Xeon® CPU @ 2.30GHz</p>
-<p>Table …</p>
-<h4 id="observations">Observations</h4>
-<h5 id="training">Training</h5>
-<p>In terms of training, ocsvm and an autoencoder were the fastest to implement and train. While the BiGAN based model also demonstrated very good accuracy, it was the most challenging to train. This is in part due to a known stability issue (mostly fluctuating accuracy during training) <sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup> associated with GANs. Overall, the BiGAN approach, required more training epochs to arrive at stable results compared to the other deep methods.</p>
-<!-- In terms of training time, we found that ocsvm and the autoencoder were the fastest models to train to peak accuracy. GANs have known stability issues ^[
-[Improved Techniques for Training GANs](https://arxiv.org/abs/1606.03498)]   and can be challenging to train. Overall, the BiGAN approach, required more training epochs to arrive at stable results compared to the other deep methods.  -->
-<h5 id="inference-and-storage">Inference and Storage</h5>
-<p>Being the least complex model, OCSVM had the fastest inference time (12x faster than an autoencoder). In terms of storage, the biGAN model has the largest number of parameters and overall size of weights. These values have implications for the number of concurrent models</p>
-<h5 id="performance">Performance</h5>
-<p>For the current KDD dataset, we found that the autoencoder had the best performance.</p>
+<div style="width: 100%; overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Encoder</th>
+<th>Decoder</th>
+<th>Other Parameters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PCA</td>
+<td>NA</td>
+<td>NA</td>
+<td>2 Component PCA</td>
+</tr>
+<tr>
+<td>OCSVM</td>
+<td>NA</td>
+<td>NA</td>
+<td>Kernel: Rbf, Outlier fraction: 0.01; gamma: 0.5. <br/> Anomaly score as distance from decision boundary.</td>
+</tr>
+<tr>
+<td>Autoencoder</td>
+<td>2 hidden layers [15, 7]</td>
+<td>2 hidden layers [15, 7]</td>
+<td>Latent dimension: 2Batch size: 256Loss: Mean squared error</td>
+</tr>
+<tr>
+<td>Variational Autoencoder</td>
+<td>2 hidden layers [15, 7]</td>
+<td>2 hidden layers [15, 7]</td>
+<td>Latent dimension: 2 <br/>Batch size: 256 <br/> Loss: Mean squared error + KL divergence</td>
+</tr>
+<tr>
+<td>Sequence to Sequence Model</td>
+<td>1 hidden layer, [10]</td>
+<td>1 hidden layer [20]</td>
+<td>Bidirectional LSTMs <br/> Batch size: 256 <br/> Loss: Mean squared error</td>
+</tr>
+<tr>
+<td>Bidirectional GAN</td>
+<td>Encoder: 2 hidden layers [15, 7], <br/> Generator: 2 hidden layers [15, 7]</td>
+<td>Generator: 2 hidden layers [15, 7] Discriminator: 2 hidden layers [15, 7]</td>
+<td>Latent dimension: 32 <br/>Loss: Binary Cross Entropy <br/>Learning rate: 0.1</td>
+</tr>
+</tbody>
+</table></div>
+<br/>
+<p>We implemented each model using comparable parameters (see table above) that allow us to benchmark them in terms of training and inference (total training time to best accuracy, inference time) , storage (size of weights, number of parameters), and performance (accuracy, precision, recall). The deep learning models (AE, VAE, Seq2seq, BiGAN) were implemented in Tensorflow (keras api); each model was trained till best accuracy measured on the same validation dataset, using the <a href="https://keras.io/optimizers/">Adam optimizer</a>, batch size of 256 and a learning rate of  0.01.  OCSVM was implemented using the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.OneClassSVM.html">Sklearn OCSVM</a> library using the non-linear <em>rbf</em> kernel and parameters (<em>nu</em>=0.01 and <em>gamma</em>=0.5). Results from PCA (using the the sum of the projected distance of a sample on all eigenvectors as the anomaly score) are also included.  Additional details on the parameters for each model are summarized in the table below for reproducibility. These experiments were run on an Intel® Xeon® CPU @ 2.30GHz and an NVIDIA T4 GPU (applicable to the deep models).</p>
+<h4 id="training-and-inference-and-storage">Training and Inference and Storage</h4>
+<div style="width: 100%; overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Model Size (KB)</th>
+<th>Inference Time (Seconds)</th>
+<th># of Parameters</th>
+<th>Total Training Time (Seconds)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bigan</td>
+<td>47.945</td>
+<td>1.26</td>
+<td>714</td>
+<td>111.726</td>
+</tr>
+<tr>
+<td>ae</td>
+<td>22.008</td>
+<td>0.279</td>
+<td>842</td>
+<td>32.751</td>
+</tr>
+<tr>
+<td>ocsvm</td>
+<td>10.77</td>
+<td>0.029</td>
+<td>NA</td>
+<td>0.417</td>
+</tr>
+<tr>
+<td>vae</td>
+<td>23.797</td>
+<td>0.391</td>
+<td>858</td>
+<td>27.922</td>
+</tr>
+<tr>
+<td>seq2seq</td>
+<td>33.109</td>
+<td>400.131</td>
+<td>2741</td>
+<td>645.448</td>
+</tr>
+<tr>
+<td>pca</td>
+<td>1.233</td>
+<td>0.003</td>
+<td>NA</td>
+<td>0.213</td>
+</tr>
+</tbody>
+</table></div>
+<br/>
+<p>Each model is compared in terms of inference time on the entire test dataset, total training time to peak accuracy, number of parameters (deep models) and model size.
+As expected, a linear model like PCA is both fast to train and fast for inference. This is followed by OCSVM,autoencoders, variational autoencoders, BiGAN, and sequence-to-sequence models in order of increasing model complexity. The GAN based model required the most training epochs to achieve stable results; this is in part due to a known <a href="https://arxiv.org/abs/1606.03498">stability issue</a> associated with GANs.  The sequence-to-sequence model is particularly slow for inference given the sequential nature of the decoder.</p>
+<p>For each of the deep models, we store the network weights to disk and compute the size of weights. For OCSVM and PCA, we serialize the model to disk using <a href="https://docs.python.org/3/library/pickle.html">pickle</a> and compute the size of each  model file. These values are are helpful in estimating memory and storage costs when deploying these models in production.</p>
+<h4 id="performance">Performance</h4>
+<div style="width: 100%; overflow-x: auto;"><table>
+<thead>
+<tr>
+<th>Method</th>
+<th>ROC AUC</th>
+<th>Accuracy</th>
+<th>f1</th>
+<th>f2</th>
+<th>Precision</th>
+<th>Recall</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bigan</td>
+<td>0.972</td>
+<td>0.962</td>
+<td>0.911</td>
+<td>0.947</td>
+<td>0.857</td>
+<td>0.973</td>
+</tr>
+<tr>
+<td>ae</td>
+<td>0.963</td>
+<td>0.964</td>
+<td>0.914</td>
+<td>0.945</td>
+<td>0.867</td>
+<td>0.968</td>
+</tr>
+<tr>
+<td>ocsvm</td>
+<td>0.957</td>
+<td>0.949</td>
+<td>0.866</td>
+<td>0.844</td>
+<td>0.906</td>
+<td>0.83</td>
+</tr>
+<tr>
+<td>vae</td>
+<td>0.946</td>
+<td>0.93</td>
+<td>0.827</td>
+<td>0.832</td>
+<td>0.819</td>
+<td>0.836</td>
+</tr>
+<tr>
+<td>seq2seq</td>
+<td>0.945</td>
+<td>0.92</td>
+<td>0.808</td>
+<td>0.825</td>
+<td>0.781</td>
+<td>0.837</td>
+</tr>
+<tr>
+<td>pca</td>
+<td>0.771</td>
+<td>0.936</td>
+<td>0.815</td>
+<td>0.741</td>
+<td>0.977</td>
+<td>0.699</td>
+</tr>
+</tbody>
+</table></div>
+<br/>
+<figure><img src="figures/anomalyscores.png" alt="Histogram for the distribution of anomaly scores assigned to the test data for each model."><figcaption>Histogram for the distribution of anomaly scores assigned to the test data for each model.</figcaption></figure>
+<p>For each model, we use labeled test data to first select a threshold that yields the best accuracy and then report on metrics such as f1, f2, precision and recall at that threshold. We also report on ROC (area under the curve) to evaluate the overall skill of each model. Given that the dataset we use is not extremely complex (18 features), we see that most models perform relatively well.  Deep models (BiGAN, AE) are more robust (precision, recall, ROC AUC), compared to PCA and OCSVM. The  Sequence-to-sequence model is not particularly competitive, given the data is not temporal. On a more complex dataset such as images, we expect to see (similar to <a href="https://arxiv.org/abs/1605.07717">existing research</a>), more pronounced advantages in using a deep learning model.</p>
 <h3 id="web-application-prototypes">Web Application Prototypes</h3>
-<p>We built two prototypes that demonstrate results and insights from our experiments. The first prototype – is built on on the KDD dataset used in the experiments above and is a visualization of the performance of 4 approaches to anomaly detection. The second prototype is an interactive explainer that focuses on the autoencoder model and results from applying it to detecting anomalies in ECG data.</p>
+<p>We built two prototypes that demonstrate results and insights from our experiments. The first prototype – is built on on the KDD dataset used in the experiments above and is a visualization of the performance of four approaches to anomaly detection. The second prototype is an interactive explainer that focuses on the autoencoder model and results from applying it to detecting anomalies in ECG data.</p>
 <h4 id="blip">Blip</h4>
 <figure><img src="figures/blip-1.png" alt="The Blip prototype."><figcaption>The Blip prototype.</figcaption></figure>
-<p><a href="https://blip.fastforwardlabs.com">Blip</a> plays back and visualizes the performance of four different algorithms on a subset of the KDD network intrusion dataset. Blip  dramatizes the analogy detection process and builds user intution about the trade-offs involved.</p>
+<p><a href="https://blip.fastforwardlabs.com">Blip</a> plays back and visualizes the performance of four different algorithms on a subset of the KDD network intrusion dataset. Blip dramatizes the analogy detection process and builds user intution about the trade-offs involved.</p>
 <figure><img src="figures/blip-2.png" alt="The terminal section shows the data streaming in."><figcaption>The terminal section shows the data streaming in.</figcaption></figure>
-<p>The concept of an anomaly is easy to visualize: something that doesn’t look the same. The conceptual simplicity of it actually makes the prototype’s job tricker. If we show you a dataset where the anomalies are easy to spot, it’s not clear what you need an algorithm for. Instead, we want to place you in a situation where the data is complicated enough, and streaming in fast enough, that the benefits of an algorithm are clear. Often in a data visualization you want to remove complexity, in Blip we wanted to preserve it, but place it in context. We did this by including at the top a terminal-like view of the connection data coming in. The speed and number of features involved make the usefulness of an algorithm, which can operate at a higher speed and scale than a human, clear.</p>
+<p>The concept of an anomaly is easy to visualize: something that doesn’t look the same. The conceptual simplicity of it actually makes the prototype’s job tricker. If we show you a dataset where the anomalies are easy to spot, it’s not clear what you need an algorithm for. Instead, we want to place you in a situation where the data is complicated enough, and streaming in fast enough, that the benefits of an algorithm are clear. Often in a data visualization, you want to remove complexity; in Blip, we wanted to preserve it, but place it in context. We did this by including at the top a terminal-like view of the connection data coming in. The speed and number of features involved make the usefulness of an algorithm, which can operate at a higher speed and scale than a human, clear.</p>
 <figure><img src="figures/blip-3.png" alt="The strategy section shows the performance of the algorithms across different metrics."><figcaption>The strategy section shows the performance of the algorithms across different metrics.</figcaption></figure>
-<p>Directly below the terminal-like streaming data, we show performance metrics for each of the algorithms. These metrics include accuracy, recall, and precision. The three different measurements hint at the trade-offs involved in choosing an anomaly detection algorithm. You will want to prioritize different metrics depending on the situation. Accuracy is a mesure of how often the algorithm is right. Prioritizing precision will minimize false positives, while focusing on recall will minimize false negatives. By showing the formulas for each of these metrics, updated in real-time with the streaming data, we build intuition about how the different measures interact.</p>
+<p>Directly below the terminal-like streaming data, we show performance metrics for each of the algorithms. These metrics include accuracy, recall, and precision. The three different measurements hint at the trade-offs involved in choosing an anomaly detection algorithm. You will want to prioritize different metrics depending on the situation. Accuracy is a measure of how often the algorithm is right. Prioritizing precision will minimize false positives, while focusing on recall will minimize false negatives. By showing the formulas for each of these metrics, updated in real-time with the streaming data, we build intuition about how the different measures interact.</p>
 <figure><img src="figures/blip-4.png" alt="The last section visualizes the performance of each algorithm."><figcaption>The last section visualizes the performance of each algorithm.</figcaption></figure>
-<p>In the visualizations we want to give the user a feel for how each algorithm performs across the various metrics. If a connection is classified by the algorithm as an anomaly it is stacked on the left, if it is classified as normal it is placed on the right. The ground truth is indicated by the color: red for anomaly, black for normal. In a perfectly performing algorithm, the left side would be completely red and the right completely black. An algorithm that has lots of false negatives (low recall) will have a higher density of red mixed in with the black of its right side. A low precision performance will show up as lots of black mixed into the left side. The fact that each connection gets its own spot makes the scale of the dataset clear (versus the streaming-terminal view where old connections quickly leave the screen). Our ability to quickly assess visual density makes it easier to get a feel for what differences in performance metrics across algorithms really means.</p>
-<p>One difficulty in designing the prototype was figuring out when to reveal the ground truth (visualized as the red or black color). In a real-world situation you would not know the truth as it came in (you woudn’t need an algorithm then). Early versions of the prototype experimented with only revealing the color after classification. Ultimately, we decided that because there is already a lot happening in the prototype, a delayed reveal pushed the complexity a step too far. Part of this is that the prototype is showing the performance of four different algorithms. If we were showing only one we’d have more room to animate the truth reveal. We decided to reveal the color truth at the start to strengthen the visual connection between the connection data as shown in the terminal and in each of the algorithm visualizations.</p>
+<p>In the visualizations, we want to give the user a feel for how each algorithm performs across the various metrics. If a connection is classified by the algorithm as an anomaly, it is stacked on the left; if it is classified as normal, it is placed on the right. The ground truth is indicated by the color: red for anomaly, black for normal. In a perfectly performing algorithm, the left side would be completely red and the right completely black. An algorithm that has lots of false negatives (low recall) will have a higher density of red mixed in with the black on the right side. A low precision performance will show up as lots of black mixed into the left side. The fact that each connection gets its own spot makes the scale of the dataset clear (versus the streaming-terminal view where old connections quickly leave the screen). Our ability to quickly assess visual density makes it easier to get a feel for what differences in performance metrics across algorithms really mean.</p>
+<p>One difficulty in designing the prototype was figuring out when to reveal the ground truth (visualized as the red or black color). In a real-world situation, you would not know the truth as it came in (you woudn’t need an algorithm then). Early versions of the prototype experimented with only revealing the color after classification. Ultimately, we decided that because there is already a lot happening in the prototype, a delayed reveal pushed the complexity a step too far. Part of this is because the prototype shows the performance of four different algorithms. If we were showing only one, we’d have more room to animate the truth reveal. We decided to reveal the color truth at the start to strengthen the visual connection between the connection data as shown in the terminal and in each of the algorithm visualizations.</p>
 <h4 id="prototype-ii---anomagram">Prototype II - Anomagram</h4>
-<p>This section describes Anomagram - an interactive web based experience where the user can build, train and evaluate an autoencoder to detect anomalous ECG signals. It utilizes the ECG5000 dataset mentioned above &lt;&lt;&gt;&gt;.</p>
+<p>This section describes Anomagram - an interactive web based experience where the user can build, train and evaluate an autoencoder to detect anomalous ECG signals. It utilizes the ECG5000 dataset mentioned above.</p>
 <h5 id="ux-goals-for-anomagram">UX Goals for Anomagram</h5>
-<p>Anomagram is designed as part of a growing area interactive visualizations (see Neural Network Playground [3], ConvNet Playground, GANLab, GAN dissection, etc) that help communicate technical insights on how deep learning models work. It is entirely browser based and  implemented in Tensorflow.js. This way, users can explore live experiments with no installations required. Importantly, Anomagram moves beyond the user of toy/synthetic data and situates learning within the context of a concrete task (anomaly detection for ECG data). The overall user experience goals for Anomagram are summarized as follows.</p>
-<p>Goal 1: Provide an introduction to Autoencoders and how they can be applied to the task of anomaly detection. This is achieved via the <em>Introduction</em> module (see screenshot below). This entails providing definitions of concepts (reconstruction error, thresholds etc) paired with interactive visualizations that demonstrate concepts (e.g. an interactive visualization for inference on test data, a visualization of the structure of an autoencoder, a visualization of error histograms as training progresses, etc). fd</p>
+<p>Anomagram is designed as part of a growing area interactive visualizations (see <a href="https://playground.tensorflow.org/">Neural Network Playground</a>, <a href="http://convnetplayground.fastforwardlabs.com/">ConvNet Playground</a>, <a href="https://poloclub.github.io/ganlab/">GANLab</a>, <a href="https://gandissect.csail.mit.edu/">GAN dissection</a>, etc) that help communicate technical insights on how deep learning models work. It is entirely browser based and  implemented in Tensorflow.js. This way, users can explore live experiments with no installations required. Importantly, Anomagram moves beyond the user of toy/synthetic data and situates learning within the context of a concrete task (anomaly detection for ECG data). The overall user experience goals for Anomagram are summarized as follows.</p>
+<p><strong>Goal 1</strong>: Provide an introduction to Autoencoders and how they can be applied to the task of anomaly detection. This is achieved via the <em>Introduction</em> module (see screenshot below). This entails providing definitions of concepts (reconstruction error, thresholds etc) paired with interactive visualizations that demonstrate concepts (e.g. an interactive visualization for inference on test data, a visualization of the structure of an autoencoder, a visualization of error histograms as training progresses, etc).</p>
 <figure><img src="figures/anomagram-1.png" alt="Introduction module view."><figcaption><em>Introduction</em> module view.</figcaption></figure>
-<p>Goal 2: Provide an interactive, accessible experience that supports technical learning by doing. This is mostly accomplished within the <em>Train a Model</em> module (see screenshot below)  and is designed for users interested in additional technical depth. It entails providing a direct manipulation interface that allows the user to specify a model (add/remove layers and units within layers), modify model parameters (training steps, batchsize, learning rate, regularizer, optimizer, etc), modify training/test data parameters (data size, data composition), train the model, and evaluate model performance (visualization of accuracy, precision, recall, false positive, false negative, ROC etc metrics) as each parameter is changed. Who should use Anomagram? Anyone interested in an accessible way to learn about autoencoders and anomaly detection . Useful for educators (tool to support guided discussion of the topic), entry level data scientists, and non-ML experts (citizen data scientists, software developers, designers etc).</p>
+<p><strong>Goal 2</strong>: Provide an interactive, accessible experience that supports technical learning by doing. This is mostly accomplished within the <em>Train a Model</em> module (see screenshot below)  and is designed for users interested in additional technical depth. It entails providing a direct manipulation interface that allows the user to specify a model (add/remove layers and units within layers), modify model parameters (training steps, batchsize, learning rate, regularizer, optimizer, etc), modify training/test data parameters (data size, data composition), train the model, and evaluate model performance (visualization of accuracy, precision, recall, false positive, false negative, ROC etc metrics) as each parameter is changed. Who should use Anomagram? Anyone interested in an accessible way to learn about autoencoders and anomaly detection . Useful for educators (tool to support guided discussion of the topic), entry level data scientists, and non-ML experts (citizen data scientists, software developers, designers etc).</p>
 <figure><img src="figures/anomagram-2.png" alt="Train a Model module view."><figcaption><em>Train a Model</em> module view.</figcaption></figure>
 <h5 id="interface-affordances-and-insights">Interface Affordances and Insights</h5>
 <p>This section discusses some explorations the user can perform with Anomagram, and some corresponding insights.</p>
-<p><strong>Craft (Adversarial) Input</strong>: Anomalies by definition can take many different and previously unseen forms. This makes the assessment of anomaly detection models more challenging. Ideally, we want the user to conduct their own evaluations of a trained model e.g. by allowing them to upload their own ECG data. In practice, this requires the collection of digitized ECG data with similar preprocessing (heartbeat extraction) and range as the ECG5000 dataset used in training the model. This is challenging. The next best way to allow testing on examples contributed by the user is to provide a simulator — hence the draw your ECG data feature. This provides a (html) canvas on which the user can draw signals and observe the model’s behaviour. Drawing strokes are converted to an array, with interpolation for incomplete drawings (total array size=140) and fed to the model. While this approach has limited realism (users may not have sufficient domain expertise to draw meaningful signals), it provides an opportunity to craft various types of (adversarial) samples and observe the model’s performance.
-Insights: The model tends to expect reconstructions that are close to the mean of normal data samples. Using the Draw your ecg data feature, the user can draw (adversarial) examples of input data and observe model predictions/performance.</p>
-<figure><img src="figures/anomagram-3.png" alt="Using the Draw your ecg data feature, the user can draw (adversarial) examples of input data and observe model predictions/performance."><figcaption>Using the Draw your ecg data feature, the user can draw (adversarial) examples of input data and observe model predictions/performance.</figcaption></figure>
-<p><strong>Visually Compose a Model</strong>: Users can intuitively specify an autoencoder architecture using a direct manipulation model composer. They can add layers and add units to layers using clicks. This architecture is then used to specify the model’s parameters each time the model is compiled. This follows a similar approach used in “A Neural Network Playground”[3]. The model composer connector lines are implemented using the leaderline library. Relevant lines are redrawn or added as layers are added or removed from the model. Insights: There is no marked difference between a smaller model (1 layer) and a larger model (e.g. 8 layers) for the current task. This is likely because the task is not especially complex (a visualization of PCA points for the ECG dataset suggests it is linearly separable). Users can visually compose the autoencoder model — add remove layers in the encoder and decoder. To keep the encoder and decoder symmetrical, add/remove operations on either is mirrored.</p>
-<p><strong>Effect of Learning Rate, Batchsize, Optimizer, Regularization</strong>: The user can select from 6 optimizers (Adam, Adamax, Adadelta, Rmsprop, Momentum, Sgd), various learning rates, and regularizers (l1, l2, l1l2).
-Insights: Adam reaches peak accuracy with less steps compared to other optimizers. Training time increases with no benefit to accuracy as batchsize is reduced (when using Adam). A two layer model will quickly overfit on the data; adding regularization helps address this to some extent. Try them out!</p>
-<p><strong>Effect of Threshold Choices on Precision/Recall</strong>: Earlier in this report (see background section on &lt;<Is Accuracy Enough>&gt;) we highlight the importance of metrics such as precision and recall and why accuracy is not enough. To support this discussion, the user can visualize how threshold choices impact each of these metrics.
-Insights: As threshold changes, accuracy can stay the same but, precision and recall can vary. This further illustrates how the threshold can be used by an analyst as a lever to reflect their precision/recall preferences.</p>
-<p><strong>Effect of Data Composition</strong>: We may not always have labelled normal data to train a model. However, given the rarity of anomalies (and domain expertise), we can assume that unlabelled data is mostly comprised of normal samples. However, this assumption raises an important question - does model performance degrade with changes in the percentage of abnormal samples in the dataset? In the train a model section, you can specify the percentage of abnormal samples to include when training the autoencoder model.
-Insights: We see that with 0% abnormal data, the model AUC is ~96%. Great! At 30% abnormal sample composition, AUC drops to ~93%. At 50% abnormal data points, there is just not enough information in the data that allows the model to learn a pattern of normal behaviour. It essentially learns to reconstruct normal and abnormal data well and mse is no longer a good measure of anomaly. At this point, model performance is only slightly above random chance (AUC of 56%).</p>
+<p><strong>Craft (Adversarial) Input</strong>: Anomalies by definition can take many different and previously unseen forms. This makes the assessment of anomaly detection models more challenging. Ideally, we want the user to conduct their own evaluations of a trained model e.g. by allowing them to upload their own ECG data. In practice, this requires the collection of digitized ECG data with similar preprocessing (heartbeat extraction) and range as the ECG5000 dataset used in training the model. This is challenging. The next best way to allow testing on examples contributed by the user is to provide a simulator — hence the draw your ECG data feature. This provides a (html) canvas on which the user can draw signals and observe the model’s behaviour. Drawing strokes are converted to an array, with interpolation for incomplete drawings (total array size=140) and fed to the model. While this approach has limited realism (users may not have sufficient domain expertise to draw meaningful signals), it provides an opportunity to craft various types of (adversarial) samples and observe the model’s performance.</p>
+<p><em>Insights</em>: The model tends to expect reconstructions that are close to the mean of normal data samples. Using the Draw your ecg data feature, the user can draw (adversarial) examples of input data and observe model predictions/performance.</p>
+<!-- ![Using the Draw your ecg data feature, the user can draw (adversarial) examples of input data and observe model predictions/performance.](figures/anomagram-3.png) -->
+<p><strong>Visually Compose a Model</strong>: Users can intuitively specify an autoencoder architecture using a direct manipulation model composer. They can add layers and add units to layers using clicks. This architecture is then used to specify the model’s parameters each time the model is compiled. This follows a similar approach used in “A Neural Network Playground”[3]. The model composer connector lines are implemented using the leaderline library. Relevant lines are redrawn or added as layers are added or removed from the model.</p>
+<p><em>Insights</em>: There is no marked difference between a smaller model (1 layer) and a larger model (e.g. 8 layers) for the current task. This is likely because the task is not especially complex (a visualization of PCA points for the ECG dataset suggests it is linearly separable). Users can visually compose the autoencoder model — add remove layers in the encoder and decoder. To keep the encoder and decoder symmetrical, add/remove operations on either is mirrored.</p>
+<p><strong>Effect of Learning Rate, Batchsize, Optimizer, Regularization</strong>: The user can select from 6 optimizers (Adam, Adamax, Adadelta, Rmsprop, Momentum, Sgd), various learning rates, and regularizers (l1, l2, l1l2).</p>
+<p><em>Insights</em>: Adam reaches peak accuracy with less steps compared to other optimizers. Training time increases with no benefit to accuracy as batchsize is reduced (when using Adam). A two layer model will quickly overfit on the data; adding regularization helps address this to some extent. Try them out!</p>
+<p><strong>Effect of Threshold Choices on Precision/Recall</strong>: Earlier in this report (see <a href="#evaluating-models%3A-accuracy-is-not-enough">Chapter 2. Evaluating Models: Accuracy Is Not Enough </a>) we highlight the importance of metrics such as precision and recall and why accuracy is not enough. To support this discussion, the user can visualize how threshold choices impact each of these metrics.</p>
+<p><em>Insights</em>: As threshold changes, accuracy can stay the same but, precision and recall can vary. This further illustrates how the threshold can be used by an analyst as a lever to reflect their precision/recall preferences.</p>
+<p><strong>Effect of Data Composition</strong>: We may not always have labelled normal data to train a model. However, given the rarity of anomalies (and domain expertise), we can assume that unlabelled data is mostly comprised of normal samples. However, this assumption raises an important question - does model performance degrade with changes in the percentage of abnormal samples in the dataset? In the train a model section, you can specify the percentage of abnormal samples to include when training the autoencoder model.</p>
+<p><em>Insights</em>: We see that with 0% abnormal data, the model AUC is ~96%. Great! At 30% abnormal sample composition, AUC drops to ~93%. At 50% abnormal data points, there is just not enough information in the data that allows the model to learn a pattern of normal behaviour. It essentially learns to reconstruct normal and abnormal data well and mse is no longer a good measure of anomaly. At this point, model performance is only slightly above random chance (AUC of 56%).</p>
 <h2 id="landscape">Landscape</h2>
 <p>This chapter provides an overview of the landscape of currently available open source tools and service vendor
 offerings available for anomaly detection, and considers the trade-offs as well as when to use each.</p>
@@ -1838,10 +2011,10 @@ can be identified by measuring model loss.</p>
 individuals. Improper disclosure of such data can have adverse consequences for
 a data subject’s privacy, or even lead to civil liability or bodily
 harm. One way to minimize these effects is to use a technique called
-<em>differential privacy</em><sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup> on the data before it is fed into an anomaly detection system. This technique essentially adds a small amount of noise to the data, in
+<em>differential privacy</em><sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup> on the data before it is fed into an anomaly detection system. This technique essentially adds a small amount of noise to the data, in
 order to mask individual identities while maintaining the accuracy of aggregated
 statistics. When coupled with an anomaly detection system, differential privacy
-has been shown to reduce the rate of false positives,<sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup> thus protecting the privacy of
+has been shown to reduce the rate of false positives,<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup> thus protecting the privacy of
 more individuals who might otherwise have been singled out and scrutinized.</p>
 <h4 id="health-care-diagnostics">Health Care Diagnostics</h4>
 <p>Anomaly detection can be applied in health care scenarios to provide quick and
@@ -1917,7 +2090,7 @@ and does not incur vast data labeling costs for businesses.</li>
 <li>Traditional machine learning approaches are suboptimal for handling
 high-dimensional, complex data and for modeling interactions between each variable.</li>
 </ul>
-<p>In our Blip prototype, described in <a href="#prototype">Chapter 4. Prototype</a>, we show how deep learning models can achieve competitive performance on a multivariate tabular dataset (for the task of network intrusion detection).
+<p>In <a href="#prototype">Chapter 4. Prototype</a>, we show how deep learning models can achieve competitive performance on a multivariate tabular dataset (for the task of network intrusion detection).
 Our findings are in concurrence with results from existing research that show the superior
 performance of deep learning models for high-dimensional data, such as images.</p>
 <p>But while deep learning approaches are useful, there are a few challenges
@@ -1949,8 +2122,8 @@ detected. It can be challenging to maintain this continuous learning approach
 for deep models, as training time can be significant.</p>
 <p>Going forward, we expect the general approaches discussed in this report to
 continue evolving and maturing. As examples, see recent extensions to the
-encoder-decoder model approach that are based on Gaussian mixture models,<sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup> LSTMs,<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup>,
-convolutional neural networks,<sup class="footnote-ref"><a href="#fn13" id="fnref13">[13]</a></sup> and GANs.<sup class="footnote-ref"><a href="#fn14" id="fnref14">[14]</a></sup>
+encoder-decoder model approach that are based on Gaussian mixture models,<sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup> LSTMs,<sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup>,
+convolutional neural networks,<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup> and GANs.<sup class="footnote-ref"><a href="#fn13" id="fnref13">[13]</a></sup>
 As with everything else in machine learning, there is no “one size fits all”; no
 one model works best for every problem. The right approach always depends on the
 use case and the data.</p>
@@ -1972,38 +2145,37 @@ use case and the data.</p>
 </li>
 <li id="fn7" class="footnote-item"><p><a href="http://papers.nips.cc/paper/6125-improved-techniques-for-training-gans.pdf">Improved Techniques for Training GANs</a> <a href="#fnref7" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn8" class="footnote-item"><p><a href="https://arxiv.org/abs/1606.03498">Improved Techniques for Training GANs</a> <a href="#fnref8" class="footnote-backref">↩︎</a></p>
+<li id="fn8" class="footnote-item"><p>Cynthia Dwork, “Differential Privacy” (2006), <em>Proceedings of the 33rd International Conference on Automata, Languages and Programming</em> Part II: 1-12, https://doi.org/10.1007/11787006_1. <a href="#fnref8" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn9" class="footnote-item"><p>Cynthia Dwork, “Differential Privacy” (2006), <em>Proceedings of the 33rd International Conference on Automata, Languages and Programming</em> Part II: 1-12, https://doi.org/10.1007/11787006_1. <a href="#fnref9" class="footnote-backref">↩︎</a></p>
+<li id="fn9" class="footnote-item"><p>Min Du et al., “Robust Anomaly Detection and
+Backdoor Attack Detection Via Differential Privacy” (2019), <a href="https://arxiv.org/abs/1911.07116">arXiv:1911.07116</a>. <a href="#fnref9" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn10" class="footnote-item"><p>Min Du et al., “Robust Anomaly Detection and
-Backdoor Attack Detection Via Differential Privacy” (2019), <a href="https://arxiv.org/abs/1911.07116">arXiv:1911.07116</a>. <a href="#fnref10" class="footnote-backref">↩︎</a></p>
+<li id="fn10" class="footnote-item"><p>Bo Zong et al., “Deep Autoencoding
+Gaussian Mixture Model for Unsupervised Anomaly Detection” (2018), https://openreview.net/forum?id=BJJLHbb0-. <a href="#fnref10" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn11" class="footnote-item"><p>Bo Zong et al., “Deep Autoencoding
-Gaussian Mixture Model for Unsupervised Anomaly Detection” (2018), https://openreview.net/forum?id=BJJLHbb0-. <a href="#fnref11" class="footnote-backref">↩︎</a></p>
+<li id="fn11" class="footnote-item"><p>Run-Qing Chen et al., “Sequential
+VAE-LSTM for Anomaly Detection on Time Series” (2019), <a href="https://arxiv.org/abs/1910.03818">arXiv:1910.03818</a>. <a href="#fnref11" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn12" class="footnote-item"><p>Run-Qing Chen et al., “Sequential
-VAE-LSTM for Anomaly Detection on Time Series” (2019), <a href="https://arxiv.org/abs/1910.03818">arXiv:1910.03818</a>. <a href="#fnref12" class="footnote-backref">↩︎</a></p>
+<li id="fn12" class="footnote-item"><p>Hansheng Ren et al., “Time-Series Anomaly Detection Service at
+Microsoft” (2019), <a href="https://arxiv.org/abs/1906.03821">arXiv:1906.03821</a>. <a href="#fnref12" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn13" class="footnote-item"><p>Hansheng Ren et al., “Time-Series Anomaly Detection Service at
-Microsoft” (2019), <a href="https://arxiv.org/abs/1906.03821">arXiv:1906.03821</a>. <a href="#fnref13" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn14" class="footnote-item"><p>Dan Li et al., “MAD-GAN: Multivariate Anomaly Detection for Time Series Data with Generative Adversarial
-Networks” (2019) <a href="https://arxiv.org/abs/1901.04997">arXiv:1901.04997</a>. <a href="#fnref14" class="footnote-backref">↩︎</a></p>
+<li id="fn13" class="footnote-item"><p>Dan Li et al., “MAD-GAN: Multivariate Anomaly Detection for Time Series Data with Generative Adversarial
+Networks” (2019) <a href="https://arxiv.org/abs/1901.04997">arXiv:1901.04997</a>. <a href="#fnref13" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
 </section>
 
         </div>
       </body>
-      <!-- Global site tag (gtag.js) - Google Analytics -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-157475426-2"></script>
+      <!-- Google Analytics -->
       <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-        gtag('config', 'UA-157475426-2');
+        ga('create', 'UA-157475426-2', 'auto');
+        ga('send', 'pageview');
 
         window.addEventListener('load', function() {
           document.getElementById('report-pdf-download').addEventListener('click', function() {
@@ -2013,6 +2185,8 @@ Networks” (2019) <a href="https://arxiv.org/abs/1901.04997">arXiv:1901.04997</
             });
           });
         })
+
       </script>
+      <!-- End Google Analytics -->
     </html>
   

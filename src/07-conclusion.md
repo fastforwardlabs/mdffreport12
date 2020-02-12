@@ -11,7 +11,7 @@ and does not incur vast data labeling costs for businesses.
 - Traditional machine learning approaches are suboptimal for handling 
 high-dimensional, complex data and for modeling interactions between each variable.  
    
-In our Blip prototype, described in [Chapter 4. Prototype](#prototype), we show how deep learning models can achieve competitive performance on a multivariate tabular dataset (for the task of network intrusion detection).
+In [Chapter 4. Prototype](#prototype), we show how deep learning models can achieve competitive performance on a multivariate tabular dataset (for the task of network intrusion detection).
 Our findings are in concurrence with results from existing research that show the superior
 performance of deep learning models for high-dimensional data, such as images. 
 
