@@ -758,10 +758,10 @@ deviations from the mean is an anomaly). In step 2, we then tag all new
 temperature readings and generate a report.</p>
 <figure><img src="figures/ill-15.png" alt="Anomaly scoring"><figcaption>Anomaly scoring</figcaption></figure>
 <h3 id="approaches-to-modeling-normal-behavior">Approaches to Modeling Normal Behavior</h3>
-<p>Given the importance of the anomaly detection task, multiple approaches have
+<p>Given the importance of the anomaly detection task, multiple approaches haveR
 been proposed and rigorously studied over the last few decades. To provide a
 high-level summary, we categorize the more popular techniques into four main
-areas: clustering, nearest neighbor, classification, and statistical.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>
+areas: clustering, nearest neighbor, classification, and statistical. For a detailed survey of existing techniques, see <sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>).
 The following table provides a summary of the assumptions and anomaly scoring
 strategies employed by approaches within each category, and some examples of each.</p>
 <div style="width: 100%; overflow-x: auto;"><table>
@@ -794,13 +794,13 @@ strategies employed by approaches within each category, and some examples of eac
 </tr>
 <tr>
 <td>Statistical</td>
-<td>Given an assumed stochastic model, normal data instances fall in high-probability regions of the model while abnormal data points lie in low-probability regions.</td>
+<td>Given an assumed stochastic model, normal data instances fall in high-probability regions of the model while abnormal data points lie in low-probability regions</td>
 <td>Probability that a data point lies in a high-probability region in the assumed distribution</td>
 <td>Regression models (ARMA, ARIMA)</td>
 </tr>
 <tr>
 <td>Deep learning</td>
-<td>Given an assumed stochastic model, normal data instances fall in high-probability regions of the model while abnormal data points lie in low-probability regions.</td>
+<td>Given an assumed stochastic model, normal data instances fall in high-probability regions of the model while abnormal data points lie in low-probability regions</td>
 <td>Probability that a data point lies in a high-probability region in the assumed distribution</td>
 <td>autoencoders, sequence-to-sequence models, generative adversarial networks (GANs), variational autoencoders (VAEs)</td>
 </tr>
@@ -1014,7 +1014,7 @@ in practice.</p>
 <figure><img src="figures/ill-5.png" alt="A traditional GAN."><figcaption>A traditional GAN.</figcaption></figure>
 <p>To address these issues, recent research studies have explored new formulations
 of GANs (known as BiGANs) that enable just this sort of controlled adversarial inference by
-introducing an encoder network, E.<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> In simple terms, the encoder learns the
+introducing an encoder network, E.<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>, <sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>]  In simple terms, the encoder learns the
 reverse mapping of the generator; it learns to generate a fixed vector Z_,
 given a sample. Given this change, the input to the discriminator is also
 modified; the discriminator now takes in pairs of input that include the latent
@@ -1193,7 +1193,7 @@ the data and to handle stationarity before training a model. In addition, for di
 <p><strong>Univariate vs Multivariate</strong>: Deep learning methods are well suited to data that has a wide range of features:
 they’re recommended for high-dimensional data, such as images, and work well for
 modeling the interactions between multiple variables. For most
-univariate datasets, linear models<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup> are both fast and accurate and thus typically preferred.</p>
+univariate datasets, linear models (<a href="https://dl.acm.org/doi/10.1145/1541880.1541882">see Chandola et al.</a>) are both fast and accurate and thus typically preferred.</p>
 </li>
 </ul>
 <h5 id="business-requirements">Business Requirements</h5>
@@ -1379,7 +1379,7 @@ detection.</figcaption></figure>
 </tbody>
 </table></div>
 <br/>
-<figure><img src="figures/storagemetrics.png" alt="Comparison of anomaly detection models in terms of model size, inference time, paramters and training time."><figcaption>Comparison of anomaly detection models in terms of model size, inference time, paramters and training time.</figcaption></figure>
+<figure><img src="figures/storagemetrics.png" alt="Comparison of anomaly detection models in terms of model size, inference time, parameters and training time."><figcaption>Comparison of anomaly detection models in terms of model size, inference time, parameters and training time.</figcaption></figure>
 <p>Each model is compared in terms of inference time on the entire test dataset, total training time to peak accuracy, number of parameters (deep models), and model size.</p>
 <p>As expected, a linear model like PCA is both fast to train and fast for inference. This is followed by OCSVM, autoencoders, variational autoencoders, BiGAN, and sequence-to-sequence models in order of increasing model complexity. The GAN-based model required the most training epochs to achieve stable results; this is in part due to a known <a href="https://arxiv.org/abs/1606.03498">stability issue</a> associated with GANs. The sequence-to-sequence model is particularly slow for inference given the sequential nature of the decoder.</p>
 <p>For each of the deep models, we store the network weights to disk and compute the size of weights. For OCSVM and PCA, we serialize the model to disk using <a href="https://docs.python.org/3/library/pickle.html">pickle</a> and compute the size of each model file. These values are helpful in estimating memory and storage costs when deploying these models in production.</p>
@@ -2101,8 +2101,7 @@ Compared to linear models (AR, ARMA, etc.) or shallow machine learning
 models such as OCSVMs, deep learning models can have significant
 latency associated with inference. This makes it expensive to apply them in
 streaming data use cases at scale (high volume, high velocity). For example, our
-experiments show that inference with an OCSVM is 12x faster than with an
-autoencoder.</p>
+experiments show that inference with an OCSVM is 10x faster than with an autoencoder accelerated on a GPU.</p>
 <p><em>Data requirements</em><br>
 Deep learning models typically require a large dataset (tens of thousands of
 samples) for effective training. The models are also prone to overfitting
@@ -2131,37 +2130,37 @@ use case and the data.</p>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>See e.g. Lukas Ruff et al.,
-“Deep Semi-Supervised Anomaly Detection” (2019), <a href="https://arxiv.org/abs/1906.02694">arXiv:1906.02694</a>. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+<li id="fn1" class="footnote-item"><p>Lukas Ruff et al. (2019),
+“Deep Semi-Supervised Anomaly Detection” , <a href="https://arxiv.org/abs/1906.02694">arXiv:1906.02694</a>. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn2" class="footnote-item"><p>For a survey of existing techniques, see Varun Chandola et al., “Anomaly Detection, A Survey” (2009), <em>ACM Computing Surveys</em> 41(3), https://dl.acm.org/doi/10.1145/1541880.1541882. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+<li id="fn2" class="footnote-item"><p> Varun Chandola et al. (2009), “Anomaly Detection, A Survey” , <em>ACM Computing Surveys</em> 41(3), <a href="https://dl.acm.org/doi/10.1145/1541880.1541882">https://dl.acm.org/doi/10.1145/1541880.1541882</a>. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn3" class="footnote-item"><p><a href="https://arxiv.org/abs/1605.09782">Jeff Donahue et al., “Adversarial Feature Learning” (2016)</a>, <a href="https://arxiv.org/abs/1805.06725">Samet AkCay et al., “GANomaly: Semi-Supervised Anomaly Detection via Adversarial Training” (2018)</a>. <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+<li id="fn3" class="footnote-item"><p> Jeff Donahue et al. (2016), “Adversarial Feature Learning” <a href="https://arxiv.org/abs/1605.09782">https://arxiv.org/abs/1605.09782</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn4" class="footnote-item"><p>Refer to footnote 2. <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+<li id="fn4" class="footnote-item"><p> Samet AkCay et al. (2018), “GANomaly: Semi-Supervised Anomaly Detection via Adversarial Training” <a href="https://arxiv.org/abs/1805.06725">https://arxiv.org/abs/1805.06725</a>. <a href="#fnref4" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn5" class="footnote-item"><p><a href="http://efrosgans.eecs.berkeley.edu/CVPR18_slides/VAE_GANS_by_Rosca.pdf">VAEs and GANs</a> <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+<li id="fn5" class="footnote-item"><p>Mihaela Rosca (2018), Issues with  <a href="http://efrosgans.eecs.berkeley.edu/CVPR18_slides/VAE_GANS_by_Rosca.pdf">VAEs and GANs, CVPR18</a> <a href="#fnref5" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn6" class="footnote-item"><p><a href="https://arxiv.org/abs/1901.03407">Deep Learning for Anomaly Detection: A Survey</a> <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+<li id="fn6" class="footnote-item"><p> Raghavendra Chalapathy et al. (2019) “Deep Learning for Anomaly Detection: A Survey” <a href="https://arxiv.org/abs/1901.03407">https://arxiv.org/abs/1901.03407</a> <a href="#fnref6" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn7" class="footnote-item"><p><a href="http://papers.nips.cc/paper/6125-improved-techniques-for-training-gans.pdf">Improved Techniques for Training GANs</a> <a href="#fnref7" class="footnote-backref">↩︎</a></p>
+<li id="fn7" class="footnote-item"><p>Tim Salimans et al. (2016) “Improved Techniques for Training GANs”, Neurips 2016  <a href="https://arxiv.org/abs/1606.03498">https://arxiv.org/abs/1606.03498</a> <a href="#fnref7" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn8" class="footnote-item"><p>Cynthia Dwork, “Differential Privacy” (2006), <em>Proceedings of the 33rd International Conference on Automata, Languages and Programming</em> Part II: 1-12, https://doi.org/10.1007/11787006_1. <a href="#fnref8" class="footnote-backref">↩︎</a></p>
+<li id="fn8" class="footnote-item"><p>Cynthia Dwork  (2006), “Differential Privacy”, <em>Proceedings of the 33rd International Conference on Automata, Languages and Programming</em> Part II: 1-12, <a href="https://doi.org/10.1007/11787006_1">https://doi.org/10.1007/11787006_1</a>. <a href="#fnref8" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn9" class="footnote-item"><p>Min Du et al., “Robust Anomaly Detection and
-Backdoor Attack Detection Via Differential Privacy” (2019), <a href="https://arxiv.org/abs/1911.07116">arXiv:1911.07116</a>. <a href="#fnref9" class="footnote-backref">↩︎</a></p>
+<li id="fn9" class="footnote-item"><p>Min Du et al.  (2019), “Robust Anomaly Detection and
+Backdoor Attack Detection Via Differential Privacy”, <a href="https://arxiv.org/abs/1911.07116">arXiv:1911.07116</a>. <a href="#fnref9" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn10" class="footnote-item"><p>Bo Zong et al., “Deep Autoencoding
-Gaussian Mixture Model for Unsupervised Anomaly Detection” (2018), https://openreview.net/forum?id=BJJLHbb0-. <a href="#fnref10" class="footnote-backref">↩︎</a></p>
+<li id="fn10" class="footnote-item"><p>Bo Zong et al. (2018), “Deep Autoencoding
+Gaussian Mixture Model for Unsupervised Anomaly Detection” ICLR 2018, <a href="https://openreview.net/forum?id=BJJLHbb0-">https://openreview.net/forum?id=BJJLHbb0-</a>. <a href="#fnref10" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn11" class="footnote-item"><p>Run-Qing Chen et al., “Sequential
-VAE-LSTM for Anomaly Detection on Time Series” (2019), <a href="https://arxiv.org/abs/1910.03818">arXiv:1910.03818</a>. <a href="#fnref11" class="footnote-backref">↩︎</a></p>
+<li id="fn11" class="footnote-item"><p>Run-Qing Chen et al. (2019), “Sequential
+VAE-LSTM for Anomaly Detection on Time Series” , <a href="https://arxiv.org/abs/1910.03818">arXiv:1910.03818</a>. <a href="#fnref11" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn12" class="footnote-item"><p>Hansheng Ren et al., “Time-Series Anomaly Detection Service at
-Microsoft” (2019), <a href="https://arxiv.org/abs/1906.03821">arXiv:1906.03821</a>. <a href="#fnref12" class="footnote-backref">↩︎</a></p>
+<li id="fn12" class="footnote-item"><p>Hansheng Ren et al. (2019), “Time-Series Anomaly Detection Service at
+Microsoft” , <a href="https://arxiv.org/abs/1906.03821">arXiv:1906.03821</a>. <a href="#fnref12" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn13" class="footnote-item"><p>Dan Li et al., “MAD-GAN: Multivariate Anomaly Detection for Time Series Data with Generative Adversarial
-Networks” (2019) <a href="https://arxiv.org/abs/1901.04997">arXiv:1901.04997</a>. <a href="#fnref13" class="footnote-backref">↩︎</a></p>
+<li id="fn13" class="footnote-item"><p>Dan Li et al. (2019), “MAD-GAN: Multivariate Anomaly Detection for Time Series Data with Generative Adversarial
+Networks”  <a href="https://arxiv.org/abs/1901.04997">arXiv:1901.04997</a>. <a href="#fnref13" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
 </section>
