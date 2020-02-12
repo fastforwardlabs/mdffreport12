@@ -58,18 +58,18 @@ For each of the deep models, we store the network weights to disk and compute th
 
 #### Performance
 
-| Method 	| ROC AUC 	| Accuracy 	| f1 	| f2 	| Precision 	| Recall 	|
-|---------	|---------	|----------	|-------	|-------	|-----------	|--------	|
-| bigan 	| 0.972 	| 0.962 	| 0.911 	| 0.947 	| 0.857 	| 0.973 	|
-| ae 	| 0.963 	| 0.964 	| 0.914 	| 0.945 	| 0.867 	| 0.968 	|
-| ocsvm 	| 0.957 	| 0.949 	| 0.866 	| 0.844 	| 0.906 	| 0.83 	|
-| vae 	| 0.946 	| 0.93 	| 0.827 	| 0.832 	| 0.819 	| 0.836 	|
-| seq2seq 	| 0.945 	| 0.92 	| 0.808 	| 0.825 	| 0.781 	| 0.837 	|
-| pca 	| 0.771 	| 0.936 	| 0.815 	| 0.741 	| 0.977 	| 0.699 	|
+| Method 	| ROC AUC 	| Accuracy 	| Precision 	| Recall 	| f1 	| f2 	|
+|---------	|---------	|----------	|-----------	|--------	|-------	|-------	|
+| BiGAN 	| 0.972 	| 0.962 	| 0.857 	| 0.973 	| 0.911 	| 0.947 	|
+| Autoencoder 	| 0.963 	| 0.964 	| 0.867 	| 0.968 	| 0.914 	| 0.945 	|
+| OCSVM 	| 0.957 	| 0.949 	| 0.906 	| 0.83 	| 0.866 	| 0.844 	|
+| VAE 	| 0.946 	| 0.93 	| 0.819 	| 0.836 	| 0.827 	| 0.832 	|
+| Seq2Seq 	| 0.919 	| 0.829 	| 0.68 	| 0.271 	| 0.388 	| 0.308 	|
+| PCA 	| 0.771 	| 0.936 	| 0.977 	| 0.699 	| 0.815 	| 0.741 	|
 
 <br/>
 
-![Histogram for the distribution of anomaly scores assigned to the test data for each model.](figures/anomalyscores.png)
+![Histogram for the distribution of anomaly scores assigned to the test data for each model. The orange line represents a threshold value that yields the best accuracy.](figures/anomalyscores.png)
 
 For each model, we use labeled test data to first select a threshold that yields the best accuracy and then report on metrics such as f1, f2, precision and recall at that threshold. We also report on ROC (area under the curve) to evaluate the overall skill of each model. Given that the dataset we use is not extremely complex (18 features), we see that most models perform relatively well.  Deep models (BiGAN, AE) are more robust (precision, recall, ROC AUC), compared to PCA and OCSVM. The  Sequence-to-sequence model is not particularly competitive, given the data is not temporal. On a more complex dataset such as images, we expect to see (similar to [existing research](https://arxiv.org/abs/1605.07717)), more pronounced advantages in using a deep learning model.
 
