@@ -270,6 +270,10 @@ function makeStyle() {
     display: none;
   }
 
+  #report-iso {
+    display: none;
+  }
+
 .table-of-contents {
     counter-reset: chapters;
 }
