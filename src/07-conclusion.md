@@ -23,8 +23,7 @@ Compared to linear models (AR, ARMA, etc.) or shallow machine learning
 models such as OCSVMs, deep learning models can have significant
 latency associated with inference. This makes it expensive to apply them in
 streaming data use cases at scale (high volume, high velocity). For example, our
-experiments show that inference with an OCSVM is 12x faster than with an
-autoencoder. 
+experiments show that inference with an OCSVM is 10x faster than with an autoencoder accelerated on a GPU. 
 
 _Data requirements_   
 Deep learning models typically require a large dataset (tens of thousands of
@@ -48,12 +47,12 @@ for deep models, as training time can be significant.
 
 Going forward, we expect the general approaches discussed in this report to
 continue evolving and maturing. As examples, see recent extensions to the
-encoder-decoder model approach that are based on Gaussian mixture models,^[Bo Zong et al., "Deep Autoencoding
-Gaussian Mixture Model for Unsupervised Anomaly Detection" (2018), https://openreview.net/forum?id=BJJLHbb0-.] LSTMs,^[Run-Qing Chen et al., "Sequential
-VAE-LSTM for Anomaly Detection on Time Series" (2019), [arXiv:1910.03818](https://arxiv.org/abs/1910.03818).], 
-convolutional neural networks,^[Hansheng Ren et al., "Time-Series Anomaly Detection Service at
-Microsoft" (2019), [arXiv:1906.03821](https://arxiv.org/abs/1906.03821).] and GANs.^[Dan Li et al., "MAD-GAN: Multivariate Anomaly Detection for Time Series Data with Generative Adversarial
-Networks" (2019) [arXiv:1901.04997](https://arxiv.org/abs/1901.04997).]
+encoder-decoder model approach that are based on Gaussian mixture models,^[Bo Zong et al. (2018), "Deep Autoencoding
+Gaussian Mixture Model for Unsupervised Anomaly Detection" ICLR 2018, [https://openreview.net/forum?id=BJJLHbb0-](https://openreview.net/forum?id=BJJLHbb0-).] LSTMs,^[Run-Qing Chen et al. (2019), "Sequential
+VAE-LSTM for Anomaly Detection on Time Series" , [arXiv:1910.03818](https://arxiv.org/abs/1910.03818).], 
+convolutional neural networks,^[Hansheng Ren et al. (2019), "Time-Series Anomaly Detection Service at
+Microsoft" , [arXiv:1906.03821](https://arxiv.org/abs/1906.03821).] and GANs.^[Dan Li et al. (2019), "MAD-GAN: Multivariate Anomaly Detection for Time Series Data with Generative Adversarial
+Networks"  [arXiv:1901.04997](https://arxiv.org/abs/1901.04997).]
 As with everything else in machine learning, there is no “one size fits all”; no 
 one model works best for every problem. The right approach always depends on the 
 use case and the data. 

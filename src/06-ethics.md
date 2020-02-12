@@ -65,11 +65,11 @@ In certain use cases, these identified anomalies could correspond to
 individuals. Improper disclosure of such data can have adverse consequences for
 a data subject’s privacy, or even lead to civil liability or bodily
 harm. One way to minimize these effects is to use a technique called 
-_differential privacy_^[Cynthia Dwork, "Differential Privacy" (2006), _Proceedings of the 33rd International Conference on Automata, Languages and Programming_ Part II: 1-12, https://doi.org/10.1007/11787006_1.] on the data before it is fed into an anomaly detection system. This technique essentially adds a small amount of noise to the data, in
+_differential privacy_^[Cynthia Dwork  (2006), "Differential Privacy", _Proceedings of the 33rd International Conference on Automata, Languages and Programming_ Part II: 1-12, [https://doi.org/10.1007/11787006_1](https://doi.org/10.1007/11787006_1).] on the data before it is fed into an anomaly detection system. This technique essentially adds a small amount of noise to the data, in
 order to mask individual identities while maintaining the accuracy of aggregated
 statistics. When coupled with an anomaly detection system, differential privacy
-has been shown to reduce the rate of false positives,^[Min Du et al., "Robust Anomaly Detection and
-Backdoor Attack Detection Via Differential Privacy" (2019), [arXiv:1911.07116](https://arxiv.org/abs/1911.07116).] thus protecting the privacy of
+has been shown to reduce the rate of false positives,^[Min Du et al.  (2019), "Robust Anomaly Detection and
+Backdoor Attack Detection Via Differential Privacy", [arXiv:1911.07116](https://arxiv.org/abs/1911.07116).] thus protecting the privacy of
 more individuals who might otherwise have been singled out and scrutinized. 
 
 #### Health Care Diagnostics
