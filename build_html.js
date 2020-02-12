@@ -554,7 +554,7 @@ function makeJS() {
 function makeHead() {
   let title = 'Deep Learning for Anomaly Detection'
   let description =
-    'Our report focuses on deep learning approaches (including sequence models, VAEs, and GANS) for anomaly detection. We explore when and how to use different algorithms, performance benchmarks, and product possibilities.'
+    'This report focuses on deep learning approaches (including sequence models, VAEs, and GANS) for anomaly detection. We explore when and how to use different algorithms, performance benchmarks, and product possibilities.'
   return `<head>
     <meta charset="utf-8" />
 
