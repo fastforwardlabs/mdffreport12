@@ -69,7 +69,7 @@ For each of the deep models, we store the network weights to disk and compute th
 
 <br/>
 
-![Histogram for the distribution of anomaly scores assigned to the test data for each model. The orange line represents a threshold value that yields the best accuracy.](figures/anomalyscores.png)
+![Histogram for the distribution of anomaly scores assigned to the test data for each model. The red vertical line represents a threshold value that yields the best accuracy.](figures/anomalyscores.png)
 
 For each model, we use labeled test data to first select a threshold that yields the best accuracy and then report on metrics such as f1, f2, precision and recall at that threshold. We also report on ROC (area under the curve) to evaluate the overall skill of each model. Given that the dataset we use is not extremely complex (18 features), we see that most models perform relatively well.  Deep models (BiGAN, AE) are more robust (precision, recall, ROC AUC), compared to PCA and OCSVM. The  Sequence-to-sequence model is not particularly competitive, given the data is not temporal. On a more complex dataset such as images, we expect to see (similar to [existing research](https://arxiv.org/abs/1605.07717)), more pronounced advantages in using a deep learning model.
 
