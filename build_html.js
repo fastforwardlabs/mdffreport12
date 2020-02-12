@@ -137,7 +137,6 @@ table, th, td {
   border: solid 1px black;
 }
 td {
-  min-width: 18ch;
   padding-left: 0.5ch;
   padding-right: 0.5ch;
   valign: top;
@@ -553,7 +552,8 @@ function makeJS() {
 
 function makeHead() {
   let title = 'Deep Learning for Anomaly Detection'
-  let description = 'TK'
+  let description =
+    'This report focuses on deep learning approaches (including sequence models, VAEs, and GANS) for anomaly detection. We explore when and how to use different algorithms, performance benchmarks, and product possibilities.'
   return `<head>
     <meta charset="utf-8" />
 
@@ -562,8 +562,8 @@ function makeHead() {
 
     <meta property="og:title" content="${title}" /> 
     <meta property="og:description" content="${description}" />
-    <meta property="og:image" content="https://experiments.fastforwardlabs.com/log/textflix-report/textflix-report-share.png" />
-    <meta property="og:url" content="https://experiments.fastforwardlabs.com/log/textflix-report" />
+    <meta property="og:image" content="https://ff12.fastforwardlabs.com/ff12-share.jpg" />
+    <meta property="og:url" content="https://ff12.fastforwardlabs.com" />
     <meta name="twitter:card" content="summary_large_image" />
     
     <meta name="viewport" content="width=device-width" />
@@ -571,7 +571,6 @@ function makeHead() {
     
     ${makeStyle()}
     ${makeJS()}
-
 
  </head>`
 }
