@@ -36,7 +36,7 @@ We sought to compare each of the models discussed earlier using the KDD dataset.
 We implemented each model using comparable parameters (see table above) that allow us to benchmark them in terms of training and inference (total training time to best accuracy, inference time) , storage (size of weights, number of parameters), and performance (accuracy, precision, recall). The deep learning models (AE, VAE, Seq2seq, BiGAN) were implemented in Tensorflow (keras api); each model was trained till best accuracy measured on the same validation dataset, using the [Adam optimizer](https://keras.io/optimizers/), batch size of 256 and a learning rate of  0.01.  OCSVM was implemented using the [Sklearn OCSVM](https://scikit-learn.org/stable/modules/generated/sklearn.svm.OneClassSVM.html) library using the non-linear _rbf_ kernel and parameters (_nu_=0.01 and _gamma_=0.5). Results from PCA (using the the sum of the projected distance of a sample on all eigenvectors as the anomaly score) are also included.  Additional details on the parameters for each model are summarized in the table below for reproducibility. These experiments were run on an Intel(R) Xeon(R) CPU @ 2.30GHz and an NVIDIA T4 GPU (applicable to the deep models).
 
 
-#### Training and Inference and Storage
+#### Training, Inference, Storage
 | Method 	| Model Size (KB) 	| Inference Time (Seconds) 	| # of Parameters 	| Total Training Time (Seconds) 	|
 |---------	|-----------------	|--------------------------	|-----------------	|-------------------------------	|
 | bigan 	| 47.945 	| 1.26 	| 714 	| 111.726 	|
@@ -47,6 +47,9 @@ We implemented each model using comparable parameters (see table above) that all
 | pca 	| 1.233 	| 0.003 	| NA	| 0.213 	|
 
 <br/>
+
+![Comparison of anomaly detection models in terms of model size, inference time, paramters and training time.](figures/storagemetrics.png)
+
 
 Each model is compared in terms of inference time on the entire test dataset, total training time to peak accuracy, number of parameters (deep models) and model size.
 As expected, a linear model like PCA is both fast to train and fast for inference. This is followed by OCSVM,autoencoders, variational autoencoders, BiGAN, and sequence-to-sequence models in order of increasing model complexity. The GAN based model required the most training epochs to achieve stable results; this is in part due to a known [stability issue](https://arxiv.org/abs/1606.03498) associated with GANs.  The sequence-to-sequence model is particularly slow for inference given the sequential nature of the decoder.
