@@ -572,7 +572,7 @@ function makeHead() {
     <meta name="twitter:card" content="summary_large_image" />
     
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="https://ff12.fastforwardlabs.com/favicon.ico" />
     
     ${makeStyle()}
     ${makeJS()}
