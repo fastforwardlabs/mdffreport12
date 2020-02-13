@@ -586,7 +586,9 @@ function wrap(content) {
       ${makeHead()}
       <body>
         <div class="content" style="position: relative;">
-          <div style="margin-top: ${line}px;"><a href="https://www.cloudera.com/products/fast-forward-labs-research.html">Cloudera Fast Forward</a></div>
+          <div style="margin-top: ${line}px; line-height: 0; display: flex;">
+            <a href="https://www.cloudera.com/products/fast-forward-labs-research.html"><img alt="Cloudera Fast Forward" style="display: block; height: 14px; margin-bottom: 7px;" src='/figures/cloudera-fast-forward-logo.png' /></a>
+          </div>
           ${content}
         </div>
       </body>

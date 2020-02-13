@@ -1,6 +1,6 @@
-FF12 · *February 2020*
-
 <h1>Deep Learning for Anomaly Detection</h1>
+
+FF12 · *February 2020*
 
 <figure id="report-iso">
   <img src="figures/iso.png">
