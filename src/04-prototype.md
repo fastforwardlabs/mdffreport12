@@ -1,6 +1,6 @@
 ## Prototype
 
-In this section, we provide an overview of the data and experiments used to evaluate each of the approaches mentioned in the <<technical>> chapter. We also introduce two prototypes we built to demonstrate results from the experiments and how we designed each prototype.  
+In this section, we provide an overview of the data and experiments used to evaluate each of the approaches mentioned in [Chapter 3. Deep Learning for Anomaly Detection](#deep-learning-for-anomaly-detection). We also introduce two prototypes we built to demonstrate results from the experiments and how we designed each prototype.  
 
 
 ### Datasets
@@ -9,13 +9,13 @@ In this section, we provide an overview of the data and experiments used to eval
 
 The  [KDD network intrusion dataset](http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html) is a dataset of TCP connections that have been labeled as normal or representative of network attacks. 
 
-> A connection is a sequence of TCP packets starting and ending at some well-defined times, between which data flows to and from a source IP address to a target IP address under some well-defined protocol.”
+> “A connection is a sequence of TCP packets starting and ending at some well-defined times, between which data flows to and from a source IP address to a target IP address under some well-defined protocol.”
 
 These attacks fall into four main categories - denial of service, unauthorized access from a remote machine, unauthorized access to local superuser privileges, and surveillance, e.g., port scanning. Each TCP connection is represented as a set of attributes or features (derived based on domain knowledge) pertaining to each connection such as the number of failed logins, connection duration, data bytes from source to destination, etc. The dataset is comprised of a training set (97278 normal traffic samples, 396743 attack traffic samples) and a test set (63458 normal packet samples, 185366 attack traffic samples). To make the data more realistic, the test portion of the dataset contains 14 additional attack types that are not in the train portion; thus, a good model should generalize well and detect attacks unseen at during training.
 
 
 #### ECG5000
-The  [ECG5000](http://www.timeseriesclassification.com/description.php?Dataset=ECG5000) dataset contains examples of ECG signals from a patient. Each data sample, which corresponds to an extracted heartbeat containing 140 points, has been labeled as normal or being indicative of heart conditions related to congestive heart failure. Given an ECG signal sample, the task is to predict if it is normal or abnormal. ECG5000 is well-suited to a prototype for a few reasons: it is visual (signals can be visualized easily) and it is based on real data associated with a concrete use case (heart disease detection). While the task itself is not extremely complex, the data is multidimensional (140 values per sample, which allows us to demonstrate the value of a deep model), but small enough to rapidly train and run inference. 
+The  [ECG5000](http://www.timeseriesclassification.com/description.php?Dataset=ECG5000) dataset contains examples of ECG signals from a patient. Each data sample, which corresponds to an extracted heartbeat containing 140 points, has been labeled as normal or being indicative of heart conditions related to congestive heart failure. Given an ECG signal sample, the task is to predict if it is normal or abnormal. ECG5000 is well-suited to a prototype for a few reasons: it is visual (signals can be visualized easily) and it is based on real data associated with a concrete use case (heart disease detection). While the task itself is not extremely complex, the data is multivariate (140 values per sample, which allows us to demonstrate the value of a deep model), but small enough to rapidly train and run inference. 
  
 
 ### Benchmarking Models
@@ -39,12 +39,12 @@ We implemented each model using comparable parameters (see the table above) that
 #### Training, Inference, Storage
 | Method 	| Model Size (KB) 	| Inference Time (Seconds) 	| # of Parameters 	| Total Training Time (Seconds) 	|
 |---------	|-----------------	|--------------------------	|-----------------	|-------------------------------	|
-| bigan 	| 47.945 	| 1.26 	| 714 	| 111.726 	|
-| ae 	| 22.008 	| 0.279 	| 842 	| 32.751 	|
-| ocsvm 	| 10.77 	| 0.029 	| NA 	| 0.417 	|
-| vae 	| 23.797 	| 0.391 	| 858 	| 27.922 	|
-| seq2seq 	| 33.109 	| 400.131 	| 2741 	| 645.448 	|
-| pca 	| 1.233 	| 0.003 	| NA	| 0.213 	|
+| BiGAN 	| 47.945 	| 1.26 	| 714 	| 111.726 	|
+| Autoencoder 	| 22.008 	| 0.279 	| 842 	| 32.751 	|
+| OCSVM 	| 10.77 	| 0.029 	| NA 	| 0.417 	|
+| VAE 	| 23.797 	| 0.391 	| 858 	| 27.922 	|
+| Seq2Seq 	| 33.109 	| 400.131 	| 2741 	| 645.448 	|
+| PCA 	| 1.233 	| 0.003 	| NA	| 0.213 	|
 
 <br/>
 
@@ -59,7 +59,7 @@ For each of the deep models, we store the network weights to disk and compute th
 
 #### Performance
 
-| Method 	| ROC AUC 	| Accuracy 	| Precision 	| Recall 	| f1 	| f2 	|
+| Method 	| ROC AUC 	| Accuracy 	| Precision 	| Recall 	| F1 score	| F2 Score   |
 |---------	|---------	|----------	|-----------	|--------	|-------	|-------	|
 | BiGAN 	| 0.972 	| 0.962 	| 0.857 	| 0.973 	| 0.911 	| 0.947 	|
 | Autoencoder 	| 0.963 	| 0.964 	| 0.867 	| 0.968 	| 0.914 	| 0.945 	|
@@ -75,7 +75,7 @@ For each of the deep models, we store the network weights to disk and compute th
 For each model, we use labeled test data to first select a threshold that yields the best accuracy and then report on metrics such as f1, f2, precision, and recall at that threshold. We also report on ROC (area under the curve) to evaluate the overall skill of each model. Given that the dataset we use is not extremely complex (18 features), we see that most models perform relatively well. Deep models (BiGAN, AE) are more robust (precision, recall, ROC AUC), compared to PCA and OCSVM. The  sequence-to-sequence model is not particularly competitive, given the data is not temporal. On a more complex dataset (e.g., images), we expect to see (similar to [existing research](https://arxiv.org/abs/1605.07717)), more pronounced advantages in using a deep learning model.
 
 ###  Web Application Prototypes
-We built two prototypes that demonstrate results and insights from our experiments. The first prototype, Blip, is built on on the KDD dataset used in the experiments above and is a visualization of the performance of four approaches to anomaly detection. The second prototype is an interactive explainer that focuses on the autoencoder model, and the results from applying it to detecting anomalies in ECG data.
+We built two prototypes that demonstrate results and insights from our experiments. The first prototype, [Blip](https://blip.fastforwardlabs.com), is built on on the KDD dataset used in the experiments above and is a visualization of the performance of four approaches to anomaly detection. The second prototype, [Anomagram](http://anomagram.fastforwardlabs.com/#/), is an interactive explainer that focuses on the autoencoder model, and the results from applying it to detecting anomalies in ECG data.
 
 #### Blip
 
@@ -99,7 +99,7 @@ One difficulty in designing the prototype was figuring out when to reveal the gr
 
 #### Prototype II - Anomagram
 
-This section describes Anomagram - an interactive web based experience where the user can build, train and evaluate an autoencoder to detect anomalous ECG signals. It utilizes the ECG5000 dataset mentioned above.
+This section describes [Anomagram](http://anomagram.fastforwardlabs.com/#/) - an interactive web based experience where the user can build, train and evaluate an autoencoder to detect anomalous ECG signals. It utilizes the ECG5000 dataset mentioned above.
 
 
 ##### UX Goals for Anomagram

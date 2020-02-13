@@ -1,13 +1,13 @@
 ## Deep Learning for Anomaly Detection
 
-As data becomes high dimensional, it is increasingly challenging to effectively
-teach a model to recognize normal behavior. In this chapter, we will review a set of relevant 
+<!-- As data becomes high dimensional, it is increasingly challenging to effectively
+teach a model to recognize normal behavior.  -->
+In this chapter, we will review a set of relevant 
 deep learning model architectures and
 how they can be applied to the task of anomaly detection. As discussed in
 [Chapter 2. Background](#background), anomaly detection involves first teaching a model to recognize normal behavior, then generating anomaly scores that can be used to identify anomalous activity.
 
-The deep learning approaches discussed here typically consist of two principal
-components: an encoder that learns to generate an internal representation of
+The deep learning approaches discussed here typically fall within a family of _encoder-decoder_ models: an encoder that learns to generate an internal representation of
 the input data, and a decoder that attempts to reconstruct the original input
 based on this internal representation. While the exact techniques for encoding
 and decoding vary across models, the overall benefit they offer is the ability
@@ -387,13 +387,10 @@ uncertainty for each anomaly classification, deep learning models such as VAEs a
 
 ### How to Decide on a Modeling Approach?
 
-When the (discretized) data contains sequences with temporal dependencies, a
-sequence-to-sequence model can model these relationships, yielding better
-results. For scenarios requiring principled estimates of uncertainty, a VAE and
-GAN based approaches are suitable. For scenarios where the data is images, AEs,
-VAEs and GANs designed with convolution blocks are suitable.  
+Given the differences between the deep learning methods discussed above (and their variants), it can be challenging to decide on the right model. When data contains sequences with temporal dependencies, a
+sequence-to-sequence model (or architectures with _LSTM layers_) can model these relationships, yielding better results. For scenarios requiring principled estimates of uncertainty, _generative_ models such as a VAE and GAN based approaches are suitable. For scenarios where the data is images, AEs, VAEs and GANs designed with _convolution layers_ are suitable.  
 
-![The steps for selecting an approach to anomaly
+![A summary of steps for selecting an approach to anomaly
 detection.](figures/ill-12.png)
 
 The following table highlights the pros and cons of the different types of models, to give you an idea under what kind of scenarios they are recommended.
